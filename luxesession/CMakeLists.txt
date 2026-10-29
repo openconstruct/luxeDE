@@ -247,7 +247,8 @@ if(BUILD_TESTING)
       COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/../cmake/RunNestedX.sh"
         ${CMAKE_CURRENT_SOURCE_DIR}/tests/test-openbox-compact.sh
         ${CMAKE_CURRENT_BINARY_DIR}/theme-data/themes ${CMAKE_CURRENT_SOURCE_DIR}/data/themes)
-    set_tests_properties(luxesession-openbox-compact PROPERTIES TIMEOUT 60)
+    set_tests_properties(luxesession-openbox-compact PROPERTIES
+      TIMEOUT 60 ENVIRONMENT "LUXE_TEST_COMPACT_UNMAP=frame")
   endif()
   add_executable(luxesession-autostart-state-tests
     tests/autostart-state.c luxesession-edit/luxesession-edit-common.c

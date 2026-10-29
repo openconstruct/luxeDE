@@ -2,6 +2,7 @@
 #include <regex>
 #include <memory>
 #include <X11/Xatom.h>
+#include <X11/Xutil.h>
 static void theme_widgets(const fs::path &self,
                           const std::vector<std::string> &args) {
   require(args.size() == 1, "Usage: theme-widgets THEME_ROOT");
@@ -273,6 +274,19 @@ static void openbox_compact(const fs::path &self,
   require(display != nullptr, "Cannot open X display for Openbox readiness check");
   Atom wm_check = XInternAtom(display.get(), "_NET_SUPPORTING_WM_CHECK", False);
   std::string window, last_error;
+  bool map_requested = false;
+  double restore_at = 0;
+  auto activate_window = [&](Window xid) {
+    XEvent event{};
+    event.xclient.type = ClientMessage;
+    event.xclient.window = xid;
+    event.xclient.message_type = XInternAtom(display.get(), "_NET_ACTIVE_WINDOW", False);
+    event.xclient.format = 32;
+    event.xclient.data.l[0] = 2; // Pager-style request, matching xdotool.
+    XSendEvent(display.get(), DefaultRootWindow(display.get()), False,
+               SubstructureRedirectMask | SubstructureNotifyMask, &event);
+    XFlush(display.get());
+  };
   try {
     wait_for(client, [&]() {
       require(wm.alive(), "Openbox exited during startup");
@@ -284,12 +298,6 @@ static void openbox_compact(const fs::path &self,
         window = trim(read_file(root / "window-id"));
         require(!window.empty() && window.find_first_not_of("0123456789") == std::string::npos,
                 "Invalid X11 window ID from GTK client");
-        XWindowAttributes attributes{};
-        if (!XGetWindowAttributes(display.get(), std::stoul(window), &attributes) ||
-            attributes.map_state != IsViewable) {
-          last_error = "GTK client window is not viewable";
-          return false;
-        }
         Atom type = None;
         int format = 0;
         unsigned long count = 0, remaining = 0;
@@ -302,6 +310,36 @@ static void openbox_compact(const fs::path &self,
         if (value) XFree(value);
         if (!ready) last_error = "Openbox has not published its window-manager identity";
         if (!ready || window.empty()) return false;
+        auto xid = static_cast<Window>(std::stoul(window));
+        XWindowAttributes attributes{};
+        if (!XGetWindowAttributes(display.get(), xid, &attributes)) {
+          last_error = "Cannot inspect GTK client window";
+          return false;
+        }
+        if (attributes.map_state != IsViewable) {
+          last_error = attributes.map_state == IsUnmapped ?
+              "GTK client window is unmapped" : "GTK client window has an unmapped ancestor";
+          if (!map_requested) {
+            // The client may have requested mapping while Openbox was still
+            // starting. Ask the ready WM to map/restore this test window.
+            XMapWindow(display.get(), xid);
+            if (attributes.map_state == IsUnviewable) {
+              // An unmapped frame can disagree with Openbox's view of the
+              // client. Minimize first, then ask it to restore the window.
+              XIconifyWindow(display.get(), xid, DefaultScreen(display.get()));
+              restore_at = now() + .3;
+            } else {
+              activate_window(xid);
+            }
+            XFlush(display.get());
+            map_requested = true;
+          }
+          if (restore_at > 0 && now() >= restore_at) {
+            activate_window(xid);
+            restore_at = 0;
+          }
+          return false;
+        }
         auto frame = f.run({"xprop", "-id", window, "_NET_FRAME_EXTENTS"});
         if (frame.find(" = ") == std::string::npos) {
           last_error = "Openbox has not finished managing the fixture window";

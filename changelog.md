@@ -1,3 +1,7 @@
+## 29 October 2026 — LuxeSession Ubuntu Openbox window mapping
+
+When the compact-decoration fixture finds its GTK window or its Openbox frame unmapped, it asks the ready window manager to map or restore the test window before requiring the existing decoration and button checks. The test deliberately unmaps the frame to cover recovery. In an isolated Ubuntu 24.04 environment, separate unmapped-client and unmapped-frame reproductions failed before the fix and passed with all theme and window-control assertions afterward. The GitHub Ubuntu job still needs rerunning.
+
 ## 29 October 2026 — LuxeSession Openbox fixture window identification
 
 The compact-decoration test uses the actual X11 window ID published by its GTK client rather than searching by title with xdotool. It still checks that the window is viewable and managed, and reports client startup stages on failure. Making xdotool search fail reproduced the reported timeout with the previous test; the new test passed all decoration and window-control checks under that condition. The Debian Xvfb suite passed all 25 CI-configuration tests locally. Ubuntu and Debian GitHub jobs still need rerunning.
