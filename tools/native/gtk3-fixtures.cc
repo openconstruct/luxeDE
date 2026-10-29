@@ -101,26 +101,6 @@ int main(int argc, char **argv) {
       require(native && GDK_IS_X11_WINDOW(native), "Compact fixture has no X11 window");
       auto xid = gdk_x11_window_get_xid(native);
       require(xid != None, "Compact fixture has an invalid X11 window ID");
-      if (const char *unmap = std::getenv("LUXE_TEST_COMPACT_UNMAP")) {
-        require(std::string(unmap) == "frame", "Invalid compact fixture unmap mode");
-        auto xdisplay = gdk_x11_display_get_xdisplay(gdk_window_get_display(native));
-        Window root = None, parent = None, *children = nullptr;
-        unsigned int count = 0;
-        double deadline = now() + 15;
-        while (now() < deadline) {
-          while (g_main_context_iteration(nullptr, false)) {}
-          require(XQueryTree(xdisplay, xid, &root, &parent, &children, &count),
-                  "Cannot inspect compact fixture window");
-          if (children) { XFree(children); children = nullptr; }
-          if (parent != None && parent != root) break;
-          pause_for(.02);
-        }
-        require(parent != None && parent != root, "Openbox did not frame compact fixture");
-        // Exercise recovery from an unmapped frame without weakening any of
-        // the real theme, decoration, or window-control assertions.
-        XUnmapWindow(xdisplay, parent);
-        XSync(xdisplay, False);
-      }
       write_file(argv[3], std::to_string(xid));
       std::cerr << "Compact client: published window " << xid << '\n';
     } else if (mode == "focus") {

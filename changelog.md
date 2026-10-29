@@ -1,3 +1,7 @@
+## 29 October 2026 — LuxeSession Openbox fixture deadlock
+
+Fix the compact-decoration test deadlock introduced by the frame-unmap regression: the GTK fixture publishes its window ID immediately, and the test unmaps the frame only after the window is managed and viewable. A combined reproduction with an initially unmapped client and the deliberate unmapped frame failed with the previous fixture and passed with the correction, including all theme and window-control checks. All 25 CI-configuration LuxeSession tests passed locally; both GitHub jobs still need rerunning. This changes test tooling only.
+
 ## 29 October 2026 — LuxeSession Ubuntu Openbox window mapping
 
 When the compact-decoration fixture finds its GTK window or its Openbox frame unmapped, it asks the ready window manager to map or restore the test window before requiring the existing decoration and button checks. The test deliberately unmaps the frame to cover recovery. In an isolated Ubuntu 24.04 environment, separate unmapped-client and unmapped-frame reproductions failed before the fix and passed with all theme and window-control assertions afterward. The GitHub Ubuntu job still needs rerunning.

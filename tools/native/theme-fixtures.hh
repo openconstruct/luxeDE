@@ -275,6 +275,9 @@ static void openbox_compact(const fs::path &self,
   Atom wm_check = XInternAtom(display.get(), "_NET_SUPPORTING_WM_CHECK", False);
   std::string window, last_error;
   bool map_requested = false;
+  const char *unmap = std::getenv("LUXE_TEST_COMPACT_UNMAP");
+  require(!unmap || std::string(unmap) == "frame", "Invalid compact fixture unmap mode");
+  bool unmap_tested = false;
   double restore_at = 0;
   auto activate_window = [&](Window xid) {
     XEvent event{};
@@ -320,6 +323,7 @@ static void openbox_compact(const fs::path &self,
           last_error = attributes.map_state == IsUnmapped ?
               "GTK client window is unmapped" : "GTK client window has an unmapped ancestor";
           if (!map_requested) {
+            std::cout << "Recovering " << last_error << '\n';
             // The client may have requested mapping while Openbox was still
             // starting. Ask the ready WM to map/restore this test window.
             XMapWindow(display.get(), xid);
@@ -343,6 +347,26 @@ static void openbox_compact(const fs::path &self,
         auto frame = f.run({"xprop", "-id", window, "_NET_FRAME_EXTENTS"});
         if (frame.find(" = ") == std::string::npos) {
           last_error = "Openbox has not finished managing the fixture window";
+          return false;
+        }
+        if (unmap && !unmap_tested) {
+          Window root_window = None, parent = None, *children = nullptr;
+          unsigned int count = 0;
+          require(XQueryTree(display.get(), xid, &root_window, &parent, &children, &count),
+                  "Cannot inspect compact fixture frame");
+          if (children) XFree(children);
+          if (parent == None || parent == root_window) {
+            last_error = "Openbox has not reparented the fixture window";
+            return false;
+          }
+          // Inject the regression only after the client has published its ID
+          // and startup recovery has produced a managed, viewable window.
+          XUnmapWindow(display.get(), parent);
+          XSync(display.get(), False);
+          std::cout << "Testing recovery from an unmapped Openbox frame\n";
+          unmap_tested = true;
+          map_requested = false;
+          restore_at = 0;
           return false;
         }
         return true;
