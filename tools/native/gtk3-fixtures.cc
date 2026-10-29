@@ -63,6 +63,8 @@ static gboolean tray_stage(gpointer data) {
 int main(int argc, char **argv) {
   try {
     require(argc >= 2, "Usage: gtk3-fixtures windows|focus|tray [MARKER]");
+    if (std::string(argv[1]) == "compact")
+      std::cerr << "Compact client: initializing GTK\n";
     gtk_init(nullptr, nullptr);
     std::string mode = argv[1];
     if (mode == "windows") {
@@ -72,7 +74,8 @@ int main(int argc, char **argv) {
         gtk_widget_show_all(w);
       }
     } else if (mode == "compact") {
-      require(argc == 3, "Missing close marker");
+      require(argc == 4, "Missing close marker or window ID path");
+      std::cerr << "Compact client: creating window\n";
       marker = argv[2];
       auto w = gtk_window_new(GTK_WINDOW_TOPLEVEL);
       gtk_window_set_title(GTK_WINDOW(w), "Compact decoration fixture");
@@ -94,6 +97,12 @@ int main(int argc, char **argv) {
           gtk_label_new(
               "Classic Openbox window — title text remains readable"));
       gtk_widget_show_all(w);
+      auto native = gtk_widget_get_window(w);
+      require(native && GDK_IS_X11_WINDOW(native), "Compact fixture has no X11 window");
+      auto xid = gdk_x11_window_get_xid(native);
+      require(xid != None, "Compact fixture has an invalid X11 window ID");
+      write_file(argv[3], std::to_string(xid));
+      std::cerr << "Compact client: published window " << xid << '\n';
     } else if (mode == "focus") {
       require(argc == 3, "Missing entry marker");
       if (const char *delay = std::getenv("LUXE_TEST_FOCUS_DELAY_MS")) {

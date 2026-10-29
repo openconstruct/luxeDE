@@ -267,7 +267,7 @@ static void openbox_compact(const fs::path &self,
   Child wm({"openbox", "--config-file", config.string()}, f.env,
            root / "wm.log");
   Child client({(self.parent_path() / "gtk3-fixtures").string(), "compact",
-                (root / "closed").string()},
+                (root / "closed").string(), (root / "window-id").string()},
                f.env, root / "client.log");
   std::unique_ptr<Display, decltype(&XCloseDisplay)> display(XOpenDisplay(nullptr), XCloseDisplay);
   require(display != nullptr, "Cannot open X display for Openbox readiness check");
@@ -277,8 +277,19 @@ static void openbox_compact(const fs::path &self,
     wait_for(client, [&]() {
       require(wm.alive(), "Openbox exited during startup");
       try {
-        window = f.run({"xdotool", "search", "--onlyvisible", "--name",
-                        "^Compact decoration fixture$"});
+        if (!fs::exists(root / "window-id")) {
+          last_error = "GTK client has not published its X11 window ID";
+          return false;
+        }
+        window = trim(read_file(root / "window-id"));
+        require(!window.empty() && window.find_first_not_of("0123456789") == std::string::npos,
+                "Invalid X11 window ID from GTK client");
+        XWindowAttributes attributes{};
+        if (!XGetWindowAttributes(display.get(), std::stoul(window), &attributes) ||
+            attributes.map_state != IsViewable) {
+          last_error = "GTK client window is not viewable";
+          return false;
+        }
         Atom type = None;
         int format = 0;
         unsigned long count = 0, remaining = 0;

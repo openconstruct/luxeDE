@@ -1,3 +1,7 @@
+## 29 October 2026 — LuxeSession Openbox fixture window identification
+
+The compact-decoration test uses the actual X11 window ID published by its GTK client rather than searching by title with xdotool. It still checks that the window is viewable and managed, and reports client startup stages on failure. Making xdotool search fail reproduced the reported timeout with the previous test; the new test passed all decoration and window-control checks under that condition. The Debian Xvfb suite passed all 25 CI-configuration tests locally. Ubuntu and Debian GitHub jobs still need rerunning.
+
 ## 29 October 2026 — LuxeSession Debian CI readiness
 
 The Openbox decoration test now waits up to 20 seconds for its GTK window, the actual X11 window-manager identity, and the window's frame extents, reporting the last readiness failure and process logs. A ten-second delayed-client run reproduced the former timeout and passed with the fix. LuxeSession CI also creates a private runtime directory for its unprivileged builder so the session inheritance test runs in the disposable container. The Debian Xvfb session suite passed locally; GitHub jobs still need rerunning.
