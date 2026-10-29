@@ -3,6 +3,7 @@
  * startup layout change. No display layout is modified by this fixture. */
 #define _GNU_SOURCE
 #include <dlfcn.h>
+#include <stdlib.h>
 #include <X11/Xlib.h>
 #include <X11/extensions/Xrandr.h>
 
@@ -12,7 +13,7 @@ void XRRSelectInput(Display *display,Window window,int mask)
     static unsigned selections;
     if(!select_input) select_input=dlsym(RTLD_NEXT,"XRRSelectInput");
     select_input(display,window,mask);
-    if(++selections<2 || !(mask&RRScreenChangeNotifyMask)) return;
+    if((++selections<2 && !getenv("FRAME_TEST_RANDR_INITIAL")) || !(mask&RRScreenChangeNotifyMask)) return;
     int event_base,error_base;
     if(!XRRQueryExtension(display,&event_base,&error_base)) return;
     XRRScreenChangeNotifyEvent event={.type=event_base+RRScreenChangeNotify,

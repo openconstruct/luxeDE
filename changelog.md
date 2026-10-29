@@ -1,3 +1,19 @@
+## 29 October 2026 — Frame startup display notification (luxe36)
+
+Prevent a display-change notification from replacing an in-progress login rotation or wallpaper selection with a repaint. The preparation already verifies the current screen dimensions and retries if they changed. An injected initial RandR notification reproduced luxe35's cancellation and unchanged wallpaper; luxe36 passed the notification alone and combined with a duplicate daemon launch. All ten Frame tests passed, and both startup regressions passed five repeated runs. The packaged binary advanced the user's dark-theme wallpaper in an isolated reproduction; a real login still needs verification.
+
+## 29 October 2026 — Frame login rotation race (luxe35)
+
+Prevent a duplicate wallpaper-daemon activation from cancelling an in-progress login rotation or reloading settings during an explicit selection. The exact concurrent-start regression reproduced the failure with luxe34 and passed with luxe35; all nine Frame tests passed, with the new test repeated five times. The packaged binary also advanced from the user's dark orbit wallpaper to dark Horizon in an isolated display using their theme configuration. Live login verification remains outstanding.
+
+## 29 October 2026 — DebInstall local-session authorization (version 18)
+
+Allow Polkit to request administrator authentication from an inactive local session, matching LuxuryStore. The general fallback remains denied, and active and inactive local sessions both require administrator authentication. This fixes the immediate denial observed in a login marked closing. All ten DebInstall tests passed; the updated DEB was built and its policy and unchanged privileged helper were checked. Live authentication still needs verification after installation.
+
+## 29 October 2026 — Frame wallpaper rotation (luxe34)
+
+Keep the daily wallpaper deadline across desktop repaints and repeated service activations; on Linux it now includes suspended time. When a palette changes, advance from the last wallpaper collection instead of returning to the orbit image. A due rotation waits for an in-progress wallpaper update. All eight Frame tests passed, and the packaged binary advanced through the actual dark-theme assets under a shortened deadline with repeated service activations. Actual suspend/resume and a fresh desktop login still need user verification.
+
 ## 29 October 2026 — LuxeSession Openbox fixture deadlock
 
 Fix the compact-decoration test deadlock introduced by the frame-unmap regression: the GTK fixture publishes its window ID immediately, and the test unmaps the frame only after the window is managed and viewable. A combined reproduction with an initially unmapped client and the deliberate unmapped frame failed with the previous fixture and passed with the correction, including all theme and window-control checks. All 25 CI-configuration LuxeSession tests passed locally; both GitHub jobs still need rerunning. This changes test tooling only.

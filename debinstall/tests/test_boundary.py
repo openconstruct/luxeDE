@@ -23,7 +23,7 @@ class BoundaryTests(unittest.TestCase):
         exec((GENERATED / 'paths.py').read_text(), paths)
         action = ET.parse(GENERATED / 'org.lumen.DebInstall.policy').find('action')
         self.assertEqual(action.findtext('defaults/allow_any'), 'no')
-        self.assertEqual(action.findtext('defaults/allow_inactive'), 'no')
+        self.assertEqual(action.findtext('defaults/allow_inactive'), 'auth_admin')
         self.assertEqual(action.findtext('defaults/allow_active'), 'auth_admin')
         self.assertEqual(action.findtext("annotate[@key='org.freedesktop.policykit.exec.path']"), paths['HELPER'])
 

@@ -21,7 +21,9 @@ These variants rotate on the same schedule; a missing collection is skipped.
 The active theme is read from Appearance's saved state on each selection; if
 there is no recognized theme, the selected orbit's palette is used. Custom
 images and folders retain their explicit selection behavior. The service
-listens for RandR changes, not a redraw poll.
+listens for RandR changes, not a redraw poll. The rotation deadline survives
+repaints and includes time spent suspended on Linux. When the active palette
+changes, the next rotation continues from the previous collection position.
 Settings live in `~/.config/luxe/wallpaper.ini`; existing LXDE PCManager wallpaper
 is read once for migration. PCManager no longer decodes or paints wallpapers.
 

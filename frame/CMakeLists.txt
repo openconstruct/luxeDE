@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.25)
 project(frame VERSION 0.1.0 LANGUAGES C)
 include(../cmake/LuxePaletteCatalog.cmake)
-set(FRAME_RELEASE_NUMBER 33)
+set(FRAME_RELEASE_NUMBER 36)
 set(FRAME_RELEASE "0.1.0-1+luxe${FRAME_RELEASE_NUMBER}")
 set(FRAME_RPM_RELEASE "1.luxe${FRAME_RELEASE_NUMBER}")
 include(CTest)
@@ -38,6 +38,13 @@ if(BUILD_TESTING)
     COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/../cmake/RunNestedX.sh"
       sh "${CMAKE_CURRENT_SOURCE_DIR}/tests/wallpaper-save-failure.sh" $<TARGET_FILE:frame>)
   set_tests_properties(frame-wallpaper-save-failure PROPERTIES TIMEOUT 30)
+  add_library(frame-wallpaper-gate SHARED tests/wallpaper-gate.c)
+  target_link_libraries(frame-wallpaper-gate PRIVATE PkgConfig::GTK4 ${CMAKE_DL_LIBS})
+  add_test(NAME frame-wallpaper-concurrent-login
+    COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/../cmake/RunNestedX.sh" dbus-run-session --
+      sh "${CMAKE_CURRENT_SOURCE_DIR}/tests/wallpaper-concurrent-login.sh"
+      $<TARGET_FILE:frame> $<TARGET_FILE:frame-wallpaper-gate> $<TARGET_FILE:frame-randr-fixture>)
+  set_tests_properties(frame-wallpaper-concurrent-login PROPERTIES TIMEOUT 45)
   pkg_check_modules(GIO_UNIX REQUIRED IMPORTED_TARGET gio-unix-2.0)
   add_executable(frame-desktop-launch tests/desktop-launch.c)
   target_link_libraries(frame-desktop-launch PRIVATE PkgConfig::GIO_UNIX)
@@ -63,6 +70,11 @@ if(BUILD_TESTING)
   add_library(frame-randr-fixture SHARED tests/randr-fixture.c)
   target_compile_options(frame-randr-fixture PRIVATE -Wall -Wextra)
   target_link_libraries(frame-randr-fixture PRIVATE X11::X11 X11::Xrandr ${CMAKE_DL_LIBS})
+  add_test(NAME frame-wallpaper-randr-login
+    COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/../cmake/RunNestedX.sh" dbus-run-session --
+      sh "${CMAKE_CURRENT_SOURCE_DIR}/tests/wallpaper-randr-login.sh"
+      $<TARGET_FILE:frame> $<TARGET_FILE:frame-wallpaper-gate> $<TARGET_FILE:frame-randr-fixture>)
+  set_tests_properties(frame-wallpaper-randr-login PROPERTIES TIMEOUT 45)
   add_test(NAME frame-wallpaper-randr-settle COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/../cmake/RunNestedX.sh" "${CMAKE_COMMAND}" -E env
     "LD_PRELOAD=$<TARGET_FILE:frame-randr-fixture>" "${CMAKE_CURRENT_SOURCE_DIR}/tests/wallpaper.sh" $<TARGET_FILE:frame>)
   set_tests_properties(frame-wallpaper-randr-settle PROPERTIES ENVIRONMENT "LUXE_TEST_RESIZEABLE=1")

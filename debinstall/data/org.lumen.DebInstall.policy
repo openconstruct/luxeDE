@@ -6,7 +6,7 @@
     <description>Install a Debian package with DebInstall</description>
     <message>Authentication is required to install this package.</message>
     <icon_name>debinstall</icon_name>
-    <defaults><allow_any>no</allow_any><allow_inactive>no</allow_inactive><allow_active>auth_admin</allow_active></defaults>
+    <defaults><allow_any>no</allow_any><allow_inactive>auth_admin</allow_inactive><allow_active>auth_admin</allow_active></defaults>
     <annotate key="org.freedesktop.policykit.exec.path">@CMAKE_INSTALL_FULL_LIBEXECDIR@/debinstall-install</annotate>
   </action>
 </policyconfig>

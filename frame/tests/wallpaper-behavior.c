@@ -128,6 +128,10 @@ int main(int argc,char **argv)
     g_assert_nonnull(themed);g_assert_cmpuint(themed->len,==,4);
     g_assert_true(g_str_has_suffix(themed->pdata[0],"/mocha.png"));
     g_assert_true(g_str_has_suffix(themed->pdata[1],"/luxe-horizon-mocha.png"));
+    g_assert_cmpuint(wallpaper_start(themed,bundled,TRUE,TRUE),==,1);
+    g_autofree char *old_horizon=g_build_filename(theme_root,"horizon","luxe-horizon-dark.png",NULL);
+    g_assert_cmpuint(wallpaper_start(themed,old_horizon,TRUE,TRUE),==,2);
+    g_assert_cmpuint(wallpaper_start(themed,old_horizon,FALSE,TRUE),==,0);
     g_autofree char *personal=g_build_filename(folder,"personal.png",NULL);
     g_assert_null(theme_images(personal,theme_root,config_dir));
     for (guint i=0;i<G_N_ELEMENTS(dirs);i++) {
@@ -152,7 +156,7 @@ int main(int argc,char **argv)
     g_autoptr(GdkPixbuf) image=gdk_pixbuf_new(GDK_COLORSPACE_RGB,FALSE,8,2,2);
     gdk_pixbuf_fill(image,0x00ff00ff);g_assert_true(gdk_pixbuf_save(image,a,"png",NULL,NULL));
     gdk_pixbuf_fill(image,0xff0000ff);g_assert_true(gdk_pixbuf_save(image,b,"png",NULL,NULL));
-    Wallpaper w={.config=g_key_file_new(),.path=g_build_filename(folder,"settings.ini",NULL)};
+    Wallpaper w={.config=g_key_file_new(),.path=g_build_filename(folder,"settings.ini",NULL),.rotation_fd=-1};
     g_key_file_set_string(w.config,"Wallpaper","source",folder);
     g_autoptr(GError) save_error=NULL;
     guint file_count=0;
@@ -164,7 +168,10 @@ int main(int argc,char **argv)
     g_assert_cmpuint(directory_reads,==,reads_after_apply); /* Scheduling reuses the scan. */
     count_directory_reads=FALSE;
     g_assert_cmpuint(w.rotation,>,0);
-    g_source_remove(w.rotation);w.rotation=0;
+    guint original_rotation=w.rotation;
+    schedule(&w,file_count);
+    g_assert_cmpuint(w.rotation,==,original_rotation); /* A repaint keeps the deadline. */
+    cancel_rotation(&w);
     /* A displayed image and a failed settings write are separate outcomes. */
     g_autofree char *blocked=g_build_filename(folder,"blocked",NULL);
     g_assert_true(g_file_set_contents(blocked,"not a directory",-1,NULL));
@@ -176,8 +183,19 @@ int main(int argc,char **argv)
     g_free(w.path);w.path=working_path;
     g_assert_cmpint(g_unlink(blocked),==,0);
     schedule(&w,file_count);g_assert_cmpuint(w.rotation,>,0);
-    g_source_remove(w.rotation);w.rotation=0;
-    daily(&w);
+    original_rotation=w.rotation;
+    /* Fire the real timer source without waiting a day. */
+#ifdef __linux__
+    if (w.rotation_fd>=0) {
+        struct itimerspec soon={.it_value={.tv_nsec=1}};
+        g_assert_cmpint(timerfd_settime(w.rotation_fd,0,&soon,NULL),==,0);
+        while (w.rotation==original_rotation) g_main_context_iteration(NULL,TRUE);
+    } else
+#endif
+    {
+        cancel_rotation(&w);
+        daily(&w);
+    }
     g_autofree char *current=g_key_file_get_string(w.config,"Wallpaper","current",NULL);
     g_assert_cmpstr(current,==,b);g_assert_cmpuint(w.rotation,>,0);
     XWindowAttributes attr;XGetWindowAttributes(w.display,DefaultRootWindow(w.display),&attr);
@@ -293,7 +311,16 @@ int main(int argc,char **argv)
     g_key_file_set_string(w.config,"Wallpaper","source",large);
     guint ticks=0;
     guint tick_source=g_timeout_add(1,count_main_loop_ticks,&ticks);
+    cancel_rotation(&w);
     g_assert_true(request_wallpaper(&w,FALSE,NULL,NULL));
+    guint64 pending_generation=w.request_generation;
+    w.width=attr.width+1;
+    XPutBackEvent(w.display,&event);
+    g_assert_true(events(ConnectionNumber(w.display),G_IO_IN,&w));
+    g_assert_cmpuint(w.request_generation,==,pending_generation);
+    daily(&w);
+    g_assert_cmpuint(w.active_preparations,==,1); /* Deadline waits for the selection. */
+    g_assert_cmpuint(w.rotation,>,0);
     g_key_file_set_string(w.config,"Wallpaper","source",b);
     g_assert_true(request_wallpaper(&w,FALSE,NULL,NULL));
     while(w.active_preparations>0) g_main_context_iteration(NULL,TRUE);
@@ -324,7 +351,7 @@ int main(int argc,char **argv)
     g_assert_cmpint(g_rmdir(bad_directory),==,0);
 
     g_source_destroy(w.events);g_source_unref(w.events);
-    if(w.rotation) g_source_remove(w.rotation);
+    cancel_rotation(&w);
     XFreePixmap(w.display,w.pixmap);XCloseDisplay(w.display);
     g_clear_object(&w.prepare_cancel);g_clear_object(&w.app);g_clear_pointer(&w.files,g_ptr_array_unref);
     g_key_file_unref(w.config);g_remove(a);g_remove(b);g_remove(large);g_remove(landmarks);g_remove(webp);g_remove(bad);g_remove(w.path);g_free(w.path);g_rmdir(folder);

@@ -14,6 +14,10 @@
 #include <unistd.h>
 #include <errno.h>
 #include <fcntl.h>
+#ifdef __linux__
+#include <sys/timerfd.h>
+#include <stdint.h>
+#endif
 #ifdef __GLIBC__
 #include <malloc.h>
 #endif
@@ -31,6 +35,7 @@ typedef struct {
     GKeyFile *config;
     char *path;
     guint rotation;
+    int rotation_fd;
     GSource *events;
     int randr_event, width, height;
     gboolean held;
@@ -192,10 +197,30 @@ static GPtrArray *theme_images(const char *source, const char *root, const char 
     return files;
 }
 
-static GPtrArray *wallpaper_images(const char *source)
+static GPtrArray *wallpaper_images(const char *source, gboolean *themed)
 {
     GPtrArray *files = theme_images(source, LUXE_WALLPAPER_DIR, g_get_user_config_dir());
+    if (themed) *themed=files!=NULL;
     return files ? files : images(source);
+}
+
+static guint wallpaper_start(GPtrArray *files, const char *current, gboolean rotate,
+                             gboolean themed)
+{
+    for (guint i=0;i<files->len;i++)
+        if (g_strcmp0(current,files->pdata[i])==0)
+            return rotate ? (i+1)%files->len : i;
+    if (themed && rotate && current) {
+        /* The palette may have changed since the last login. Keep the
+         * collection position while advancing within the new palette. */
+        g_autofree char *current_dir=g_path_get_dirname(current);
+        for (guint i=0;i<files->len;i++) {
+            g_autofree char *candidate_dir=g_path_get_dirname(files->pdata[i]);
+            if (g_strcmp0(current_dir,candidate_dir)==0)
+                return (i+1)%files->len;
+        }
+    }
+    return 0;
 }
 
 static GdkPixbuf *decode_image(const char *path, int max_edge,
@@ -460,10 +485,10 @@ static gboolean apply(Wallpaper *w, gboolean rotate, GError **save_error, guint 
 {
     g_autofree char *source=g_key_file_get_string(w->config,"Wallpaper","source",NULL);
     g_autofree char *current=g_key_file_get_string(w->config,"Wallpaper","current",NULL);
-    g_autoptr(GPtrArray) files=wallpaper_images(source);
+    gboolean themed=FALSE;
+    g_autoptr(GPtrArray) files=wallpaper_images(source,&themed);
     if(file_count) *file_count=files->len;
-    guint start=0;
-    for(guint i=0;i<files->len;i++) if(g_strcmp0(current,files->pdata[i])==0) {start=rotate?(i+1)%files->len:i; break;}
+    guint start=wallpaper_start(files,current,rotate,themed);
     for(guint i=0;i<files->len;i++) {
         g_autoptr(GError) error=NULL;
         if(paint(w,files->pdata[(start+i)%files->len],&error)) {save(w,save_error); return TRUE;}
@@ -529,7 +554,8 @@ static void prepare_wallpaper_task(GTask *task, gpointer source,
     }
 
     PreparedWallpaper *prepared=g_new0(PreparedWallpaper,1);
-    prepared->files=wallpaper_images(request->source);
+    gboolean themed=FALSE;
+    prepared->files=wallpaper_images(request->source,&themed);
     if (prepared->files->len==0) {
         g_mutex_unlock(&wallpaper_prepare_mutex);
         prepared_wallpaper_free(prepared);
@@ -537,13 +563,7 @@ static void prepare_wallpaper_task(GTask *task, gpointer source,
                                 "Wallpaper source contains no usable image files");
         return;
     }
-    guint start=0;
-    for (guint i=0;i<prepared->files->len;i++) {
-        if (g_strcmp0(request->current,prepared->files->pdata[i])==0) {
-            start=request->rotate ? (i+1)%prepared->files->len : i;
-            break;
-        }
-    }
+    guint start=wallpaper_start(prepared->files,request->current,request->rotate,themed);
 
     GError *last_error=NULL;
     guint attempts=MIN(prepared->files->len,32u);
@@ -726,15 +746,62 @@ static gboolean request_wallpaper(Wallpaper *w, gboolean rotate,
 }
 
 static gboolean daily(gpointer data);
+static void cancel_rotation(Wallpaper *w)
+{
+    if (!w->rotation) return;
+    g_source_remove(w->rotation);
+    w->rotation=0;
+    if (w->rotation_fd>=0) close(w->rotation_fd);
+    w->rotation_fd=-1;
+}
+
+#ifdef __linux__
+static gboolean rotation_ready(gint fd, GIOCondition condition, gpointer data)
+{
+    Wallpaper *w=data;
+    uint64_t expirations;
+    if (!(condition&(G_IO_ERR|G_IO_HUP)) && read(fd,&expirations,sizeof(expirations))<0 && errno==EAGAIN)
+        return G_SOURCE_CONTINUE;
+    close(fd);
+    w->rotation_fd=-1;
+    w->rotation=0;
+    daily(w);
+    return G_SOURCE_REMOVE;
+}
+#endif
+
 static void schedule(Wallpaper *w, guint file_count)
 {
-    if (w->rotation) { g_source_remove(w->rotation); w->rotation=0; }
-    if(file_count>1) w->rotation=g_timeout_add_seconds(86400,daily,w);
+    if (file_count<=1) { cancel_rotation(w); return; }
+    /* Repaints and repeated daemon activations must not postpone rotation. */
+    if (w->rotation) return;
+    w->rotation_fd=-1;
+#ifdef __linux__
+    /* CLOCK_BOOTTIME includes suspend, unlike GLib's monotonic timeouts. */
+    int fd=timerfd_create(CLOCK_BOOTTIME,TFD_CLOEXEC|TFD_NONBLOCK);
+    if (fd>=0) {
+        struct itimerspec deadline={.it_value={.tv_sec=86400}};
+        if (timerfd_settime(fd,0,&deadline,NULL)==0) {
+            w->rotation_fd=fd;
+            w->rotation=g_unix_fd_add(fd,G_IO_IN|G_IO_ERR|G_IO_HUP,rotation_ready,w);
+            return;
+        }
+        close(fd);
+    }
+#endif
+    w->rotation=g_timeout_add_seconds(86400,daily,w);
 }
 static gboolean daily(gpointer data)
 {
     Wallpaper *w=data;
     w->rotation=0;
+    if (w->active_preparations) {
+        /* Let the in-flight selection or repaint finish before rotating;
+         * otherwise the deadline would cancel its caller's request. */
+        w->rotation_fd=-1;
+        w->rotation=g_timeout_add(250,daily,w);
+        return G_SOURCE_REMOVE;
+    }
     if (!w->app) {
         g_autoptr(GError) error=NULL;
         guint file_count=0;
@@ -743,7 +810,8 @@ static gboolean daily(gpointer data)
         schedule(w,file_count);
         return G_SOURCE_REMOVE;
     }
-    request_wallpaper(w,TRUE,NULL,NULL);
+    if (!request_wallpaper(w,TRUE,NULL,NULL))
+        schedule(w,w->files ? w->files->len : 0);
     return G_SOURCE_REMOVE;
 }
 static gboolean events(gint fd,GIOCondition condition,gpointer data)
@@ -764,8 +832,12 @@ static gboolean events(gint fd,GIOCondition condition,gpointer data)
         XWindowAttributes attr;
         if(XGetWindowAttributes(w->display,DefaultRootWindow(w->display),&attr)
            && (attr.width!=w->width || attr.height!=w->height)) {
-            if (w->app) request_wallpaper(w,FALSE,NULL,NULL);
-            else {
+            /* A pending preparation rechecks the actual screen size before
+             * publishing and retries at that size when necessary. Do not
+             * replace a login rotation or selection with a repaint. */
+            if (w->app) {
+                if (!w->prepare_cancel) request_wallpaper(w,FALSE,NULL,NULL);
+            } else {
                 g_autoptr(GError) error=NULL;
                 apply(w,FALSE,&error,NULL);
                 if(error) g_warning("Wallpaper displayed but settings could not be saved: %s",error->message);
@@ -816,9 +888,13 @@ static gboolean quit(gpointer data)
 static int command(GApplication *app,GApplicationCommandLine *line,gpointer data)
 {
     Wallpaper *w=data; int argc; g_auto(GStrv) argv=g_application_command_line_get_arguments(line,&argc);
+    /* PCManager may activate the daemon while its login wallpaper is still
+     * being prepared. Do not reload its state or cancel that rotation. */
+    if (w->held && w->active_preparations>0 && argc==2 &&
+        g_str_equal(argv[1],"--wallpaper-daemon")) return 0;
     load(w);
     g_autofree char *old_source=g_key_file_get_string(w->config,"Wallpaper","source",NULL);
-    gboolean rotate=!w->held;
+    gboolean rotate=!w->held, selected=FALSE;
     for(int i=1;i<argc;i++) {
         if(g_str_equal(argv[i],"--wallpaper-stop")) {
             w->stopping=TRUE;
@@ -835,11 +911,11 @@ static int command(GApplication *app,GApplicationCommandLine *line,gpointer data
             g_autofree char *cwd=g_application_command_line_get_cwd(line)?g_strdup(g_application_command_line_get_cwd(line)):g_get_current_dir();
             g_autofree char *path=g_canonicalize_filename(argv[++i],cwd);
             if(!g_file_test(path,G_FILE_TEST_EXISTS)) {g_application_command_line_printerr(line,"Wallpaper source does not exist: %s\n",path); return 1;}
-            g_key_file_set_string(w->config,"Wallpaper","source",path); rotate=FALSE;
+            g_key_file_set_string(w->config,"Wallpaper","source",path); rotate=FALSE; selected=TRUE;
         }
     }
     if(!w->held) {g_application_hold(app); w->held=TRUE;}
-    if(w->rotation) {g_source_remove(w->rotation); w->rotation=0;}
+    if(selected) cancel_rotation(w);
     CommandWait wait={.loop=g_main_loop_new(NULL,FALSE),.line=line,.exit_status=1};
     gboolean started=request_wallpaper(w,rotate,old_source,&wait);
     if (w->display) watch_events(w);
@@ -953,13 +1029,13 @@ int frame_wallpaper_main(int argc,char **argv)
         g_signal_connect(app,"activate",G_CALLBACK(preferences),NULL);
         char *args[]={argv[0],NULL}; return g_application_run(G_APPLICATION(app),1,args);
     }
-    Wallpaper w={.config=g_key_file_new(),.path=config_path()}; load(&w);
+    Wallpaper w={.config=g_key_file_new(),.path=config_path(),.rotation_fd=-1}; load(&w);
     w.app=g_application_new("org.luxe.Frame.Wallpaper",G_APPLICATION_HANDLES_COMMAND_LINE);
     g_signal_connect(w.app,"command-line",G_CALLBACK(command),&w);
     guint term=g_unix_signal_add(SIGTERM,quit,&w),intr=g_unix_signal_add(SIGINT,quit,&w);
     int status=g_application_run(w.app,argc,argv);
     g_source_remove(term); g_source_remove(intr);
-    if(w.rotation) g_source_remove(w.rotation);
+    cancel_rotation(&w);
     if(w.events) {g_source_destroy(w.events);g_source_unref(w.events);}
     if(w.display) {if(w.pixmap) XFreePixmap(w.display,w.pixmap); XCloseDisplay(w.display);}
     g_clear_object(&w.prepare_cancel);
