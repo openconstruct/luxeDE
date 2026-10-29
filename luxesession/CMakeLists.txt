@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.25)
 project(luxesession VERSION 0.5.5 LANGUAGES C)
-set(LUXESESSION_REVISION 50)
+set(LUXESESSION_REVISION 51)
 set(LUXESESSION_RELEASE "${PROJECT_VERSION}+gtk4-4+luxe${LUXESESSION_REVISION}")
 include(../cmake/LuxePackage.cmake)
 include(CTest)
@@ -63,6 +63,14 @@ target_link_libraries(luxesession-logout PRIVATE PkgConfig::GTK4 PkgConfig::SM)
 add_luxesession_program(luxeclipboard luxeclipboard/main.c luxeclipboard/clipboard.c)
 
 if(BUILD_TESTING)
+  add_executable(luxesession-runtime-dir-test ../shared/tests/runtime-dir.c)
+  target_link_libraries(luxesession-runtime-dir-test PRIVATE PkgConfig::GLIB)
+  add_test(NAME luxesession-runtime-dir COMMAND luxesession-runtime-dir-test)
+  add_test(NAME luxesession-runtime-environment
+    COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/../cmake/RunNestedX.sh"
+      dbus-run-session -- sh "${CMAKE_CURRENT_SOURCE_DIR}/tests/test-runtime-env.sh"
+      $<TARGET_FILE:luxesession-bin>)
+  set_tests_properties(luxesession-runtime-environment PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 30)
   add_executable(luxesession-supervision-policy-tests tests/supervision-policy.c)
   target_compile_features(luxesession-supervision-policy-tests PRIVATE c_std_11)
   target_include_directories(luxesession-supervision-policy-tests PRIVATE

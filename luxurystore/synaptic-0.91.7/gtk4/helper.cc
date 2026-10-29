@@ -75,6 +75,12 @@ private:
 
 int main(int argc, char **argv) {
     try {
+#ifdef LUXURYSTORE_FIXTURE_HELPER
+        // This uninstalled test binary may use a private APT_CONFIG, but can
+        // never perform privileged operations, even if accidentally elevated.
+        if (getuid() == 0 || geteuid() == 0)
+            throw std::runtime_error("The fixture helper cannot run as root.");
+#endif
         if (argc == 2 && std::string(argv[1]) == "--authorize") {
             if (geteuid() != 0) throw std::runtime_error("Administrator authentication is required.");
             return 0;
@@ -172,7 +178,9 @@ int main(int argc, char **argv) {
         gchar *hash = g_key_file_get_string(key, "Review", "SHA256", nullptr);
         std::string expected = safe(hash); g_free(hash); g_key_file_unref(key);
         // pkexec sanitizes the environment; also ignore user-supplied APT configuration.
+#ifndef LUXURYSTORE_FIXTURE_HELPER
         unsetenv("APT_CONFIG");
+#endif
         auto l = open_apt();
         Dialog dialog;
         l->setUserDialog(&dialog);

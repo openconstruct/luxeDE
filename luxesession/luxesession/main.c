@@ -35,6 +35,7 @@
 #include <unistd.h>
 #include <glib/gstdio.h>
 #include "profile.h"
+#include "luxe-runtime-dir.h"
 #include "../theme-watch.h"
 
 #define GETTEXT_PACKAGE "luxesession"
@@ -1077,6 +1078,7 @@ lxsession_main_main (gchar** args,
 	LxsessionGenericSimpleApp* _tmp405_;
 	GError* _inner_error0_ = NULL;
 	gint result;
+	luxe_restore_runtime_dir ();
 	textdomain (GETTEXT_PACKAGE);
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "utf-8");
 	{

@@ -28,6 +28,9 @@ const string GETTEXT_PACKAGE = "luxesession";
 
 namespace Lxsession {
 
+    [CCode (cname = "luxe_restore_runtime_dir", cheader_filename = "luxe-runtime-dir.h")]
+    extern bool restore_runtime_dir();
+
     [CCode (cname = "luxe_theme_watch_start", cheader_filename = "theme-watch.h")]
     extern void theme_watch_start();
     [CCode (cname = "luxe_theme_watch_stop", cheader_filename = "theme-watch.h")]
@@ -152,6 +155,7 @@ namespace Lxsession {
 
     public static int main(string[] args) {
 
+        restore_runtime_dir();
         Intl.textdomain(GETTEXT_PACKAGE);
         Intl.bind_textdomain_codeset(GETTEXT_PACKAGE, "utf-8");
 

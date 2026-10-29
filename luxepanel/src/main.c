@@ -49,6 +49,7 @@
 #include <libfm/fm.h>
 #include "x11-hotkey.h"
 #include "renderer-init.h"
+#include "luxe-runtime-dir.h"
 
 #define __LUXEPANEL_INTERNALS__
 
@@ -663,6 +664,7 @@ int main(int argc, char *argv[], char *env[])
     int i;
     const char* desktop_name;
 
+    luxe_restore_runtime_dir();
     setlocale(LC_CTYPE, "");
 
 #if !GLIB_CHECK_VERSION(2, 32, 0)

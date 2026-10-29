@@ -222,8 +222,8 @@ int main(int argc, char **argv) {
     for (int i = 0; authentication && i < 100; ++i) drain(20);
     assert(!authentication && app.window);
     for (int i = 0; app.busy && i < 600; ++i) drain(50);
-    if (!app.package_state.apt)
-        g_printerr("APT loading failed: %s\n", gtk_label_get_text(GTK_LABEL(app.status)));
+    if (app.busy || !app.package_state.apt)
+        g_printerr("APT load %s: %s\n", app.busy ? "timed out" : "failed", gtk_label_get_text(GTK_LABEL(app.status)));
     assert(!app.busy && app.package_state.apt && app.package_state.apt->packagesSize() > 0);
     show_repositories();
     drain(100);
@@ -285,7 +285,10 @@ int main(int argc, char **argv) {
     assert(plan(*app.package_state.apt).empty());
     std::string available_name;
     for (auto package : app.package_state.apt->getPackages()) {
-        if (package && package->name()) { available_name = safe(package->name()); break; }
+        if (package && package->name() && package->availableVersion() &&
+            !(package->getFlags() & RPackage::FInstalled)) {
+            available_name = safe(package->name()); break;
+        }
     }
     assert(!available_name.empty());
     g_setenv("LUXURYSTORE_TEST_RESOLVE_DELAY_MS", "700", TRUE);
@@ -312,6 +315,8 @@ int main(int argc, char **argv) {
     auto payload = encode_request(app.package_state.requests, review);
     const char *helper = g_getenv("LUXURYSTORE_TEST_HELPER");
     if (!helper || !*helper) helper = "./build/luxurystore-apt";
+    const char *production_helper = g_getenv("LUXURYSTORE_PRODUCTION_HELPER");
+    if (!production_helper || !*production_helper) production_helper = helper;
     char *args[] = {const_cast<char *>(helper), const_cast<char *>("--simulate"), const_cast<char *>(payload.c_str()), nullptr};
     gchar *output = nullptr, *errors = nullptr; int status;
     assert(g_spawn_sync(nullptr, args, nullptr, G_SPAWN_DEFAULT, nullptr, nullptr, &output, &errors, &status, &error));
@@ -319,27 +324,28 @@ int main(int argc, char **argv) {
     assert(g_spawn_check_wait_status(status, &error));
     assert(safe(output) == review); g_free(output); g_free(errors);
     std::string invalid_request(120001, 'A');
+    args[0] = const_cast<char *>(production_helper);
     args[2] = const_cast<char *>(invalid_request.c_str());
     assert(g_spawn_sync(nullptr, args, nullptr, G_SPAWN_DEFAULT, nullptr, nullptr,
         &output, &errors, &status, &error));
     assert(!g_spawn_check_wait_status(status, &error));
     g_clear_error(&error);
     g_free(output); g_free(errors);
-    char *invalid_args[] = {const_cast<char *>(helper), const_cast<char *>("--simulate"),
+    char *invalid_args[] = {const_cast<char *>(production_helper), const_cast<char *>("--simulate"),
         const_cast<char *>("%%%not-base64%%%"), nullptr};
     assert(g_spawn_sync(nullptr, invalid_args, nullptr, G_SPAWN_DEFAULT, nullptr, nullptr,
         &output, &errors, &status, &error));
     assert(!g_spawn_check_wait_status(status, &error));
     g_clear_error(&error);
     g_free(output); g_free(errors);
-    char *repo_args[] = {const_cast<char *>(helper), const_cast<char *>("--repo-set"),
+    char *repo_args[] = {const_cast<char *>(production_helper), const_cast<char *>("--repo-set"),
         const_cast<char *>("mozilla"), const_cast<char *>("off"), nullptr};
     output = errors = nullptr;
     assert(g_spawn_sync(nullptr, repo_args, nullptr, G_SPAWN_DEFAULT, nullptr, nullptr,
         &output, &errors, &status, &error));
     assert(status != 0 && safe(errors).find("Administrator authentication is required") != std::string::npos);
     g_free(output); g_free(errors);
-    auto stale = encode_request(app.package_state.requests, review + "changed"); args[2] = const_cast<char *>(stale.c_str());
+    auto stale = encode_request(app.package_state.requests, review + "changed"); args[0] = const_cast<char *>(helper); args[2] = const_cast<char *>(stale.c_str());
     assert(g_spawn_sync(nullptr, args, nullptr, G_SPAWN_DEFAULT, nullptr, nullptr, &output, &errors, &status, &error));
     assert(status != 0 && safe(errors).find("changed since review") != std::string::npos);
     g_free(output); g_free(errors);
@@ -481,12 +487,12 @@ int main(int argc, char **argv) {
         gtk_window_close(transaction->window);
         app.store_state.requests.clear();
     }
-    char *auth_args[] = {const_cast<char *>(helper), const_cast<char *>("--authorize"), nullptr};
+    char *auth_args[] = {const_cast<char *>(production_helper), const_cast<char *>("--authorize"), nullptr};
     assert(g_spawn_sync(nullptr, auth_args, nullptr, G_SPAWN_DEFAULT, nullptr, nullptr, &output, &errors, &status, &error));
     assert(status != 0 && safe(errors).find("authentication is required") != std::string::npos);
     g_free(output); g_free(errors);
     for (auto operation : {"--apply", "--refresh", "--snap-remove"}) {
-        char *privileged_args[] = {const_cast<char *>(helper), const_cast<char *>(operation), const_cast<char *>("apt"), nullptr};
+        char *privileged_args[] = {const_cast<char *>(production_helper), const_cast<char *>(operation), const_cast<char *>("apt"), nullptr};
         assert(g_spawn_sync(nullptr, privileged_args, nullptr, G_SPAWN_DEFAULT, nullptr, nullptr, &output, &errors, &status, &error));
         assert(status != 0 && safe(errors).find("authentication is required") != std::string::npos);
         g_free(output); g_free(errors);

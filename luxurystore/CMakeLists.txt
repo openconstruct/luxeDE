@@ -111,16 +111,22 @@ if(BUILD_TESTING)
       -DEXPECTED_SONAME=libapt-pkg.so.7.0
       -P ${CMAKE_CURRENT_SOURCE_DIR}/tests/check-apt-abi.cmake)
   add_executable(luxurystore-tests "${LUXURYSTORE_GTK4}/tests.cc")
+  foreach(abi 6 7)
+    add_executable(luxurystore-fixture-helper${abi} "${LUXURYSTORE_GTK4}/helper.cc")
+    target_compile_features(luxurystore-fixture-helper${abi} PRIVATE cxx_std_17)
+    target_compile_definitions(luxurystore-fixture-helper${abi} PRIVATE HAVE_CONFIG_H LUXURYSTORE_FIXTURE_HELPER)
+    target_link_libraries(luxurystore-fixture-helper${abi} PRIVATE luxurystore-apt-backend${abi} PkgConfig::GLIB)
+  endforeach()
   target_compile_features(luxurystore-tests PRIVATE cxx_std_17)
   target_compile_definitions(luxurystore-tests PRIVATE HAVE_CONFIG_H
     LUXURYSTORE_VERSION="${LUXURYSTORE_RELEASE}" LUXURYSTORE_TESTING
     LUXURYSTORE_TEST_STDOUT_LIMIT=65536 LUXURYSTORE_TEST_COMMAND_TIMEOUT_SECONDS=1)
   target_link_libraries(luxurystore-tests PRIVATE luxurystore-apt-backend7 PkgConfig::GTK4 luxe-gtk-ui PkgConfig::VTE PkgConfig::GIO_UNIX)
   add_test(NAME backend
-    COMMAND sh ${CMAKE_CURRENT_SOURCE_DIR}/tests/run-gui-test.sh $<TARGET_FILE:luxurystore-tests>)
+    COMMAND sh ${CMAKE_CURRENT_SOURCE_DIR}/tests/apt-fixture.sh sh ${CMAKE_CURRENT_SOURCE_DIR}/tests/run-gui-test.sh $<TARGET_FILE:luxurystore-tests>)
   set_tests_properties(backend PROPERTIES
     SKIP_RETURN_CODE 77
-    ENVIRONMENT "LUXURYSTORE_TEST_HELPER=$<TARGET_FILE:luxurystore-apt7>")
+    ENVIRONMENT "LUXURYSTORE_TEST_HELPER=$<TARGET_FILE:luxurystore-fixture-helper7>;LUXURYSTORE_PRODUCTION_HELPER=$<TARGET_FILE:luxurystore-apt7>")
   add_executable(luxurystore-tests6 "${LUXURYSTORE_GTK4}/tests.cc")
   target_compile_features(luxurystore-tests6 PRIVATE cxx_std_17)
   target_compile_definitions(luxurystore-tests6 PRIVATE HAVE_CONFIG_H
@@ -128,10 +134,10 @@ if(BUILD_TESTING)
     LUXURYSTORE_TEST_STDOUT_LIMIT=65536 LUXURYSTORE_TEST_COMMAND_TIMEOUT_SECONDS=1)
   target_link_libraries(luxurystore-tests6 PRIVATE luxurystore-apt-backend6 PkgConfig::GTK4 luxe-gtk-ui PkgConfig::VTE PkgConfig::GIO_UNIX)
   add_test(NAME backend-abi6
-    COMMAND sh ${CMAKE_CURRENT_SOURCE_DIR}/tests/run-gui-test.sh $<TARGET_FILE:luxurystore-tests6>)
+    COMMAND sh ${CMAKE_CURRENT_SOURCE_DIR}/tests/apt-fixture.sh sh ${CMAKE_CURRENT_SOURCE_DIR}/tests/run-gui-test.sh $<TARGET_FILE:luxurystore-tests6>)
   set_tests_properties(backend-abi6 PROPERTIES
     SKIP_RETURN_CODE 77
-    ENVIRONMENT "LUXURYSTORE_TEST_HELPER=$<TARGET_FILE:luxurystore-apt6>")
+    ENVIRONMENT "LUXURYSTORE_TEST_HELPER=$<TARGET_FILE:luxurystore-fixture-helper6>;LUXURYSTORE_PRODUCTION_HELPER=$<TARGET_FILE:luxurystore-apt6>")
   foreach(abi 6 7)
     if(abi EQUAL 6)
       set(source_test luxurystore-tests6)
@@ -139,7 +145,7 @@ if(BUILD_TESTING)
       set(source_test luxurystore-tests)
     endif()
     add_test(NAME luxurystore-flatpak-default-${abi}
-      COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/tests/handoff-fixture.sh"
+      COMMAND sh "${CMAKE_CURRENT_SOURCE_DIR}/tests/apt-fixture.sh"
         sh ${CMAKE_CURRENT_SOURCE_DIR}/tests/run-gui-test.sh $<TARGET_FILE:${source_test}>)
     set_tests_properties(luxurystore-flatpak-default-${abi} PROPERTIES
       SKIP_RETURN_CODE 77 ENVIRONMENT "LUXURYSTORE_TEST_FLATPAK=1")
