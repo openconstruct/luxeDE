@@ -1,0 +1,13 @@
+{
+  "fallback_owners": {
+    "luxeterm": "luxeterm",
+    "luxurystore": "luxurystore",
+    "org.luxe.Lucid": "lucid",
+    "org.luxe.LuxUp": "luxup",
+    "umbra": "legacy-external",
+    "pcmanager": "luxe-icons",
+    "org.luxe.Frame": "luxe-icons",
+    "org.luxe.Matinee": "luxe-icons",
+    "org.luxe.Shotty": "luxe-icons"
+  }
+}

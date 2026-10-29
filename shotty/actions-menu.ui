@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <requires lib="gtk" version="4.0" />
+  <template class="ActionsMenu" parent="GtkApplicationWindow">
+    <property name="resizable">True</property>
+    <property name="default-width">620</property>
+    <property name="icon-name">org.luxe.Shotty</property>
+    <property name="title">Shotty</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkGrid">
+            <property name="margin-top">10</property>
+            <property name="margin-bottom">10</property>
+            <property name="margin-start">10</property>
+            <property name="margin-end">10</property>
+            <property name="column_spacing">14</property>
+            <property name="row_spacing">6</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="halign">start</property>
+                <property name="label" translatable="yes">Action</property>
+                <attributes>
+                  <attribute name="weight" value="ultrabold" />
+                </attributes>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="spacing">6</property>
+                <property name="orientation">vertical</property>
+                <property name="valign">center</property>
+                <child>
+                  <object class="GtkCheckButton" id="action_save">
+                    <property name="tooltip-text" translatable="yes">Save the screenshot to a PNG file.</property>
+                    <property name="label" translatable="yes">Save</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="action_copy">
+                    <property name="group">action_save</property>
+                    <property name="tooltip-text" translatable="yes">Copy the screenshot to the clipboard to paste it elsewhere later.</property>
+                    <property name="label" translatable="yes">Copy to clipboard</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkGrid">
+                    <property name="column_spacing">6</property>
+                    <property name="row_spacing">6</property>
+                    <child>
+                      <object class="GtkCheckButton" id="action_open">
+                        <property name="group">action_save</property>
+                        <property name="tooltip-text" translatable="yes">Open the screenshot with the chosen application.</property>
+                        <property name="label" translatable="yes">Open with:</property>
+                        <signal name="toggled" handler="action_open_toggled" />
+                        <layout>
+                          <property name="column">0</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkAppChooserButton" id="png_application">
+                        <property name="content-type">image/png</property>
+                        <property name="tooltip-text" translatable="yes">Choose the desired application.</property>
+                        <layout>
+                          <property name="column">1</property>
+                          <property name="row">0</property>
+                        </layout>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="halign">start</property>
+                <property name="label" translatable="yes">Preview</property>
+                <attributes>
+                  <attribute name="weight" value="ultrabold" />
+                </attributes>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkAspectFrame" id="preview_aspect_frame">
+                <property name="vexpand">True</property>
+                <property name="valign">center</property>
+                <child>
+                  <object class="GtkDrawingArea" id="preview_drawing_area">
+							</object>
+                </child>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <property name="titlebar">
+      <object class="GtkHeaderBar" id="headerbar">
+        <property name="title-widget">
+          <object class="GtkLabel">
+            <property name="label">Shotty</property>
+            <style>
+              <class name="title" />
+            </style>
+          </object>
+        </property>
+        <child>
+          <object class="GtkButton" id="back_button">
+            <property name="icon-name">go-previous-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Back</property>
+            <signal name="clicked" handler="back_button_clicked" />
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkButton" id="ok_button">
+            <property name="label" translatable="yes">OK</property>
+            <signal name="clicked" handler="ok_button_clicked" />
+            <style>
+              <class name="suggested-action" />
+            </style>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkMenuButton">
+            <property name="icon-name">open-menu-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Main menu</property>
+            <property name="popover">
+              <object class="GtkPopoverMenu" id="appmenu_popover">
+                <property name="menu-model">appmenu</property>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+  <menu id="appmenu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">About</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Quit</attribute>
+        <attribute name="action">app.quit</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>

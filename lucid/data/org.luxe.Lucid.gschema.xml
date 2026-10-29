@@ -1,0 +1,19 @@
+<schemalist>
+  <enum id="org.luxe.Lucid.WrapMode"><value nick="none" value="0"/><value nick="char" value="1"/><value nick="word" value="2"/><value nick="word-char" value="3"/></enum>
+  <schema id="org.luxe.Lucid" path="/org/luxe/lucid/">
+    <key name="follow-desktop-theme" type="b"><default>true</default></key>
+    <key name="theme" type="s"><default>'lucid-catppuccin-mocha'</default></key>
+    <key name="font" type="s"><default>'Monospace 12'</default></key>
+    <key name="tab-width" type="u"><default>4</default><range min="1" max="32"/></key>
+    <key name="insert-spaces" type="b"><default>true</default></key>
+    <key name="wrap-mode" enum="org.luxe.Lucid.WrapMode"><default>'none'</default></key>
+    <key name="line-numbers" type="b"><default>true</default></key>
+    <key name="show-right-margin" type="b"><default>false</default></key>
+    <key name="right-margin-position" type="u"><default>100</default><range min="1" max="1000"/></key>
+    <key name="spell-check" type="b"><default>false</default></key>
+    <key name="restore-session" type="b"><default>true</default></key>
+    <key name="sidebar" type="b"><default>false</default></key>
+    <key name="window-width" type="i"><default>1050</default></key>
+    <key name="window-height" type="i"><default>740</default></key>
+  </schema>
+</schemalist>

@@ -1,0 +1,338 @@
+Translator credits preserved from the removed .po catalogs of luxerandr.
+Luxe releases are English-only; translations return by pull request.
+Removed catalogs are recoverable from the 30 Sept 2026 source snapshot.
+
+[af]
+  Last-Translator: Anonymous Pootle User
+
+[ar]
+  Arabic translations for PACKAGE package.
+  Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
+  أحمد فرغل <ahmad.farghal@gmail.com>, 2009.
+  Tareq Al Jurf <taljurf@fedoraproject.org>, 2010.
+  Safa Alfulaij <safa1996alfulaij@gmail.com>, 2014.
+  Last-Translator: Jerome Leclanche <jerome@leclan.ch>
+  Language-Team: Arabic <doc@arabeyes.org>
+
+[ast]
+  Asturian translation of lxlrandr
+  Copyright (C) 2008 THE lxlrandr'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the lxlrandr package.
+  Iñigo Varela <ivarela@softastur.org>, 2010.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Asturian <alministradores@softastur.org>
+
+[be]
+  Last-Translator: Anonymous Pootle User
+
+[bg]
+  Last-Translator: Anonymous Pootle User
+  Language-Team: MIME-Version: 1.0
+
+[bn]
+  Bengali translation of lxshortcut.po
+  Sankarshan <sankarshan.mukhopadhyay@gmail.com>, 2009.
+  Loba Yeasmeen <loba@ankur.org.bd>, 2010.
+  Last-Translator: system user <>
+  Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>
+
+[bn_IN]
+  Last-Translator: system user <>
+
+[ca]
+  luxerandr.po CATALAN TRANSLATION
+  Last-Translator: Davidmp <rbndavid@gmail.com>
+  Language-Team: LXDE Catalan translators group
+
+[cs]
+  Czech translations for luxerandr package.
+  Copyright (C) 2009 THE lxrandr'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxerandr package.
+  Michal Várady <miko.vaji@gmail.com>, 2009.
+  Last-Translator: system user <>
+  Language-Team: Czech
+
+[da]
+  Danish translation LuxeRandR.
+  Copyright (C) 2010 LXRandR & nedenstående oversættere.
+  This file is distributed under the same license as the LuxeRandR package.
+  Joe Hansen <joedalton2@yahoo.dk>, 2010.
+  Last-Translator: scootergrisen <scootergrisen@gmail.com>
+  Language-Team: Danish <dansk@dansk-gruppen.dk>
+
+[de]
+  Last-Translator: H.Humpel <H.Humpel@gmx.de>
+
+[el]
+  Last-Translator: Anonymous Pootle User
+
+[en_GB]
+  This file is distributed under the same license as the Lxrandr package.
+  Last-Translator: system user <>
+  Language-Team: English UK en_GB
+
+[es]
+  Spanish translation of lxlrandr
+  Copyright (C) 2008 THE lxlrandr'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the lxlrandr package.
+  Julio Napurí Carlos <julionc@gmail.com>, 2008.
+  Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>
+  Language-Team: Spanish <es@li.org>
+
+[et]
+  luxerandr'i eesti keel tõlge
+  Estonian translation of luxerandr
+  Copyright (C) 2008 LXDE
+  This file is distributed under the same license as the luxerandr package.
+  Mattias Põldaru <mahfiaz gmail com>, 2008.
+  Last-Translator: Anari Jalakas <anari.jalakas@gmail.com>
+  Language-Team: Gnome Estonian Translation Team <gnome-et@linux.ee>
+
+[eu]
+  Last-Translator: Asier Iturralde Sarasola <asier.iturralde@gmail.com>
+  Language-Team: Basque <alainmendi@gmail.com>
+
+[fa]
+  Last-Translator: system user <>
+
+[fi]
+  Finnish translation for LXRandr
+  Copyright (C) 2008
+  Elias Julkunen <elias.julkunen@gmail.com>, 2008.
+  Last-Translator: Juhani Numminen <juhaninumminen0@gmail.com>
+
+[fo]
+  Last-Translator: system user <>
+
+[fr]
+  Last-Translator: Jerome Leclanche <jerome@leclan.ch>
+
+[frp]
+  Last-Translator: system user <>
+
+[gl]
+  Miguel Anxo Bouzada <mbouzada@gmail.com>, 2014.
+  Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>
+  Language-Team: Galician <proxecto@trasno.net>
+
+[he]
+  Last-Translator: system user <>
+
+[hr]
+  zvacet <ikoli@yahoo.com>, 2010.
+  Last-Translator: Ivica Kolić <ikoli@yahoo.com>
+  Language-Team: <asjlob AT vip.hr>
+
+[hu]
+  Hungarian translation of luxerandr.
+  Copyright (C) 2010-2011 The LXDE Team
+  This file is distributed under the same license as the luxerandr package.
+  Attila Szervac <sas@321.hu>, 2010.
+  Laszlo Dvornik <rezuri@zoho.com>, 2011.
+  Last-Translator: Balázs Úr <urbalazs@gmail.com>
+  Language-Team: Hungarian
+
+[id]
+  Indonesian translations for luxerandr package.
+  Copyright (C) YEAR THE lxrandr'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxerandr package.
+  Andhika Padmawan <andhika.padmawan@gmail.com>, Rahman Yusri Aftian <aftian@yahoo.com>, 2009.
+  Andika Triwidada <andika@gmail.com>, 2010.
+  Last-Translator: Andika Triwidada <andika@gmail.com>
+  Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>
+
+[is]
+  Sveinn í Felli <sv1@fellsnet.is>, 2014.
+  Last-Translator: Sveinn í Felli <sveinki@nett.is>
+  Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>
+
+[it]
+  Translation of luxerandr to Italian
+  Copyright (C) 2009 Fabio Barone <phonky at gmx.net>
+  This file is distributed under the same license as the luxerandr package
+  Fabio Barone <phonky at gmx.net>, 2009
+  Alessandro Pellizzari <alex@amiran.it>
+  Andrea Florio <andrea@opensuse.org>, 2010.
+  Daniele Forsi <daniele@forsi.it>, 2012.
+  Last-Translator: Daniele Forsi <daniele@forsi.it>
+  Language-Team: Italian
+
+[ja]
+  Japanese translations for luxerandr package
+  luxerandr パッケージに対する日本語訳.
+  Copyright (C) 2008-2009 THE lxrandr'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxerandr package.
+  Hironao Komatsu <hironao@users.sourceforge.net>, 2009.
+  IWAI, Masaharu <iwai@alib.jp>, 2009.
+  Last-Translator: rago1975 <take1975@kumamoto.email.ne.jp>
+  Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>
+
+[kk]
+  Kazakh translation for luxerandr.
+  Copyright (C) 2012 The LXDE team
+  This file is distributed under the same license as the LXDE package.
+  Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2012.
+  Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>
+  Language-Team: Kazakh <kk_KZ@googlegroups.com>
+
+[ko]
+  Korean translation for hte luxerandr project.
+  Copyright (C) 2009-2012 Free software foundation Inc.
+  This file is distributed under the same license as the luxerandr package.
+  Seong-ho Cho <darkcircle.0426@gmail.com>, 2012.
+  Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>
+
+[lg]
+  Last-Translator: kizito <kbirabwa@yahoo.co.uk>
+
+[lt]
+  Last-Translator: Moo <hazap@hotmail.com>
+
+[ml]
+  Last-Translator: system user <>
+
+[ms]
+  Last-Translator: system user <>
+
+[nb]
+  Last-Translator: system user <>
+
+[nl]
+  Dutch translation of the luxerandr package.
+  Copyright (C) the author of the lxrandr package.
+  This file is distributed under the same license as the
+  luxerandr package.
+  Pjotr, 2011.
+  Last-Translator: Pjotr <pjotrvertaalt@gmail.com>
+  Language-Team: Dutch
+
+[nn]
+  Translation of luxerandr to Norwegian Nynorsk
+  Copyright © 2009 Karl Ove Hufthammer <karl@huftis.org>
+  This file is distributed under the same license as the luxerandr package.
+  Karl Ove Hufthammer <karl@huftis.org>, 2009.
+  Last-Translator: system user <>
+  Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>
+
+[pa]
+  Last-Translator: system user <>
+
+[pl]
+  Polish translation for luxerandr package.
+  Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxerandr package.
+  Artur Kruszewski <mazdac@gmail.com>, 2009.
+  Piotr Sokół <psokol@jabster.pl>, 2011.
+  Last-Translator: Piotr Strębski <strebski@o2.pl>
+  Language-Team: Polish <>
+
+[ps]
+  Last-Translator: Anonymous Pootle User
+
+[pt]
+  Portuguese translation for luxerandr package.
+  Copyright (C) 2009 THE lxrandr'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxerandr package.
+  <alvarommorais@gmail.com>, 2009.
+  Sérgio Marques <smarquespt@gmail.com>, 2009-2012
+  Adaptado ao acordo ortográfico de 1990
+  Last-Translator: Sérgio Marques <smarquespt@gmail.com>
+  Language-Team: Portuguese
+
+[pt_BR]
+  Brazilian Portuguese Translations for luxerandr package.
+  Copyright (C) 2009 The lxrandr authors.
+  This file is distributed under the same license as the luxerandr package.
+  Henrique P. Machado <zehrique@gmail.com>, 2009.
+  Sérgio Cipolla <secipolla@gmail.com>, 2010, 2011.
+  Last-Translator: Felipe Braga <fbobraga@gmail.com>
+  Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>
+
+[ro]
+  Last-Translator: system user <>
+
+[ru]
+  Russian translations for PACKAGE package
+  Английские переводы для пакета PACKAGE.
+  Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
+  Vitaly Pashkov <admin@fluda.net>, 2009.
+  Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>
+  Language-Team: Russian
+
+[sk]
+  Slovak translation of luxerandr
+  Copyright (C) 2006 lxde team
+  This file is distributed under the same license as the luxerandr package.
+  Ivan MasÃ¡r <helix84@centrum.sk>, 2009.
+  Last-Translator: mirek <mirek@cnl.sk>
+  Language-Team: Slovak <sk-i18n@lists.linux.sk>
+
+[sl]
+  Slovenian translation of luxerandr.
+  Copyright (C) 2011 - 2013 Free Software Foundation, Inc.
+  This file is distributed under the same license as the luxerandr package.
+  Klemen Košir <klemen913@gmail.com>, 2011 - 2013.
+  Last-Translator: system user <>
+  Language-Team: Slovenian <lugos-slo@lugos.si>
+
+[sr]
+  Serbian translation for LuxeRandR package
+  This file is distributed under the same license as the LuxeRandR package.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2009.
+  Last-Translator: markos <jezzivi@yahoo.com>
+
+[sr@latin]
+  Serbian translation for LuxeRandR package
+  This file is distributed under the same license as the LuxeRandR package.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2009.
+  Last-Translator: system user <>
+
+[sv]
+  Translation of luxerandr to Swedish
+  Copyright (C) 2009 Martin Bagge <brother@bsnet.se>
+  This file is distributed under the same license as the luxerandr package.
+  Martin Bagge <brother@bsnet.se>, 2009.
+  Last-Translator: Martin Bagge <brother@bsnet.se>
+  Language-Team: Swedish <tp-sv@listor.tp-sv.se>
+
+[te]
+  Last-Translator: Praveen Illa <mail2ipn@gmail.com>
+
+[th]
+  Last-Translator: Anonymous Pootle User
+
+[tr]
+  Last-Translator: nyucel <necdetyucel@gmail.com>
+
+[tt_RU]
+  Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2011.
+  Last-Translator: system user <>
+  Language-Team: Tatar <>
+
+[ug]
+  Uyghur translation for luxerandr.
+  Gheyret Kenji <gheyret@gmail.com>, 2011.
+  Last-Translator: system user <>
+  Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>
+
+[uk]
+  Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>
+
+[ur]
+  Last-Translator: system user <>
+  Language-Team: Urdu <makki.ma@gmail.com>
+
+[ur_PK]
+  Last-Translator: system user <>
+  Language-Team: Urdu <makki.ma@gmail.com>
+
+[vi]
+  Last-Translator: system user <>
+
+[zh_CN]
+  Last-Translator: Jerome Leclanche <jerome@leclan.ch>
+  Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>
+
+[zh_TW]
+  Last-Translator: wwycheuk <wwycheuk@gmail.com>
+  Language-Team: zh_TW

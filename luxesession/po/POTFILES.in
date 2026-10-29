@@ -1,0 +1,10 @@
+luxesession-logout/luxesession-logout.c
+luxesession-edit/luxesession-edit.c
+luxesession-edit/luxesession-edit-common.c
+[type: gettext/glade]data/ui/luxesession-edit.ui
+[type: gettext/glade]data/ui/luxesession-default-apps.ui
+data/luxesession-edit.desktop.in
+data/luxesession-default-apps.desktop.in
+luxesession-default-apps/main.vala
+luxesession-default-apps/combobox.vala
+luxesession/app.c

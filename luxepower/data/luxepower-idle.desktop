@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=LuxePower Idle Monitor
+Comment=Lock the screen after the configured idle time
+Exec=@CMAKE_INSTALL_FULL_LIBEXECDIR@/luxepower-idle
+Icon=org.luxe.LuxePower
+Terminal=false
+NoDisplay=true
+X-GNOME-Autostart-enabled=true
+OnlyShowIn=X-Luxe;LXDE;

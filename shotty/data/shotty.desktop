@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Shotty
+GenericName=Screenshot Tool
+Comment=Take screenshots of the screen, a window, or a selected region
+Exec=shotty
+Icon=org.luxe.Shotty
+Terminal=false
+Categories=GTK;Utility;
+Keywords=screenshot;capture;screen;shotty;
+StartupWMClass=shotty

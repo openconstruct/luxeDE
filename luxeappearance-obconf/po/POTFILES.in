@@ -1,0 +1,10 @@
+src/main.c
+src/appearance.c
+src/archive.c
+src/desktops.c
+src/preview.c
+src/preview_update.c
+src/theme.c
+src/tree.c
+[type: gettext/glade]data/obconf.ui
+data/obconf.desktop

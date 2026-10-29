@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=LuxeTerm
+GenericName=Terminal
+Comment=Use the command line
+TryExec=luxeterm
+Exec=luxeterm
+Icon=luxeterm
+Type=Application
+Categories=GTK;System;TerminalEmulator;
+Keywords=console;command line;execute;

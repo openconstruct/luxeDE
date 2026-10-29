@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=LuxeAppearance-ObConf
+GenericName=Window Manager Settings
+Icon=luxeappearance-obconf
+Exec=luxeappearance-obconf
+Comment=Configure the Openbox window manager
+StartupNotify=true
+Terminal=false
+Categories=GTK;Settings;DesktopSettings;X-LXDE-Settings;
+OnlyShowIn=LXDE;X-Luxe;

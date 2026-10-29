@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=slab
+Comment=Experimental lightweight dock for luxe
+Exec=slab
+TryExec=slab
+Icon=preferences-desktop
+Terminal=false
+Categories=Utility;
+StartupNotify=false

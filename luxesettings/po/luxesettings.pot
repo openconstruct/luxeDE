@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the luxesettings package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: luxesettings 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-28 23:20-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/main.c:29 src/main.c:220
+msgid "luxe Settings"
+msgstr ""
+
+#: src/main.c:32
+msgid "Settings hub for the luxe desktop."
+msgstr ""
+
+#: src/main.c:50
+msgid "Could not open this setting"
+msgstr ""
+
+#: src/main.c:113
+msgid "This setting is unavailable because its program is not installed."
+msgstr ""
+
+#: src/main.c:122
+msgid "Not installed"
+msgstr ""
+
+#: src/main.c:144
+msgid "Configure your desktop"
+msgstr ""
+
+#: src/main.c:148
+msgid "Configure the luxe desktop from one place."
+msgstr ""
+
+#: src/main.c:225
+msgid "About luxe Settings"
+msgstr ""
+
+#: src/main.c:228
+msgid "Main menu"
+msgstr ""
+
+#: src/main.c:232 src/main.c:234
+msgid "Refresh available settings"
+msgstr ""
+
+#: src/settings-actions.c:22 src/settings-actions.c:23
+msgid "Appearance"
+msgstr ""
+
+#: src/settings-actions.c:22
+msgid "Theme, colors, fonts, icons, and light or dark mode"
+msgstr ""
+
+#: src/settings-actions.c:23
+msgid "Window Decorations"
+msgstr ""
+
+#: src/settings-actions.c:23
+msgid "Openbox theme, window borders, behavior, and virtual desktops"
+msgstr ""
+
+#: src/settings-actions.c:24 src/settings-actions.c:25
+msgid "Desktop"
+msgstr ""
+
+#: src/settings-actions.c:24
+msgid "Wallpaper"
+msgstr ""
+
+#: src/settings-actions.c:24
+msgid "Choose a wallpaper folder; rotate daily or at next login"
+msgstr ""
+
+#: src/settings-actions.c:25
+msgid "Panel"
+msgstr ""
+
+#: src/settings-actions.c:25
+msgid "Panel layout, applets, and taskbar behavior"
+msgstr ""
+
+#: src/settings-actions.c:26 src/settings-actions.c:27
+#: src/settings-actions.c:28
+msgid "Devices"
+msgstr ""
+
+#: src/settings-actions.c:26
+msgid "Keyboard & Mouse"
+msgstr ""
+
+#: src/settings-actions.c:26
+msgid ""
+"Pointer behavior, key repeat, sound, and optional keyboard layout editing"
+msgstr ""
+
+#: src/settings-actions.c:27
+msgid "Displays"
+msgstr ""
+
+#: src/settings-actions.c:27
+msgid "Screen resolution, layout, and monitor settings"
+msgstr ""
+
+#: src/settings-actions.c:28
+msgid "Power"
+msgstr ""
+
+#: src/settings-actions.c:28
+msgid "Battery, sleep, lid, brightness, and locking"
+msgstr ""
+
+#: src/settings-actions.c:29 src/settings-actions.c:30
+#: src/settings-actions.c:31 src/settings-actions.c:32
+msgid "System"
+msgstr ""
+
+#: src/settings-actions.c:29
+msgid "Keyboard Shortcuts"
+msgstr ""
+
+#: src/settings-actions.c:29
+msgid "Manage global keyboard shortcuts"
+msgstr ""
+
+#: src/settings-actions.c:30
+msgid "Default Applications"
+msgstr ""
+
+#: src/settings-actions.c:30
+msgid "Choose the applications Luxe opens by default"
+msgstr ""
+
+#: src/settings-actions.c:31
+msgid "Startup Applications"
+msgstr ""
+
+#: src/settings-actions.c:31
+msgid "Manage programs that start with your session"
+msgstr ""
+
+#: src/settings-actions.c:32
+msgid "Software"
+msgstr ""
+
+#: src/settings-actions.c:32
+msgid "Browse, install, and update software"
+msgstr ""

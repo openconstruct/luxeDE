@@ -1,0 +1,5 @@
+# Copyright (C) 2026 Jerry Howell
+# SPDX-License-Identifier: GPL-2.0-or-later
+# RPM post-install/uninstall scriptlets for packages carrying GSettings
+# schemas. Debian packages use the glib-2.0-schemas dpkg trigger instead.
+glib-compile-schemas /usr/share/glib-2.0/schemas >/dev/null 2>&1 || :

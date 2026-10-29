@@ -1,0 +1,4 @@
+/etc/luxedm.conf
+/etc/luxedm-lock.conf
+/etc/pam.d/luxedm
+/etc/pam.d/luxedm-lock

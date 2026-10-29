@@ -1,0 +1,198 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <requires lib="gtk" version="4.0" />
+  <template class="ScreenshotMenu" parent="GtkApplicationWindow">
+    <property name="resizable">False</property>
+    <property name="icon-name">org.luxe.Shotty</property>
+    <property name="title">Shotty</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkGrid">
+            <property name="margin-top">10</property>
+            <property name="margin-bottom">10</property>
+            <property name="margin-start">10</property>
+            <property name="margin-end">10</property>
+            <property name="column_spacing">14</property>
+            <property name="row_spacing">6</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="halign">start</property>
+                <property name="label" translatable="yes">Capture mode</property>
+                <attributes>
+                  <attribute name="weight" value="ultrabold" />
+                </attributes>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkGrid">
+                <property name="column_spacing">6</property>
+                <property name="row_spacing">6</property>
+                <property name="valign">center</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">Area:</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkDropDown" id="area_list">
+                    <property name="hexpand">True</property>
+                    <property name="model">
+                      <object class="GtkStringList">
+                        <items>
+                          <item translatable="yes">Entire screen</item>
+                          <item translatable="yes">Active window</item>
+                          <item translatable="yes">Select a region</item>
+                        </items>
+                      </object>
+                    </property>
+                    <property name="tooltip-text" translatable="yes">Choose what area of the screen will be captured.</property>
+                    <signal name="notify::selected" handler="area_list_changed" />
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="row">0</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">Delay:</property>
+                    <layout>
+                      <property name="column">0</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox">
+                    <property name="spacing">6</property>
+                    <child>
+                      <object class="GtkSpinButton" id="delay_value">
+                        <property name="numeric">True</property>
+                        <property name="adjustment">delay</property>
+                        <property name="tooltip-text" translatable="yes">Delay before the screenshot will be captured (in seconds).</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkCheckButton" id="delay_disable">
+                        <property name="tooltip-text" translatable="yes">Disable the delay (effectively sets it to 0).</property>
+                        <property name="label" translatable="yes">No delay</property>
+                        <signal name="toggled" handler="delay_disable_toggled" />
+                      </object>
+                    </child>
+                    <layout>
+                      <property name="column">1</property>
+                      <property name="row">1</property>
+                    </layout>
+                  </object>
+                </child>
+                <layout>
+                  <property name="column">0</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel">
+                <property name="halign">start</property>
+                <property name="label" translatable="yes">Capture options</property>
+                <attributes>
+                  <attribute name="weight" value="ultrabold" />
+                </attributes>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="row">0</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="spacing">6</property>
+                <property name="orientation">vertical</property>
+                <property name="valign">center</property>
+                <child>
+                  <object class="GtkCheckButton" id="include_cursor">
+                    <property name="tooltip-text" translatable="yes">Display the mouse pointer on the screenshot.</property>
+                    <property name="label" translatable="yes">Include mouse pointer</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkCheckButton" id="include_decorations">
+                    <property name="tooltip-text" translatable="yes">Display window decorations (titlebar, borders, etc.) on the screenshot.</property>
+                    <property name="label" translatable="yes">Include window decorations</property>
+                  </object>
+                </child>
+                <layout>
+                  <property name="column">1</property>
+                  <property name="row">1</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <property name="titlebar">
+      <object class="GtkHeaderBar" id="headerbar">
+        <property name="title-widget">
+          <object class="GtkLabel">
+            <property name="label">Shotty</property>
+            <style>
+              <class name="title" />
+            </style>
+          </object>
+        </property>
+        <child type="end">
+          <object class="GtkButton">
+            <property name="label" translatable="yes">OK</property>
+            <property name="tooltip-text" translatable="yes">Take the screenshot with the chosen settings.</property>
+            <signal name="clicked" handler="screenshot_button_clicked" />
+            <style>
+              <class name="suggested-action" />
+            </style>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkMenuButton">
+            <property name="icon-name">open-menu-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Main menu</property>
+            <property name="popover">
+              <object class="GtkPopoverMenu" id="appmenu_popover">
+                <property name="menu-model">appmenu</property>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+  <object class="GtkAdjustment" id="delay">
+    <property name="lower">1</property>
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">5</property>
+  </object>
+  <menu id="appmenu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">About</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Quit</attribute>
+        <attribute name="action">app.quit</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>

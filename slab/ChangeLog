@@ -1,0 +1,49 @@
+0.2.9~testing2 (2026-10-27)
+  - Refresh retained application metadata and icons without replacing the dock
+    button when a desktop entry changes.
+
+0.2.9~testing1 (2026-10-12)
+  - Remove the dock's thin border and theme shadow; retain background opacity
+    control and opaque icons/indicators.
+
+0.2.8~testing1 (2026-10-12)
+  - Add --reveal and a focus-preserving remote reveal action. Never start the
+    dock when absent; the CLI returns without initializing GTK.
+  - Validate actual pointer position while visible after remote remapping,
+    preventing a stale hover flag from blocking autohide.
+  - Test absent-dock CLI and running-dock reveal without changing focus.
+
+0.2.7~testing1 (2026-10-12)
+  - Use retained native X window geometry while hidden, not GTK's zero-sized
+    hidden allocation, to prevent the reveal strip collapsing/recentering.
+  - Verify hidden model refresh preserves trigger width and position.
+
+0.2.6~testing1 (2026-10-12)
+  - Widen edge reveal to at least 96px and deepen it to 12px (scale aware).
+  - Keep the dock visible while the pointer crosses or rests in its bottom gap.
+  - Re-raise hidden reveal target on window stacking/workarea changes.
+  - Test bottom-edge dwell and repeated reveal/hide cycles under Openbox.
+
+0.2.5~testing1 (2026-10-12)
+  - Replace numeric window counts with theme-colored dots around each icon,
+    one per running window. Active groups use larger contrasting dots.
+  - Preserve background-only transparency and opaque icons/indicators.
+  - Verify two-window indicator rendering in the isolated behavioral test.
+
+0.2.4~testing1 (2026-10-12)
+  - Apply opacity only to the themed background, retaining fully opaque icons,
+    indicators and controls. Rename the setting to Background opacity.
+
+0.2.3~testing1 (2026-10-12)
+  - Keep About and management exclusively in slab Settings.
+  - Add live persistent gap, padding, margin and opacity controls.
+  - Add optional installed GTK theme override; blank resumes desktop following.
+  - Add optional short hover transitions, disabled by default; no animation loop.
+  - Test live spacing/opacity and theme override/reset behavior.
+
+0.2.2~testing1 (2026-10-12)
+  - Compact dock: 20px default icons, smaller spacing and overlaid window counts.
+  - Remove in-dock settings controls; package a separate slab Settings launcher.
+  - Persist icon size and autohide; support remote start/show, stop and pin management.
+  - Follow desktop GTK theme, icon theme and dark preference live.
+  - Add isolated settings, theme and remote-action regression coverage.

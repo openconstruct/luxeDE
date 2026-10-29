@@ -1,0 +1,49 @@
+#!/bin/sh
+# Copyright (C) 2026 Jerry Howell
+# SPDX-License-Identifier: GPL-2.0-or-later
+set -e
+
+. /usr/share/debconf/confmodule
+
+write_default()
+{
+    target=$1
+    value=$2
+    temporary=$(mktemp /etc/X11/.default-display-manager.XXXXXX)
+    trap 'rm -f "$temporary"' EXIT
+    trap 'rm -f "$temporary"; exit 1' HUP INT TERM
+    printf '%s\n' "$value" > "$temporary"
+    chmod 0644 "$temporary"
+    chown root:root "$temporary"
+    mv -fT "$temporary" "$target"
+    trap - EXIT HUP INT TERM
+}
+
+if [ "$1" = configure ]; then
+    /usr/libexec/luxedm-migrate-slim-config || true
+    default_file=/etc/X11/default-display-manager
+    if [ ! -e "$default_file" ]; then
+        selected=luxedm
+        if db_get shared/default-x-display-manager && [ -n "$RET" ]; then
+            selected=$RET
+        fi
+        daemon=/usr/bin/luxedm
+        if [ "$selected" != luxedm ] && db_get "$selected/daemon_name" && [ -n "$RET" ]; then
+            daemon=$RET
+        fi
+        install -d -m 0755 /etc/X11
+        write_default "$default_file" "$daemon"
+    fi
+    rm -f "$default_file.dpkg-tmp"
+    if command -v systemctl >/dev/null 2>&1; then
+        systemctl daemon-reload >/dev/null 2>&1 || true
+        selected_service=$(basename "$(cat "$default_file")").service
+        if [ -e "/lib/systemd/system/$selected_service" ] ||
+           [ -e "/usr/lib/systemd/system/$selected_service" ]; then
+            systemctl enable --force "$selected_service" >/dev/null 2>&1 || true
+        fi
+    fi
+fi
+
+db_stop || true
+exit 0

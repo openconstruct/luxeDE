@@ -1,0 +1,7 @@
+LuxeNotify is an original Luxe desktop component.
+
+Copyright (C) 2026 Jerry Howell
+
+The source and binaries are distributed under the GNU General Public License,
+version 2 or (at your option) any later version. See COPYING for the complete
+license text.

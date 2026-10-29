@@ -1,0 +1,249 @@
+Translator credits preserved from the removed .po catalogs of luxepolkit.
+Luxe releases are English-only; translations return by pull request.
+Removed catalogs are recoverable from the 30 Sept 2026 source snapshot.
+
+[af]
+  (no translator named in header)
+
+[am]
+  (no translator named in header)
+
+[ar]
+  Tareq Al Jurf <taljurf@fedoraproject.org>, 2010.
+  Last-Translator: Tareq Al Jurf <taljurf@fedoraproject.org>
+  Language-Team: Arabic <trans-ar@lists.fedoraproject.org>
+
+[be]
+  Last-Translator: Анік <xabzan9tka@gmail.com>
+
+[bg]
+  Last-Translator: Радослав Иванов <rec_ku@hotmail.com>
+  Language-Team: MIME-Version: 1.0
+
+[bn]
+  (no translator named in header)
+
+[bn_IN]
+  Last-Translator: Sankarshan <sankarshan.mukhopadhyay@gmail.com>
+
+[ca]
+  (no translator named in header)
+
+[cs]
+  (no translator named in header)
+
+[da]
+  Last-Translator: Vidar Jon Bauge <vidarjb@gmail.com>
+
+[de]
+  Last-Translator: Lutz Thuns <lOtz1009@opensuse.org>
+  Language-Team: German
+
+[el]
+  Last-Translator: <edhunter@sidux.com>
+
+[en_GB]
+  Last-Translator: Steve Cook (Yorvyk) <yorvik.ubunto@googlemail.com>
+  Language-Team: English UK en_GB <yorvik.ubunto@gmail.com>
+
+[es]
+  Spanish (Castilian) translation for LuxePolkit package.
+  Copyright (C) 2010 The LXDE Team.
+  This file is distributed under the same license as the LuxePolkit package.
+  Hugo Florentino <sysadmin@cips.cu>, 2010.
+  Last-Translator: Hugo Florentino <sysadmin@cips.cu>
+  Language-Team: Spanish
+
+[es_VE]
+  Spanish (Castilian) translation for LuxePolkit package.
+  Copyright (C) 2010 The LXDE Team.
+  This file is distributed under the same license as the LuxePolkit package.
+  Hugo Florentino <sysadmin@cips.cu>, 2010.
+  Last-Translator: Hugo Florentino <sysadmin@cips.cu>
+  Language-Team: Spanish
+
+[et]
+  (no translator named in header)
+
+[eu]
+  (no translator named in header)
+
+[fa]
+  Last-Translator: Hamidreza <n3gb0y@gmail.com>
+
+[fi]
+  (no translator named in header)
+
+[fo]
+  Last-Translator: Gunleif <gunleif@gmail.com>
+
+[fr]
+  Last-Translator: Cilyan <gaknar@gmail.com>
+
+[frp]
+  (no translator named in header)
+
+[gl]
+  Last-Translator: Indalecio <ifreiria@gmail.com>
+
+[he]
+  Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>
+  Language-Team: Hebrew <sh.yaron@gmail.com>
+
+[hr]
+  Croatian translations for luxepolkit package.
+  Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxepolkit package.
+  Ivica Kolić<ikoli@yahoo.com>, 2010.
+  Ivica Kolić<ikoli@yahoo.com> <>, 2010.
+  Last-Translator: zvacet <ikoli@yahoo.com>
+  Language-Team: Croatian <>
+
+[hu]
+  Hungarian translation of luxepolkit.
+  Copyright (C) 2010 The LXDE Team
+  This file is distributed under the same license as the luxepolkit package.
+  Laszlo Dvornik <dvornik@gnome.hu>, 2010.
+  Last-Translator: Laszlo Dvornik <dvornik@gnome.hu>
+  Language-Team: Hungarian <hu@li.org>
+
+[id]
+  (no translator named in header)
+
+[it]
+  luxepolkit it po file.
+  Copyright (C) 2010
+  This file is distributed under the same license as the luxepolkit package.
+  Andrea Florio <andrea@opensuse.org> 2010.
+  Last-Translator: Andrea Florio <andrea@opensuse.org>
+  Language-Team: Italian <it@li.org>
+
+[ja]
+  Japanese translations for luxepolkit package
+  luxepolkit パッケージに対する日本語訳.
+  Copyright (C) 2010 THE lxpolkit'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxepolkit package.
+  Hironao Komatsu <hironao@users.sourceforge.net>, 2010.
+  Last-Translator: Hironao Komatsu <hironao@users.sourceforge.net>
+  Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>
+
+[km]
+  Last-Translator: <satyathavy@gmail.com>
+
+[ko]
+  (no translator named in header)
+
+[lg]
+  Last-Translator: kizito <kbirabwa@yahoo.co.uk>
+
+[lt]
+  Last-Translator: Julius <zadintuvas@gmail.com>
+
+[ml]
+  (no translator named in header)
+
+[ms]
+  (no translator named in header)
+
+[nb]
+  Last-Translator: Sam <wilsonsamm@hotmail.com>
+
+[nl]
+  Dutch translation for the luxepolkit package.
+  Copyright (C) the author of the lxpolkit package.
+  This file is distributed under the same license as the
+  luxepolkit package.
+  Pjotr, 2011.
+  Last-Translator: Pjotr
+  Language-Team: Dutch
+
+[nn]
+  (no translator named in header)
+
+[pl]
+  Last-Translator: Grzegorz Gibas <amigib@gmail.com>
+  Language-Team: Polish translation team <piotr.sokol@10g.pl>
+
+[ps]
+  (no translator named in header)
+
+[pt]
+  Portuguese translation of LuxePolkit package.
+  Copyright (C) 2010 The LXDE Team.
+  This file is distributed under the same license as the LuxePolkit package.
+  Sérgio Marques <smarquespt@gamial.com>, 2010.
+  Adaptado ao acordo ortográfico de 1990
+  Last-Translator: Sérgio <smarquespt@gmail.com>
+
+[pt_BR]
+  Brazilian Portuguese translation of LuxePolkit package.
+  Copyright (C) 2010 The LXDE Team.
+  This file is distributed under the same license as the LuxePolkit package.
+  Henrique P. Machado <zehrique@ubuntu.com>, 2010.
+  Last-Translator: Henrique P. Machado <zehrique@ubuntu.com>
+  Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>
+
+[ro]
+  (no translator named in header)
+
+[ru]
+  Last-Translator: Max <mpui@tut.by>
+
+[si]
+  Last-Translator: danishka <danishka@gmail.com>
+
+[sk]
+  (no translator named in header)
+
+[sl]
+  Last-Translator: Klemen <klemen.kosir@gmx.com>
+
+[sr]
+  Serbian translation for LXPolKit package
+  Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the LXPolKit package.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2010.
+  Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>
+
+[sr@latin]
+  Serbian translation for LXPolKit package
+  Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the LXPolKit package.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2010.
+  Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>
+
+[sv]
+  Last-Translator: Martin <brother@bsnet.se>
+
+[te]
+  (no translator named in header)
+
+[th]
+  (no translator named in header)
+
+[tr]
+  Last-Translator: enginmanap <enginmanap@gmail.com>
+
+[tt_RU]
+  Last-Translator: Айнур <ainur.shakirov.tt@gmail.com>
+
+[uk]
+  Copyright 2010 (C)
+  Yarema aka Knedlyk <yupadmin@gmail.com>
+  Last-Translator: Yarema aka Knedlyk <yupadmin@gmail.com>
+  Language-Team: UKRAINIAN <ukrainian@li.org>
+
+[ur]
+  (no translator named in header)
+
+[ur_PK]
+  (no translator named in header)
+
+[vi]
+  Last-Translator: Mario <mb@mariobehling.de>
+
+[zh_CN]
+  Last-Translator: Yinghua_Wang <wantinghard@gmail.com>
+
+[zh_TW]
+  Last-Translator: Hong Jen Yee (PCMan) <pcman.tw@gmail.com>

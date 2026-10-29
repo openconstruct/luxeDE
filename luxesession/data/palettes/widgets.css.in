@@ -1,0 +1,63 @@
+/* Copyright (C) 2026 Jerry Howell. SPDX-License-Identifier: GPL-2.0-or-later */
+/* Adwaita supplies geometry/assets; these rules coordinate every major surface. */
+window, .background { background-color: @bg@; color: @fg@; }
+.view, iconview, treeview, textview text, entry, spinbutton, notebook > stack {
+  background-color: @view@; color: @fg@;
+}
+.view:backdrop, iconview:backdrop, treeview:backdrop, textview text:backdrop,
+list:backdrop, listview:backdrop, gridview:backdrop {
+  background-color: @view@; color: @muted@; border-color: @border@;
+}
+headerbar, .titlebar, toolbar, .toolbar, .sidebar {
+  background-image: none; background-color: @raised@; color: @fg@;
+}
+headerbar:backdrop, .titlebar:backdrop { background-color: @bg@; color: @muted@; }
+button { background-image: none; background-color: @raised@; color: @fg@;
+  border-color: alpha(@border@, 0.6); text-shadow: none; }
+button:hover, button:checked { background-color: mix(@raised@, @fg@, 0.1); }
+button:active { background-color: mix(@raised@, @view@, 0.3); }
+button:disabled, entry:disabled { color: @muted@; background-color: @bg@; }
+button.flat, headerbar button { background-color: transparent; border-color: transparent; }
+button.flat:hover, headerbar button:hover { background-color: alpha(@fg@, 0.1); }
+button.suggested-action, button.suggested-action:hover, button.suggested-action:active {
+  background-color: @accent@; color: @on_accent@; border-color: @accent@;
+}
+button.destructive-action, button.destructive-action:hover, button.destructive-action:active {
+  background-color: #a51d2d; color: #ffffff; border-color: #a51d2d;
+}
+button.suggested-action:disabled, button.destructive-action:disabled {
+  background-color: @raised@; color: @muted@; border-color: @border@;
+}
+selection, .view:selected, treeview:selected, iconview:selected,
+row:selected, flowboxchild:selected { background-color: @accent@; color: @on_accent@; }
+list, listview, gridview { background-color: @view@; color: @fg@; }
+row:hover:not(:selected), flowboxchild:hover:not(:selected) { background-color: alpha(@fg@, 0.08); }
+popover > contents, popover.background > contents, popover.background > arrow,
+popover.menu.background > contents, popover.menu > arrow,
+menu, tooltip, tooltip.background, .card, dialog.background {
+  background-color: @raised@; color: @fg@; border-color: @border@;
+}
+menuitem:hover { background-color: @accent@; color: @on_accent@; }
+modelbutton:hover, modelbutton:selected,
+dropdown popover listview > row.activatable:selected,
+dropdown popover listview > row.activatable:selected:hover,
+combobox popover listview > row.activatable:selected,
+combobox popover listview > row.activatable:selected:hover {
+  background-color: @accent@; color: @on_accent@;
+}
+notebook > header, notebook tab { background-color: @raised@; color: @muted@; }
+notebook tab:checked { background-color: @bg@; color: @fg@; }
+separator { background-color: alpha(@border@, 0.5); }
+progressbar progress, scale highlight, switch:checked, check:checked, radio:checked {
+  background-image: none; background-color: @accent@; color: @on_accent@; border-color: @accent@;
+}
+progressbar trough, scale trough, switch { background-color: @view@; border-color: @border@; }
+scrollbar { background-color: @bg@; }
+scrollbar slider { background-color: alpha(@fg@, 0.4); }
+scrollbar slider:hover { background-color: alpha(@fg@, 0.6); }
+:focus { outline-color: @standalone@; }
+entry:focus, spinbutton:focus { border-color: @standalone@; box-shadow: inset 0 0 0 1px @standalone@; }
+.dim-label { color: @muted@; }
+label.error { color: @destructive@; }
+label.success { color: @success@; }
+label.warning { color: @warning@; }

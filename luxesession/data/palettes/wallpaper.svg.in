@@ -1,0 +1,51 @@
+<!-- Copyright (C) 2026 Jerry Howell. SPDX-License-Identifier: GPL-2.0-or-later -->
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 1920 1080">
+  <title>@name@ — luxe orbit</title>
+  <desc>Clean two-ring, eight-ray emblem adapted from Jerry Howell's supplied reference, with small lowercase luxe branding.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1">
+      <stop stop-color="@wp_view@"/><stop offset="1" stop-color="@wp_raised@"/>
+    </linearGradient>
+    <radialGradient id="mist" cx="75%" cy="32%" r="65%">
+      <stop stop-color="@wp_accent@" stop-opacity=".14"/>
+      <stop offset="1" stop-color="@wp_accent@" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="halo">
+      <stop stop-color="@wp_accent@" stop-opacity=".16"/>
+      <stop offset="1" stop-color="@wp_accent@" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow" x="-25%" y="-25%" width="150%" height="150%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+    <g id="rays" fill="none" stroke="@wp_accent@" stroke-width="5" stroke-linecap="round">
+      <path id="ray" d="M0 -170 V-252"/>
+      <use href="#ray" transform="rotate(45)"/>
+      <use href="#ray" transform="rotate(90)"/>
+      <use href="#ray" transform="rotate(135)"/>
+      <use href="#ray" transform="rotate(180)"/>
+      <use href="#ray" transform="rotate(225)"/>
+      <use href="#ray" transform="rotate(270)"/>
+      <use href="#ray" transform="rotate(315)"/>
+    </g>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <rect width="1920" height="1080" fill="url(#mist)"/>
+  <g opacity="@landscape_opacity@">
+  <path d="@ridge@" fill="@wp_accent@" opacity=".18"/>
+  <path d="M0 900 Q460 650 840 870 T1560 770 T1920 820 V1080 H0Z" fill="@wp_raised@"/>
+  <path d="M0 970 Q520 840 1000 980 T1920 900 V1080 H0Z" fill="@wp_bg@"/>
+  <path d="M0 1040 Q620 960 1120 1040 T1920 1000 V1080 H0Z" fill="@wp_view@"/>
+  </g>
+  <g transform="translate(960 430)">
+    <circle r="300" fill="url(#halo)"/>
+    <g opacity=".22" filter="url(#glow)">
+      <use href="#rays"/>
+      <circle r="28" fill="@wp_accent@"/>
+    </g>
+    <circle r="212" fill="none" stroke="@wp_accent@" stroke-width="1.5" opacity=".55"/>
+    <circle r="134" fill="none" stroke="@wp_fg@" stroke-width="2" opacity=".45"/>
+    <use href="#rays" opacity=".8"/>
+    <circle r="28" fill="@wp_accent@" opacity=".9"/>
+  </g>
+  <text x="1824" y="1008" text-anchor="end" font-family="sans-serif" font-size="24" font-weight="300" letter-spacing="1.5" fill="@wp_fg@" opacity=".55">luxe</text>
+</svg>

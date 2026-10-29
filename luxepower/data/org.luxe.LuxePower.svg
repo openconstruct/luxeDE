@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <title>LuxePower</title>
+  <rect x="6" y="18" width="46" height="32" rx="6" fill="none" stroke="#deddda" stroke-width="4"/>
+  <rect x="55" y="28" width="5" height="12" rx="2.5" fill="#deddda"/>
+  <path fill="#2ec27e" d="M32 22 22 36h7l-2 10 13-15h-8z"/>
+  <rect x="12" y="10" width="34" height="4" rx="2" fill="#5e5c64"/>
+</svg>

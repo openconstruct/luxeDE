@@ -1,0 +1,5 @@
+src/luxehotkey.c
+plugins/openbox/openbox.c
+plugins/gtk/gtk.c
+plugins/gtk/luxehotkey-gtk.desktop.in
+plugins/gtk/edit.c

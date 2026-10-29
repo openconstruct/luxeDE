@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Luxe Notifications
+Comment=Display desktop notifications
+Exec=luxenotify
+Icon=preferences-system-notifications
+OnlyShowIn=X-Luxe;LXDE;
+NoDisplay=true
+X-GNOME-Autostart-Phase=Applications
+X-GNOME-Autostart-Notify=true

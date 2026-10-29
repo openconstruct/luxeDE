@@ -1,0 +1,136 @@
+name: Package builds
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      component:
+        description: 'Package directory name, or all'
+        required: true
+        default: all
+        type: string
+
+permissions:
+  contents: read
+
+env:
+  PYTHONDONTWRITEBYTECODE: '1'
+
+concurrency:
+  group: packages-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  matrix:
+    runs-on: ubuntu-24.04
+    outputs:
+      matrix: ${{ steps.packages.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - id: packages
+        env:
+          REQUESTED_COMPONENT: ${{ inputs.component || 'all' }}
+        run: |
+          cmake "-DCOMPONENT=$REQUESTED_COMPONENT" "-DOUTPUT=$RUNNER_TEMP/matrix.json" -P ci/Matrix.cmake
+          echo "matrix=$(< "$RUNNER_TEMP/matrix.json")" >> "$GITHUB_OUTPUT"
+      - name: Check package source hygiene
+        run: bash ci/check-source.sh
+
+  build:
+    name: ${{ matrix.component }} / ${{ matrix.distribution.id }}
+    needs: matrix
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix: ${{ fromJSON(needs.matrix.outputs.matrix) }}
+    container:
+      image: ${{ matrix.distribution.image }}
+      # GUI fixtures create nested user/mount namespaces with bubblewrap.
+      options: --security-opt seccomp=unconfined --security-opt apparmor=unconfined
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Install container build dependencies
+        env:
+          LUXE_CI_CONTAINER: '1'
+        run: bash ci/install-dependencies.sh
+      - name: Create unprivileged builder
+        run: |
+          useradd --create-home --shell /bin/bash luxe-build
+          chown -R luxe-build:luxe-build "$GITHUB_WORKSPACE"
+      - name: Configure, compile, test and package
+        env:
+          COMPONENT: ${{ matrix.component }}
+          DISTRIBUTION: ${{ matrix.distribution.id }}
+        run: runuser -u luxe-build -- bash ci/build-package.sh "$COMPONENT" "$DISTRIBUTION"
+      - name: Upload package
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: deb-${{ matrix.distribution.id }}-${{ matrix.component }}
+          path: |
+            build/ci/${{ matrix.distribution.id }}/${{ matrix.component }}/packages/*.deb
+            build/ci/${{ matrix.distribution.id }}/${{ matrix.component }}/packages/SHA256SUMS
+            build/ci/${{ matrix.distribution.id }}/${{ matrix.component }}/packages/build-environment.txt
+            build/ci/${{ matrix.distribution.id }}/${{ matrix.component }}/packages/provenance.txt
+          if-no-files-found: error
+          retention-days: 14
+      - name: Upload test diagnostics
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: tests-${{ matrix.distribution.id }}-${{ matrix.component }}
+          path: |
+            build/ci/${{ matrix.distribution.id }}/${{ matrix.component }}/ctest.xml
+            build/ci/${{ matrix.distribution.id }}/${{ matrix.component }}/Testing/Temporary/
+            build/ci/${{ matrix.distribution.id }}/${{ matrix.component }}/CMakeFiles/CMakeConfigureLog.yaml
+          if-no-files-found: ignore
+          retention-days: 14
+
+  cohort:
+    name: Complete cohort / ${{ matrix.distribution.id }}
+    needs: build
+    if: ${{ inputs.component == '' || inputs.component == 'all' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        distribution:
+          - {id: ubuntu-24.04, image: 'ubuntu:24.04'}
+          - {id: debian-13, image: 'debian:13'}
+    container:
+      image: ${{ matrix.distribution.image }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Install audit tools
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends cmake build-essential libarchive-dev ca-certificates
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          pattern: deb-${{ matrix.distribution.id }}-*
+          path: build/downloads
+      - name: Collect and audit all packages
+        run: |
+          cmake -DDOWNLOAD_DIRECTORY=build/downloads -DOUTPUT_DIRECTORY=build/cohort -P ci/CollectDownloads.cmake
+          cmake/AuditDebOwnership.sh build/cohort/debs/*.deb
+          apt-get --simulate install "$GITHUB_WORKSPACE"/build/cohort/debs/*.deb
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: luxe-${{ matrix.distribution.id }}-amd64
+          path: build/cohort/
+          if-no-files-found: error
+          retention-days: 30

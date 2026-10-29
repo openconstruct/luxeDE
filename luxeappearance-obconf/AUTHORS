@@ -1,0 +1,18 @@
+This LXAppearance plugin is derived from ObConf.
+
+ObConf is written by:
+
+ - Dana Jansens (danakj@orodu.net)
+   - Initial code.
+ - Tim Riley (tr@slackzone.org)
+   - HIG adherence changes.
+   - Interface improvements.
+   - Maintainence.
+ - Javeed Shaikh (syscrash2k@gmail.com)
+   - Theme previews
+ - Myles Green (rmg57@telus.net)
+   - Icon
+
+LXAppearance plugin integration is done by:
+
+ - Hong Jen Yee (PCMan) (pcman.tw@gmail.com)

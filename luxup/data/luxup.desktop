@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=LuxUp
+GenericName=Update Notifier
+Comment=Check for and review system updates
+Exec=luxup
+Icon=org.luxe.LuxUp
+Terminal=false
+Categories=GTK;System;PackageManager;
+Keywords=updates;upgrade;apt;flatpak;snap;luxup;
+StartupNotify=false
+StartupWMClass=luxup

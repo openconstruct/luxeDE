@@ -1,0 +1,11 @@
+[Desktop Entry]
+_Name=LuxeTask
+_Comment=Manage running processes
+_GenericName=Process manager
+_Keywords=task;kill;suspend;processor;memory;monitoring;performance;
+Exec=luxetask
+Icon=luxetask
+Terminal=false
+StartupNotify=true
+Type=Application
+Categories=GTK;System;Monitor;

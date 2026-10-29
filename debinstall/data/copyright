@@ -1,0 +1,15 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: DebInstall
+
+Files: *
+Copyright: 2026 Jerry Howell
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify it
+ under the terms of the GNU General Public License as published by the Free
+ Software Foundation; either version 2, or (at your option) any later version.
+ See /usr/share/common-licenses/GPL-2 for the full text.
+
+Comment:
+ DebInstall uses the separately packaged gdebi-core backend. Its upstream
+ copyright and license records are reproduced in UPSTREAM-CREDITS.txt.
+ No GDebi GTK frontend code is bundled. The DebInstall icon is original.

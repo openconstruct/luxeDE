@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Matinee
+GenericName=Media Player
+Comment=Play music and video
+Exec=matinee %U
+Icon=org.luxe.Matinee
+Terminal=false
+Categories=GTK;AudioVideo;Player;Audio;Video;
+Keywords=media;player;music;video;audio;visualizer;luxe;
+MimeType=audio/mpeg;audio/mp4;audio/ogg;audio/flac;audio/x-flac;audio/x-wav;audio/x-mpegurl;video/mp4;video/x-matroska;video/webm;video/quicktime;video/x-msvideo;video/mpeg;application/x-mpegurl;
+StartupNotify=true
+StartupWMClass=matinee

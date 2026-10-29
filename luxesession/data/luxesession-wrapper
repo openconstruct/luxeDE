@@ -1,0 +1,8 @@
+#!/bin/sh
+# Diagnostic snapshot: preserve the previous session's run.log and
+# xsession-errors so a failed login keeps its evidence.
+for src in "$HOME/.cache/luxesession/LXDE/run.log" "$HOME/.xsession-errors"; do
+    [ -f "$src" ] && cp -f "$src" "$src.prev" 2>/dev/null
+done
+"@CMAKE_INSTALL_FULL_LIBEXECDIR@/luxe-migrate-user-config"
+exec "@CMAKE_INSTALL_FULL_LIBDIR@/luxesession/luxesession" "$@"

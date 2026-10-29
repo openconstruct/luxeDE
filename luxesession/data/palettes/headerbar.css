@@ -1,0 +1,47 @@
+/* Copyright (C) 2026 Jerry Howell. SPDX-License-Identifier: GPL-2.0-or-later */
+/* BEGIN luxe compact headerbars */
+/* Minimums, not fixed heights: subtitles, large fonts and rich controls expand. */
+headerbar, window headerbar.titlebar, window .titlebar headerbar,
+headerbar.default-decoration, headerbar.flat {
+  min-height: 26px;
+  padding: 0 6px;
+}
+headerbar > windowhandle > box,
+window headerbar.titlebar > windowhandle > box,
+window .titlebar headerbar > windowhandle > box,
+headerbar.default-decoration > windowhandle > box,
+headerbar.flat > windowhandle > box {
+  padding: 2px 6px;
+}
+/* Follow public header containers, not arbitrary descendants: popover
+ * actions beneath a menu button must retain ordinary body sizing. */
+headerbar > button, headerbar button.titlebutton,
+headerbar > windowhandle > box > box.start > button,
+headerbar > windowhandle > box > box.end > button,
+headerbar > windowhandle > box > box.start > menubutton > button,
+headerbar > windowhandle > box > box.end > menubutton > button,
+headerbar > windowhandle > box > widget > box.start > button,
+headerbar > windowhandle > box > widget > box.end > button,
+headerbar > windowhandle > box > widget > box.start > menubutton > button,
+headerbar > windowhandle > box > widget > box.end > menubutton > button,
+headerbar windowcontrols > button {
+  min-height: 20px;
+  min-width: 20px;
+  padding: 1px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+headerbar > windowhandle > box > box.start > menubutton,
+headerbar > windowhandle > box > box.end > menubutton,
+headerbar > windowhandle > box > widget > box.start > menubutton,
+headerbar > windowhandle > box > widget > box.end > menubutton {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+headerbar windowcontrols button > image, headerbar button.titlebutton > image {
+  min-height: 16px;
+  min-width: 16px;
+  padding: 1px;
+}
+headerbar windowtitle { margin-top: 0; margin-bottom: 0; }
+/* END luxe compact headerbars */

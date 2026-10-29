@@ -1,0 +1,17 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: LuxePower
+
+Files: *
+Copyright: 2026 Jerry Howell
+License: GPL-2+
+ This program is free software; you can redistribute it and/or modify it
+ under the terms of the GNU General Public License as published by the Free
+ Software Foundation; either version 2, or (at your option) any later version.
+ See /usr/share/common-licenses/GPL-2 for the full text.
+
+Comment:
+ LuxePower replaces TLPUI in the Luxe desktop. It does not bundle TLPUI
+ source; its TLP interaction follows the command surface documented by
+ TLPUI. TLP and TLPUI remain separately packaged and keep their upstream
+ copyright and license records, reproduced in UPSTREAM-CREDITS.txt. The
+ LuxePower icon is original.

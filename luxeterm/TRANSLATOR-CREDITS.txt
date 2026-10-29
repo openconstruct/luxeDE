@@ -1,0 +1,365 @@
+Translator credits preserved from the removed .po catalogs of luxeterm.
+Luxe releases are English-only; translations return by pull request.
+Removed catalogs are recoverable from the 30 Sept 2026 source snapshot.
+
+[af]
+  Last-Translator: system user <>
+
+[ar]
+  Arabic translations for PACKAGE package.
+  Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
+  أحمد فرغل <ahmad.farghal@gmail.com>, 2009.
+  Tareq Al Jurf <taljurf@fedoraproject.org>, 2010.
+  Last-Translator: Jerome Leclanche <jerome@leclan.ch>
+  Language-Team: Arabic <trans-ar@lists.fedoraproject.org>
+
+[be]
+  Last-Translator: system user <>
+
+[bg]
+  Last-Translator: system user <>
+  Language-Team: MIME-Version: 1.0
+
+[bn]
+  Bengali translation of luxeterm.po
+  Sankarshan <sankarshan.mukhopadhyay@gmail.com>, 2009.
+  Loba Yeasmeen <loba@ankur.org.bd>, 2010.
+  Last-Translator: system user <>
+  Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>
+
+[bn_IN]
+  Last-Translator: system user <>
+
+[ca]
+  # luxeterm.po CATALAN TRANSLATION
+  FIRST AUTHOR <josep.sanchez@ubuntu.cat>, 2009
+  Josep Sanchez Mesegue <josep.sanchez@ubuntu.cat>, 2009.
+  Last-Translator: Davidmp <rbndavid@gmail.com>
+  Language-Team: Catalan <josep.sanchez@ubuntu.cat>
+
+[cs]
+  Czech translations for luxeterm package.
+  Copyright (C) 2009 THE lxterminal'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxeterm package.
+  Michal Várady <miko.vaji@gmail.com>, 2009.
+  Pavel Fric <pavelfric@seznam.cz>, 2016.
+  Last-Translator: Pavel Fric <pavelfric@seznam.cz>
+  Language-Team: Czech <kde-i18n-doc@kde.org>
+
+[da]
+  Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the LuxeTerm package.
+  Vidar Jon Bauge <vidarjb@gmail.com>, 2009.
+  Joe Hansen <joedalton2@yahoo.dk>, 2010.
+  Last-Translator: scootergrisen <scootergrisen@gmail.com>
+  Language-Team: Danish <dansk@dansk-gruppen.dk>
+
+[de]
+  German translation for LuxeTerm.
+  Copyright (C) 2008 THE PACKAGE'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the LuxeTerm package.
+  Christoph Wickert <christoph.wickert@googlemail.de>, 2008.
+  Mario Blättermann <mario.blaettermann@gnome.org>, 2008, 2009.
+  Last-Translator: alfgaida <info@g-com.eu>
+  Language-Team: de <christoph.wickert@googlemail.de>
+
+[el]
+  Last-Translator: Giorgos Siafis <geosiafis@yahoo.gr>
+  Language-Team: Greek
+
+[en_GB]
+  Last-Translator: system user <>
+  Language-Team: English UK en_GB <yorvik.ubunto@gmail.com>
+
+[eo]
+  Last-Translator: system user <>
+
+[es]
+  Spanish translation of luxeterm
+  Copyright (C) 2008 THE lxterminal'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxeterm package.
+  Daniel Pacheco <daniel@tunki.org>, 2008.
+  Julio Napurí Carlos <julionc@gmail.com>, 2008.
+  Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>
+  Language-Team: Spanish <es@li.org>
+
+[et]
+  luxeterm eesti keele tõlge
+  Estonian translation of luxeterm
+  Copyright (C) 2009 LXDE
+  This file is distributed under the same license as the luxeterm package.
+  Mattias Põldaru <mahfiaz gmail com>, 2009.
+  Last-Translator: Anari Jalakas <anari.jalakas@gmail.com>
+  Language-Team: Gnome Estonian Translation Team <gnome-et linux ee>
+
+[eu]
+  Last-Translator: Asier Iturralde Sarasola <asier.iturralde@gmail.com>
+  Language-Team: Basque <alainmendi@gmail.com>
+
+[fa]
+  Last-Translator: system user <>
+
+[fi]
+  Finnish translation for LuxeTerm
+  Copyright (C) 2008
+  Elias Julkunen <elias.julkunen@gmail.com>, 2008.
+  Juhani Numminen <juhaninumminen0@gmail.com>, 2016.
+  Last-Translator: Juhani Numminen <juhaninumminen0@gmail.com>
+  Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>
+
+[fo]
+  Last-Translator: system user <>
+
+[fr]
+  Last-Translator: YvanM <yvan.masson@openmailbox.org>
+  Language-Team: fr <gaknar@gmail.com>
+
+[frp]
+  Last-Translator: system user <>
+
+[gl]
+  Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>
+  Language-Team: Proxecto Trasno <proxecto@trasno.net>
+
+[he]
+  Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>
+
+[hr]
+  Croatian translations for LXterminal package
+  Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the LXterminal package.
+  Boljsa <asjlob AT vip.hr>
+  Ivica Kolić<ikoli@yahoo.com>
+  Last-Translator: Ivica Kolić <ikoli@yahoo.com>
+  Language-Team: <asjlob AT vip.hr> <>
+
+[hu]
+  Hungarian translation of luxeterm.
+  Copyright (C) 2010-2011 The LXDE Team
+  This file is distributed under the same license as the luxeterm package.
+  Attila Szervac <sas@321.hu>, 2010.
+  Laszlo Dvornik <rezuri@zoho.com>, 2011.
+  Last-Translator: Balázs Úr <urbalazs@gmail.com>
+  Language-Team: Hungarian
+
+[id]
+  Indonesian translation for luxeterm.
+  Copyright (C) 2008 THE lxterminal'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxeterm package.
+  Andhika Padmawan <andhika.padmawan@gmail.com>, Rahman Yusri Aftian <aftian@yahoo.com>, 2009.
+  Last-Translator: Andika Triwidada <andika@gmail.com>
+  Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>
+
+[is]
+  Sveinn í Felli <sv1@fellsnet.is>, 2014.
+  Last-Translator: system user <>
+  Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>
+
+[it]
+  Translation of luxeterm to Italian
+  Copyright (C) 2009 Fabio Barone <phonky at gmx.net>
+  This file is distributed under the same license as the luxeterm package
+  Fabio Barone <phonky at gmx.net>, 2009
+  Andrea Florio <andrea@opensuse.org>, 2010.
+  Daniele Forsi <daniele@forsi.it>, 2012.
+  Last-Translator: Daniele Forsi <daniele@forsi.it>
+  Language-Team: Italian
+
+[ja]
+  Japanese translations for luxeterm package
+  luxeterm パッケージに対する日本語訳.
+  Copyright (C) 2008-2010 THE lxterminal'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxeterm package.
+  Hironao Komatsu <hironao@users.sourceforge.net>, 2008-2010.
+  IWAI, Masaharu <iwai@alib.jp>, 2009.
+  <jugger90@gmail.com>, 2010.
+  Last-Translator: rago1975 <take1975@kumamoto.email.ne.jp>
+  Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>
+
+[kk]
+  Kazakh translation for luxeterm.
+  Copyright (C) 2012 The LXDE team
+  This file is distributed under the same license as the LXDE package.
+  Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2012-2016.
+  Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>
+  Language-Team: Kazakh <kk_KZ@googlegroups.com>
+
+[ko]
+  Korean translation for the luxeterm package.
+  Copyright (C) 2009-2012 Free software foundation Inc.
+  This file is distributed under the same license as the luxeterm package.
+  Seo Sanghyeon <sanxiyn@gmail.com>, 2011.
+  Seong-ho Cho <darkcircle.0426@gmail.com>, 2012.
+  Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>
+  Language-Team: Seong-ho Cho <darkcircle.0426@gmail.com>
+
+[lg]
+  The Luganda translation for luxeterm.
+  Copyright (C) 2008 - 2010
+  This file is distributed under the same license as the luxeterm package.
+  FIRST Kizito Birabwa <kbirabwa@yahoo.co.u>, 2010.
+  Last-Translator: kizito <kbirabwa@yahoo.co.uk>
+  Language-Team: lg <kbirabwa@yahoo.co.uk>
+
+[lt]
+  Algimantas <margevicius.algimantas@mail.ru>, 2012.
+  Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012.
+  Last-Translator: Moo <hazap@hotmail.com>
+  Language-Team: Lietuvių <>
+
+[ml]
+  Last-Translator: Anonymous Pootle User
+
+[ms]
+  Last-Translator: system user <>
+
+[nb]
+  Last-Translator: system user <>
+
+[nl]
+  Dutch translation of the luxeterm package.
+  Copyright (C) the author of the lxterminal package.
+  This file is distributed under the same license as the
+  luxeterm package.
+  Pjotr, 2011-2016.
+  Last-Translator: Pjotr <pjotrvertaalt@gmail.com>
+  Language-Team: Dutch
+
+[nn]
+  Translation of luxeterm to Norwegian Nynorsk
+  Copyright © 2009 Karl Ove Hufthammer <karl@huftis.org>
+  This file is distributed under the same license as the luxeterm package.
+  Karl Ove Hufthammer <karl@huftis.org>, 2009.
+  Last-Translator: system user <>
+  Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>
+
+[pa]
+  Last-Translator: Anonymous Pootle User
+
+[pl]
+  Polish translation of luxeterm package
+  Copyright (C) 2008 THE lxterminal'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxeterm package.
+  Grzegorz Gibas <amigib@gmail.com>, 2008, 2009.
+  Artur Kruszewski <mazdac@gmail.com>, 2009.
+  Piotr Sokół <psokol@jabster.pl>, 2010.
+  Last-Translator: Piotr Strębski <strebski@o2.pl>
+  Language-Team: Polish <>
+
+[ps]
+  Last-Translator: Anonymous Pootle User
+
+[pt]
+  Portuguese translations for luxeterm package.
+  Copyright (C) 2009 THE lxterminal'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxeterm package.
+  <alvarommorais@gmail.com>, 2009.
+  Sérgio Marques <smarquespt@gmail.com> 2010-2016
+  Last-Translator: Sérgio Marques <smarquespt@gmail.com>
+  Language-Team: Portuguese
+
+[pt_BR]
+  Brazilian Portuguese translation for LuxeTerm package.
+  Copyright (C) 2008-2009 The LXTerminal authors.
+  This file is distributed under the same license as the luxeterm package.
+  Fábio Antunes <nospam@emal.com>, 2008.
+  Og Maciel <ogmaciel@gnome.org>, 2009.
+  Henrique P. Machado <zehrique@gmail.com>, 2009.
+  Sérgio B. Cipolla <secipolla@gmail.com>, 2010.
+  Last-Translator: Felipe Braga <fbobraga@gmail.com>
+  Language-Team: Portuguese (Brazilian) <translation@mailinglist.lxde.org>
+
+[ro]
+  . 0
+  Last-Translator: system user <>
+
+[ru]
+  translation of ru.po to Russian
+  akdengi <kazancas@gmail.com>, 2009,2010
+  Alexey Loginov <alexl@mageia.org>, 2016
+  Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>
+  Language-Team: Russian <gnu@mx.ru>
+
+[sk]
+  Slovak translation of luxeterm
+  Copyright (C) 2006 lxde team
+  This file is distributed under the same license as the luxeterm package.
+  Ivan MasÃ¡r <helix84@centrum.sk>, 2009, 2010.
+  Last-Translator: system user <>
+  Language-Team: Slovak <sk-i18n@lists.linux.sk>
+
+[sl]
+  Slovenian translation of luxeterm.
+  Copyright (C) 2011 - 2013 Free Software Foundation, Inc.
+  This file is distributed under the same license as the luxeterm package.
+  Klemen Košir <klemen913@gmail.com>, 2011 - 2013.
+  Last-Translator: system user <>
+  Language-Team: Slovenian <lugos-slo@lugos.si>
+
+[sr]
+  Serbian translation for LuxeTerm package
+  This file is distributed under the same license as the LuxeTerm package.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2009.
+  Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>
+
+[sr@latin]
+  Serbian translation for LuxeTerm package
+  This file is distributed under the same license as the LuxeTerm package.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2009.
+  Last-Translator: system user <>
+
+[sv]
+  Swedish translation for LuxeTerm.
+  Copyright (C) 2009 Free Software Foundation, Inc.
+  This file is distributed under the same license as the luxeterm package.
+  Daniel Nylander <po@danielnylander.se>, 2009.
+  Martin Bagge <brother@bsnet.se>, 2009
+  Last-Translator: Martin Bagge <brother@bsnet.se>
+  Language-Team: Swedish <tp-sv@listor.tp-sv.se>
+
+[te]
+  Last-Translator: Praveen Illa <mail2ipn@gmail.com>
+
+[th]
+  Last-Translator: Anonymous Pootle User
+
+[tr]
+  Last-Translator: nyucel <necdetyucel@gmail.com>
+
+[tt_RU]
+  Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2011.
+  Last-Translator: system user <>
+  Language-Team: Tatar <>
+
+[ug]
+  Uyghur translation for luxeterm.
+  Gheyret Kenji <gheyret@gmail.com>, 2011.
+  Last-Translator: system user <>
+  Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>
+
+[uk]
+  Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>
+  Language-Team: Ukrainian
+
+[ur]
+  Last-Translator: system user <>
+  Language-Team: Urdu <makki.ma@gmail.com>
+
+[ur_PK]
+  Last-Translator: system user <>
+  Language-Team: Urdu <makki.ma@gmail.com>
+
+[vi]
+  Last-Translator: system user <>
+
+[zh_CN]
+  . 0
+  Last-Translator: Wylmer Wang <wantinghard@gmail.com>
+
+[zh_TW]
+  LuxeTerm Chinese Traditional (Taiwan) Translation.
+  Copyright (C) 2009 LXDE Project
+  This file is distributed under the same license as the luxeterm package.
+  Fred Chien <cfsghost@gmail.com>, 2008.
+  Last-Translator: Yao Wei (魏銘廷) <mwei@lxde.org>
+  Language-Team: LXDE Contributors <admin@lxde.org>

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=LuxUp
+GenericName=Update Notifier
+Comment=Watch for system updates in the background
+Exec=luxup --background
+Icon=org.luxe.LuxUp
+Terminal=false
+NoDisplay=true
+X-GNOME-Autostart-enabled=true
+OnlyShowIn=X-Luxe;LXDE;

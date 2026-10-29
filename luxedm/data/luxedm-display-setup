@@ -1,0 +1,62 @@
+#!/bin/sh
+# Enable every connected display before LuxeDM creates the greeter. The user
+# session may replace this temporary side-by-side layout with its saved one.
+
+# Provider/output names come from the X server; never let pathname globbing
+# reinterpret those fields while splitting the xrandr report.
+set -f
+
+XRANDR=/usr/bin/xrandr
+
+# Attach output-capable secondary GPUs to the X screen's primary provider.
+# This is required for reverse-PRIME connectors which otherwise do not appear
+# in the ordinary output list until the user session configures providers.
+providers=$($XRANDR --listproviders 2>/dev/null || true)
+primary_provider=
+while IFS= read -r provider_line; do
+	case "$provider_line" in
+		Provider\ [0-9]*)
+			set -- $provider_line
+			provider=$4
+			if [ -z "$primary_provider" ]; then
+				primary_provider=$provider
+				continue
+			fi
+			case "$provider_line" in
+				*"Sink Output"*)
+					$XRANDR --setprovideroutputsource "$provider" "$primary_provider" \
+						>/dev/null 2>&1 || true
+					;;
+			esac
+			;;
+	esac
+done <<EOF
+$providers
+EOF
+
+query=$($XRANDR --query) || exit 1
+
+primary=
+first=
+outputs=
+while IFS=' ' read -r output state marker remainder; do
+	[ "$state" = connected ] || continue
+	[ -n "$first" ] || first=$output
+	outputs="${outputs}${outputs:+ }${output}"
+	[ "$marker" = primary ] && primary=$output
+done <<EOF
+$query
+EOF
+
+[ -n "$first" ] || exit 0
+[ -n "$primary" ] || primary=$first
+
+$XRANDR --output "$primary" --auto --primary --pos 0x0 || exit 1
+previous=$primary
+status=0
+for output in $outputs; do
+	[ "$output" = "$primary" ] && continue
+	$XRANDR --output "$output" --auto --right-of "$previous" || status=1
+	previous=$output
+done
+exit "$status"

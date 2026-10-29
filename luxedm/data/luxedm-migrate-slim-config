@@ -1,0 +1,72 @@
+#!/bin/sh
+# Copyright (C) 2026 Jerry Howell
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+set -eu
+temporary=
+cleanup()
+{
+    [ -z "$temporary" ] || rm -f "$temporary"
+}
+trap cleanup EXIT
+trap 'cleanup; exit 1' HUP INT TERM
+etc_dir=${LUXEDM_ETC_DIR:-/etc}
+state_dir=${LUXEDM_STATE_DIR:-/var/lib/luxedm}
+legacy=$etc_dir/slim.conf
+target=$etc_dir/luxedm.conf
+marker=$state_dir/slim-config-migrated
+
+[ -f "$legacy" ] || exit 0
+[ -L "$legacy" ] && exit 1
+[ -f "$target" ] || exit 0
+[ -L "$target" ] && exit 1
+[ ! -e "$marker" ] || exit 0
+[ -L "$marker" ] && exit 1
+if [ -e "$state_dir" ] || [ -L "$state_dir" ]; then
+    [ -d "$state_dir" ] && [ ! -L "$state_dir" ] || exit 1
+else
+    install -d -m 0755 "$state_dir"
+fi
+
+update_key()
+{
+    key=$1
+    value=$(awk -v wanted="$key" '
+        $0 !~ /^[[:space:]]*#/ && $1 == wanted {
+            sub(/^[^[:space:]]+[[:space:]]+/, "")
+            print
+            exit
+        }
+    ' "$legacy")
+    [ -n "$value" ] || return 0
+    temporary=$(mktemp "$etc_dir/.luxedm.conf.XXXXXX")
+    awk -v wanted="$key" -v replacement="$value" '
+        $0 !~ /^[[:space:]]*#/ && $1 == wanted {
+            printf "%-20s%s\n", wanted, replacement
+            changed=1
+            next
+        }
+        { print }
+        END {
+            if (!changed)
+                printf "%-20s%s\n", wanted, replacement
+        }
+    ' "$target" > "$temporary"
+    chmod 0644 "$temporary"
+    mv -fT "$temporary" "$target"
+    temporary=
+}
+
+# Carry harmless personal login choices forward.  Autologin deliberately stays
+# at LuxeDM's secure packaged default instead of being inherited from SLiM.
+# Session command/directory values are also replaced by LuxeDM's deterministic
+# Xsession configuration.
+for key in default_user focus_password numlock hidecursor keep_user_on_fail; do
+    update_key "$key"
+done
+
+temporary=$(mktemp "$state_dir/.slim-config-migrated.XXXXXX")
+: > "$temporary"
+chmod 0644 "$temporary"
+mv -fT "$temporary" "$marker"
+temporary=

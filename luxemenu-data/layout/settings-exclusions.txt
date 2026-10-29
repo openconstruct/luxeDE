@@ -1,0 +1,9 @@
+luxeappearance.desktop|luxeappearance/luxeappearance.desktop
+luxeappearance-obconf.desktop|luxeappearance-obconf/data/obconf.desktop
+pcmanager-desktop-pref.desktop|pcmanager/data/pcmanager-desktop-pref.desktop
+luxeinput.desktop|luxeinput/data/luxeinput.desktop
+luxepower.desktop|luxepower/data/luxepower.desktop
+luxerandr.desktop|luxerandr/data/luxerandr.desktop
+luxesession-default-apps.desktop|luxesession/data/luxesession-default-apps.desktop
+luxesession-edit.desktop|luxesession/data/luxesession-edit.desktop
+luxehotkey-gtk.desktop|luxehotkey/plugins/gtk/luxehotkey-gtk.desktop

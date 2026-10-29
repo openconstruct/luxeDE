@@ -1,0 +1,62 @@
+! Copyright (C) 2026 Jerry Howell. GPL-2.0-or-later
+! @name@: flat Syscrash-Luxe geometry, generated from the shared palette.
+border.width: 1
+border.color: @border@
+padding.width: 5
+padding.height: 0
+window.handle.width: 0
+window.client.padding.width: 0
+window.client.padding.height: 0
+window.label.text.justify: left
+window.active.title.bg: flat solid
+window.active.title.bg.color: @raised@
+window.active.label.bg: parentrelative
+window.active.label.text.color: @fg@
+window.active.client.color: @raised@
+window.active.button.unpressed.bg: parentrelative
+window.active.button.unpressed.image.color: @fg@
+window.active.button.hover.bg: flat solid
+window.active.button.hover.bg.color: @accent@
+window.active.button.hover.image.color: @on_accent@
+window.active.button.pressed.bg: flat solid
+window.active.button.pressed.bg.color: @accent@
+window.active.button.pressed.image.color: @on_accent@
+window.active.button.disabled.bg: parentrelative
+window.active.button.disabled.image.color: @muted@
+window.inactive.title.bg: flat solid
+window.inactive.title.bg.color: @bg@
+window.inactive.label.bg: parentrelative
+window.inactive.label.text.color: @muted@
+window.inactive.client.color: @bg@
+window.inactive.button.unpressed.bg: parentrelative
+window.inactive.button.unpressed.image.color: @muted@
+window.inactive.button.hover.bg: flat solid
+window.inactive.button.hover.bg.color: @raised@
+window.inactive.button.hover.image.color: @fg@
+window.inactive.button.pressed.bg: flat solid
+window.inactive.button.pressed.bg.color: @accent@
+window.inactive.button.pressed.image.color: @on_accent@
+window.inactive.button.disabled.bg: parentrelative
+window.inactive.button.disabled.image.color: @muted@
+menu.border.color: @border@
+menu.title.bg: flat solid
+menu.title.bg.color: @raised@
+menu.title.text.color: @fg@
+menu.items.bg: flat solid
+menu.items.bg.color: @bg@
+menu.items.text.color: @fg@
+menu.items.disabled.text.color: @muted@
+menu.items.active.bg: flat solid
+menu.items.active.bg.color: @accent@
+menu.items.active.text.color: @on_accent@
+menu.separator.color: @border@
+osd.border.width: 1
+osd.border.color: @border@
+osd.bg: flat solid
+osd.bg.color: @raised@
+osd.label.bg: parentrelative
+osd.label.text.color: @fg@
+osd.hilight.bg: flat solid
+osd.hilight.bg.color: @accent@
+osd.unhilight.bg: flat solid
+osd.unhilight.bg.color: @bg@

@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Papirus",
+    "repository": "https://github.com/PapirusDevelopmentTeam/papirus-icon-theme",
+    "commit": "5f8b701d7521e27b4859d7e4f9b0da4c423c036c",
+    "archive": "upstream/Papirus.tar.gz",
+    "sha256": "d57b247be05c92cb7473680138e84741665be7abeca0fcad983ac58494195ea7"
+  },
+  {
+    "name": "Numix-circle",
+    "repository": "https://github.com/numixproject/numix-icon-theme-circle",
+    "commit": "6d4a4aad60994e688ab9dc8f021cb4ec86e9e532",
+    "archive": "upstream/Numix-circle.tar.gz",
+    "sha256": "f50002ec67dca65b253121aff62eaff57418ef0ac51f728598323b0dcab3d6da"
+  }
+]

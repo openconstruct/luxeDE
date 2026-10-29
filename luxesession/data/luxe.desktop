@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Luxe
+Comment=Lightweight GTK4 desktop session
+Exec=start-luxe
+Type=Application
+DesktopNames=X-Luxe;LXDE;

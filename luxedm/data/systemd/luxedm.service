@@ -1,0 +1,17 @@
+[Unit]
+Description=Luxe Display Manager
+Documentation=man:luxedm(1)
+After=systemd-user-sessions.service plymouth-quit.service
+Conflicts=getty@tty7.service
+StartLimitIntervalSec=60
+StartLimitBurst=3
+
+[Service]
+ExecStart=/usr/bin/luxedm -n
+Restart=on-failure
+RestartSec=3
+UMask=0077
+CapabilityBoundingSet=~CAP_SYS_PTRACE
+
+[Install]
+Alias=display-manager.service

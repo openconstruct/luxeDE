@@ -1,0 +1,638 @@
+#!/usr/bin/python3
+# Copyright (C) 2026 Jerry Howell
+# SPDX-License-Identifier: GPL-2.0-or-later
+"""Migrate personal Luxe settings before the session starts.
+
+Legacy settings are copied without overwriting personal files.  The old
+line-based session autostart file is converted once to XDG desktop entries;
+LuxeSession itself only launches XDG autostarts after this migration.
+"""
+import configparser
+import hashlib
+import os
+import re
+import shlex
+import shutil
+import stat
+import sys
+import tempfile
+from pathlib import Path
+
+_MAX_TEXT = 1024 * 1024
+
+
+def _lstat(path):
+    try:
+        return path.lstat()
+    except OSError:
+        return None
+
+
+def _regular_text(path, max_bytes=_MAX_TEXT, require_owned=True):
+    """Read a user-controlled text file without following links or blocking on specials."""
+    info = _lstat(path)
+    if info is None or not stat.S_ISREG(info.st_mode):
+        return None
+    flags = os.O_RDONLY
+    if hasattr(os, "O_NOFOLLOW"):
+        flags |= os.O_NOFOLLOW
+    if hasattr(os, "O_NONBLOCK"):
+        flags |= os.O_NONBLOCK
+    try:
+        fd = os.open(path, flags)
+    except OSError:
+        return None
+    try:
+        opened = os.fstat(fd)
+        if (not stat.S_ISREG(opened.st_mode) or
+                (require_owned and opened.st_uid != os.getuid()) or
+                opened.st_nlink != 1 or opened.st_size > max_bytes):
+            return None
+        data = b""
+        while len(data) <= max_bytes:
+            chunk = os.read(fd, min(65536, max_bytes + 1 - len(data)))
+            if not chunk:
+                break
+            data += chunk
+        if len(data) > max_bytes or b"\0" in data:
+            return None
+        return data.decode("utf-8")
+    except (OSError, UnicodeError):
+        return None
+    finally:
+        os.close(fd)
+
+
+def _atomic_text(path, text, mode=0o644, overwrite=True):
+    """Replace a regular text file atomically, refusing symlink targets."""
+    path = Path(path)
+    parent = path.parent
+    parent.mkdir(parents=True, exist_ok=True)
+    existing = _lstat(path)
+    if existing is not None:
+        if not stat.S_ISREG(existing.st_mode) or existing.st_uid != os.getuid():
+            raise OSError(f"refusing non-user regular target: {path}")
+        mode = stat.S_IMODE(existing.st_mode)
+    payload = text.encode("utf-8")
+    fd, temporary = tempfile.mkstemp(prefix=f".{path.name}.", dir=parent)
+    try:
+        os.fchmod(fd, mode)
+        view = memoryview(payload)
+        while view:
+            written = os.write(fd, view)
+            if written <= 0:
+                raise OSError("short write while saving configuration")
+            view = view[written:]
+        os.fsync(fd)
+        os.close(fd)
+        fd = -1
+        if overwrite:
+            os.replace(temporary, path)
+        else:
+            os.link(temporary, path, follow_symlinks=False)
+            os.unlink(temporary)
+        temporary = ""
+        try:
+            dir_fd = os.open(parent, os.O_RDONLY | getattr(os, "O_DIRECTORY", 0))
+        except OSError:
+            dir_fd = -1
+        if dir_fd >= 0:
+            try:
+                os.fsync(dir_fd)
+            finally:
+                os.close(dir_fd)
+    finally:
+        if fd >= 0:
+            os.close(fd)
+        if temporary:
+            try:
+                os.unlink(temporary)
+            except OSError:
+                pass
+
+
+def _path_exists(path):
+    return os.path.lexists(path)
+
+_xdg_config_home = (os.environ.get("XDG_CONFIG_HOME") or "").strip()
+config = Path(_xdg_config_home) if _xdg_config_home else Path.home() / ".config"
+names = {
+    "lxpanel": "luxepanel", "lxsession": "luxesession", "lxterminal": "luxeterm",
+    "lxhotkey": "luxehotkey", "lxinput": "luxeinput", "lxappearance": "luxeappearance",
+    "lxpolkit": "luxepolkit", "lxrandr": "luxerandr", "lxtask": "luxetask",
+    "lxclipboard": "luxeclipboard", "lxlock": "luxelock",
+    "lxsettings-daemon": "luxesettings-daemon",
+}
+pattern = re.compile("|".join(map(re.escape, sorted(names, key=len, reverse=True))))
+for old, new in names.items():
+    source = config / old
+    destination = config / new
+    source_info = _lstat(source)
+    if (source_info is None or not stat.S_ISDIR(source_info.st_mode) or
+            _path_exists(destination)):
+        continue
+    shutil.copytree(source, destination, symlinks=True)
+    for path in sorted(destination.rglob("*"), key=lambda item: len(item.parts), reverse=True):
+        if path.is_symlink():
+            continue
+        if path.is_file():
+            contents = _regular_text(path)
+            if contents is not None:
+                _atomic_text(path, pattern.sub(lambda match: names[match[0]], contents))
+        renamed = pattern.sub(lambda match: names[match[0]], path.name)
+        target = path.with_name(renamed)
+        if renamed != path.name and not _path_exists(target):
+            path.rename(target)
+
+defaults = Path("@CMAKE_INSTALL_FULL_DATADIR@/luxesession/defaults")
+if not defaults.is_dir():
+    defaults = Path("/usr/share/luxesession/defaults")
+if defaults.is_dir():
+    for source in defaults.rglob("*"):
+        source_info = _lstat(source)
+        if source_info is None or not stat.S_ISREG(source_info.st_mode):
+            continue
+        destination = config / source.relative_to(defaults)
+        if not _path_exists(destination):
+            try:
+                payload = source.read_bytes()
+                if len(payload) > _MAX_TEXT or b"\0" in payload:
+                    continue
+                _atomic_text(destination, payload.decode("utf-8"),
+                              stat.S_IMODE(source_info.st_mode))
+            except (OSError, UnicodeError):
+                continue
+
+# Retire only the package-owned SVG wallpaper paths. Keep every other file
+# choice and custom presentation mode, and preserve INI comments/layout.
+wallpaper_root = "@CMAKE_INSTALL_FULL_DATADIR@/backgrounds/luxe"
+if "@" in wallpaper_root:
+    wallpaper_root = "/usr/share/backgrounds/luxe"
+bundled_wallpapers = {
+    f"{wallpaper_root}/{name}.svg": f"{wallpaper_root}/{name}.png"
+    for name in ("light", "dark", "nord", "mocha", "dracula", "tokyo-night")
+}
+
+
+def migrate_wallpaper(path, group, key, change_mode=False):
+    contents = _regular_text(path)
+    if contents is None:
+        return
+    settings = configparser.ConfigParser(interpolation=None)
+    settings.optionxform = str
+    try:
+        settings.read_string(contents)
+        old = settings.get(group, key, fallback="")
+    except configparser.Error:
+        return
+    if old not in bundled_wallpapers:
+        return
+    replacements = {key: bundled_wallpapers[old]}
+    if change_mode and settings.get(group, "wallpaper_mode", fallback="") in ("fit", "crop", "2", "5"):
+        replacements["wallpaper_mode"] = "stretch"
+    active = None
+    lines = contents.splitlines(keepends=True)
+    for index, line in enumerate(lines):
+        section = re.match(r"[ \t]*\[([^\]\r\n]+)\]", line)
+        if section:
+            active = section[1]
+        elif active == group:
+            for name, value in replacements.items():
+                match = re.match(r"([ \t]*" + re.escape(name) + r"[ \t]*=[ \t]*)(.*?)([ \t]*\r?\n|[ \t]*)$", line)
+                if match:
+                    lines[index] = match[1] + value + match[3]
+                    break
+    updated = "".join(lines)
+    if updated != contents:
+        try:
+            _atomic_text(path, updated)
+        except OSError:
+            pass
+
+
+pcmanager_root = config / "pcmanager"
+root_info = _lstat(pcmanager_root)
+if root_info and stat.S_ISDIR(root_info.st_mode) and root_info.st_uid == os.getuid():
+    for profile_dir in pcmanager_root.iterdir():
+        info = _lstat(profile_dir)
+        if info and stat.S_ISDIR(info.st_mode) and info.st_uid == os.getuid():
+            migrate_wallpaper(profile_dir / "pcmanager.conf", "desktop", "wallpaper", True)
+appearance_root = config / "luxe"
+root_info = _lstat(appearance_root)
+if root_info and stat.S_ISDIR(root_info.st_mode) and root_info.st_uid == os.getuid():
+    migrate_wallpaper(appearance_root / "appearance.ini", "Appearance", "last-wallpaper")
+
+# Add new Luxe keybindings to existing Openbox profiles without replacing
+# personal settings. New profiles receive the same binding from defaults.
+lock_binding = """  <keybind key=\"W-l\">
+    <action name=\"Execute\"><command>luxelock</command></action>
+  </keybind>
+"""
+for rc_file in (config / "openbox" / "rc.xml", config / "openbox" / "lxde-rc.xml"):
+    contents = _regular_text(rc_file)
+    if contents is None:
+        continue
+    if "<command>luxelock</command>" not in contents and "</keyboard>" in contents:
+        try:
+            _atomic_text(rc_file, contents.replace("</keyboard>", lock_binding + "</keyboard>", 1))
+        except OSError:
+            continue
+
+# libfm's terminal setting still names the retired LXTerminal command on
+# upgraded profiles; point exactly that value at LuxeTerm, leaving any other
+# user choice (or custom arguments) alone.
+libfm_conf = config / "libfm" / "libfm.conf"
+contents = _regular_text(libfm_conf)
+if contents is not None:
+    updated = re.sub(r"(?m)^(terminal[ \t]*=[ \t]*)lxterminal[ \t]*$", r"\1luxeterm", contents)
+    if updated != contents:
+        try:
+            _atomic_text(libfm_conf, updated)
+        except OSError:
+            pass
+
+# The Afterpiece, Syscrash-Light and Syscrash-Luxe themes are no longer
+# shipped. Upgraded profiles that still name one in rc.xml would otherwise keep
+# an Openbox theme that cannot be found, so point exactly those names at the
+# new default. Any other theme the user chose is left alone.
+RETIRED_OPENBOX_THEMES = ("Afterpiece", "Syscrash-Light", "Syscrash-Luxe",
+                          "Syscrash-Luxe-Light")
+for rc_file in (config / "openbox" / "rc.xml", config / "openbox" / "lxde-rc.xml"):
+    contents = _regular_text(rc_file)
+    if contents is None:
+        continue
+    updated = contents
+    for retired in RETIRED_OPENBOX_THEMES:
+        updated = updated.replace(f"<name>{retired}</name>",
+                                  "<name>Luxe-tokyo-night</name>")
+    if updated != contents:
+        try:
+            _atomic_text(rc_file, updated)
+        except OSError:
+            continue
+
+
+def ensure_session_defaults(path, disabled_core=None):
+    """Add required core-session keys while preserving every existing choice."""
+    contents = _regular_text(path)
+    if contents is None:
+        return
+    lines = contents.splitlines()
+
+    disabled_core = disabled_core or set()
+    required = {
+        "panel/command": "luxepanel",
+        "panel/session": "LXDE",
+        "file_manager/command": "pcmanager",
+        "file_manager/session": "LXDE",
+        "desktop_manager/command": "frame --wallpaper-daemon",
+    }
+    if "panel" in disabled_core:
+        required.pop("panel/command")
+        required.pop("panel/session")
+    if "desktop" in disabled_core:
+        required.pop("desktop_manager/command")
+    present = set()
+    session_start = None
+    session_end = len(lines)
+    in_session = False
+    for index, line in enumerate(lines):
+        stripped = line.strip()
+        if stripped.startswith("[") and stripped.endswith("]"):
+            if in_session:
+                session_end = index
+                break
+            in_session = stripped == "[Session]"
+            if in_session:
+                session_start = index
+            continue
+        if in_session and "=" in line and not stripped.startswith(("#", ";")):
+            key, value = line.split("=", 1)
+            if key.strip() == "desktop_manager/command" and value.strip() in {
+                    "pcmanager --desktop --profile LXDE", "pcmanager --desktop",
+                    "pcmanfm --desktop --profile LXDE"}:
+                lines[index] = "desktop_manager/command=frame --wallpaper-daemon"
+            present.add(line.split("=", 1)[0].strip())
+
+    additions = [f"{key}={value}" for key, value in required.items() if key not in present]
+    if not additions:
+        if lines != contents.splitlines():
+            _atomic_text(path, "\n".join(lines) + "\n")
+        return
+    if session_start is None:
+        if lines and lines[-1].strip():
+            lines.append("")
+        lines.extend(["[Session]", *additions])
+    else:
+        lines[session_end:session_end] = additions
+    try:
+        _atomic_text(path, "\n".join(lines) + "\n")
+    except OSError:
+        return
+
+
+def desktop_value_text(contents, key):
+    lines = contents.splitlines()
+    in_entry = False
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("[") and stripped.endswith("]"):
+            in_entry = stripped == "[Desktop Entry]"
+        elif in_entry and "=" in line and not stripped.startswith(("#", ";")):
+            found, value = line.split("=", 1)
+            if found.strip() == key:
+                return value.strip()
+    return None
+
+
+def desktop_value(path, key):
+    contents = _regular_text(path, require_owned=False)
+    return desktop_value_text(contents, key) if contents is not None else None
+
+
+def update_desktop_keys(path, updates, contents=None):
+    """Update Desktop Entry keys without discarding translations or comments."""
+    if contents is None:
+        contents = _regular_text(path)
+    if contents is None:
+        return "failed"
+    lines = contents.splitlines()
+    entry_start = None
+    entry_end = len(lines)
+    positions = {}
+    in_entry = False
+    for index, line in enumerate(lines):
+        stripped = line.strip()
+        if stripped.startswith("[") and stripped.endswith("]"):
+            if in_entry:
+                entry_end = index
+                break
+            in_entry = stripped == "[Desktop Entry]"
+            if in_entry:
+                entry_start = index
+            continue
+        if in_entry and "=" in line and not stripped.startswith(("#", ";")):
+            key = line.split("=", 1)[0].strip()
+            if key in positions:
+                return "failed"
+            positions[key] = index
+    if entry_start is None:
+        return "failed"
+
+    additions = []
+    for key, value in updates.items():
+        position = positions.get(key)
+        if value is None:
+            if position is not None:
+                lines[position] = None
+        elif position is not None:
+            lines[position] = f"{key}={value}"
+        else:
+            additions.append(f"{key}={value}")
+    lines = [line for line in lines if line is not None]
+    # Recalculate the section boundary after removals.
+    insertion = len(lines)
+    seen_entry = False
+    for index, line in enumerate(lines):
+        stripped = line.strip()
+        if stripped == "[Desktop Entry]":
+            seen_entry = True
+        elif seen_entry and stripped.startswith("[") and stripped.endswith("]"):
+            insertion = index
+            break
+    lines[insertion:insertion] = additions
+    updated = "\n".join(lines) + "\n"
+    if any(desktop_value_text(updated, key) != value for key, value in updates.items()):
+        return "failed"
+    if updated == contents:
+        return "already-equivalent"
+    try:
+        _atomic_text(path, updated)
+    except OSError:
+        return "failed"
+    return "converted"
+
+
+def desktop_list(value):
+    return [item for item in (value or "").split(";") if item]
+
+
+def desktop_list_value(items):
+    return ";".join(dict.fromkeys(items)) + (";" if items else "")
+
+
+def core_session_command(command):
+    try:
+        words = shlex.split(command)
+    except ValueError:
+        words = command.split()
+    if not words:
+        return True
+    executable = Path(words[0]).name
+    if executable in {"luxepanel", "lxpanel", "luxepolkit", "lxpolkit",
+                      "luxeclipboard", "lxclipboard"}:
+        return True
+    return executable in {"pcmanager", "pcmanfm"} and "--desktop" in words
+
+
+def core_command_kind(command):
+    try:
+        words = shlex.split(command)
+    except ValueError:
+        words = command.split()
+    if not words:
+        return None
+    executable = Path(words[0]).name
+    if executable in {"luxepanel", "lxpanel"}:
+        return "panel"
+    if executable in {"pcmanager", "pcmanfm"} and "--desktop" in words:
+        return "desktop"
+    return None
+
+
+def disabled_legacy_core(path):
+    """Remember explicit disabled core entries before retiring the old file."""
+    states = {}
+    if not path.is_file():
+        return set()
+    try:
+        lines = path.read_text().splitlines()
+    except (UnicodeError, OSError):
+        return set()
+    for raw in lines:
+        line = raw.strip()
+        if not line:
+            continue
+        enabled = not line.startswith("#")
+        command = line[1:].strip() if not enabled else line
+        command = command[1:].strip() if command.startswith("@") else command
+        kind = core_command_kind(command)
+        if kind:
+            states[kind] = enabled
+    return {kind for kind, enabled in states.items() if not enabled}
+
+
+def effective_xdg_entries(user_dir):
+    """Enumerate effective files, honoring user overrides and XDG precedence."""
+    config_dirs = [Path(item) for item in os.environ.get(
+        "XDG_CONFIG_DIRS", "/etc/xdg").split(":") if item]
+    effective = {}
+    for base in config_dirs:
+        directory = base / "autostart"
+        if directory.is_dir():
+            for path in sorted(directory.glob("*.desktop")):
+                effective.setdefault(path.name, path)
+    if user_dir.is_dir():
+        for path in sorted(user_dir.glob("*.desktop")):
+            effective[path.name] = path
+    return effective.values()
+
+
+def find_xdg_match(command, user_dir):
+    """Return the effective XDG file whose Exec exactly matches command."""
+    for path in effective_xdg_entries(user_dir):
+        if desktop_value(path, "Exec") == command:
+            return path
+    return None
+
+
+def set_xdg_state(source, command, enabled, user_dir):
+    if any(ord(char) < 32 for char in command):
+        return "failed"
+    try:
+        words = shlex.split(command)
+        if not words:
+            return "failed"
+        user_dir.mkdir(parents=True, exist_ok=True)
+    except (ValueError, OSError):
+        return "failed"
+    created = False
+    if source is None:
+        executable = Path(words[0]).name
+        slug = re.sub(r"[^a-z0-9]+", "-", executable.lower()).strip("-") or "application"
+        digest = hashlib.sha256(command.encode()).hexdigest()[:10]
+        target = user_dir / f"luxe-migrated-{slug}-{digest}.desktop"
+        if not _path_exists(target):
+            try:
+                _atomic_text(
+                    target,
+                    "[Desktop Entry]\n"
+                    "Type=Application\n"
+                    f"Name={command} (migrated)\n"
+                    "Comment=Migrated from the former LuxeSession autostart list\n"
+                    f"Exec={command}\n"
+                    "X-GNOME-Autostart-enabled=true\n",
+                )
+                created = True
+            except OSError:
+                return "failed"
+    else:
+        target = user_dir / source.name
+        if source != target and not _path_exists(target):
+            contents = _regular_text(source, require_owned=False)
+            if contents is None:
+                return "failed"
+            try:
+                _atomic_text(target, contents)
+                created = True
+            except OSError:
+                return "failed"
+
+    contents = _regular_text(target)
+    if contents is None or desktop_value_text(contents, "Exec") != command:
+        return "failed"
+
+    not_show = desktop_list(desktop_value_text(contents, "NotShowIn"))
+    only_show = desktop_list(desktop_value_text(contents, "OnlyShowIn"))
+    if enabled:
+        not_show = [item for item in not_show if item != "X-Luxe"]
+        if only_show and "X-Luxe" not in only_show:
+            only_show.append("X-Luxe")
+    elif "X-Luxe" not in not_show:
+        not_show.append("X-Luxe")
+    updates = {
+        "Hidden": None if enabled else desktop_value_text(contents, "Hidden"),
+        "NotShowIn": desktop_list_value(not_show) if not_show else None,
+        "OnlyShowIn": desktop_list_value(only_show) if only_show else None,
+    }
+    result = update_desktop_keys(target, updates, contents)
+    return "converted" if created and result == "already-equivalent" else result
+
+
+def migrate_legacy_autostart(profile_dir):
+    legacy = profile_dir / "autostart"
+    results = {"converted": 0, "already-equivalent": 0, "skipped-policy": 0, "failed": 0}
+    contents = _regular_text(legacy)
+    if contents is None:
+        results["failed"] = int(_path_exists(legacy))
+        return results
+    lines = contents.splitlines()
+    user_dir = config / "autostart"
+    for raw in lines:
+        line = raw.strip()
+        if not line:
+            continue
+        enabled = not line.startswith("#")
+        command = line[1:].strip() if not enabled else line
+        command = command[1:].strip() if command.startswith("@") else command
+        if not command or core_session_command(command):
+            results["skipped-policy"] += 1
+            continue
+        source = find_xdg_match(command, user_dir)
+        results[set_xdg_state(source, command, enabled, user_dir)] += 1
+
+    if results["failed"] or _regular_text(legacy) != contents:
+        results["failed"] = max(1, results["failed"])
+        return results
+
+    suffix = 2
+    backup = profile_dir / "autostart.legacy-migrated"
+    try:
+        while True:
+            if not _path_exists(backup):
+                try:
+                    _atomic_text(backup, contents, mode=0o600, overwrite=False)
+                    break
+                except FileExistsError:
+                    pass
+            backup = profile_dir / f"autostart.legacy-migrated-{suffix}"
+            suffix += 1
+        if _regular_text(legacy) != contents:
+            results["failed"] += 1
+            return results
+        legacy.unlink()
+    except OSError:
+        results["failed"] += 1
+    return results
+
+
+_raw_profile = os.environ.get("DESKTOP_SESSION", "LXDE") or "LXDE"
+# Only a short, bare profile component is accepted.  This keeps the legacy
+# migration inside ~/.config/luxesession and matches the session manager's
+# command-line validation.
+profile = (_raw_profile if re.fullmatch(r"[A-Za-z0-9_-]{1,64}", _raw_profile)
+           else "LXDE")
+profile_dir = config / "luxesession" / profile
+ensure_session_defaults(profile_dir / "desktop.conf",
+                        disabled_legacy_core(profile_dir / "autostart"))
+migration = migrate_legacy_autostart(profile_dir)
+
+# Luxe now starts xcompmgr. Do not uninstall Picom or erase custom settings:
+# scope effective Picom autostarts out of this desktop only, including entries
+# produced by the legacy migration above. Other desktops retain their choice.
+user_autostart = config / "autostart"
+for entry in effective_xdg_entries(user_autostart):
+    command = desktop_value(entry, "Exec")
+    try:
+        words = shlex.split(command or "")
+    except ValueError:
+        continue
+    if not words or Path(words[0]).name != "picom":
+        continue
+    if "X-Luxe" not in desktop_list(desktop_value(entry, "NotShowIn")):
+        set_xdg_state(entry, command, False, user_autostart)
+
+if migration["failed"]:
+    print(f"LuxeSession: autostart migration incomplete ({migration['failed']} failure(s)); "
+          f"inspect {profile_dir} and its backups", file=sys.stderr)
+    sys.exit(1)

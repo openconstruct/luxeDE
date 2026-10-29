@@ -1,0 +1,13 @@
+Template: luxedm/daemon_name
+Type: string
+Default: /usr/bin/luxedm
+Description: for internal use only
+
+Template: shared/default-x-display-manager
+Type: select
+Choices: ${choices}
+Description: Default display manager:
+ A display manager provides the graphical login screen.
+ .
+ Only one display manager can control the default X server. Select the one
+ that should start automatically at boot.

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.luxe.slab" path="/org/luxe/slab/">
+    <key name="autohide" type="b"><default>true</default><summary>Hide when not in use</summary></key>
+    <key name="icon-size" type="i"><range min="16" max="32"/><default>20</default><summary>Icon size in logical pixels</summary></key>
+    <key name="gap" type="i"><range min="0" max="24"/><default>2</default><summary>Space between launchers</summary></key>
+    <key name="padding" type="i"><range min="0" max="20"/><default>3</default><summary>Launcher padding</summary></key>
+    <key name="margin" type="i"><range min="0" max="24"/><default>2</default><summary>Dock inner margin</summary></key>
+    <key name="opacity" type="i"><range min="25" max="100"/><default>100</default><summary>Background opacity percentage (requires compositing)</summary></key>
+    <key name="animations" type="b"><default>false</default><summary>Short hover transitions</summary></key>
+    <key name="theme-name" type="s"><default>''</default><summary>GTK theme override; empty follows desktop</summary></key>
+  </schema>
+</schemalist>

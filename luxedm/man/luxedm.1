@@ -1,0 +1,34 @@
+.TH LUXEDM 1 "September 2026" "LuxeDM 1.4.1+luxe10"
+.SH NAME
+luxedm \- lightweight X11 display manager for Lumen and Luxe
+.SH SYNOPSIS
+.B luxedm
+.RB [ \-n ]
+.RB [ \-d ]
+.RB [ \-c
+.IR file ]
+.RB [ \-p
+.IR theme ]
+.RB [ \-w
+.IR width x height ]
+.SH DESCRIPTION
+LuxeDM authenticates users with PAM, starts X11 sessions listed in
+/usr/share/xsessions, and presents the configured Luxe theme. Before the
+greeter is drawn, the configured display setup command attaches eligible
+secondary GPU output providers and enables connected RandR outputs. The
+packaged helper arranges them temporarily from left to right; the authenticated
+session may then restore its own display layout.
+.SH CONFIGURATION
+The
+.B display_setup_cmd
+setting in /etc/luxedm.conf names the command run after the X server is ready
+and before monitor viewports are discovered. An empty value disables this
+step. The command is split into arguments and executed directly without a
+shell.
+.SH FILES
+/etc/luxedm.conf, /etc/pam.d/luxedm, /usr/share/luxedm/themes
+.SH COPYRIGHT
+Copyright 1997-1998 Per Liden; 2004-2006 Simone Rota and Johannes Winkelmann;
+2006-2013 Nobuhiro Iwamatsu; 2022-2023 Rob Pearce; 2026 Jerry Howell.
+LuxeDM is licensed under GPL-2.0-or-later. Additional contributor and asset
+credits are installed in /usr/share/doc/luxedm.

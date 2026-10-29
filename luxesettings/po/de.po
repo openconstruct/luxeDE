@@ -1,0 +1,119 @@
+# German translations for luxesettings.
+# Copyright (C) 2026 Jerry Howell
+# This file is distributed under the same license as the luxesettings package.
+msgid ""
+msgstr ""
+"Project-Id-Version: luxesettings 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2026-10-28 23:20-0400\n"
+"Last-Translator: Luxe Project <jerr@luxe.desktop>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "luxe Settings"
+msgstr "luxe Einstellungen"
+
+msgid "Settings hub for the luxe desktop."
+msgstr "Einstellungszentrale für den luxe-Desktop."
+
+msgid "Could not open this setting"
+msgstr "Diese Einstellung konnte nicht geöffnet werden"
+
+msgid "This setting is unavailable because its program is not installed."
+msgstr "Diese Einstellung ist nicht verfügbar, da das zugehörige Programm nicht installiert ist."
+
+msgid "Not installed"
+msgstr "Nicht installiert"
+
+msgid "Configure your desktop"
+msgstr "Desktop konfigurieren"
+
+msgid "Configure the luxe desktop from one place."
+msgstr "Konfiguriere den luxe-Desktop zentral an einem Ort."
+
+msgid "About luxe Settings"
+msgstr "Über luxe Einstellungen"
+
+msgid "Main menu"
+msgstr "Hauptmenü"
+
+msgid "Refresh available settings"
+msgstr "Verfügbare Einstellungen aktualisieren"
+
+msgid "Appearance"
+msgstr "Erscheinungsbild"
+
+msgid "Theme, colors, fonts, icons, and light or dark mode"
+msgstr "Thema, Farben, Schriftarten, Symbole sowie heller oder dunkler Modus"
+
+msgid "Window Decorations"
+msgstr "Fensterdekorationen"
+
+msgid "Openbox theme, window borders, behavior, and virtual desktops"
+msgstr "Openbox-Thema, Fensterrahmen, Verhalten und virtuelle Arbeitsflächen"
+
+msgid "Desktop"
+msgstr "Arbeitsfläche"
+
+msgid "Wallpaper"
+msgstr "Hintergrund"
+
+msgid "Choose a wallpaper folder; rotate daily or at next login"
+msgstr "Wähle einen Wallpaper-Ordner; täglicher Wechsel oder beim nächsten Login"
+
+msgid "Panel"
+msgstr "Leiste"
+
+msgid "Panel layout, applets, and taskbar behavior"
+msgstr "Anordnung der Leiste, Applets und Verhalten der Fensterliste"
+
+msgid "Devices"
+msgstr "Geräte"
+
+msgid "Keyboard & Mouse"
+msgstr "Tastatur und Maus"
+
+msgid "Pointer behavior, key repeat, sound, and optional keyboard layout editing"
+msgstr "Zeigerverhalten, Tastenwiederholung, Signalton und optionale Tastaturbelegung"
+
+msgid "Displays"
+msgstr "Bildschirme"
+
+msgid "Screen resolution, layout, and monitor settings"
+msgstr "Bildschirmauflösung, Anordnung und Monitoreinstellungen"
+
+msgid "Power"
+msgstr "Energie"
+
+msgid "Battery, sleep, lid, brightness, and locking"
+msgstr "Akku, Bereitschaft, Deckel, Helligkeit und Sperren"
+
+msgid "System"
+msgstr "System"
+
+msgid "Keyboard Shortcuts"
+msgstr "Tastenkürzel"
+
+msgid "Manage global keyboard shortcuts"
+msgstr "Globale Tastenkürzel verwalten"
+
+msgid "Default Applications"
+msgstr "Standardanwendungen"
+
+msgid "Choose the applications Luxe opens by default"
+msgstr "Wähle die Anwendungen, die Luxe standardmäßig öffnet"
+
+msgid "Startup Applications"
+msgstr "Autostart-Anwendungen"
+
+msgid "Manage programs that start with your session"
+msgstr "Programme verwalten, die mit deiner Sitzung starten"
+
+msgid "Software"
+msgstr "Software"
+
+msgid "Browse, install, and update software"
+msgstr "Software suchen, installieren und aktualisieren"

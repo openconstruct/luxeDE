@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <title>LuxUp</title>
+  <path fill="#2ec27e" d="M27 8h10v20.7l7.9-7.9a3 3 0 0 1 4.2 0l2.4 2.4a3 3 0 0 1 0 4.2L35.1 43.8a4.4 4.4 0 0 1-6.2 0L12.5 27.4a3 3 0 0 1 0-4.2l2.4-2.4a3 3 0 0 1 4.2 0L27 28.7z"/>
+  <rect x="10" y="50" width="44" height="7" rx="3.5" fill="#5e5c64"/>
+</svg>

@@ -1,0 +1,81 @@
+# luxepanel <profile> config file. Manually editing is not recommended.
+# Use preference dialog in luxepanel to adjust config when you can.
+
+Global {
+  edge=bottom
+  allign=left
+  widthtype=percent
+  width=100
+  height=28
+  transparent=0
+  # No image background: the stock panel background follows the selected Luxe
+  # palette at runtime, and a baked background file overrides that. Hardcoding
+  # a font colour likewise defeats the palette, so the panel inherits the
+  # foreground instead.
+  background=0
+  setdocktype=1
+  setpartialstrut=1
+  usefontcolor=0
+  usefontsize=0
+  iconsize=28
+}
+Plugin {
+  type=menu
+  Config {
+    image=@prefix@/share/luxepanel/images/luxe-button.png
+    system {
+    }
+    separator {
+    }
+    item {
+      command=run
+    }
+    separator {
+    }
+    item {
+      image=system-log-out
+      command=logout
+    }
+  }
+}
+Plugin {
+  type=taskbar
+  expand=1
+  Config {
+    tooltips=1
+    IconsOnly=0
+    ShowAllDesks=0
+    MaxTaskWidth=180
+    GroupedTasks=1
+  }
+}
+Plugin {
+  type=dclock
+  Config {
+    ClockFmt=%R
+    TooltipFmt=%A %x
+    BoldFont=0
+    IconOnly=0
+    CenterText=0
+  }
+}
+Plugin {
+  type=separator
+  Config {
+  }
+}
+Plugin {
+  type=tray
+  Config {
+  }
+}
+Plugin {
+  type=notifications
+  Config {
+  }
+}
+Plugin {
+  type=volume
+  Config {
+  }
+}

@@ -1,0 +1,23 @@
+/* Copyright (C) 2026 Jerry Howell. SPDX-License-Identifier: GPL-2.0-or-later */
+#ifndef obconf__preview_update_h
+#define obconf__preview_update_h
+
+#include <obt/xml.h>
+#include <gtk/gtk.h>
+
+void preview_update_all(void);
+
+void preview_update_set_tree_view        (GtkTreeView  *tr, GtkListStore *ls);
+void preview_update_set_active_font      (RrFont *f);
+void preview_update_set_inactive_font    (RrFont *f);
+void preview_update_set_menu_header_font (RrFont *f);
+void preview_update_set_menu_item_font   (RrFont *f);
+void preview_update_set_osd_active_font  (RrFont *f);
+void preview_update_set_osd_inactive_font  (RrFont *f);
+void preview_update_set_title_layout     (const gchar *layout);
+
+/* Drop every borrowed widget/model pointer and cancel pending repaint work
+ * before the builder/window is destroyed. */
+void preview_update_reset                 (void);
+
+#endif

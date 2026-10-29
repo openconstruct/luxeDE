@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.mvo5.synaptic</id>
+  <launchable type="desktop-id">synaptic.desktop</launchable>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0</project_license>
+  <_name>Synaptic Package Manager</_name>
+  <developer_name>Michael Vogt</developer_name>
+  <developer id="io.github.mvo5">
+    <name>Michael Vogt</name>
+  </developer>
+  <_summary>Install, remove and upgrade software packages</_summary>
+  <description>
+    <_p>
+      Synaptic is a graphical package management tool based on GTK and APT.
+      Synaptic enables you to install, upgrade and remove software packages
+      in a user-friendly way.
+    </_p>
+    <_p>
+      Besides these basic functions the following features are provided:
+    </_p>
+    <ul>
+      <_li>Search and filter the list of available packages</_li>
+      <_li>Perform smart system upgrades</_li>
+      <_li>Fix broken package dependencies</_li>
+      <_li>Edit the list of used repositories</_li>
+      <_li>Download the latest changelog of a package</_li>
+      <_li>Configure packages through the debconf system</_li>
+      <_li>Browse all available documentation related to a package</_li>
+    </ul>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/mvo5/synaptic/refs/heads/master/synaptic.png</image>
+    </screenshot>
+  </screenshots>
+  <url type="homepage">https://github.com/mvo5/synaptic</url>
+  <url type="bugtracker">https://github.com/mvo5/synaptic/issues</url>
+  <content_rating type="oars-1.1"/>
+  <translation type="gettext">synaptic</translation>
+</component>

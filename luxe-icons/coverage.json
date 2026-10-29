@@ -1,0 +1,10 @@
+{
+  "papirus_names": 18591,
+  "numix_added_names": 7505,
+  "luxe_aliases": 35,
+  "unique_names": 26132,
+  "application_names": 16251,
+  "svg_entries": 29558,
+  "layout": "compact-scalable",
+  "measurement": "Last-extension names; excludes the duplicate Luxe-Light tree. unique_names includes non-SVG index/copyright entries. application_names counts SVG basenames under apps, extra-apps and luxe-apps. Revision 7 removes only the hicolor org.luxe.LuxUp fallback owned by luxup; all theme names and artwork remain."
+}

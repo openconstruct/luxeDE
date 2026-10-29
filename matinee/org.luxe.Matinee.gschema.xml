@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+	<schema path="/org/luxe/player/" id="org.luxe.Matinee">
+		<key name="volume" type="d">
+			<range min="0.0" max="1.0"/>
+			<default>0.8</default>
+		</key>
+		<key name="library-path" type="s">
+			<default>''</default>
+		</key>
+	</schema>
+</schemalist>

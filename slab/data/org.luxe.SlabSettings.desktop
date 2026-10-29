@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=slab Settings
+Comment=Manage the slab dock
+Exec=slab-settings
+TryExec=slab-settings
+Icon=preferences-desktop
+Terminal=false
+Categories=Settings;DesktopSettings;

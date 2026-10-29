@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=LuxePolkit
+GenericName=LXPolKit
+Comment=Policykit Authentication Agent
+Exec=/usr/libexec/luxepolkit
+Icon=dialog-password
+# LuxeSession starts its configured agent directly; skip the duplicate XDG start.
+NotShowIn=GNOME;KDE;X-Luxe;

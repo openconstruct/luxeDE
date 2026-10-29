@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Lucid
+GenericName=Text Editor
+Comment=Edit text and source code
+Exec=lucid %U
+Icon=org.luxe.Lucid
+Terminal=false
+Type=Application
+Categories=GTK;Utility;TextEditor;
+MimeType=text/plain;text/x-c;text/x-c++;text/x-python;application/x-shellscript;text/markdown;text/css;application/json;application/xml;text/html;
+StartupNotify=true

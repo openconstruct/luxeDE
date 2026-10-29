@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <!-- Copyright (C) 2026 Jerry Howell. SPDX-License-Identifier: GPL-3.0-or-later -->
+  <title>PCManager — open folder</title>
+  <rect x="3" y="4" width="42" height="41" rx="11" fill="#154c50"/>
+  <rect x="3" y="3" width="42" height="40" rx="11" fill="#2b9d99"/>
+  <path d="M10 16q0-3 3-3h9l4 4h9q3 0 3 3v14H10z" fill="#124f5b"/>
+  <path d="M14 19h19v13H14z" fill="#eaf3ef"/>
+  <path d="M10 23h28l-3 13q0 1-2 1H13q-2 0-2-2z" fill="#a6e1cd"/>
+  <path d="M17 29h13" stroke="#357e79" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,8 @@
+*.o
+resources.c
+gschemas.compiled
+org.luxe.Shotty.gschema.valid
+shotty
+build/
+tests/set-net-active
+tests/active-window

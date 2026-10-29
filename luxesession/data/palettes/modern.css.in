@@ -1,0 +1,47 @@
+/* Copyright (C) 2026 Jerry Howell. SPDX-License-Identifier: GPL-2.0-or-later */
+/* GTK >= 4.16 only; loaded alongside legacy names for newer libadwaita. */
+:root {
+  --window-bg-color: @bg@;
+  --window-fg-color: @fg@;
+  --view-bg-color: @view@;
+  --view-fg-color: @fg@;
+  --headerbar-bg-color: @raised@;
+  --headerbar-fg-color: @fg@;
+  --headerbar-backdrop-color: @bg@;
+  --headerbar-shade-color: alpha(@view@, 0.25);
+  --sidebar-bg-color: @raised@;
+  --sidebar-fg-color: @fg@;
+  --sidebar-backdrop-color: @bg@;
+  --sidebar-shade-color: alpha(@view@, 0.25);
+  --secondary-sidebar-bg-color: @bg@;
+  --secondary-sidebar-fg-color: @fg@;
+  --secondary-sidebar-backdrop-color: @bg@;
+  --secondary-sidebar-shade-color: alpha(@view@, 0.25);
+  --card-bg-color: @raised@;
+  --card-fg-color: @fg@;
+  --card-shade-color: alpha(@view@, 0.25);
+  --popover-bg-color: @raised@;
+  --popover-fg-color: @fg@;
+  --popover-shade-color: alpha(@view@, 0.25);
+  --dialog-bg-color: @raised@;
+  --dialog-fg-color: @fg@;
+  --thumbnail-bg-color: @bg@;
+  --thumbnail-fg-color: @fg@;
+  --shade-color: alpha(@view@, 0.25);
+  --scrollbar-outline-color: alpha(@fg@, 0.2);
+  --accent-color: @standalone@;
+  --accent-bg-color: @accent@;
+  --accent-fg-color: @on_accent@;
+  --destructive-color: @destructive@;
+  --destructive-bg-color: #a51d2d;
+  --destructive-fg-color: #ffffff;
+  --error-color: @destructive@;
+  --error-bg-color: #a51d2d;
+  --error-fg-color: #ffffff;
+  --success-color: @success@;
+  --success-bg-color: #246840;
+  --success-fg-color: #ffffff;
+  --warning-color: @warning@;
+  --warning-bg-color: #f5c96b;
+  --warning-fg-color: #222b30;
+}

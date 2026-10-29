@@ -1,0 +1,5 @@
+data/pcmanager.desktop.in
+data/pcmanager-desktop-pref.desktop.in
+src/browser-gtk4.c
+src/desktop-gtk4.c
+src/pcmanager-gtk4.c

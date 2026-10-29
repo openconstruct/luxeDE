@@ -1,0 +1,3 @@
+# Legacy placeholder retained only for upgrades from old configurations.
+# LuxeSession now starts core desktop services from desktop.conf and user
+# applications from XDG autostart desktop files.

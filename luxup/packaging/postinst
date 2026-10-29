@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+if command -v systemctl >/dev/null 2>&1; then
+    systemctl daemon-reload || true
+    systemctl enable --now luxup-snap-policy.path >/dev/null 2>&1 || \
+        echo 'LuxUp could not enable its Snap watcher; Snap installed later will need luxup-snap-policy apply.' >&2
+    if [ -x /usr/bin/snap ]; then
+        systemctl start luxup-snap-policy.service >/dev/null 2>&1 || \
+            @CMAKE_INSTALL_FULL_LIBEXECDIR@/luxup-snap-policy apply || \
+            echo 'LuxUp could not apply the Snap refresh policy; check luxup-snap-policy.service.' >&2
+    fi
+fi
+
+exit 0

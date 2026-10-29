@@ -1,0 +1,231 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <requires lib="gtk" version="4.0" />
+  <template class="FrameWindow" parent="GtkApplicationWindow">
+    <property name="title">Frame</property>
+    <property name="icon-name">org.luxe.Frame</property>
+    <property name="default-width">960</property>
+    <property name="default-height">640</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkOverlay" id="overlay">
+            <child>
+              <object class="GtkScrolledWindow" id="scroller">
+                <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
+                <property name="hscrollbar-policy">automatic</property>
+                <property name="vscrollbar-policy">automatic</property>
+                <child>
+                  <object class="GtkPicture" id="picture">
+                    <property name="halign">center</property>
+                    <property name="valign">center</property>
+                    <property name="keep-aspect-ratio">True</property>
+                    <property name="can-shrink">True</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="overlay">
+              <object class="GtkRevealer" id="error_revealer">
+                <property name="halign">center</property>
+                <property name="valign">start</property>
+                <property name="transition-type">crossfade</property>
+                <property name="reveal-child">False</property>
+                <child>
+                  <object class="GtkLabel" id="error_label">
+                    <style>
+                      <class name="error" />
+                    </style>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child type="overlay">
+              <object class="GtkBox" id="statusbar">
+                <property name="halign">fill</property>
+                <property name="valign">end</property>
+                <property name="spacing">14</property>
+                <property name="margin-top">6</property>
+                <property name="margin-bottom">6</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">10</property>
+                <child>
+                  <object class="GtkLabel" id="status_label">
+                    <property name="halign">start</property>
+                    <property name="hexpand">True</property>
+                    <property name="ellipsize">end</property>
+                    <property name="single-line-mode">True</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="zoom_label">
+                    <property name="halign">end</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <property name="titlebar">
+      <object class="GtkHeaderBar" id="headerbar">
+        <property name="title-widget">
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <property name="valign">center</property>
+            <child>
+              <object class="GtkLabel" id="title_label">
+                <style>
+                  <class name="title" />
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="subtitle_label">
+                <style>
+                  <class name="subtitle" />
+                  <class name="dim-label" />
+                </style>
+                <attributes>
+                  <attribute name="scale" value="0.9" />
+                </attributes>
+              </object>
+            </child>
+          </object>
+        </property>
+        <child type="start">
+          <object class="GtkButton" id="open_button">
+            <property name="focusable">False</property>
+            <property name="icon-name">document-open</property>
+            <property name="tooltip-text" translatable="yes">Open an image (Ctrl+O)</property>
+            <property name="action-name">win.open</property>
+          </object>
+        </child>
+        <child type="start">
+          <object class="GtkButton" id="prev_button">
+            <property name="focusable">False</property>
+            <property name="icon-name">go-previous</property>
+            <property name="tooltip-text" translatable="yes">Previous image (Left)</property>
+            <property name="action-name">win.nav</property>
+            <property name="action-target">'prev'</property>
+          </object>
+        </child>
+        <child type="start">
+          <object class="GtkButton" id="next_button">
+            <property name="focusable">False</property>
+            <property name="icon-name">go-next</property>
+            <property name="tooltip-text" translatable="yes">Next image (Right)</property>
+            <property name="action-name">win.nav</property>
+            <property name="action-target">'next'</property>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkButton" id="zoom_out_button">
+            <property name="focusable">False</property>
+            <property name="icon-name">zoom-out</property>
+            <property name="tooltip-text" translatable="yes">Zoom out (minus)</property>
+            <property name="action-name">win.zoom</property>
+            <property name="action-target">'out'</property>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkButton" id="zoom_fit_button">
+            <property name="focusable">False</property>
+            <property name="icon-name">zoom-fit-best</property>
+            <property name="tooltip-text" translatable="yes">Fit the image to the window (0)</property>
+            <property name="action-name">win.zoom</property>
+            <property name="action-target">'fit'</property>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkButton" id="zoom_in_button">
+            <property name="focusable">False</property>
+            <property name="icon-name">zoom-in</property>
+            <property name="tooltip-text" translatable="yes">Zoom in (plus)</property>
+            <property name="action-name">win.zoom</property>
+            <property name="action-target">'in'</property>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkMenuButton" id="menu_button">
+            <property name="focusable">False</property>
+            <property name="icon-name">open-menu-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Main menu</property>
+            <property name="popover">
+              <object class="GtkPopoverMenu" id="menu_popover">
+                <property name="menu-model">window-menu</property>
+              </object>
+            </property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+  <menu id="window-menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Open…</attribute>
+        <attribute name="action">win.open</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Image Information</attribute>
+        <attribute name="action">win.info</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Open With…</attribute>
+        <attribute name="action">win.openwith</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Rotate Right</attribute>
+        <attribute name="action">win.rotate</attribute>
+        <attribute name="target">cw</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Rotate Left</attribute>
+        <attribute name="action">win.rotate</attribute>
+        <attribute name="target">ccw</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Flip Horizontally</attribute>
+        <attribute name="action">win.flip</attribute>
+        <attribute name="target">h</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Flip Vertically</attribute>
+        <attribute name="action">win.flip</attribute>
+        <attribute name="target">v</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Set as Wallpaper</attribute>
+        <attribute name="action">win.wallpaper</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Slideshow</attribute>
+        <attribute name="action">win.slideshow</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">Fullscreen</attribute>
+        <attribute name="action">win.fullscreen</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Move to Trash</attribute>
+        <attribute name="action">win.trash</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">About Frame</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>

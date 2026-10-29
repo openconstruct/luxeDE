@@ -1,0 +1,406 @@
+Translator credits preserved from the removed .po catalogs of luxetask.
+Luxe releases are English-only; translations return by pull request.
+Removed catalogs are recoverable from the 30 Sept 2026 source snapshot.
+
+[af]
+  Last-Translator: Anonymous Pootle User
+
+[ar]
+  Arabic translations for PACKAGE package.
+  Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
+  أحمد فرغل <ahmad.farghal@gmail.com>, 2009.
+  Last-Translator: Jerome Leclanche <jerome@leclan.ch>
+  Language-Team: Arabic
+
+[ast]
+  Asturian translations for luxetask package.
+  Copyright (C) 2008 THE lxtask'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxetask package.
+  Iñigo Varela <ivarela@softastur.org>, 2010.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Asturian <alministradores@softastur.org>
+
+[be]
+  Last-Translator: Anonymous Pootle User
+
+[bg]
+  Last-Translator: Anonymous Pootle User
+  Language-Team: MIME-Version: 1.0
+
+[bn]
+  Bengali translation of luxetask.po
+  Loba Yeasmeen <loba@ankur.org.bd>, 2008.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>
+
+[bn_IN]
+  Last-Translator: Anonymous Pootle User
+
+[ca]
+  luxetask.po CATALAN TRANSLATION
+  Last-Translator: Davidmp <rbndavid@gmail.com>
+  Language-Team: LXDE Catalan translators group
+
+[cs]
+  Czech translations for xfce4-taskmanager package.
+  Copyright (C) 2006 THE xfce4-taskmanager'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the xfce4-taskmanager package.
+  Michal Várady <miko.vaji@gmail.com>, 2006-2009.
+  Last-Translator: system user <>
+  Language-Team: Czech <translation-team-cs@lists.sourceforge.net>
+
+[da]
+  Danish translations for luxetask package.
+  Copyright (C) 2010 lxtask.
+  This file is distributed under the same license as the luxetask package.
+  Terje Uriansrud <ter@operamail.com>, 2007, 2009.
+  Joe Hansen <joedalton2@yahoo.dk>, 2010.
+  Last-Translator: scootergrisen <scootergrisen@gmail.com>
+  Language-Team: Danish <dansk@dansk-gruppen.dk>
+
+[de]
+  German translations for luxetask package.
+  Copyright (C) 2005 Johannes Zellner.
+  This file is distributed under the same license as the luxetask package.
+  Johannes Zellner <xfce4-taskmanager@nebulon.de>, 2005.
+  Enrico Tröger <enrico.troeger@uvena.de>, 2006.
+  Fabian Nowak <timystery@arcor.de>, 2007.
+  Mario Blättermann <mariobl@gnome.org>, 2009.
+  Christoph Wickert <cwickert@fedoraproject.org>, 2009.
+  Last-Translator: H.Humpel <H.Humpel@gmx.de>
+  Language-Team: German <gnome-de@gnome.org>
+
+[el]
+  translation of el.po to Greek
+  Evaggelos Balaskas <ebalaskas@ebalaskas.gr>, 2008.
+  Last-Translator: system user <>
+  Language-Team: Greek <nls@tux.hellug.gr>
+
+[en_GB]
+  English/GB translation of xfce4-taskmanager.
+  Copyright (C) 2007 THE xfce4-taskmanager'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the xfce4-taskmanager package.
+  Jeff Bailes <thepizzaking@gmail.com>, 2007.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: English/GB
+
+[es]
+  Spanish translations for luxetask package.
+  Copyright (C) 2008 THE lxtask'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxetask package.
+  Xoan Sampaiño Villagra <xoansampainho@gmail.com>, 2008.
+  Daniel Pacheco <daniel@tunki.org>, 2008.
+  Julio Napurí Carlos <julionc@gmail.org>, 2008.
+  Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>
+  Language-Team: Spanish <es@li.org>
+
+[et]
+  luxetask eesti keele tõlge
+  Estonian translation of luxetask
+  Mattias Põldaru <mahfiaz gmail com>, 2009.
+  Last-Translator: Anari Jalakas <anari.jalakas@gmail.com>
+  Language-Team: Gnome Estonian Translation Team <gnome-et linux ee>
+
+[eu]
+  translation of eu.po to librezale
+  Basque translations for PACKAGE package.
+  Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER
+  Piarres Beobide <pi@beobide.net>, 2006, 2007.
+  Last-Translator: Asier Iturralde Sarasola <asier.iturralde@gmail.com>
+  Language-Team: librezale <librezale@librezale.org>
+
+[fa]
+  Last-Translator: Anonymous Pootle User
+
+[fi]
+  Finnish translations for xfce4-taskmanager package.
+  Copyright (C) 2005 Johannes Zellner.
+  This file is distributed under the same license as the
+  xfce4-taskmanager package.
+  Pasi Sulasalmi <psulasasal@paju.oulu.fi>, 2005.
+  Jari Rahkonen <jari.rahkonen@pp1.inet.fi>, 2006-2007
+  Last-Translator: system user <>
+  Language-Team: Finnish <translation-team-fi@lists.sourceforge.net>
+
+[fo]
+  Last-Translator: Anonymous Pootle User
+
+[fr]
+  French translation of the xfce4-taskmanager package.
+  Copyright (C) 2005 Johannes Zellner.
+  This file is distributed under the same license as the xfce4-taskmanager package.
+  Peggy Kutyla <peggy.kutyla@laposte.net>, 2005.
+  Maximilian Schleiss <maximilian@xfce.org>, 2006-2007.
+  Last-Translator: YvanM <yvan.masson@openmailbox.org>
+  Language-Team: French <xfce-i18n@xfce.org>
+
+[frp]
+  Last-Translator: system user <>
+
+[gl]
+  Galician translation for xfce4-taskmanager
+  Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+  This file is distributed under the same license as the xfce4-taskmanager package.
+  Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>
+  Language-Team: Proxecto Trasno <proxecto@trasno.net>
+
+[he]
+  Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>
+
+[hr]
+  Ivica Kolić<ikoli@yahoo.com> <>, 2010.
+  Last-Translator: Ivica Kolić <ikoli@yahoo.com>
+  Language-Team: <asjlob AT vip.hr>
+
+[hu]
+  Hungarian translation of luxetask.
+  Copyright (C) 2008 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+  This file is distributed under the same license as the luxetask package.
+  Attila Szervac <sas@321.hu>, 2006-2010.
+  Laszlo Dvornik <dvornik@gnome.hu>, 2010.
+  Last-Translator: Balázs Úr <urbalazs@gmail.com>
+  Language-Team: Hungarian <hu@li.org>
+
+[id]
+  Indonesian translation for luxetask.
+  Copyright (C) YEAR THE lxtask'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxetask package.
+  Andhika Padmawan <andhika.padmawan@gmail.com>, Rahman Yusri Aftian <aftian@yahoo.com>, 2009.
+  Last-Translator: Andika Triwidada <andika@gmail.com>
+  Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>
+
+[is]
+  Sveinn í Felli <sv1@fellsnet.is>, 2014.
+  Last-Translator: Sveinn í Felli <sveinki@nett.is>
+  Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>
+
+[it]
+  Italian translations for xfce package.
+  Copyright (C) 2007 THE xfce'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the xfce package.
+  Fabio Riga <usul@aruba.it>, 2007.
+  Alessandro Pellizzari <alex@amiran.it>, 2009.
+  Daniele Forsi <daniele@forsi.it>, 2012.
+  Last-Translator: Daniele Forsi <daniele@forsi.it>
+  Language-Team: Italian
+
+[ja]
+  $Id: ja.po 2350 2007-01-13 10:12:31Z nick $
+  Japanese translations for xfce4-taskmanager package.
+  Copyright (C) 2005-2006 Johannes Zellner.
+  This file is distributed under the same license as the package.
+  Daichi Kawahata <daichi@xfce.org>, 2006.
+  Hironao Komatsu <hironao@users.sourceforge.net>, 2008-2009.
+  Last-Translator: Mamoru TASAKA <mtasaka@fedoraproject.org>
+  Language-Team: Japanese <hironao@users.sourceforge.net>
+
+[kk]
+  Kazakh translation for luxetask.
+  Copyright (C) 2012 The LXDE team
+  This file is distributed under the same license as the LXDE package.
+  Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2012.
+  Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>
+  Language-Team: Kazakh <kk_KZ@googlegroups.com>
+
+[ko]
+  Korean translation for luxetask package
+  Copyright (C) 2009-2012 Frer software foundation Inc.
+  This file is distributed under the same license as the luxetask package.
+  Seong-ho Cho <darkcircle.0426@gmail.com>, 2012.
+  Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>
+
+[lg]
+  Last-Translator: kizito <kbirabwa@yahoo.co.uk>
+  Language-Team: lg <kbirabwa@yahoo.co.uk>
+
+[lt]
+  Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012.
+  Last-Translator: Moo <hazap@hotmail.com>
+  Language-Team: Lietuvių <>
+
+[lv]
+  Latvian translations for xfce4-taskmanager package.
+  Copyright (C) 2006 THE xfce4-taskmanager'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the xfce4-taskmanager package..
+  Rihards Prieditis <Rprieditis@inbox.lv>, 2007.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Lstvian <rprieditis@inbox.lv>
+
+[ml]
+  Last-Translator: Anonymous Pootle User
+
+[ms]
+  Last-Translator: Anonymous Pootle User
+
+[nb]
+  Norwegian Bokmal translations for xfce4-taskmanager package.
+  Copyright (C) 2007 THE xfce4-taskmanager'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the xfce4-taskmanager package.
+  Terje Uriansrud <ter@operamail.com>, 2007.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Norwegian Bokmal
+
+[nl]
+  Dutch translation of the luxetask package.
+  Copyright (C) the author of the lxtask package.
+  This file is distributed under the same license as the
+  luxetask package.
+  Stephan Arts, 2007.
+  Pjotr, 2011.
+  Last-Translator: Pjotr <pjotrvertaalt@gmail.com>
+  Language-Team: Dutch
+
+[nn]
+  Translation of luxetask to Norwegian Nynorsk
+  Copyright © 2009 Karl Ove Hufthammer <karl@huftis.org>
+  This file is distributed under the same license as the luxetask package.
+  Karl Ove Hufthammer <karl@huftis.org>, 2009.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>
+
+[pa]
+  A S Alam <aalam@users.sf.net>, 2010.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>
+
+[pl]
+  Polish translation of luxetask package
+  Copyright (C) 2008 LXDE team
+  This file is distributed under the same license as the luxetask package.
+  Piotr Maliński <admin@rk.edu.pl>, 2006.
+  Grzegorz Gibas <amigib@gmail.com>, 2009.
+  Artur Kruszewski <mazdac@gmail.com>, 2009.
+  Piotr Sokół <psokol@jabster.pl>, 2010, 2011.
+  Last-Translator: Piotr Strębski <strebski@o2.pl>
+  Language-Team: Polish <>
+
+[ps]
+  Last-Translator: Anonymous Pootle User
+
+[pt]
+  Portuguese translations for luxetask package.
+  Copyright (C) 2005 Johannes Zellner.
+  This file is distributed under the same license as the luxetask package.
+  Nuno Miguel <nunis@netcabo.pt>, 2007.
+  Sérgio Marques <smarquespt@gmail.com> 2009-2012
+  Adaptado ao acordo ortográfico de 1990
+  Last-Translator: Sérgio Marques <smarquespt@gmail.com>
+  Language-Team: Portuguese PT
+
+[pt_BR]
+  Brazilian Portuguese translations for luxetask package.
+  Copyright (C) 2005 Johannes Zellner.
+  This file is distributed under the same license as the xfce4-taskmanager package.
+  Johannes Zellner <xfce4-taskmanager@nebulon.de>, 2005.
+  Adriano Winter Bess <adriano@xfce.org>, 2006.
+  Pablo Galletti Vieira <pbgozer@gmail.com>, 2007.
+  Henrique P. Machado <zehrique@gmail.com>, 2009.
+  Sérgio Cipolla <secipolla@gmail.com>, 2011.
+  Last-Translator: Felipe Braga <fbobraga@gmail.com>
+  Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>
+
+[ro]
+  Last-Translator: Anonymous Pootle User
+
+[ru]
+  Russian translation of xfce4-taskmanager.
+  Copyright (C) 2005-2006 Johannes Zellner.
+  This file is distributed under the same license as
+  the xfce4-taskmanager package.
+  Andrey Fedoseev <andrey.fedoseev@gmail.com>, 2006.
+  Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>
+  Language-Team: Russian <ru@li.org>
+
+[sk]
+  Slovak translation of luxetask
+  Copyright (C) 2006 lxde team
+  This file is distributed under the same license as the luxetask package.
+  Ivan MasÃ¡r <helix84@centrum.sk>, 2009.
+  Last-Translator: mirek <mirek@cnl.sk>
+  Language-Team: Slovak <sk-i18n@lists.linux.sk>
+
+[sl]
+  Slovenian translation of luxetask.
+  Copyright (C) 2011 - 2013 Free Software Foundation, Inc.
+  This file is distributed under the same license as the luxetask package.
+  Klemen Košir <klemen913@gmail.com>, 2011 - 2013.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Slovenian <lugos-slo@lugos.si>
+
+[sq]
+  Albanian translation of the xfce4-taskmanager package.
+  Copyright (C) 2005 Johannes Zellner.
+  This file is distributed under the same license as the xfce4-taskmanager package.
+  Besnik Bleta <besnik@programeshqip.org>, 2007.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Albanian <translation-team-sq@lists.sourceforge.net>
+
+[sr]
+  Serbian translation for LuxeTask package
+  This file is distributed under the same license as the LuxeTask package.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2009.
+  Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>
+
+[sr@latin]
+  Serbian translation for LuxeTask package
+  This file is distributed under the same license as the LuxeTask package.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2009.
+  Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>
+
+[sv]
+  Swedish translation for luxetask.
+  Copyright (C) 2009 Free Software Foundation, Inc.
+  This file is distributed under the same license as the luxetask package.
+  Daniel Nylander <po@danielnylander.se>, 2009.
+  Last-Translator: Martin Bagge <brother@bsnet.se>
+  Language-Team: Swedish <tp-sv@listor.tp-sv.se>
+
+[te]
+  Last-Translator: Praveen Illa <mail2ipn@gmail.com>
+
+[th]
+  Last-Translator: Anonymous Pootle User
+
+[tr]
+  Last-Translator: nyucel <necdetyucel@gmail.com>
+
+[tt_RU]
+  Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2011.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Tatar <>
+
+[ug]
+  Uyghur translation for luxetask.
+  Gheyret Kenji <gheyret@gmail.com>, 2011.
+  Last-Translator: system user <>
+  Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>
+
+[uk]
+  Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>
+  Language-Team: Ukrainian
+
+[ur]
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Urdu <makki.ma@gmail.com>
+
+[ur_PK]
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Urdu <makki.ma@gmail.com>
+
+[vi]
+  Last-Translator: Anonymous Pootle User
+
+[zh_CN]
+  Simplified Chinese translations for luxetask.
+  by ideal <05281253@bjtu.edu.cn>, 2008.
+  Last-Translator: Wylmer Wang <wantinghard@gmail.com>
+  Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>
+
+[zh_TW]
+  Japanese translations for xfce4-taskmanager package.
+  Copyright (C) 2005-2006 Johannes Zellner.
+  This file is distributed under the same license as
+  the xfce4-taskmanager package.
+  Cosmo Chene <cosmolax@ubuntu.org.tw>, 2006.
+  Last-Translator: wwycheuk <wwycheuk@gmail.com>
+  Language-Team: Tradictional Chinese <zh-l10n@linux.org.tw>

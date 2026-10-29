@@ -1,0 +1,786 @@
+Translator credits preserved from the removed .po catalogs of luxemenu-data.
+Luxe releases are English-only; translations return by pull request.
+Removed catalogs are recoverable from the 30 Sept 2026 source snapshot.
+
+[af]
+  Afrikaans translation of gnome-menus
+  This file is distributed under the same license as the gnome-menus package.
+  F Wolff <friedel@translate.org.za>, 2008
+  Last-Translator: F Wolff <friedel@translate.org.za>
+  Language-Team: translate-discuss-af@lists.sourceforge.net
+
+[ar]
+  translation of gnome-menus.HEAD.po to Arabic
+  Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER, 2005.
+  Djihed Afifi <djihed@gmail.com>, 2006.
+  Khaled Hosny <khaledhosny@eglug.org>, 2006, 2007, 2008.
+  Anas Husseini <linux.anas@gmail.com>, 2007.
+  Safa Alfulaij <safa1996alfulaij@gmail.com>, 2014.
+  Last-Translator: Safa Alfulaij <safa1996alfulaij@gmail.com>
+  Language-Team: Arabic <doc@arabeyes.org>
+
+[as]
+  translation of as.po to Assamese
+  Amitakhya Phukan <amitakhya@svn.gnome.org>, 2007.
+  Last-Translator: Amitakhya Phukan <amitakhya@svn.gnome.org>
+  Language-Team: Assamese
+
+[ast]
+  translation of gnome-menus.po to Asturian
+  Asturian translation for gnome-menus
+  Copyright (c) 2007 Rosetta Contributors and Canonical Ltd 2007
+  This file is distributed under the same license as the gnome-menus package.
+  Xose S. Puente <xspuente@gmail.com>, 2007.
+  Last-Translator: Astur <malditoastur@gmail.com>
+  Language-Team: Asturian <xspuente@gmail.com>
+
+[be]
+  Беларускі пераклад gnome-menus.
+  Copyright (C) 2005 THE gnome-menus'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the gnome-menus package.
+  Ales Nyakhaychyk <nab@mail.by>, 2005, 2007
+  Ihar Hrachyshka <ihar.hrachyshka@gmail.com>, 2006.
+  Last-Translator: Мікалай <crom-a@tut.by>
+  Language-Team: Belarusian <i18n@mova.org>
+
+[be@latin]
+  Biełaruski pierakład gnome-menus.
+  Copyright (C) 2005 THE gnome-menus'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the gnome-menus package.
+  Alaksandar Navicki <zolak@lacinka.org>, 2006.
+  Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>
+  Language-Team: Belarusian Latin <i18n@mova.org>
+
+[bg]
+  Bulgarian translation of gnome-menus po-file.
+  Copyright (C) 2004, 2005, 2007, 2008 Free Software Foundation
+  Last-Translator: Радослав Иванов <rec_ku@hotmail.com>
+  Language-Team: MIME-Version: 1.0
+
+[bn]
+  Bengali translation of gnome-menus
+  Mahay Alam Khan <makl10n@yahoo.com>, 2005.
+  Samia Niamatullah <mailsamia2001@yahoo.com>, 2005.
+  Israt Jahan <israt@ankur.org.bd>, 2010.
+  Last-Translator: Israt Jahan <israt@ankur.org.bd>
+  Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>
+
+[bn_IN]
+  Bengali India  translation of gnome-menus
+  Mahay Alam Khan <makl10n@yahoo.com>, 2005.
+  Samia Niamatullah <mailsamia2001@yahoo.com>, 2005.
+  Last-Translator: Runa Bhattacharjee <runabh@gmail.com>
+  Language-Team: Bengali (India) <en@li.org>
+
+[br]
+  Breton translation of gnome-menus.
+  Copyright (C) 2004-2005 Free Software Foundation, Inc.
+  This file is distributed under the same license as the gnome-menu package.
+  Jérémy Ar Floc'h <jeremy.lefloch@gmail.com>, 2006.
+  Last-Translator: Jérémy Le Floc'h <jeremy.lefloch@gmail.com>
+  Language-Team: GNOME Breton Team <jeremy.lefloch@gmail.com>
+
+[ca]
+  luxemenu-data.po CATALAN TRANSLATION
+  Last-Translator: Josep Sànchez Mesegué <josep.sanchez@ubuntu.cat>
+  Language-Team: LXDE Catalan translators group
+
+[cs]
+  Czech translation of gnome-menus.
+  Copyright (C) 2004, 2005 Free Software Foundation, Inc.
+  Copyright (C) 2004, 2005 Miloslav Trmac <mitr@volny.cz>.
+  This file is distributed under the same license as the gnome-menus package.
+  Miloslav Trmac <mitr@volny.cz>, 2004, 2005.
+  Petr Tomeš <ptomes@gmail.com>, 2006.
+  Jakub Friedl <jfriedl@suse.cz>, 2007.
+  Petr Kovar <pknbe@volny.cz>, 2007.
+  Last-Translator: Petr Kovar <pknbe@volny.cz>
+  Language-Team: Czech <gnome-cs-list@gnome.org>
+
+[cy]
+  GNOME Menus in Welsh.
+  This file is distributed under the same license as the gnome-menus package.
+  Dafydd Harries <daf@muse.19inch.net>, 2005.
+  Last-Translator: Rhys Jones <rhys@sucs.org>
+  Language-Team: Welsh <cy@pengwyn.linux.org.uk>
+
+[da]
+  Danish translation of gnome-menus.
+  Copyright (C) 2010 the package holder.
+  This file is distributed under the same license as the lxde.luxemenu-data package.
+  Joe Hansen <joedalton2@yahoo.dk>, 2010
+  Last-Translator: Joe Hansen <joedalton2@yahoo.dk>
+  Language-Team: Danish <dansk@dansk-gruppen.dk>
+
+[de]
+  German translation of gnome-menus.
+  Copyright (C) 2004 THE gnome-menus'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the gnome-menus package.
+  Hendrik Brandt <heb@gnome-de.org>, 2004-2005.
+  Hendrik Richter <hendrikr@gnome.org>, 2006, 2007.
+  Last-Translator: Christoph Wickert <christoph.wickert@googlemail.com>
+  Language-Team: German <gnome-de@gnome.org>
+
+[dz]
+  Dzongkha translation of gnome-menus
+  Copyright @ 2006 Free Software Foundation, Inc.
+  Mindu Dorji
+  Last-Translator: Tshewang Norbu <bumthap2006@hotmail.com>
+  Language-Team: DZONGKHA <pgeyleg@dit.gov.bt>
+
+[el]
+  Translation of gnome-menus to Greek
+  This file is distributed under the same license as the gnome-menus package.
+  Copyright (C) Free Software Foundation.
+  Simos Xenitellis <simos@gnome.org>, 2004.
+  Nikos Charonitakis <charosn@her.forthnet.gr>, 2005.
+  Kostas Papadimas <pkst@gnome.org>, 2006.
+  Last-Translator: nikosCharonitakis <nikosx@gmail.com>
+  Language-Team: Greek <team@gnome.gr>
+
+[en_CA]
+  Canadian English translation for gnome-menus
+  Copyright (C) 2004-2005 Adam Weinberger and the GNOME Foundation
+  This file is distributed under the same licence as the gnome-menus package.
+  Adam Weinberger <adamw@gnome.org>, 2004, 2005.
+  Last-Translator: Adam Weinberger <adamw@gnome.org>
+  Language-Team: Canadian English <adamw@gnome.org>
+
+[en_GB]
+  English (British) translation for gnome-menus
+  Copyright (C) 2005 The Gnome Foundation
+  This file is distributed under the same license as the gnome-menus package.
+  David Lodge <dave@cirt.net>, 2005.
+  Last-Translator: David Lodge <dave@cirt.net>
+  Language-Team: English (British) <en@li.org>
+
+[eo]
+  Esperanto translation for gnome-menus
+  Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+  This file is distributed under the same license as the gnome-menus package.
+  Joop Eggen <joop_eggen@yahoo.de>, 2006
+  Guillaume Savaton <llumeao@tuxfamily.org>, 2006
+  Last-Translator: Kristjan <kristjan.schmidt@googlemail.com>
+  Language-Team: Esperanto <eo@li.org>
+
+[es]
+  translation of gnome-menus to spanish
+  Copyright (C) 2005 Gnome Foundation, 2005.
+  Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2005, 2006.
+  Claudio Saavedra <csaavedra@alumnos.utalca.cl>, 2007.
+  Jorge González <jorgegonz@svn.gnome.org>, 2007.
+  Last-Translator: Hugo <sysadmin@cips.cu>
+  Language-Team: Spanish <traductores@es.gnome.org>
+
+[es_VE]
+  translation of gnome-menus to spanish
+  Copyright (C) 2005 Gnome Foundation, 2005.
+  Francisco Javier F. Serrador <serrador@cvs.gnome.org>, 2005, 2006.
+  Claudio Saavedra <csaavedra@alumnos.utalca.cl>, 2007.
+  Jorge González <jorgegonz@svn.gnome.org>, 2007.
+  Last-Translator: Hugo Florentino <sysadmin@cips.cu>
+  Language-Team: Spanish <traductores@es.gnome.org>
+
+[et]
+  GNOME menüüde eesti keele tõlge
+  Estonian translation of Gnome-menus
+  Copyright (C) 2005 Free Software Foundation, Inc.
+  Copyright (C) 2007 The GNOME Project
+  This file is distributed under the same license as the Gnome-menus package.
+  Priit Laes <amd@store20.com>, 2005.
+  Ivar Smolin <okul@linux.ee>, 2005, 2007.
+  Last-Translator: Anari <anari.jalakas@gmail.com>
+  Language-Team: Estonian <gnome-et@linux.ee>
+
+[eu]
+  translation of gnome-menus.HEAD.po to Basque
+  This file is distributed under the same license as the gnome-menus package.
+  Mikel Olasagasti <hey_neken@mundurat.net>, 2004, 2005.
+  Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2005, 2007, 2008.
+  Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2007.
+  Last-Translator: Asier_Iturralde_Sarasola <asier.iturralde@gmail.com>
+  Language-Team: Basque <itzulpena@euskalgnu.org>
+
+[fa]
+  Persian translation of gnome-menus.
+  Copyright (C) 2005 Sharif FarsiWeb, Inc.
+  This file is distributed under the same license as the gnome-menus package.
+  Farzaneh Sarafraz <farzaneh@farsiweb.info>, 2005.
+  Meelad Zakaria <meelad@farsiweb.info>, 2005.
+  Roozbeh Pournader <roozbeh@gmail.com>, 2005, 2008.
+  Arash Mousavi <mousavi.arash@gmail.com>, 2008.
+  Elnaz Sarbar <elnaz.s@gmail.com>, 2008.
+  Last-Translator: Roozbeh Pournader <roozbeh@gmail.com>
+  Language-Team: Persian
+
+[fi]
+  Finnish messages for gnome-menus
+  Copyright (C) 2004-2005 Free Software Foundation, Inc.
+  This file is distributed under the same license as the gail package.
+  Tommi Vainikainen <Tommi.Vainikainen@iki.fi>, 2004-2005.
+  Ilkka Tuohela <hile@iki.fi>, 2005.
+  Last-Translator: Ilkka Tuohela <hile@iki.fi>
+  Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>
+
+[fo]
+  Last-Translator: Gunleif <gunleif@gmail.com>
+
+[fr]
+  French translation of gnome-menus.
+  Copyright (C) 2004-2005, 2007 Free Software Foundation, Inc.
+  This file is distributed under the same license as the gnome-menu package.
+  Baptiste Mille-Mathias <bmm80@free.fr>, 2004-2005.
+  Vincent Untz <vuntz@gnome.org>, 2005.
+  Christophe Merlet <redfox@redfoxcenter.org>, 2005.
+  Robert-André Mauchin <zebob.m@gmail.com>, 2007.
+  Stéphane Raimbault <stephane.raimbault@gmail.com>, 2007.
+  Last-Translator: Mouillon <pci21@free.fr>
+  Language-Team: GNOME French team <gnomefr@traduc.org>
+
+[frp]
+  Last-Translator: alexandre raymond <alekcxjo@gmail.com>
+
+[fur]
+  Friulian translation of gnome-menus.
+  Copyright (C) 2007 Free Software Foundation, Inc.
+  Massimo Furlani <massimo.furlani@libero.it>, 2007.
+  Last-Translator: Massimo Furlani <massimo.furlani@libero.it>
+  Language-Team: FRIULIAN <massimo.furlani@libero.it>
+
+[ga]
+  Irish translations for gnome-menus package.
+  Copyright (C) 2007-2008 Free Software Foundation, Inc.
+  This file is distributed under the same license as the gnome-menus package.
+  Seán de Búrca <leftmostcat@gmail.com>, 2007-2008.
+  Last-Translator: Seán de Búrca <leftmostcat@gmail.com>
+  Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>
+
+[gl]
+  translation of gl.po to Galego
+  Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER.
+  Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005.
+  Ignacio Casal Quinteiro <icq@cvs.gnome.org>, 2007.
+  Ignacio Casal Quinteiro <icq@svn.gnome.org>, 2007.
+  Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>
+  Language-Team: Proxecto Trasno <proxecto@trasno.net>
+
+[gn]
+  Brazilian Guarani translation of gnome-menus.
+  Copyright (C) 2006 Free Software Foundation, Inc.
+  This file is distributed under the same license as the gnome-menus package.
+  Last-Translator: Boca <boca@riseup.net>
+
+[gu]
+  translation of gnome-menus.HEAD.gu.po to Gujarati
+  Ankit Patel <ankit644@yahoo.com>, 2007.
+  Ankit Patel <ankit@redhat.com>, 2007.
+  Last-Translator: Ankit Patel <ankit@redhat.com>
+  Language-Team: Gujarati <fedora-trans-gu@redhat.com>
+
+[he]
+  translation of gnome-menus.gnome-2-10.po to Hebrew
+  Yuval Tanny <tanai@int.gov.il>, 2005.
+  Last-Translator: Yaron <sh.yaron@gmail.com>
+  Language-Team: <he@li.org>
+
+[hi]
+  translation of gnome-menus.HEAD.hi.po to Hindi
+  Amanpreet Singh Alam <aalam@redhat.com>, 2004.
+  Rajesh Ranjan <rranjan@redhat.com>, 2005, 2006, 2008.
+  Last-Translator: Rajesh Ranjan <rranjan@redhat.com>
+  Language-Team: Hindi <hindi.sf.net>
+
+[hr]
+  Last-Translator: Boljsa <asjlob AT vip.hr>
+  Language-Team: <asjlob AT vip.hr>
+
+[hu]
+  Hungarian translation of luxemenu-data.
+  Copyright (C) 2008-2010 The LXDE Team
+  This file is distributed under the same license as the luxemenu-data package.
+  Gabor Kelemen <kelemeng@gnome.hu>, 2004-2009.
+  Laszlo Dvornik <dvornik@gnome.hu>, 2005, 2010.
+  Attila Szervac <sas@321.hu>, 2008.
+  Last-Translator: Bendegúz <gyonkibendeguz@gmail.com>
+  Language-Team: Hungarian <hu@li.org>
+
+[hy]
+  translation of gnome-menus.HEAD.po to armenian
+  Ruzanna Khachatryan <ruzannak@hotmail.com>
+  Norayr Chilingaryan <norik@freenet.am>
+  Last-Translator: Norayr Chilingaryan <chnorik@gmail.com>
+  Language-Team: <norik@freenet.am>
+
+[id]
+  Indonesian translation of gnome-menus.
+  Copyright (C) 2005 THE gnome-menus's COPYRIGHT HOLDER
+  This file is distributed under the same license as the gnome-menus package.
+  ahmad riza h nst <ari@160c.afraid.org>, 2005.
+  Last-Translator: Andika Triwidada <andika@gmail.com>
+  Language-Team: Indonesian <sukarelawan@gnome.linux.or.id>
+
+[io]
+  Ido translation of gnome-menus.
+  Copyright (C) 2007 Free Software Foundation, Inc.
+  This file is distributed under the same license as the gnome-menus package.
+  Michael Terry <mike@mterry.name>, 2007.
+  Last-Translator: Michael Terry <mike@mterry.name>
+  Language-Team: Ido <gnome-ido@lists.mterry.name>
+
+[is]
+  Icelandic translation of Gnome.
+  Icelandic translation of gnome-menus.
+  Copyright (C) 2008 Free Software Foundation, Inc.
+  Anna Jonna Ármannsdóttir <annajonna@gmail.com>, 2008.
+  Last-Translator: Anna Jonna Ármannsdóttir <annajonna@gmail.com>
+  Language-Team: Icelandic
+
+[it]
+  Italian translation of gnome-menus.
+  Copyright (C) 2005 THE gnome-menus'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the gnome-menus package.
+  Francesco Marletta <francesco.marletta @ tiscali.it>, 2005-2008.
+  Last-Translator: Alessandro Pellizzari <alex@amiran.it>
+  Language-Team: Italian <tp@lists.linux.it>
+
+[ja]
+  ja.po for gnome-menus.
+  Copyright (C) 2004-2007 THE gnome-menus' COPYRIGHT HOLDER
+  This file is distributed under the same license as the gnome-menus package.
+  Satoru SATOH <ss@gnome.gr.jp>, 2004.
+  Takeshi AIHANA <takeshi.aihana@gmail.com>, 2005-2007.
+  Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>
+  Language-Team: Japanese <gnome-translation@gnome.gr.jp>
+
+[ka]
+  Georgian translation for gnome-menus
+  Copyright (c) (c) 2005 Canonical Ltd, and Rosetta Contributors 2005
+  This file is distributed under the same license as the gnome-menus package.
+  <>, 2005.
+  , fuzzy
+  <>, 2006.
+  Last-Translator: Vladimer Sichinava <alinux@siena.linux.it>
+  Language-Team: Georgian <http://geoubuntu.cjb.net/>
+
+[kk]
+  Kazakh translation for luxemenu-data.
+  Copyright (C) 2012 The LXDE team
+  This file is distributed under the same license as the LXDE package.
+  Moldabekov Margulan <moldabekov@gmail.com>, 2008
+  Erzhan Shaniev <erzhan.jktl@gmail.com>, 2008
+  Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2008-2012.
+  Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>
+  Language-Team: Kazakh <kk_KZ@googlegroups.com>
+
+[km]
+  Last-Translator: <atol@sokha.net>
+
+[kn]
+  translation of kn.po to Kannada
+  Shankar Prasad <svenkate@redhat.com>, 2007, 2008.
+  Last-Translator: Shankar Prasad <svenkate@redhat.com>
+  Language-Team: Kannada <en@li.org>
+
+[ko]
+  translation of gnome-menus.HEAD.po to Korean
+  Sung-Hyun Nam <namsh@kldp.org>, 2000.
+  Young-Ho Cha <ganadist@chollian.net>, 2000,2001,2003, 2007.
+  Eunju Kim <eukim@redhat.com>, 2007.
+  Changwoo Ryu <cwryu@debian.org>, 1998, 2002, 2003, 2008.
+  Last-Translator: Changwoo Ryu <cwryu@debian.org>
+  Language-Team: GNOME Korea <gnome-kr-hackers@lists.kldp.net>
+
+[ku]
+  translation of ku.po to Kurdish
+  translation of gnome-menus.HEAD.po to Kurdish
+  Kurdish translation for gnome-menus
+  Copyright (c) (c) 2005 Canonical Ltd, and Rosetta Contributors 2005
+  This file is distributed under the same license as the gnome-menus package.
+  Erdal Ronahi <erdal.ronahi@gmail.com>, 2005.
+  Erdal Ronahi <erdal.ronahi@gmail.com, pckurd@hotmail.com>, 2005, 2006.
+  Last-Translator: Erdal Ronahi <erdal.ronahi@gmail.com>
+  Language-Team: Kurdish <ku@li.org>
+
+[ky]
+  Translation of gnome-menus to Kirghiz
+  Copyright (C) 2003,2004, 2005 Free Software Foundation, Inc.
+  Timur Jamakeev <ztimur@gmail.com>, 2005.
+  Last-Translator: Timur Jamakeev <ztimur@gmail.com>
+  Language-Team: Kirghiz
+
+[lg]
+  Last-Translator: kizito <kbirabwa@yahoo.co.uk>
+
+[lt]
+  translation of lt.po to Lithuanian
+  Lithuanian translation of gnome-menus.
+  Copyright (C) 2004-2007, 2008 Free Software Foundation, Inc.
+  This file is distributed under the same license as the gnome-menus package.
+  I'm a rolling thunder, a pouring rain
+  I'm comin' on like a hurricane
+  Justina Klingaitė <justina.klingaite@gmail.com>, 2005.
+  Žygimantas Beručka <zygis@gnome.org>, 2004-2007.
+  Gintautas Miliauskas <gintas@akl.lt>, 2007, 2008.
+  Last-Translator: Anony mous <zadintuvas@gmail.com>
+  Language-Team: Lithuanian <gnome-lt@lists.akl.lt>
+
+[lv]
+  translation of lv.po to Latvian
+  Raivis Dejus <orvils@gmail.com>, 2006, 2007.
+  Last-Translator: Raivis Dejus <orvils@gmail.com>
+  Language-Team: Latvian <locale@laka.lv>
+
+[mai]
+  translation of gnome-menus.HEAD.po to maithili
+  translation of gnome-menus.HEAD.po to
+  Sangeeta Kumari <sangeeta09@gmail.com>, 2008.
+  Last-Translator: Sangeeta Kumari <sangeeta09@gmail.com>
+  Language-Team: maithili <maithili.sf.net>
+
+[mg]
+  Malagasy translation of gnome-menus.
+  Copyright (C) 2006 THE gnome-menus'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the gnome-menus package.
+  Fano Rajaonarisoa <dikatenyfano@gmail.com>, 2006.
+  Thierry Randrianiriana <randrianiriana@gmail.com, 2006.
+  Last-Translator: Thierry Randrianiriana <randrianiriana@gmail.com>
+  Language-Team: Malagasy <i18n-malagasy-gnome@gna.org>
+
+[mk]
+  translation of gnome-menus.HEAD.po to Macedonian
+  translation of gnome-menus.
+  Copyright (C) 2005 THE gnome-menus'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the gnome-menus package.
+  <>, 2005.
+  Арангел Ангов <ufo@linux.net.mk>, 2005.
+  Arangel Angov <ufo@linux.net.mk>, 2006.
+  Jovan Naumovski <jovan@lugola.net>, 2006, 2007.
+  Arangel Angov <arangel@linux.net.mk>, 2007.
+  Last-Translator: Arangel Angov <arangel@linux.net.mk>
+  Language-Team: Macedonian <ossm-members@hedona.on.net.mk>
+
+[ml]
+  translation of gnome-menus to Malayalam
+  This file is distributed under the same license as the gnome-menus package.
+  Copyright (C) 2007-2008 gnome-menus' COPYRIGHT HOLDER.
+  Ani Peter <peter.ani@gmail.com>, 2006.
+  Praveen|പ്രവീണ്‍ A|എ <pravi.a@gmail.com>, 2007,2008.
+  Ani Peter <apeter@redhat.com>, 2007.
+  Reviewed by  Santhosh Thottingal <santhosh00@gmail.com>
+  Last-Translator: Praveen|പ്രവീണ്‍ A|എ <pravi.a@gmail.com>
+  Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc-
+
+[mn]
+  translation of mn.po to Mongolian
+  translation of PACKAGE.
+  Copyright (C) 2006 THE PACKAGE'S COPYRIGHT HOLDER
+  <>, 2006.
+  Badral <badral@openmn.org>, 2006.
+  Last-Translator: Badral <badral@openmn.org>
+  Language-Team: Mongolian <openmn-translation@lists.sourceforge.net>
+
+[mr]
+  translation of gnome-menus.HEAD.mr.po to marathi
+  Marathi Translation of gnome-menus
+  Copyright (C) 2005, 2006, 2008 Free Software Foundation, Inc.
+  This file is distributed under the same license as the gnome-menus package.
+  FIRST AUTHOR: Gayatri Deshpande <gafinde@gmail.com>, 2005.
+  Rahul Bhalerao <b.rahul.pm@gmail.com>, 2006.
+  Sandeep Shedmake <sandeep.shedmake@gmail.com>, 2008.
+  Last-Translator: Sandeep Shedmake <sandeep.shedmake@gmail.com>
+  Language-Team: marathi
+
+[ms]
+  gnome-menu Bahasa Melayu (ms)
+  Hasbullah Bin Pit (sebol) <sebol@my-penguin.org>, 2004
+  Last-Translator: Payne Samad Loh <sploh77@yahoo.com>
+  Language-Team: ms <sebol@ikhlas.com>
+
+[nb]
+  Norwegian bokmål translation of gnome-menus.
+  Copyright (C) 2004, 2005 Red Hat, Inc.
+  This file is distributed under the same license as the gnome-menus package.
+  Kjartan Maraas <kmaraas@gnome.org>, 2004-2008.
+  Terance Edward Sola <terance@lyse.net>, 2005.
+  Last-Translator: Kjartan Maraas <kmaraas@gnome.org>
+  Language-Team: Norwegian Bokmal <i18n-nb@lister.ping.uio.no>
+
+[ne]
+  translation of gnome-menus.HEAD.ne.po to Nepali
+  Nepali Translation Project.
+  Ganesh Ghimire <gghimire@gmail.com>, 2005.
+  Nabin Gautam <nabin@mpp.org.np>, 2007.
+  Last-Translator: Nabin Gautam <nabin@mpp.org.np>
+  Language-Team: Nepali <info@mpp.org.np>
+
+[nl]
+  Dutch translation of the luxemenu-data package.
+  Copyright (C) the author of the lxmenu-data package.
+  This file is distributed under the same license as the
+  luxemenu-data package.
+  Daniel van Eeden, 2004
+  Tino Meinen, 2005
+  Wouter Bolsterlee, 2007
+  Pjotr, 2011.
+  Last-Translator: Pjotr <pjotrvertaalt@gmail.com>
+  Language-Team: Dutch
+
+[nn]
+  Translation of luxemenu-data to Norwegian Nynorsk
+  Copyright © 2009 Karl Ove Hufthammer <karl@huftis.org>
+  This file is distributed under the same license as the luxemenu-data package.
+  Karl Ove Hufthammer <karl@huftis.org>, 2009.
+  Last-Translator: Karl Ove Hufthammer <karl@huftis.org>
+  Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>
+
+[oc]
+  Translation of oc.po to Occitan
+  Occitan translation of gnome-menus.
+  Copyright (C) 2007 Free Software Foundation, Inc.
+  This file is distributed under the same license as the gnome-menus package.
+  Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>, 2007.
+  Last-Translator: Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>
+  Language-Team: Occitan <ubuntu-l10n-oci@lists.ubuntu.com>
+
+[or]
+  translation of gnome-menus.HEAD.or.po to Oriya
+  Subhransu Behera <arya_subhransu@yahoo.co.in>, 2006.
+  Manoj Kumar Giri <giri.manojkr@gmail.com>, 2008.
+  Last-Translator: Manoj Kumar Giri <giri.manojkr@gmail.com>
+  Language-Team: Oriya
+
+[pa]
+  translation of gnome-menus.HEAD.po to Punjabi
+  Amanpreet Singh Alam <aalam@redhat.com>, 2004.
+  Amanpreet Singh Alam <amanpreetalam@yahoo.com>, 2005.
+  A S Alam <aalam@users.sf.net>, 2007.
+  Last-Translator: A S Alam <aalam@users.sf.net>
+  Language-Team: Punjabi <punjabi-l10n@lists.sf.net>
+
+[pl]
+  Copyright (C) 2001-2005 Free Software Foundation, Inc.
+  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+  Aviary.pl
+  Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
+  pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
+  gnomepl@aviary.pl
+  Last-Translator: Piotr <strebski@o2.pl>
+  Language-Team: Aviary.pl <gnomepl@aviary.pl>
+
+[ps]
+  Last-Translator: Zabeeh Khan <zabeehkhan@gmail.com>
+  Language-Team: Pashto <pathanisation@googlegroups.com>
+
+[pt]
+  Portuguese translation of luxemenu-data package.
+  Copyright (C) 2009 THE lxmenu-data'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxemenu-data package.
+  Duarte Loreto <happyguy_pt@hotmail.com>, 2004, 2005, 2006, 2007.
+  Sérgio Marques <smarquespt@gmail.com>, 2009-2012.
+  Adaptado ao acordo ortográfico de 1990
+  Last-Translator: Sérgio <smarquespt@gmail.com>
+  Language-Team: Portuguese
+
+[pt_BR]
+  Brazilian Portuguese translation of GNOME Menus.
+  Copyright (C) 2004-2008 the GNOME Menu authors.
+  This file is distributed under the same license as the gnome-menus package.
+  Raphael Higino <In Memoriam>, 2004-2005.
+  Afonso Celso Medina <afmedina@uol.com.br>, 2005.
+  Og Maciel <ogmaciel@ubuntu.com>, 2006-2007.
+  Leonardo Ferreira Fontenelle <leonardof@gnome.org>, 2007, 2008.
+  Fabrício Godoy <skarllot@gmail.com>, 2008
+  Sérgio Cipolla <secipolla@gmail.com>, 2011
+  Last-Translator: Sérgio Cipolla <secipolla@gmail.com>
+  Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>
+
+[ro]
+  Last-Translator: Mișu <dumol@l10n.ro>
+
+[ru]
+  translation of gnome-menus to Russian
+  Copyright (C) 1998-2003, 2005, 2006, 2007 Free Software Foundation, Inc.
+  Dmitry G. Mastrukov <dmitry@taurussoft.org>, 2004.
+  Leonid Kanter <leon@asplinux.ru>, 2005, 2007.
+  Last-Translator: Max <mpui@tut.by>
+  Language-Team: Russian <gnome-cyr@gnome.org>
+
+[rw]
+  translation of gnome-menus to Kinyarwanda.
+  Copyright (C) 2005 Free Software Foundation, Inc.
+  This file is distributed under the same license as the gnome-menus package.
+  Steve Murphy <murf@e-tools.com>, 2005
+  Steve performed initial rough translation from compendium built from translations provided by the following translators:
+  Philibert Ndandali  <ndandali@yahoo.fr>, 2005.
+  Viateur MUGENZI <muvia1@yahoo.fr>, 2005.
+  Noëlla Mupole <s24211045@tuks.co.za>, 2005.
+  Carole Karema <karemacarole@hotmail.com>, 2005.
+  JEAN BAPTISTE NGENDAHAYO <ngenda_denis@yahoo.co.uk>, 2005.
+  Augustin KIBERWA  <akiberwa@yahoo.co.uk>, 2005.
+  Donatien NSENGIYUMVA <ndonatienuk@yahoo.co.uk>, 2005..
+  Last-Translator: Steve Murphy <murf@e-tools.com>
+  Language-Team: Kinyarwanda <translation-team-rw@lists.sourceforge.net>
+
+[si]
+  translation of gnome-menus.po to Sinhala
+  Danishka Navin <snavin@redhat.com>, 2007.
+  Last-Translator: danishka <danishka@gmail.com>
+  Language-Team: Sinhala <en@li.org>
+
+[sk]
+  Slovak translations for luxemenu-data package.
+  This file is distributed under the same license as the luxemenu-data package.
+  Marcel Telka <marcel@telka.sk>, 2004, 2005.
+  Peter Tuharsky <tuharsky@misbb.sk>, 2007.
+  Ivan Masár <helix84@centrum.sk>, 2009, 2010.
+  Last-Translator: Ivan Masár <helix84@centrum.sk>
+  Language-Team: Slovak <sk-i18n@lists.linux.sk>
+
+[sl]
+  Slovenian translation of luxemenu-data.
+  Copyright (C) 2011 - 2013 Free Software Foundation, Inc.
+  This file is distributed under the same license as the luxemenu-data package.
+  Klemen Košir <klemen913@gmail.com>, 2011 - 2013.
+  Last-Translator: Klemen Košir <klemen913@gmail.com>
+  Language-Team: Slovenian <lugos-slo@lugos.si>
+
+[sq]
+  Përkthimi i mesazheve të gnome-menus në shqip
+  Copyright (C) 2005 THE gnome-menus'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the gnome-menus package.
+  Elian Myftiu <elian@alblinux.net>, 2005-2007.
+  Laurent Dhima <laurenti@alblinux.net>, 2008.
+  Last-Translator: Laurent Dhima <laurenti@alblinux.net>
+  Language-Team: albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>
+
+[sr]
+  Serbian translation of gnome-menus
+  Courtesy of Prevod.org team (http://prevod.org/) -- 2004, 2005, 2006, 2007.
+  This file is distributed under the same license as the gnome-menus package.
+  Maintainer: Данило Шеган <dsegan@gmx.net>
+  Reviewed on 2005-09-03 by: Данило Шеган <danilo@gnome.org>"
+  Transalted on 2006-01-31 by: Слободан Д. Средојевић <slobo@akrep.be>
+  Last-Translator: Горан Ракић <grakic@devbase.net>
+  Language-Team: Serbian (sr) <gnome@prevod.org>
+
+[sr@latin]
+  Serbian translation of gnome-menus
+  Courtesy of Prevod.org team (http://prevod.org/) -- 2004, 2005, 2006, 2007.
+  This file is distributed under the same license as the gnome-menus package.
+  Maintainer: Danilo Šegan <dsegan@gmx.net>
+  Reviewed on 2005-09-03 by: Danilo Šegan <danilo@gnome.org>"
+  Transalted on 2006-01-31 by: Slobodan D. Sredojević <slobo@akrep.be>
+  Last-Translator: Goran Rakić <grakic@devbase.net>
+  Language-Team: Serbian (sr) <gnome@prevod.org>
+
+[sv]
+  Swedish messages for gnome-menus.
+  Copyright (C) 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
+  Daniel Nylander <po@danielnylander.se>, 2007.
+  Christian Rose <menthos@menthos.com>, 2004, 2005, 2006.
+  $Id: sv.po,v 1.7 2006/01/08 20:42:48 menthos Exp $
+  Last-Translator: Daniel Nylander <po@danielnylander.se>
+  Language-Team: Swedish <tp-sv@listor.tp-sv.se>
+
+[ta]
+  translation of gnome-menus.HEAD.po to TAMIL
+  Shakthi Kannan <shaks@shakthimaan.com>, 2006.
+  Jayaradha N <jayaradhaa@gmail.com>, 2006.
+  Dr.T.Vasudevan <agnihot3@gmail.com>, 2007.
+  Last-Translator: Dr.T.Vasudevan <agnihot3@gmail.com>
+  Language-Team: TAMIL <ubuntu-l10n-tam@lists.ubuntu.com>
+
+[te]
+  Telugu translation of gnome-menus
+  Copyright (C) 2005,2007 Free Software Foundation, Andhra Pradesh
+  This file is distributed under the same license as the gnome-menus package.
+  Y.Kiran Chandra <kiran@gnu.org.in>, 2005.
+  Bharat Kumar <jonnalagaddabharat@gmail.com>, 2007.
+  Last-Translator: PraveenIlla <mail2ipn@gmail.com>
+  Language-Team: Swecha Telugu Localisation Team <localisation@swecha.org>
+
+[th]
+  Thai translation of gnome-menus.
+  Copyright (C) 2004-2007 Free Software Foundation, Inc.
+  This file is distributed under the same license as the gnome-menus package.
+  Theppitak Karoonboonyanan <thep@linux.thai.net>, 2004-2007.
+  Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>
+  Language-Team: Thai <l10n@opentle.org>
+
+[tr]
+  translation of tr.po to Turkish
+  translation of Gnome-menus.
+  Copyright (C) 2004 THE Gnome-menus'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the Gnome-menus package.
+  Baris Cicek <baris@teamforce.name.tr>, 2005, 2008.
+  Onur Can Çakmak <onur.cakmak@gmail.com>, 2006.
+  Last-Translator: Baris Cicek <baris@teamforce.name.tr>
+  Language-Team: Turkish <gnome-turk@gnome.org>
+
+[tt_RU]
+  Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2011.
+  Last-Translator: Ainur Shakirov <ainur.shakirov.tt@gmail.com>
+  Language-Team: Tatar <>
+
+[ug]
+  Last-Translator: Abduxukur Abdurixit <abdurixit@gmail.com>
+  Language-Team: Gnome Uighur Translation Project <gnome-uighur@yahoogroups.
+
+[uk]
+  Ukrainian translation of gnome-menus.
+  Copyright (C) Free Software Foundation Inc., 2005
+  This file is distributed under the same license as the gnome-menus package.
+  Maxim Dziumanenko <dziumanenko@gmail.com>, 2005-2007.
+  Last-Translator: Maxim Dziumanenko <dziumanenko@gmail.com>
+  Language-Team: Ukrainian <uk@li.org>
+
+[ur]
+  Last-Translator: Muhammad Ali Makki <makki.ma@gmail.com>
+  Language-Team: Urdu <makki.ma@gmail.com>
+
+[ur_PK]
+  Last-Translator: Muhammad Ali Makki <makki.ma@gmail.com>
+  Language-Team: Urdu <makki.ma@gmail.com>
+
+[uz@cyrillic]
+  translation of uz@cyrillic.po to Uzbek
+  Nurali Abdurahmonov <mavnur@gmail.com>, 2007.
+  Last-Translator: Nurali Abdurahmonov <mavnur@gmail.com>
+  Language-Team: Uzbek
+
+[vi]
+  Vietnamese Translation for Gnome Menus.
+  Copyright © 2007 Gnome i18n Project for Vietnamese.
+  This file is distributed under the same license as the gnome-menus package.
+  Trinh Minh Thanh <tmthanh@yahoo.com>, 2004.
+  Clytie Siddall <clytie@riverland.net.au>, 2005-2007.
+  Last-Translator: Hiếu <scamemiv@gmail.com>
+  Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>
+
+[xh]
+  Xhosa translation of gnome-menus
+  Copyright (C) 2005 Canonical Ltd.
+  This file is distributed under the same license as the gnome-menus package.
+  Translation by Canonical Ltd <translations@canonical.com> with thanks to
+  Translation World CC in South Africa, 2005.
+  Last-Translator: Canonical Ltd <translations@canonical.com>
+  Language-Team: Xhosa <xh-translate@ubuntu.com>
+
+[zh_CN]
+  Funda Wang <fundawang@linux.net.cn>, 2004.
+  Last-Translator: 甘露(Lu Gan) <rhythm.gan@gmail.com>
+  Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>
+
+[zh_HK]
+  Chinese (Hong Kong) translation of gnome-menu.
+  Copyright (C) 2005, 06, 07 Free Software Foundation, Inc.
+  Woodman Tuen <wmtuen@gmail.com>, 2005-07.
+  Last-Translator: Woodman Tuen <wmtuen@gmail.com>
+  Language-Team: Chinese (Hong Kong) <community@linuxhall.org>
+
+[zh_TW]
+  Chinese (Taiwan) translation of gnome-menu.
+  Copyright (C) 2005, 06, 07 Free Software Foundation, Inc.
+  Woodman Tuen <wmtuen@gmail.com>, 2005-07.
+  Last-Translator: Walter <wwycheuk@gmail.com>
+  Language-Team: Chinese/Traditional <zh-l10n@linux.org.tw>

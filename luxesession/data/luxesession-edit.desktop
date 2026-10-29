@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Icon=luxesession-edit
+Exec=luxesession-edit
+Name=LuxeSession Settings
+GenericName=Desktop Session Settings
+Comment=Manage applications loaded in desktop session
+Categories=GTK;Settings;DesktopSettings;X-LXDE-Settings;
+OnlyShowIn=LXDE;

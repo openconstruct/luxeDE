@@ -1,0 +1,3 @@
+[D-BUS Service]
+Name=org.luxe.LuxUp.Service
+Exec=@CMAKE_INSTALL_FULL_LIBEXECDIR@/luxup-service --no-refresh

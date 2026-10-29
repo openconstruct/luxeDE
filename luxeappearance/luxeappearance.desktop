@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=LuxeAppearance
+GenericName=Appearance
+Comment=Customize the look of the desktop
+Exec=luxeappearance
+Icon=luxeappearance
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Settings;DesktopSettings;X-LXDE-Settings;GTK;
+NotShowIn=GNOME;XFCE;

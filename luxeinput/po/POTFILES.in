@@ -1,0 +1,4 @@
+src/luxeinput.c
+[type: gettext/glade]data/luxeinput.ui
+data/luxeinput.desktop.in
+

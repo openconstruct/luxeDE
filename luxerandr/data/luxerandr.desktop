@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=LuxeRandR
+GenericName=Monitor Settings
+Comment=Change screen resolution and configure external monitors
+Exec=luxerandr
+Icon=luxerandr
+Terminal=false
+Type=Application
+Categories=GTK;Settings;HardwareSettings;X-LXDE-Settings;
+NotShowIn=GNOME;KDE;XFCE;MATE;
+Keywords=screen;display;tv;extend;projector;xrandr;refresh rate;position;enable;disable;

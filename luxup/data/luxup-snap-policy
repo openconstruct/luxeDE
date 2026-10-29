@@ -1,0 +1,66 @@
+#!/bin/sh
+# Copyright (C) 2026 Jerry Howell. SPDX-License-Identifier: GPL-2.0-or-later
+set -eu
+
+snap_command=${LUXUP_SNAP_COMMAND:-/usr/bin/snap}
+state_directory=${LUXUP_STATE_DIR:-/var/lib/luxup}
+state_file="$state_directory/snap-auto-refresh-held"
+action=${1:-apply}
+
+case "$action" in apply|remove) ;; *) echo "Usage: luxup-snap-policy apply|remove" >&2; exit 2 ;; esac
+[ -x "$snap_command" ] || exit 0
+umask 077
+[ ! -L "$state_directory" ] || { echo "Unsafe Snap policy directory" >&2; exit 1; }
+install -d -m 0755 "$state_directory"
+lock_file="$state_directory/snap-policy.lock"
+[ ! -L "$lock_file" ] || { echo "Unsafe Snap policy lock" >&2; exit 1; }
+exec 9>"$lock_file"
+flock -x 9
+[ ! -L "$state_file" ] || { echo "Unsafe Snap policy record" >&2; exit 1; }
+[ ! -e "$state_file" ] || [ -f "$state_file" ] || { echo "Invalid Snap policy record" >&2; exit 1; }
+if [ -e "$state_file" ] && ! printf 'pending\n' | cmp -s - "$state_file"; then
+    echo "Unrecognized Snap policy record; preserving it without changing policy" >&2
+    exit 1
+fi
+
+case "$action" in
+    apply)
+        refresh_time=$("$snap_command" refresh --time)
+        if printf '%s\n' "$refresh_time" | grep -qx '[[:space:]]*hold:[[:space:]]*forever[[:space:]]*'; then
+            exit 0
+        fi
+        # A finite (or unrecognized) existing hold belongs to its creator.
+        # Snap cannot reliably round-trip it as an absolute policy here.
+        if printf '%s\n' "$refresh_time" | grep -q '^[[:space:]]*hold:[[:space:]]*[^[:space:]]'; then
+            echo "Existing Snap hold preserved; LuxUp did not change it" >&2
+            exit 0
+        fi
+        # Record ownership before changing policy. Retain the record when snap
+        # fails: it may have changed state before reporting an error. Snap
+        # exposes no owner for an effective forever hold; while this record
+        # exists, that identical state follows LuxUp's installed-package
+        # lifecycle and is released on removal. Existing forever holds never
+        # get a record and are therefore never claimed by LuxUp.
+        if [ ! -e "$state_file" ]; then
+            temporary=$(mktemp "$state_directory/.snap-policy-XXXXXX")
+            trap 'rm -f "$temporary"' EXIT
+            trap 'exit 130' INT
+            trap 'exit 143' TERM
+            printf '%s\n' pending > "$temporary"
+            sync -f "$temporary"
+            mv -T "$temporary" "$state_file"
+            sync -f "$state_directory"
+            trap - EXIT HUP INT TERM
+        fi
+        "$snap_command" refresh --hold=forever
+        ;;
+    remove)
+        if [ -e "$state_file" ]; then
+            refresh_time=$("$snap_command" refresh --time)
+            if printf '%s\n' "$refresh_time" | grep -qx '[[:space:]]*hold:[[:space:]]*forever[[:space:]]*'; then
+                "$snap_command" refresh --unhold
+            fi
+        fi
+        rm -f "$state_file"
+        ;;
+esac

@@ -1,0 +1,233 @@
+/* Copyright (C) 2020 Tom Zaluckij. Copyright (C) 2026 Jerry Howell. SPDX-License-Identifier: GPL-3.0-or-later */
+
+#include <gtk/gtk.h>
+#include <glib/gi18n.h>
+#include "luxe-gtk-ui.h"
+
+#include "screenshot-app.h"
+#include "screenshot-menu.h"
+#include "screenshot-logic.h"
+#include "actions-menu.h"
+
+struct _ScreenshotMenuPrivate
+{
+	GSettings *settings;
+
+	GtkWidget *delay_value;
+	GtkWidget *delay_disable;
+
+	GtkWidget *area_list;
+
+	GtkWidget *include_cursor;
+	GtkWidget *include_decorations;
+
+	guint screenshot_source;
+};
+
+typedef struct _ScreenshotMenuPrivate ScreenshotMenuPrivate;
+
+struct _ScreenshotMenu
+{
+	GtkApplicationWindow parent;
+
+	ScreenshotMenuPrivate *priv;
+};
+
+G_DEFINE_TYPE_WITH_PRIVATE (ScreenshotMenu,
+                            screenshot_menu,
+                            GTK_TYPE_APPLICATION_WINDOW);
+
+static gboolean
+start_screenshot (gpointer data)
+{
+	/* dispose cancels a pending timer; hold the window only while capturing. */
+	g_autoptr(ScreenshotMenu) hold = g_object_ref (SCREENSHOT_MENU (data));
+	SCREENSHOT_MENU (data)->priv->screenshot_source = 0;
+	GtkApplication *app;
+	ActionsMenu *win;
+	GdkPixbuf *screenshot_pixbuf;
+	g_autoptr(GError) error = NULL;
+
+	// Make a screenshot
+	screenshot_pixbuf = screenshot (gtk_drop_down_get_selected (GTK_DROP_DOWN (SCREENSHOT_MENU (data)->priv->area_list)),
+	                                gtk_check_button_get_active (GTK_CHECK_BUTTON (SCREENSHOT_MENU (data)->priv->include_cursor)),
+	                                gtk_check_button_get_active (GTK_CHECK_BUTTON (SCREENSHOT_MENU (data)->priv->include_decorations)),
+	                                &error);
+
+	if (screenshot_pixbuf == NULL)
+	{
+		/* An oversized desktop grab is recoverable: leave the capture menu
+		 * ready in region mode so the user can retry with a smaller area. */
+		if (error && g_error_matches (error, G_IO_ERROR, G_IO_ERROR_NO_SPACE) &&
+		    gtk_drop_down_get_selected (GTK_DROP_DOWN (SCREENSHOT_MENU (data)->priv->area_list)) != AREA_REGION)
+			gtk_drop_down_set_selected (GTK_DROP_DOWN (SCREENSHOT_MENU (data)->priv->area_list), AREA_REGION);
+		gtk_window_present (GTK_WINDOW (data));
+		if (error) {
+			GtkWindow *dialog = luxe_choice_dialog_new (_("Screenshot failed"), error->message);
+			luxe_choice_add_response (GTK_DIALOG (dialog), "close", _("Close"));
+			luxe_dialog_present (dialog, GTK_WIDGET (data));
+		}
+		return G_SOURCE_REMOVE;
+	}
+
+	// Create a new actions menu window and add it to the application
+	app = gtk_window_get_application (GTK_WINDOW (data));
+	win = actions_menu_new (screenshot_pixbuf, SCREENSHOT_APP (app));
+	g_object_unref (screenshot_pixbuf);
+
+	// Close the screenshot menu window (which removes it from the application)
+	gtk_window_destroy (GTK_WINDOW (data));
+
+	// Show the actions menu window
+	gtk_window_present (GTK_WINDOW (win));
+
+	// Remove GSource from the main loop
+	return G_SOURCE_REMOVE;
+}
+
+static void
+screenshot_button_clicked (GtkWidget      *button,
+                           ScreenshotMenu *win)
+{
+	(void) button;
+	if (win->priv->screenshot_source)
+		return;
+	// Add slight delay to wait for the window to disappear (haven't found a better soltuion)
+	guint delay = 400;
+
+	// Get the screenshot delay
+	if (! gtk_check_button_get_active (GTK_CHECK_BUTTON (win->priv->delay_disable)) && gtk_widget_get_sensitive (GTK_WIDGET (win->priv->delay_disable)))
+	{
+		// Convert delay to seconds
+		delay = 1000 * gtk_adjustment_get_value (gtk_spin_button_get_adjustment (GTK_SPIN_BUTTON (win->priv->delay_value)));
+	}
+
+	// Hide screenshot menu window
+	gtk_widget_set_visible (GTK_WIDGET (win), FALSE);
+
+	// The window owns the timer, removed on dispose without a reference cycle.
+	win->priv->screenshot_source = g_timeout_add (delay, start_screenshot, win);
+}
+
+static void
+delay_disable_toggled (GtkWidget      *toggle_button,
+                       ScreenshotMenu *win)
+{
+	gboolean show_delay;
+
+	// Set delay_value sensitivity
+	show_delay = ! gtk_check_button_get_active (GTK_CHECK_BUTTON (toggle_button)) && gtk_widget_get_sensitive (GTK_WIDGET (toggle_button));
+	gtk_widget_set_sensitive (GTK_WIDGET (win->priv->delay_value), show_delay);
+}
+
+static void
+area_list_changed (GtkDropDown   *area_list,
+                   GParamSpec    *pspec,
+                   ScreenshotMenu *win)
+{
+	(void) pspec;
+	gint     index;
+	gboolean options[3][3] = {
+		{ TRUE,  TRUE,  FALSE },
+		{ TRUE,  TRUE,  TRUE  },
+		{ FALSE, FALSE, FALSE }
+	};
+
+	// Get selected area index (0 - entire screen; 1 - active window; 2 - region)
+	index = gtk_drop_down_get_selected (area_list);
+	if (index < 0 || index >= 3)
+		index = 0;
+
+	// Set sensetivity for capture options (0 - delay, 1 - include cursor; 2 - show decorations)
+	gtk_widget_set_sensitive (GTK_WIDGET (win->priv->delay_disable), options[index][0]);
+	delay_disable_toggled(GTK_WIDGET (win->priv->delay_disable), win);
+	gtk_widget_set_sensitive (GTK_WIDGET (win->priv->include_cursor), options[index][1]);
+	gtk_widget_set_sensitive (GTK_WIDGET (win->priv->include_decorations), options[index][2]);
+}
+
+static void
+screenshot_menu_dispose (GObject *object)
+{
+	// Remove a pending capture timer and release its window reference
+	if (SCREENSHOT_MENU (object)->priv->screenshot_source)
+	{
+		g_source_remove (SCREENSHOT_MENU (object)->priv->screenshot_source);
+		SCREENSHOT_MENU (object)->priv->screenshot_source = 0;
+	}
+
+	// Dispose of settings object
+	g_clear_object (&SCREENSHOT_MENU (object)->priv->settings);
+
+	// Dispose of parent class
+	G_OBJECT_CLASS (screenshot_menu_parent_class)->dispose (object);
+}
+
+static void
+screenshot_menu_init (ScreenshotMenu *win)
+{
+	// Set private window instance
+	win->priv = screenshot_menu_get_instance_private (win);
+
+	// Initialize window from the template
+	gtk_widget_init_template (GTK_WIDGET (win));
+
+	// Initialize GSettings
+	win->priv->settings = g_settings_new ("org.luxe.Shotty");
+
+	// Bind settings
+	g_settings_bind (win->priv->settings, "area",
+	                 win->priv->area_list, "selected",
+	                 G_SETTINGS_BIND_DEFAULT);
+
+	g_settings_bind (win->priv->settings, "delay-value",
+	                 win->priv->delay_value, "value",
+	                 G_SETTINGS_BIND_DEFAULT);
+	g_settings_bind (win->priv->settings, "delay-disable",
+	                 win->priv->delay_disable, "active",
+	                 G_SETTINGS_BIND_DEFAULT);
+
+	g_settings_bind (win->priv->settings, "include-cursor",
+	                 win->priv->include_cursor, "active",
+	                 G_SETTINGS_BIND_DEFAULT);
+	g_settings_bind (win->priv->settings, "include-decorations",
+	                 win->priv->include_decorations, "active",
+	                 G_SETTINGS_BIND_DEFAULT);
+
+	// Update UI elements
+	delay_disable_toggled (GTK_WIDGET (win->priv->delay_disable), win);
+	area_list_changed (GTK_DROP_DOWN (win->priv->area_list), NULL, win);
+}
+
+static void
+screenshot_menu_class_init (ScreenshotMenuClass *class)
+{
+	// Assign GObject entry points
+	G_OBJECT_CLASS (class)->dispose = screenshot_menu_dispose;
+
+	// Set window template from a resource
+	gtk_widget_class_set_template_from_resource (GTK_WIDGET_CLASS (class), "/org/luxe/shotty/screenshot-menu.ui");
+
+	// Bind widgets from the template
+	gtk_widget_class_bind_template_child_private (GTK_WIDGET_CLASS (class), ScreenshotMenu, delay_value);
+	gtk_widget_class_bind_template_child_private (GTK_WIDGET_CLASS (class), ScreenshotMenu, delay_disable);
+
+	gtk_widget_class_bind_template_child_private (GTK_WIDGET_CLASS (class), ScreenshotMenu, area_list);
+
+	gtk_widget_class_bind_template_child_private (GTK_WIDGET_CLASS (class), ScreenshotMenu, include_cursor);
+	gtk_widget_class_bind_template_child_private (GTK_WIDGET_CLASS (class), ScreenshotMenu, include_decorations);
+
+	// Bind signals from the template
+	gtk_widget_class_bind_template_callback (GTK_WIDGET_CLASS (class), screenshot_button_clicked);
+
+	gtk_widget_class_bind_template_callback (GTK_WIDGET_CLASS (class), delay_disable_toggled);
+
+	gtk_widget_class_bind_template_callback (GTK_WIDGET_CLASS (class), area_list_changed);
+}
+
+ScreenshotMenu *
+screenshot_menu_new (ScreenshotApp *app)
+{
+	return g_object_new (screenshot_menu_get_type (),
+	                     "application",
+	                     app, NULL);
+}

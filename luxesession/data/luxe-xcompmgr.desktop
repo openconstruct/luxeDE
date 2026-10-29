@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=luxe compositor
+Comment=Basic X11 window compositing
+Exec=xcompmgr -n
+TryExec=xcompmgr
+OnlyShowIn=X-Luxe;LXDE;
+Terminal=false
+StartupNotify=false

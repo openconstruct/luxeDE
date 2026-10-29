@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+<!-- Copyright 2026 Jerry Howell. GPL-2.0-or-later -->
+<path fill="#b8834b" d="M7 18 32 6 57 18 57 47 32 60 7 47Z"/>
+<path fill="#ddb073" d="M7 18 32 30 57 18 32 6Z"/>
+<path fill="#9b6838" d="M32 30v30l25-13V18Z"/>
+<path fill="#f4d3a3" d="m20 12 25 12v13l-8 4V28L13 16Z"/>
+<circle cx="45" cy="46" r="16" fill="#52976b"/>
+<path d="m38 46 5 5 10-11" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

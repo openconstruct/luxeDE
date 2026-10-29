@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Frame
+GenericName=Image Viewer
+Comment=View images quickly with zoom, rotation, and EXIF information
+Exec=frame %u
+Icon=org.luxe.Frame
+Terminal=false
+Categories=GTK;Graphics;Viewer;
+Keywords=image;photo;picture;viewer;frame;
+MimeType=image/png;image/jpeg;image/gif;image/webp;image/bmp;image/x-xpixmap;image/tiff;image/svg+xml;
+StartupWMClass=frame

@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <requires lib="gtk" version="4.0" />
+  <!-- Content of the LuxeSession Settings window (AdwApplicationWindow built
+       in code). Pages live in an AdwViewStack switched from the header bar. -->
+  <object class="GtkStack" id="stack">
+    <property name="vexpand">True</property>
+    <child>
+      <object class="GtkStackPage">
+        <property name="name">autostart</property>
+        <property name="title" translatable="yes">Startup</property>
+        <property name="icon-name">system-run-symbolic</property>
+        <property name="child">
+          <object class="GtkBox" id="autostart_page">
+            <property name="orientation">vertical</property>
+            <property name="margin-top">10</property>
+            <property name="margin-bottom">10</property>
+            <property name="margin-start">10</property>
+            <property name="margin-end">10</property>
+            <property name="spacing">6</property>
+            <child>
+              <object class="GtkLabel">
+                <property name="xalign">0</property>
+                <property name="wrap">True</property>
+                <property name="label" translatable="yes">Applications started automatically after logging in. Changes are saved immediately.</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkScrolledWindow">
+                <property name="vexpand">True</property>
+                <property name="has-frame">True</property>
+                <child>
+                  <object class="GtkTreeView" id="autostarts">
+                    <property name="hexpand">True</property>
+                    <property name="vexpand">True</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">horizontal</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkEntry" id="autostart_command">
+                    <property name="hexpand">True</property>
+                    <property name="placeholder-text" translatable="yes">Command to start at login</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="add_autostart">
+                    <property name="label" translatable="yes">_Add</property>
+                    <property name="use-underline">True</property>
+                    <property name="sensitive">False</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="remove_autostart">
+                    <property name="label" translatable="yes">_Remove</property>
+                    <property name="use-underline">True</property>
+                    <property name="sensitive">False</property>
+                    <style>
+                      <class name="destructive-action" />
+                    </style>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="autostart_status">
+                <property name="xalign">0</property>
+                <property name="wrap">True</property>
+              </object>
+            </child>
+          </object>
+        </property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkStackPage" id="adv_stack_page">
+        <property name="name">advanced</property>
+        <property name="title" translatable="yes">Advanced</property>
+        <property name="icon-name">preferences-system-symbolic</property>
+        <property name="child">
+          <object class="GtkBox" id="adv_page">
+            <property name="orientation">vertical</property>
+            <property name="margin-top">10</property>
+            <property name="margin-bottom">10</property>
+            <property name="margin-start">10</property>
+            <property name="margin-end">10</property>
+            <property name="spacing">14</property>
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">horizontal</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">_Window manager:</property>
+                    <property name="use-underline">True</property>
+                    <property name="mnemonic-widget">wm</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="wm">
+                    <property name="hexpand">True</property>
+                    <property name="tooltip-text" translatable="yes">Command used to start the window manager. The Luxe default is openbox.</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">horizontal</property>
+                <property name="spacing">6</property>
+                <child>
+                  <object class="GtkImage">
+                    <property name="icon-name">dialog-warning-symbolic</property>
+                    <property name="pixel-size">32</property>
+                    <property name="valign">start</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="xalign">0</property>
+                    <property name="wrap">True</property>
+                    <property name="hexpand">True</property>
+                    <property name="use-markup">True</property>
+                    <property name="label" translatable="yes">&lt;b&gt;Warning:&lt;/b&gt; a wrong command leaves the session without a window manager. Leave this alone unless you know exactly what you are doing.
+
+Saved with the Save button; takes effect at next login.</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </property>
+      </object>
+    </child>
+  </object>
+</interface>

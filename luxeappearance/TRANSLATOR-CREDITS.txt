@@ -1,0 +1,246 @@
+Translator credits preserved from the removed .po catalogs of luxeappearance.
+Luxe releases are English-only; translations return by pull request.
+Removed catalogs are recoverable from the 30 Sept 2026 source snapshot.
+
+[af]
+  (no translator named in header)
+
+[ar]
+  Arabic translations for PACKAGE package.
+  Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
+  أحمد فرغل <ahmad.farghal@gmail.com>, 2009.
+  Last-Translator: Ahmad Farghal <ahmad.farghal@gmail.com>
+  Language-Team: Arabic
+
+[bg]
+  Last-Translator: Rossen Karpuzov <gustav@cointech.net>
+  Language-Team: Mandriva User Group - Bulgaria <mandriva-bg@googlegroups.com>
+
+[bn_IN]
+  Last-Translator: Sankarshan <sankarshan.mukhopadhyay@gmail.com>
+
+[ca]
+  luxeappearance.po CATALAN TRANSLATION
+  Last-Translator: Josep Sànchez Mesegué <josep.sanchez@ubuntu.cat>
+  Language-Team: LXDE Catalan translation group
+
+[cs]
+  Czech translations for luxeappearance package.
+  Copyright (C) 2009 THE lxappearance'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxeappearance package.
+  Michal Várady <miko.vaji@gmail.com>, 2009.
+  Last-Translator: Michal Várady <miko.vaji@gmail.com>
+  Language-Team: Czech
+
+[da]
+  Danish description for luxeappearance.
+  Copyright (C) 2008 THE lxappearance'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxeappearance package.
+  Vidar Jon Bauge <vidarjb@gmail.com 2008.
+  Last-Translator: charlie tyrrestrup <chalze06@gmail.com>
+  Language-Team: Danish
+
+[de]
+  German description for luxeappearance.
+  This file is distributed under the same license as the luxeappearance package.
+  Mario Blättermann <mariobl@gnome.org>, 2008-2009.
+  Last-Translator: Mario Blättermann <mariobl@gnome.org>
+
+[el]
+  Last-Translator: George Vasilakos <forfolias@linuxteam.cs.teilar.gr>
+  Language-Team: Greek
+
+[es]
+  Spanish translation of luxeappearance
+  Copyright (C) 2008 THE lxappearance'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxeappearance package.
+  Daniel Pacheco <daniel@tunki.org>, 2008.
+  Last-Translator: Hugo Florentino <sysadmin@cips.cu>
+  Language-Team: Spanish <es@li.org>
+
+[et]
+  luxeappearance eesti keele tõlge
+  Estonian translation of luxeappearance
+  Copyright (C) 2009 LXDE
+  This file is distributed under the same license as the luxeappearance package.
+  Mattias Põldaru <mahfiaz gmail com>, 2009.
+  Last-Translator: Mattias Põldaru <mahfiaz gmail com>
+  Language-Team: Gnome Estonian Translation Team <gnome-et linux ee>
+
+[eu]
+  Last-Translator: Alain Mendizabal <alainmendi@gmail.com>
+  Language-Team: Basque <alainmendi@gmail.com>
+
+[fa]
+  (no translator named in header)
+
+[fi]
+  Finnish translation for LuxeAppearance
+  Copyright (C) 2008
+  Elias Julkunen <elias.julkunen@gmail.com>, 2008.
+  Last-Translator: Elias Julkunen <elias.julkunen@gmail.com>
+
+[fr]
+  French Translation of LxAppearance.
+  Copyright (C) 2008 洪任諭 (Hon Jen Yee, aka PCMan)
+  This file is distributed under the same license as the luxeappearance package.
+  Frank Endres <frank_endres@yahoo.fr>, 2008.
+  Robert-André Mauchin <zebob.m@pengzone.org>, 2008.
+  Last-Translator: Cilyan Olowen <gaknar@gmail.com>
+  Language-Team: GNOME French Team <gnomefr@traduc.org>
+
+[gl]
+  Last-Translator: Indalecio Freiría Santos <ifreiria@gmail.com>
+  Language-Team: Proxecto Trasno <proxecto@trasno.net>
+
+[he]
+  Last-Translator: Yaron Shahrbani <sh.yaron@gmail.com>
+
+[hr]
+  Last-Translator: Boljsa <asjlob AT vip.hr>
+  Language-Team: <asjlob AT vip.hr>
+
+[hu]
+  Hungarian translation of luxeappearance.
+  Copyright (C) 2006 the lxde team
+  This file is distributed under the same license as the luxeappearance package.
+  SZERVÁC Attila <sas@321>, 2006-2008.
+  Last-Translator: SZERVÁC Attila <sas@321.hu>
+  Language-Team: Hungarian <debian-l10n-hungarian@lists.debian.org>
+
+[id]
+  Indonesian translations for luxeappearance package.
+  Copyright (C) YEAR THE lxappearance'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxeappearance package.
+  Andhika Padmawan <andhika.padmawan@gmail.com>, Rahman Yusri Aftian <aftian@yahoo.com>, 2009.
+  Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>
+  Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>
+
+[it]
+  Translation of luxeappearance to Italian
+  Copyright (C) 2009 Fabio Barone <phonky at gmx.net>
+  This file is distributed under the same license as the luxeappearance package
+  Fabio Barone <phonky at gmx.net>, 2009
+  Last-Translator: Alessandro Pellizzari <alex@amiran.it>
+
+[ja]
+  Japanese translations for luxeappearance package
+  luxeappearance パッケージに対する日本語訳.
+  Copyright (C) 2008-2009 THE lxappearance'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxeappearance package.
+  Hironao Komatsu <hironao@users.sourceforge.net>, 2009.
+  Last-Translator: Hironao Komatsu <hironao@users.sourceforge.net>
+  Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>
+
+[ko]
+  (no translator named in header)
+
+[lt]
+  Last-Translator: Julius Vitkauskas <zadintuvas@gmail.com>
+
+[ml]
+  (no translator named in header)
+
+[ms]
+  Last-Translator: Umarzuki Bin Mochlis Moktar <umarzuki@gmail.com>
+
+[nb]
+  (no translator named in header)
+
+[nl]
+  Last-Translator: Sander De Voogdt <celettu@gmail.com>
+
+[nn]
+  Translation of luxeappearance to Norwegian Nynorsk
+  Copyright © 2009 Karl Ove Hufthammer <karl@huftis.org>
+  This file is distributed under the same license as the luxeappearance package.
+  Karl Ove Hufthammer <karl@huftis.org>, 2009.
+  Last-Translator: Karl Ove Hufthammer <karl@huftis.org>
+  Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>
+
+[pl]
+  translation of pl_PL.po to Polish
+  Grzegorz Gibas <amigib@gmail.com>, 2008.
+  Artur Kruszewski <mazdac@gmail.com>, 2009.
+  Last-Translator: Artur Kruszewski <mazdac@gmail.com>
+  Language-Team: Polish
+
+[ps]
+  (no translator named in header)
+
+[pt]
+  Portuguese translations for luxeappearance package.
+  Copyright (C) 2009 THE lxappearance'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxeappearance package.
+  <alvarommorais@gmail.com>, 2009.
+  Last-Translator: Sérgio Marques <smarquespt@gmail.com>
+  Language-Team: Portuguese PT <alvarommorais@gmail.com>
+
+[pt_BR]
+  Brasilian Portuguese Translations for luxeappearance package.
+  Copyright (C) 2009 The lxappearance'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxeappearance package.
+  Og Maciel <ogmaciel@gnome.org>, 2009.
+  Henrique P. Machado <zehrique@gmail.com>, 2009.
+  Last-Translator: Henrique P. Machado <zehrique@gmail.com>
+  Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>
+
+[ru]
+  Russian translations for LuxeAppearance package
+  Английские переводы для пакета LuxeAppearance.
+  Copyright (C) 2009 THE LXAppearance'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the LuxeAppearance package.
+  Vitaly Pashkov <admin@fluda.net>, 2009.
+  Last-Translator: Vitaly Pashkov <admin@fluda.net>
+  Language-Team: Russian
+
+[sk]
+  Slovak translation of luxeappearance
+  Copyright (C) 2006 lxde team
+  This file is distributed under the same license as the luxeappearance package.
+  Ivan MasÃ¡r <helix84@centrum.sk>, 2009.
+  Last-Translator: Ivan Masár <helix84@centrum.sk>
+  Language-Team: Slovak <sk-i18n@lists.linux.sk>
+
+[sl]
+  Last-Translator: Matej Gačnik <paxmanpwnz@gmail.com>
+  Language-Team: Slovenian <paxmanpwnz@gmail.com>
+
+[sr]
+  Serbian translation for LuxeAppearance package
+  This file is distributed under the same license as the LuxeAppearance package.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2009.
+  Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>
+
+[sv]
+  Translation of lxapperance to Swedish
+  Copyright (C) 2009 Martin Bagge <brother@bsnet.se>
+  This file is distributed under the same license as the lxapperance package.
+  Martin Bagge <brother@bsnet.se>, 2009.
+  Last-Translator: Martin Bagge <brother@bsnet.se>
+  Language-Team: Swedish <tp-sv@listor.tp-sv.se>
+
+[tr]
+  (no translator named in header)
+
+[uk]
+  Last-Translator: Y P <yupadmin@gmail.com>
+
+[ur]
+  Last-Translator: Muhammad Ali Makki <makki.ma@gmail.com>
+  Language-Team: Urdu <makki.ma@gmail.com>
+
+[ur_PK]
+  Last-Translator: Muhammad Ali Makki <makki.ma@gmail.com>
+  Language-Team: Urdu <makki.ma@gmail.com>
+
+[vi]
+  Vietnamese translation of LXApperance
+  This file is distributed under the same license as the LXApperance package.
+
+[zh_CN]
+  ideal <05281253@bjtu.edu.cn>, 2008.
+  Last-Translator: ideal <05281253@bjtu.edu.cn>
+
+[zh_TW]
+  Last-Translator: 羅廷中 <timloo0710@gmail.com>

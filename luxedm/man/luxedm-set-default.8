@@ -1,0 +1,12 @@
+.TH LUXEDM-SET-DEFAULT 8 "September 2026" "LuxeDM 1.4.1+luxe10"
+.SH NAME
+luxedm-set-default \- select LuxeDM for the next system boot
+.SH SYNOPSIS
+.B sudo luxedm-set-default
+.SH DESCRIPTION
+Requests PolicyKit authentication when run by a regular user, records
+/usr/bin/luxedm as the selected X11 display manager, and enables the
+LuxeDM systemd service through the display-manager.service alias. It does not
+stop or replace the display manager serving the current graphical session.
+.SH COPYRIGHT
+Copyright 2026 Jerry Howell. Licensed under GPL-2.0-or-later.

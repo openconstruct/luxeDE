@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style-scheme id="lucid-tokyo-night-dark" _name="Tokyo Night Dark" version="1.0">
+  <author>Michaël Ball</author>
+  <description>Lucid adaptation of the Tinted Theming palette.</description>
+  <metadata><property name="luxe-palette">tokyo-night</property><property name="variant">dark</property><property name="terminal-palette">#1A1B26 #C0CAF5 #9ECE6A #0DB9D7 #2AC3DE #BB9AF7 #B4F9F8 #A9B1D6 #444B6A #C0CAF5 #9ECE6A #0DB9D7 #2AC3DE #BB9AF7 #B4F9F8 #D5D6DB</property></metadata>
+  <color name="base00" value="#1A1B26"/>
+  <color name="base01" value="#16161E"/>
+  <color name="base02" value="#2F3549"/>
+  <color name="base03" value="#444B6A"/>
+  <color name="base04" value="#787C99"/>
+  <color name="base05" value="#A9B1D6"/>
+  <color name="base06" value="#CBCCD1"/>
+  <color name="base07" value="#D5D6DB"/>
+  <color name="base08" value="#C0CAF5"/>
+  <color name="base09" value="#A9B1D6"/>
+  <color name="base0A" value="#0DB9D7"/>
+  <color name="base0B" value="#9ECE6A"/>
+  <color name="base0C" value="#B4F9F8"/>
+  <color name="base0D" value="#2AC3DE"/>
+  <color name="base0E" value="#BB9AF7"/>
+  <color name="base0F" value="#F7768E"/>
+  <color name="comment" value="#7d82a0"/>
+  <style name="text" foreground="base05" background="base00"/>
+  <style name="selection" foreground="base05" background="base02"/>
+  <style name="selection-unfocused" foreground="base05" background="base02"/>
+  <style name="cursor" foreground="base05"/>
+  <style name="secondary-cursor" foreground="base08"/>
+  <style name="current-line" background="base01"/>
+  <style name="line-numbers" foreground="base04" background="base00"/>
+  <style name="current-line-number" bold="true" foreground="base0D" background="base01"/>
+  <style name="right-margin" foreground="base03" background="base01"/>
+  <style name="draw-spaces" foreground="base03"/>
+  <style name="search-match" foreground="base00" background="base0A"/>
+  <style name="bracket-match" bold="true" foreground="base00" background="base0C"/>
+  <style name="bracket-mismatch" foreground="base00" background="base08"/>
+  <style name="def:comment" foreground="comment"/>
+  <style name="def:shebang" foreground="comment"/>
+  <style name="def:doc-comment" foreground="comment"/>
+  <style name="def:string" foreground="base0B"/>
+  <style name="def:special-char" foreground="base0C"/>
+  <style name="def:number" foreground="base09"/>
+  <style name="def:floating-point" foreground="base09"/>
+  <style name="def:decimal" foreground="base09"/>
+  <style name="def:base-n-integer" foreground="base09"/>
+  <style name="def:boolean" foreground="base09"/>
+  <style name="def:constant" foreground="base09"/>
+  <style name="def:keyword" foreground="base0E"/>
+  <style name="def:statement" foreground="base0E"/>
+  <style name="def:type" foreground="base0A"/>
+  <style name="def:function" foreground="base0D"/>
+  <style name="def:identifier" foreground="base05"/>
+  <style name="def:preprocessor" foreground="base0C"/>
+  <style name="def:operator" foreground="base0C"/>
+  <style name="def:special-constant" foreground="base08"/>
+  <style name="def:note" foreground="base0A"/>
+  <style name="def:net-address" foreground="base0D"/>
+  <style name="def:error" foreground="base08"/>
+</style-scheme>

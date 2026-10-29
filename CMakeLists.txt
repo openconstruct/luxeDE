@@ -1,0 +1,17 @@
+cmake_minimum_required(VERSION 3.25)
+project(luxe LANGUAGES NONE)
+
+set(LUXE_COMPONENT "" CACHE STRING "Luxe component to build and package")
+include(cmake/LuxeComponents.cmake)
+set_property(CACHE LUXE_COMPONENT PROPERTY STRINGS ${LUXE_COMPONENTS})
+
+if(NOT LUXE_COMPONENT)
+  message(STATUS "Select one package with -DLUXE_COMPONENT=<name>.")
+  message(STATUS "Available packages: ${LUXE_COMPONENTS}")
+  return()
+endif()
+if(NOT LUXE_COMPONENT IN_LIST LUXE_COMPONENTS)
+  message(FATAL_ERROR "Unknown Luxe component: ${LUXE_COMPONENT}")
+endif()
+include(CTest)
+add_subdirectory("${LUXE_COMPONENT}")

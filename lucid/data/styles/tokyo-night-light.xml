@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style-scheme id="lucid-tokyo-night-light" _name="Tokyo Night Light" version="1.0">
+  <author>Michaël Ball</author>
+  <description>Lucid adaptation of the Tinted Theming palette.</description>
+  <metadata><property name="variant">light</property><property name="terminal-palette">#D5D6DB #343B58 #485E30 #166775 #34548A #5A4A78 #3E6968 #343B59 #9699A3 #343B58 #485E30 #166775 #34548A #5A4A78 #3E6968 #1A1B26</property></metadata>
+  <color name="base00" value="#D5D6DB"/>
+  <color name="base01" value="#CBCCD1"/>
+  <color name="base02" value="#DFE0E5"/>
+  <color name="base03" value="#9699A3"/>
+  <color name="base04" value="#4C505E"/>
+  <color name="base05" value="#343B59"/>
+  <color name="base06" value="#1A1B26"/>
+  <color name="base07" value="#1A1B26"/>
+  <color name="base08" value="#343B58"/>
+  <color name="base09" value="#965027"/>
+  <color name="base0A" value="#166775"/>
+  <color name="base0B" value="#485E30"/>
+  <color name="base0C" value="#3E6968"/>
+  <color name="base0D" value="#34548A"/>
+  <color name="base0E" value="#5A4A78"/>
+  <color name="base0F" value="#8C4351"/>
+  <color name="comment" value="#4c505e"/>
+  <style name="text" foreground="base05" background="base00"/>
+  <style name="selection" foreground="base05" background="base02"/>
+  <style name="selection-unfocused" foreground="base05" background="base02"/>
+  <style name="cursor" foreground="base05"/>
+  <style name="secondary-cursor" foreground="base08"/>
+  <style name="current-line" background="base01"/>
+  <style name="line-numbers" foreground="base04" background="base00"/>
+  <style name="current-line-number" bold="true" foreground="base0D" background="base01"/>
+  <style name="right-margin" foreground="base03" background="base01"/>
+  <style name="draw-spaces" foreground="base03"/>
+  <style name="search-match" foreground="base00" background="base0A"/>
+  <style name="bracket-match" bold="true" foreground="base00" background="base0C"/>
+  <style name="bracket-mismatch" foreground="base00" background="base08"/>
+  <style name="def:comment" foreground="comment"/>
+  <style name="def:shebang" foreground="comment"/>
+  <style name="def:doc-comment" foreground="comment"/>
+  <style name="def:string" foreground="base0B"/>
+  <style name="def:special-char" foreground="base0C"/>
+  <style name="def:number" foreground="base09"/>
+  <style name="def:floating-point" foreground="base09"/>
+  <style name="def:decimal" foreground="base09"/>
+  <style name="def:base-n-integer" foreground="base09"/>
+  <style name="def:boolean" foreground="base09"/>
+  <style name="def:constant" foreground="base09"/>
+  <style name="def:keyword" foreground="base0E"/>
+  <style name="def:statement" foreground="base0E"/>
+  <style name="def:type" foreground="base0A"/>
+  <style name="def:function" foreground="base0D"/>
+  <style name="def:identifier" foreground="base05"/>
+  <style name="def:preprocessor" foreground="base0C"/>
+  <style name="def:operator" foreground="base0C"/>
+  <style name="def:special-constant" foreground="base08"/>
+  <style name="def:note" foreground="base0A"/>
+  <style name="def:net-address" foreground="base0D"/>
+  <style name="def:error" foreground="base08"/>
+</style-scheme>

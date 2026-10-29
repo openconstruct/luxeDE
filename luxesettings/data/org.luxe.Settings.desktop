@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=Luxe Settings
+GenericName=Settings
+Comment=Configure the Luxe desktop
+Exec=luxesettings
+Icon=gtk-preferences
+Terminal=false
+Categories=GTK;Settings;DesktopSettings;X-LXDE-Settings;
+Keywords=settings;preferences;appearance;theme;desktop;display;keyboard;mouse;power;startup;
+StartupNotify=true
+StartupWMClass=org.luxe.Settings

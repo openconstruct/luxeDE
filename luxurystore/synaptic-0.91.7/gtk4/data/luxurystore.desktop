@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=LuxuryStore
+GenericName=Package Manager
+Comment=Manage APT, Flathub and Snap Store packages
+Exec=luxurystore
+Icon=luxurystore
+Terminal=false
+Categories=System;PackageManager;GTK;
+StartupNotify=true
+Keywords=Software;Install;Packages;APT;Flatpak;Snap;

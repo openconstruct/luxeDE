@@ -1,0 +1,10 @@
+[Unit]
+Description=Pause automatic Snap refreshes for LuxUp review
+Documentation=https://snapcraft.io/docs/how-to-guides/manage-snaps/manage-updates/
+After=snapd.seeded.service
+ConditionFileIsExecutable=/usr/bin/snap
+
+[Service]
+Type=oneshot
+ExecStart=@CMAKE_INSTALL_FULL_LIBEXECDIR@/luxup-snap-policy apply
+RemainAfterExit=yes

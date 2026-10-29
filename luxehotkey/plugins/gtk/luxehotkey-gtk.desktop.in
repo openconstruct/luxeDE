@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Icon=luxehotkey
+_Name=LuxeHotkey
+_GenericName=Setup Hot Keys
+_Comment=View and change Window Manager global shortcuts
+_Keywords=hotkey;shortcut;system;settings;
+Categories=DesktopSettings;Settings;Core;GTK;
+NotShowIn=GNOME;KDE;XFCE;MATE;
+Exec=luxehotkey --gui=gtk
+StartupNotify=true
+Terminal=false

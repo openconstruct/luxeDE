@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style-scheme id="lucid-luxe-light" _name="luxe Light" version="1.0" parent-scheme="Adwaita">
+  <author>Jerry Howell</author>
+  <description>Neutral light editor colors for the luxe desktop.</description>
+  <metadata><property name="luxe-palette">light</property><property name="variant">light</property><property name="terminal-palette">#d8dde0 #a51d2d #246840 #765000 #476d91 #85539a #287a83 #222b30 #929ba1 #c43b49 #348858 #967000 #6089ad #a36bb6 #3999a2 #10191e</property></metadata>
+  <style name="text" foreground="#222b30" background="#d8dde0"/>
+  <style name="selection" foreground="#ffffff" background="#476d91"/>
+  <style name="selection-unfocused" foreground="#222b30" background="#cdd4d8"/>
+  <style name="cursor" foreground="#222b30"/>
+  <style name="current-line" background="#e3e7e9"/>
+  <style name="line-numbers" foreground="#505d65" background="#d8dde0"/>
+  <style name="current-line-number" foreground="#285578" background="#e3e7e9" bold="true"/>
+  <style name="def:keyword" foreground="#476d91" bold="true"/>
+</style-scheme>

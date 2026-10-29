@@ -1,0 +1,35 @@
+#!/bin/sh
+# Copyright (C) 2026 Jerry Howell
+# SPDX-License-Identifier: GPL-2.0-or-later
+set -e
+
+. /usr/share/debconf/confmodule
+
+default_file=/etc/X11/default-display-manager
+owners=
+choices=
+if db_metaget shared/default-x-display-manager owners; then owners=$RET; fi
+if db_metaget shared/default-x-display-manager choices; then choices=$RET; fi
+if [ "$owners" != "$choices" ]; then
+    db_subst shared/default-x-display-manager choices "$owners" || true
+    db_fset shared/default-x-display-manager seen false || true
+fi
+
+current=
+if [ -e "$default_file" ]; then
+    current=$(basename "$(grep -v '^[[:space:]]*#' "$default_file" | head -n 1)")
+    if [ -n "$current" ]; then db_set shared/default-x-display-manager "$current"; fi
+elif db_get shared/default-x-display-manager; then
+    current=$RET
+fi
+
+db_input high shared/default-x-display-manager || true
+db_go || true
+
+selected=
+if db_get shared/default-x-display-manager; then selected=$RET; fi
+if [ -n "$selected" ] && [ "$selected" != "$current" ] && [ -e "$default_file" ]; then
+    mv "$default_file" "$default_file.dpkg-tmp"
+fi
+
+exit 0

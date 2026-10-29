@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2172" height="724" viewBox="0 0 2172 724" role="img" aria-label="luxe">
+  <defs>
+    <linearGradient id="surface" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.52" stop-color="#edf0f3"/>
+      <stop offset="1" stop-color="#d9dee4"/>
+    </linearGradient>
+    <linearGradient id="wordmark" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#4a525d"/>
+      <stop offset="1" stop-color="#20262e"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="2152" height="704" rx="150" fill="url(#surface)" stroke="#aeb6c0" stroke-width="20"/>
+  <path d="M500 214h66v248q0 76 76 76t76-76V214h66v253q0 135-142 135T500 467zm340 0h76l92 118 91-118h76l-129 162 139 172h-78l-101-128-101 128h-78l139-172zm393 0h72q136 0 136 121 0 124-143 124h-66v79h-69zm69 58v130h18q52 0 52-66 0-64-52-64z" fill="url(#wordmark)"/>
+  <path d="M1454 214h250v58h-181v75h162v56h-162v77h184v58h-253z" fill="url(#wordmark)"/>
+</svg>

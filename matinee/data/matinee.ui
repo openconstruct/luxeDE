@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <requires lib="gtk" version="4.0" />
+  <template class="MatineeWindow" parent="GtkApplicationWindow">
+    <property name="title" translatable="yes">Matinee</property>
+    <property name="icon-name">org.luxe.Matinee</property>
+    <property name="default-width">960</property>
+    <property name="default-height">600</property>
+    <child>
+      <object class="GtkBox">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkBox">
+            <property name="orientation">vertical</property>
+            <!-- Surface above, playlist below.  The playlist pane
+						     collapses when the list is empty so audio-only
+						     playback gets the whole window. -->
+            <child>
+              <object class="GtkPaned" id="paned">
+                <property name="orientation">vertical</property>
+                <property name="position">420</property>
+                <!-- 240px surface + 80px playlist + handle: without this the
+								     window's minimum-size pass splits a smaller trial height
+								     and GTK warns that the surface got less than it needs. -->
+                <property name="height-request">330</property>
+                <property name="vexpand">True</property>
+                <property name="shrink-start-child">False</property>
+                <property name="shrink-end-child">False</property>
+                <property name="resize-start-child">False</property>
+                <property name="resize-end-child">False</property>
+                <child type="start">
+                  <object class="GtkOverlay" id="surface-overlay">
+                    <property name="height-request">240</property>
+                    <property name="vexpand">True</property>
+                    <!-- One surface serves video frames and, for
+										     audio-only files, the visualiser. -->
+                    <child>
+                      <object class="GtkPicture" id="surface">
+                        <property name="content-fit">contain</property>
+                        <property name="can-shrink">True</property>
+                        <property name="vexpand">True</property>
+                        <property name="hexpand">True</property>
+                      </object>
+                    </child>
+                    <child type="overlay">
+                      <object class="GtkBox" id="empty_page">
+                        <property name="orientation">vertical</property>
+                        <property name="vexpand">True</property>
+                        <child>
+                          <object class="GtkImage">
+                            <property name="icon-name">multimedia-player-symbolic</property>
+                            <property name="pixel-size">96</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label">No Media Loaded</property>
+                            <property name="wrap">True</property>
+                            <style>
+                              <class name="luxe-status-title" />
+                            </style>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel">
+                            <property name="label">Open a file to start playing.</property>
+                            <property name="wrap">True</property>
+                            <style>
+                              <class name="luxe-status-description" />
+                            </style>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child type="end">
+                  <object class="GtkScrolledWindow" id="playlist_scroll">
+                    <property name="hscrollbar-policy">never</property>
+                    <property name="min-content-height">80</property>
+                    <child>
+                      <object class="GtkListView" id="playlist_view">
+                        <property name="margin-top">6</property>
+                        <property name="margin-bottom">6</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="library_status">
+                <property name="visible">False</property>
+                <property name="xalign">0</property>
+                <property name="wrap">True</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">10</property>
+                <property name="margin-top">4</property>
+                <style>
+                  <class name="warning" />
+                </style>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox" id="transport">
+                <property name="orientation">vertical</property>
+                <property name="spacing">6</property>
+                <property name="margin-start">10</property>
+                <property name="margin-end">10</property>
+                <property name="margin-top">6</property>
+                <property name="margin-bottom">10</property>
+                <child>
+                  <object class="GtkScale" id="seek">
+                    <property name="orientation">horizontal</property>
+                    <property name="draw-value">False</property>
+                    <property name="adjustment">
+                      <object class="GtkAdjustment">
+                        <property name="upper">1000</property>
+                        <property name="step-increment">10</property>
+                        <property name="page-increment">100</property>
+                      </object>
+                    </property>
+                    <property name="visible">False</property>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox">
+                    <property name="spacing">6</property>
+                    <child>
+                      <object class="GtkButton" id="previous-button">
+                        <property name="icon-name">media-skip-backward-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">Previous (Ctrl+Left)</property>
+                        <property name="action-name">win.previous</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="play_button">
+                        <property name="icon-name">media-playback-start-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">Play (Space)</property>
+                        <property name="action-name">win.play-pause</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="stop_button">
+                        <property name="icon-name">media-playback-stop-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">Stop</property>
+                        <property name="action-name">win.stop</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkButton" id="next-button">
+                        <property name="icon-name">media-skip-forward-symbolic</property>
+                        <property name="tooltip-text" translatable="yes">Next (Ctrl+Right)</property>
+                        <property name="action-name">win.next</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="position_label">
+                        <property name="label">0:00</property>
+                        <property name="width-chars">7</property>
+                        <property name="xalign">0</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox">
+                        <property name="hexpand">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkLabel" id="now_playing">
+                        <property name="ellipsize">end</property>
+                        <property name="max-width-chars">28</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkScale" id="volume">
+                        <property name="orientation">horizontal</property>
+                        <property name="draw-value">False</property>
+                        <property name="width-request">120</property>
+                        <property name="adjustment">
+                          <object class="GtkAdjustment">
+                            <property name="upper">100</property>
+                            <property name="value">80</property>
+                            <property name="step-increment">5</property>
+                            <property name="page-increment">20</property>
+                          </object>
+                        </property>
+                        <accessibility>
+                          <property name="label" translatable="yes">Volume</property>
+                        </accessibility>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+    <property name="titlebar">
+      <object class="GtkHeaderBar" id="header">
+        <property name="title-widget">
+          <object class="GtkLabel" id="window-title">
+            <property name="label" translatable="yes">Matinee</property>
+          </object>
+        </property>
+        <child type="start">
+          <object class="GtkButton" id="open_button">
+            <property name="icon-name">document-open-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Open Files (Ctrl+O)</property>
+            <property name="action-name">win.open</property>
+          </object>
+        </child>
+        <child type="end">
+          <object class="GtkMenuButton" id="menu_button">
+            <property name="icon-name">open-menu-symbolic</property>
+            <property name="tooltip-text" translatable="yes">Main Menu</property>
+            <property name="menu-model">primary-menu</property>
+            <property name="primary">True</property>
+          </object>
+        </child>
+      </object>
+    </property>
+  </template>
+  <menu id="primary-menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Open Files…</attribute>
+        <attribute name="action">win.open</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Add to Playlist</attribute>
+        <attribute name="action">win.add-files</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">Choose Li_brary Folder…</attribute>
+        <attribute name="action">win.choose-library</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_Rescan Library</attribute>
+        <attribute name="action">win.rescan-library</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Clear Playlist</attribute>
+        <attribute name="action">win.clear-playlist</attribute>
+      </item>
+    </section>
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">_Keyboard Shortcuts</attribute>
+        <attribute name="action">win.shortcuts</attribute>
+      </item>
+      <item>
+        <attribute name="label" translatable="yes">_About Matinee</attribute>
+        <attribute name="action">win.about</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>

@@ -1,0 +1,383 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface>
+  <requires lib="gtk" version="4.0" />
+  <object class="GtkApplicationWindow" id="dlg">
+    <property name="title" translatable="yes">Appearance Settings</property>
+    <property name="default-width">640</property>
+    <property name="default-height">620</property>
+    <child>
+      <object class="GtkBox" id="toolbar_view">
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkHeaderBar" id="headerbar">
+            <child type="end">
+              <object class="GtkMenuButton" id="menu_button">
+                <property name="icon-name">open-menu-symbolic</property>
+                <property name="tooltip-text" translatable="yes">Main menu</property>
+                <property name="menu-model">main_menu</property>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkBox" id="main_box">
+            <property name="orientation">vertical</property>
+            <property name="spacing">6</property>
+            <property name="margin-start">10</property>
+            <property name="margin-end">10</property>
+            <property name="margin-top">10</property>
+            <property name="margin-bottom">10</property>
+            <child>
+              <object class="GtkBox" id="hbox1">
+                <property name="orientation">horizontal</property>
+                <property name="spacing">6</property>
+                <property name="vexpand">True</property>
+                <child>
+                  <object class="GtkNotebook" id="notebook1">
+                    <property name="vexpand">True</property>
+                    <property name="hexpand">True</property>
+                    <child>
+                      <object class="GtkBox" id="vbox4">
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkBox" id="color_mode_box">
+                            <property name="orientation">vertical</property>
+                            <property name="spacing">6</property>
+                            <property name="halign">center</property>
+                            <property name="margin-top">6</property>
+                            <property name="margin-bottom">6</property>
+                            <child>
+                              <object class="GtkBox">
+                                <property name="orientation">horizontal</property>
+                                <property name="spacing">6</property>
+                                <property name="halign">center</property>
+                                <child>
+                                  <object class="GtkLabel">
+                                    <property name="label" translatable="yes">System color mode</property>
+                                    <property name="margin-end">6</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkToggleButton" id="color_mode_light">
+                                    <property name="label" translatable="yes">Light</property>
+                                    <property name="tooltip-text" translatable="yes">Use luxe Light</property>
+                                  </object>
+                                </child>
+                                <child>
+                                  <object class="GtkToggleButton" id="color_mode_dark">
+                                    <property name="label" translatable="yes">Dark</property>
+                                    <property name="tooltip-text" translatable="yes">Restore the last dark theme</property>
+                                  </object>
+                                </child>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel">
+                                <property name="label" translatable="yes">Global GTK themes with matching Openbox styling. Some libadwaita apps need restarting after Apply. Custom CSS is preserved; sandbox coverage varies.</property>
+                                <property name="wrap">True</property>
+                                <property name="justify">center</property>
+                                <property name="max-width-chars">48</property>
+                                <property name="xalign">0.5</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkFlowBox" id="theme_cards">
+                            <property name="selection-mode">none</property>
+                            <property name="homogeneous">True</property>
+                            <property name="min-children-per-line">2</property>
+                            <property name="max-children-per-line">3</property>
+                            <property name="row-spacing">6</property>
+                            <property name="column-spacing">6</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkCheckButton" id="theme_wallpaper">
+                            <property name="label" translatable="yes">Use this theme's wallpaper</property>
+                            <property name="margin-top">6</property>
+                            <property name="margin-bottom">6</property>
+                            <property name="tooltip-text" translatable="yes">Follow preset wallpapers in PCManager; leave unchecked to keep your custom wallpaper.</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkLabel" id="label8">
+                            <property name="label" translatable="yes">Available Window Themes</property>
+                            <property name="margin-top">6</property>
+                            <property name="margin-bottom">6</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkScrolledWindow" id="scrolledwindow1">
+                            <property name="vexpand">True</property>
+                            <property name="hscrollbar-policy">automatic</property>
+                            <property name="vscrollbar-policy">automatic</property>
+                            <child>
+                              <object class="GtkTreeView" id="gtk_theme_view">
+                                <property name="headers-visible">False</property>
+                                <property name="vexpand">True</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox" id="hbox4">
+                            <property name="orientation">horizontal</property>
+                            <property name="margin-top">6</property>
+                            <child>
+                              <object class="GtkLabel" id="label17">
+                                <property name="label" translatable="yes">_Font:</property>
+                                <property name="use-underline">True</property>
+                                <property name="mnemonic-widget">font</property>
+                                <property name="margin-end">6</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkFontButton" id="font">
+                                <property name="hexpand">True</property>
+                                <property name="width-request">100</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child type="tab">
+                      <object class="GtkLabel" id="label2">
+                        <property name="label" translatable="yes">Window</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox" id="vbox3">
+                        <property name="orientation">vertical</property>
+                        <property name="spacing">6</property>
+                        <child>
+                          <object class="GtkLabel" id="label7">
+                            <property name="label" translatable="yes">Available Icon Themes</property>
+                            <property name="margin-top">6</property>
+                            <property name="margin-bottom">6</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkScrolledWindow" id="scrolledwindow2">
+                            <property name="vexpand">True</property>
+                            <property name="hscrollbar-policy">automatic</property>
+                            <property name="vscrollbar-policy">automatic</property>
+                            <child>
+                              <object class="GtkTreeView" id="icon_theme_view">
+                                <property name="headers-visible">False</property>
+                                <property name="vexpand">True</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox" id="hbox5">
+                            <property name="orientation">horizontal</property>
+                            <property name="spacing">6</property>
+                            <property name="margin-top">6</property>
+                            <property name="margin-bottom">6</property>
+                            <property name="margin-start">6</property>
+                            <property name="margin-end">6</property>
+                            <child>
+                              <object class="GtkButton" id="install_theme">
+                                <property name="label" translatable="yes">_Install</property>
+                                <property name="use-underline">True</property>
+                                <property name="icon-name">list-add</property>
+                                <property name="hexpand">True</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkButton" id="remove_theme">
+                                <property name="label" translatable="yes">Remove</property>
+                                <property name="icon-name">list-remove</property>
+                                <style>
+                                  <class name="destructive-action" />
+                                </style>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child type="tab">
+                      <object class="GtkLabel" id="label3">
+                        <property name="label" translatable="yes">Icon</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox" id="vbox2">
+                        <property name="orientation">vertical</property>
+                        <child>
+                          <object class="GtkLabel" id="label4">
+                            <property name="label" translatable="yes">Available Cursor Themes</property>
+                            <property name="margin-top">6</property>
+                            <property name="margin-bottom">6</property>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkScrolledWindow" id="scrolledwindow3">
+                            <property name="vexpand">True</property>
+                            <property name="hscrollbar-policy">automatic</property>
+                            <property name="vscrollbar-policy">automatic</property>
+                            <child>
+                              <object class="GtkTreeView" id="cursor_theme_view">
+                                <property name="headers-visible">False</property>
+                                <property name="vexpand">True</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                        <child>
+                          <object class="GtkBox" id="hbox2">
+                            <property name="orientation">horizontal</property>
+                            <property name="spacing">6</property>
+                            <property name="margin-top">10</property>
+                            <child>
+                              <object class="GtkLabel" id="label6">
+                                <property name="label" translatable="yes">Size</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="label9">
+                                <property name="label" translatable="yes">Small</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkScale" id="cursor_theme_size">
+                                <property name="adjustment">cursor_size_adj</property>
+                                <property name="digits">0</property>
+                                <property name="draw-value">False</property>
+                                <property name="hexpand">True</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkLabel" id="label10">
+                                <property name="label" translatable="yes">Large</property>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child type="tab">
+                      <object class="GtkLabel" id="label1">
+                        <property name="label" translatable="yes">Cursor</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkBox" id="vbox5">
+                        <property name="orientation">vertical</property>
+                        <property name="spacing">6</property>
+                        <child>
+                          <object class="GtkBox" id="vbox6">
+                            <property name="orientation">vertical</property>
+                            <property name="margin-start">6</property>
+                            <property name="margin-end">6</property>
+                            <property name="margin-top">6</property>
+                            <property name="margin-bottom">6</property>
+                            <child>
+                              <object class="GtkLabel" id="label19">
+                                <property name="label" translatable="yes">Toolbar Style: </property>
+                                <property name="xalign">0</property>
+                              </object>
+                            </child>
+                            <child>
+                              <object class="GtkComboBoxText" id="tb_style">
+                                <property name="hexpand">True</property>
+                                <items>
+                                  <item translatable="yes">Icons only</item>
+                                  <item translatable="yes">Text only</item>
+                                  <item translatable="yes">Text below icons</item>
+                                  <item translatable="yes">Text beside icons</item>
+                                </items>
+                              </object>
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                    <child type="tab">
+                      <object class="GtkLabel" id="label5">
+                        <property name="label" translatable="yes">Other</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkBox" id="vbox1">
+                    <property name="orientation">vertical</property>
+                    <property name="vexpand">True</property>
+                    <property name="hexpand">True</property>
+                    <child>
+                      <object class="GtkLabel" id="label15">
+                        <property name="label" translatable="yes">&lt;b&gt;Preview&lt;/b&gt;</property>
+                        <property name="use-markup">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkFrame" id="frame1">
+                        <property name="vexpand">True</property>
+                        <property name="margin-start">6</property>
+                        <property name="margin-end">6</property>
+                        <property name="margin-top">6</property>
+                        <property name="margin-bottom">6</property>
+                        <child>
+                          <object class="GtkBox" id="demo_box">
+                            <property name="orientation">vertical</property>
+                            <property name="margin-start">6</property>
+                            <property name="margin-end">6</property>
+                            <child>
+                              <placeholder />
+                            </child>
+                          </object>
+                        </child>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox" id="action_box">
+                <property name="orientation">horizontal</property>
+                <property name="spacing">6</property>
+                <property name="halign">end</property>
+                <child>
+                  <object class="GtkButton" id="apply">
+                    <property name="label" translatable="yes">Apply</property>
+                    <property name="icon-name">document-save</property>
+                    <style>
+                      <class name="suggested-action" />
+                    </style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkButton" id="closebutton1">
+                    <property name="label" translatable="yes">Close</property>
+                    <property name="icon-name">window-close</property>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+  <menu id="main_menu">
+    <section>
+      <item>
+        <attribute name="label" translatable="yes">About</attribute>
+        <attribute name="action">app.about</attribute>
+      </item>
+    </section>
+  </menu>
+  <object class="GtkAdjustment" id="cursor_size_adj">
+    <property name="lower">16</property>
+    <property name="upper">64</property>
+    <property name="value">16</property>
+    <property name="step-increment">1</property>
+    <property name="page-increment">4</property>
+  </object>
+</interface>

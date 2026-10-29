@@ -1,0 +1,56 @@
+# LuxeDM theme
+# Copyright (C) 2026 Jerry Howell
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+background_style        stretch
+background_color        #0a1a2f
+
+input_panel_x           68%
+input_panel_y           50%
+input_name_x            38
+input_name_y            163
+input_pass_x            38
+input_pass_y            163
+input_font              Sans:size=13:dpi=96
+input_color             #f3f5f8
+input_shadow_xoffset    0
+input_shadow_yoffset    0
+input_shadow_color      #000000
+
+welcome_msg             Lumen Linux
+welcome_font            Sans:size=20:bold:dpi=96
+welcome_color           #f3f5f8
+welcome_x               38
+welcome_y               58
+welcome_shadow_xoffset  0
+welcome_shadow_yoffset  0
+welcome_shadow_color    #000000
+
+username_msg            Username
+password_msg            Password
+username_font           Sans:size=11:bold:dpi=96
+username_color          #cbd3df
+username_x              38
+username_y              122
+password_x              38
+password_y              122
+username_shadow_xoffset 0
+username_shadow_yoffset 0
+username_shadow_color   #000000
+
+msg_font                Sans:size=11:bold:dpi=96
+msg_color               #ff9d9d
+msg_x                   68%
+msg_y                   69%
+msg_shadow_xoffset      0
+msg_shadow_yoffset      0
+msg_shadow_color        #000000
+
+session_font            Sans:size=11:dpi=96
+session_color           #cbd3df
+session_msg             F1  Change session   |   Session:
+session_x               68%
+session_y               72%
+session_shadow_xoffset  0
+session_shadow_yoffset  0
+session_shadow_color    #000000

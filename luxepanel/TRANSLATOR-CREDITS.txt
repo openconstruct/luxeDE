@@ -1,0 +1,369 @@
+Translator credits preserved from the removed .po catalogs of luxepanel.
+Luxe releases are English-only; translations return by pull request.
+Removed catalogs are recoverable from the 30 Sept 2026 source snapshot.
+
+[af]
+  F Wolff <friedel@translate.org.za>, 2009
+  Last-Translator: F <friedel@translate.org.za>
+  Language-Team: translate-discuss-af@lists.sourceforge.net
+
+[ar]
+  Arabic translations for PACKAGE package.
+  Copyright (C) 2009 THE PACKAGE'S COPYRIGHT HOLDER
+  أحمد فرغل <ahmad.farghal@gmail.com>, 2009.
+  Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>
+
+[be]
+  Last-Translator: Мікалай <crom-a@tut.by>
+
+[bg]
+  Last-Translator: Радослав Иванов <reckku@gmail.com>
+
+[bn]
+  Sankarshan <sankarshan.mukhopadhyay@gmail.com>, 2009.
+  Sadia Afroz <sadia@ankur.org.bd>, 2010.
+  Last-Translator: Sadia Afroz <sadia@ankur.org.bd>
+  Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>
+
+[bn_IN]
+  Last-Translator: Sankarshan <sankarshan.mukhopadhyay@gmail.com>
+
+[ca]
+  Last-Translator: Davidmp <rbndavid@gmail.com>
+  Language-Team: David Medina <rbndavid@gmail.com>
+
+[cs]
+  Czech translations for luxepanel package.
+  Copyright (C) 2009 THE lxpanel'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxepanel package.
+  Michal Várady <miko.vaji@gmail.com>, 2009.
+  Pavel Fric <pavelfric@seznam.cz>, 2016.
+  Last-Translator: Pavel Fric <pavelfric@seznam.cz>
+  Language-Team: Czech <kde-i18n-doc@kde.org>
+
+[da]
+  Danish translation for luxepanel.
+  Copyright (C) 2010 THE lxpanel'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxepanel package.
+  Vidar Jon Bauge <vidarjb@gmail.com>, 2009.
+  Joe Hansen <joedalton2@yahoo.dk>, 2010.
+  Last-Translator: scootergrisen <scootergrisen@gmail.com>
+  Language-Team: Danish <dansk@dansk-gruppen.dk>
+
+[de]
+  German translation for luxepanel.
+  This file is distributed under the same license as the luxepanel package.
+  Mario Blättermann <mariobl@gnome.org>, 2008-2009.
+  Last-Translator: Daniel Winzen <d@winzen4.de>
+
+[el]
+  Last-Translator: armakolas <armakolas@gmail.com>
+
+[en_GB]
+  Last-Translator: Steve <yorvik.ubunto@gmail.com>
+  Language-Team: English UK en_GB <yorvik.ubunto@googlemail.com>
+
+[es]
+  translation of LxPanel to French
+  Copyright (C) 2006 the LXDE team
+  This file is distributed under the same license as the LxPanel package.
+  Frank Endres <frank_endres@yahoo.fr>, 2008.
+  Last-Translator: haciendasanpedro <haciendasanpedro@yahoo.com>
+  Language-Team: Spanish <daniel@tunki.org>
+
+[et]
+  luxepanel'i eesti keele tõlge
+  Estonian translation of luxepanel
+  Copyright (C) 2008 LXDE Desktop
+  This file is distributed under the same license as the luxepanel package.
+  Mattias Põldaru <mahfiaz gmail com>, 2008.
+  Last-Translator: Anari Jalakas <anari.jalakas@gmail.com>
+  Language-Team: Gnome Estonian translation team <gnome-et@linux.ee>
+
+[eu]
+  Translation of luxepanel to basque
+  Copyright (C) 2009 Alain Mendizabal <alainmendi@gmail.com>
+  This file is distributed under the same license as the luxepanel package.
+  Alain Mendizabal <alainmendi@gmail.com>, 2009.
+  Last-Translator: Asier Iturralde Sarasola <asier.iturralde@gmail.com>
+  Language-Team: Basque <alainmendi@gmail.com>
+
+[fa]
+  Last-Translator: Mostafa <info@mostafadaneshvar.com>
+  Language-Team: Persian <trans-fa@lists.fedoraproject.org>
+
+[fi]
+  Last-Translator: Juhani Numminen <juhaninumminen0@gmail.com>
+
+[fo]
+  Last-Translator: Gunleif <gunleif@gmail.com>
+
+[fr]
+  translation of LxPanel to French
+  Copyright (C) 2006-2008 the LXDE team
+  This file is distributed under the same license as the LxPanel package.
+  Frank Endres <frank_endres@yahoo.fr>, 2008.
+  Robert-André Mauchin <zebob.m@pengzone.org>, 2008.
+  Last-Translator: YvanM <yvan.masson@openmailbox.org>
+  Language-Team: GNOME French Team <gnomefr@traduc.org>
+
+[frp]
+  translation of LxPanel to Arpitan
+  Copyright (C) 2006-2008 the LXDE team
+  This file is distributed under the same license as the LxPanel package.
+  Alexandre Raymond <Alexandre.Raymond@univ-lyon2.fr>, 2009.
+  Last-Translator: alexandre raymond <alekcxjo@gmail.com>
+  Language-Team: LXDE Traduccion Arpitan <alekcxjo+arpitan@gmail.com>
+
+[gl]
+  Miguel Anxo Bouzada <mbouzada@gmail.com>, 2016.
+  Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>
+  Language-Team: Galician <proxecto@trasno.net>
+
+[he]
+  Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>
+
+[hr]
+  Last-Translator: Ivica Kolić <ikoli@yahoo.com>
+  Language-Team: <asjlob AT vip.hr>
+
+[hu]
+  Hungarian translation of luxepanel.
+  Copyright (C) 2006-2010 The LXDE Team
+  This file is distributed under the same license as the luxepanel package.
+  Attila Szervac <sas@321.hu>, 2006-2010.
+  Zsolt Peter Basak <shiki@biomernok.hu>, 2009.
+  Laszlo Dvornik <dvornik@gnome.hu>, 2010.
+  Last-Translator: Peter Czifra <czifi@freestart.hu>
+  Language-Team: Hungarian <hu@li.org>
+
+[id]
+  Indonesian translations for luxepanel package.
+  Copyright (C) YEAR THE lxpanel'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxepanel package.
+  Andhika Padmawan <andhika.padmawan@gmail.com>, Rahman Yusri Aftian <aftian@yahoo.com>, 2009.
+  Andika Triwidada <andika@gmail.com>, 2010.
+  Last-Translator: Andika Triwidada <andika@gmail.com>
+  Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>
+
+[is]
+  Icelandic translation for LuxePanel package.
+  Sveinn í Felli <sv1@fellsnet.is>, 2014.
+  Last-Translator: Sveinn í Felli <sveinki@nett.is>
+  Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>
+
+[it]
+  Translation of luxepanel to Italian
+  Copyright (C) 2009 Fabio Barone <phonky at gmx.net>
+  This file is distributed under the same license as the luxepanel package
+  Fabio Barone <phonky at gmx.net>, 2009.
+  Andrea Florio <andrea@opensuse.org>, 2010.
+  Daniele Forsi <daniele@forsi.it>, 2012, 2016.
+  kunturweb <kunturweb@altervista.org>, 2014
+  Last-Translator: Daniele Forsi <daniele@forsi.it>
+  Language-Team: <lxde-i18n@lists.sourceforge.net>
+
+[ja]
+  Japanese translations for luxepanel package
+  luxepanel パッケージに対する日本語訳.
+  Copyright (C) 2008-2009 THE lxpanel'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxepanel package.
+  Hironao Komatsu <hironao@users.sourceforge.net>, 2008-2009.
+  IWAI, Masaharu <iwai@alib.jp>, 2009.
+  Last-Translator: Mamoru TASAKA <mtasaka@fedoraproject.org>
+  Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>
+
+[kk]
+  Kazakh translation for luxepanel.
+  Copyright (C) 2012 The LXDE team
+  This file is distributed under the same license as the LXDE package.
+  Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2012.
+  Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>
+  Language-Team: Kazakh <kk_KZ@googlegroups.com>
+
+[km]
+  Last-Translator: system user <>
+
+[ko]
+  Korean translation for luxetask package
+  Copyright (C) 2009-2012 Frer software foundation Inc.
+  This file is distributed under the same license as the luxetask package.
+  Seong-ho Cho <darkcircle.0426@gmail.com>, 2012.
+  Last-Translator: system user <>
+  Language-Team: Seong-ho Cho <darkcircle.0426@gmail.com>
+
+[lg]
+  Last-Translator: <kbirabwa@yahoo.co.uk>
+  Language-Team: Luganda <kbirabwa@yahoo.co.uk>
+
+[lt]
+  Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012.
+  Last-Translator: Moo <hazap@hotmail.com>
+  Language-Team: Lietuvių <>
+
+[lv]
+  Last-Translator: External Translation Source <translation@rep.kiev.ua>
+
+[ml]
+  Last-Translator: External Translation Source <translation@rep.kiev.ua>
+
+[ms]
+  Last-Translator: Payne Samad Loh <sploh77@yahoo.com>
+
+[nb]
+  Last-Translator: Sam <wilsonsamm@hotmail.com>
+
+[nl]
+  Dutch translation of the luxepanel package.
+  Copyright (C) the author of the lxpanel package.
+  This file is distributed under the same license as the
+  luxepanel package.
+  Pjotr, 2011-2016.
+  Last-Translator: Pjotr <pjotrvertaalt@gmail.com>
+  Language-Team: Dutch
+
+[nn]
+  Translation of luxepanel to Norwegian Nynorsk
+  Copyright © 2009 Karl Ove Hufthammer <karl@huftis.org>
+  This file is distributed under the same license as the luxepanel package.
+  Karl Ove Hufthammer <karl@huftis.org>, 2009.
+  Last-Translator: Karl Ove Hufthammer <karl@huftis.org>
+  Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>
+
+[pa]
+  A S Alam <aalam@users.sf.net>, 2010.
+  Last-Translator: A S Alam <aalam@users.sf.net>
+  Language-Team: testLokalize <punjabi-users@lists.sf.net>
+
+[pl]
+  Polish translation of luxepanel package
+  Copyright (C) 2006 the lxde team
+  This file is distributed under the same license as the luxepanel package.
+  Grzegorz Gibas <amigib@gmail.com>, 2009.
+  Artur <mazdac@gmail.com>, 2006, 2010.
+  Piotr Sokół <psokol@jabster.pl>, 2010, 2011.
+  Piotr Sipika <Piotr.Sipika@gmail.com>, 2012, 2013.
+  Last-Translator: Piotr Strębski <strebski@o2.pl>
+
+[ps]
+  (no translator named in header)
+
+[pt]
+  Portuguese translations for luxepanel package.
+  Copyright (C) 2009 THE lxpanel'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxepanel package.
+  <alvarommorais@gmail.com>, 2009.
+  Sérgio Marques <smarquespt@gmail.com> 2010-2016
+  Adaptado ao acordo ortográfico de 1990
+  Last-Translator: Sérgio Marques <smarquespt@gmail.com>
+
+[pt_BR]
+  Brazilian Portuguese translation of luxepanel package.
+  Copyright (C) 2006 The LXDE Team.
+  This file is distributed under the same license as the luxepanel package.
+  Fábio Antunes <fabio.antunes@hotmail.com>, 2008.
+  Henrique P. Machado <zehrique@ubuntu.com>, 2008-2009.
+  Og Maciel <ogmaciel@gnome.org>, 2009.
+  Sérgio Cipolla <secipolla@gmail.com>, 2010-2011.
+  Last-Translator: Felipe Braga <fbobraga@gmail.com>
+  Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>
+
+[ro]
+  Romanian translation for LuxePanel
+  Copyright (C) 2012 THE LXPanel'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the LuxePanel package.
+  Mișu Moldovan <dumol@l10n.ro>, 2012.
+  Last-Translator: Mișu <dumol@l10n.ro>
+  Language-Team: Romanian <diacritice@googlegroups.com>
+
+[ru]
+  Gofer <vovka@hotbox.ru>, 2008.
+  Last-Translator: Alexey Loginov <loginov.alex.valer@gmail.com>
+  Language-Team: Russian <hsh@runtu.org>
+
+[sk]
+  Slovak translation of luxepanel
+  Copyright (C) 2006 lxde team
+  This file is distributed under the same license as the luxepanel package.
+  Ivan Masár <helix84@centrum.sk>, 2007, 2009, 2010.
+  Last-Translator: mirek <mirek@cnl.sk>
+  Language-Team: Slovak <sk-i18n@lists.linux.sk>
+
+[sl]
+  Slovenian translation of luxepanel.
+  Copyright (C) 2011 - 2013 Free Software Foundation, Inc.
+  This file is distributed under the same license as the luxepanel package.
+  Klemen Košir <klemen913@gmail.com>, 2011 - 2013.
+  Last-Translator: Klemen Košir <klemen913@gmail.com>
+  Language-Team: Slovenian <lugos-slo@lugos.si>
+
+[sr]
+  Serbian translation of LuxePanel package
+  Copyright (C) The LXDE Project
+  This file is distributed under the same license as the LuxePanel package.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2009-2016.
+  Last-Translator: markos <jezzivi@yahoo.com>
+
+[sr@latin]
+  Serbian Latin translation of LuxePanel package
+  Copyright (C) The LXDE Project
+  This file is distributed under the same license as the LuxePanel package.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2009-2016.
+  Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>
+
+[sv]
+  Translation of luxepanel to Swedish
+  Copyright (C) 2009 Martin Bagge <brother@bsnet.se>
+  This file is distributed under the same license as the luxepanel package.
+  Martin Bagge <brother@bsnet.se>, 2009.
+  Last-Translator: Martin Bagge <brother@bsnet.se>
+  Language-Team: Swedish <tp-sv@listor.tp-sv.se>
+
+[te]
+  Last-Translator: PraveenIlla <mail2ipn@gmail.com>
+
+[th]
+  Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>
+
+[tr]
+  Last-Translator: nyucel <necdetyucel@gmail.com>
+
+[tt_RU]
+  Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2011.
+  Last-Translator: Ainur <ainur.shakirov.tt@gmail.com>
+
+[ug]
+  Uyghur translation for luxepanel.
+  Gheyret Kenji <gheyret@gmail.com>, 2011.
+  Last-Translator: system user <>
+  Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>
+
+[uk]
+  Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>
+  Language-Team: UKRAINIAN <translate@linux.org.ua>
+
+[ur]
+  Last-Translator: Muhammad Ali Makki <makki.ma@gmail.com>
+  Language-Team: Urdu <makki.ma@gmail.com>
+
+[ur_PK]
+  Last-Translator: Muhammad Ali Makki <makki.ma@gmail.com>
+  Language-Team: Urdu <makki.ma@gmail.com>
+
+[vi]
+  Last-Translator: Duy Hung <nguyentieuhau@gmail.com>
+
+[zh_CN]
+  CHinese simplified translation of luxepanel.
+  Copyright (C) 2008-2016 the lxpanel's authors
+  This file is distributed under the same license as the luxepanel package.
+  ideal <05281253@bjtu.edu.cn>, 2008.
+  Yinghua Wang <wantinghard@gmail.com>, 2016.
+  Last-Translator: Yinghua Wang <wantinghard@gmail.com>
+  Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>
+
+[zh_HK]
+  Last-Translator: External Translation Source <translation@rep.kiev.ua>
+
+[zh_TW]
+  Last-Translator: <wwycheuk@gmail.com>

@@ -1,0 +1,7 @@
+file(READ "${SERVICE}" contents)
+if(NOT contents MATCHES "ExecStart=/usr/bin/luxedm -n([\n\r]|$)")
+  message(FATAL_ERROR "LuxeDM service must use the supported -n option")
+endif()
+if(contents MATCHES "ExecStart=.* -s")
+  message(FATAL_ERROR "Obsolete ConsoleKit -s option reintroduced")
+endif()

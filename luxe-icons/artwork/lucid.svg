@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <!-- Copyright (C) 2026 Jerry Howell. SPDX-License-Identifier: GPL-3.0-or-later -->
+  <title>Lucid — paper and pen</title>
+  <rect x="3" y="4" width="42" height="41" rx="11" fill="#163754"/>
+  <rect x="3" y="3" width="42" height="40" rx="11" fill="#428bd1"/>
+  <path d="M14 10h15l6 6v21H14z" fill="#f1f4f5"/>
+  <path d="M29 10v7h6z" fill="#bdd8ec"/>
+  <path d="M19 21h10M19 26h7M19 31h4" fill="none" stroke="#6091b5" stroke-width="2" stroke-linecap="round"/>
+  <path d="m26 31 10-15 4 3-10 15-6 3z" fill="#183750"/>
+  <path d="m36 16 2-3q1-1 2 0l2 1q1 1 0 2l-2 3z" fill="#f5c46c"/>
+  <path d="m26 31 4 3-6 3z" fill="#e8cf9d"/>
+</svg>

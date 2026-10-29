@@ -1,0 +1,722 @@
+Translator credits preserved from the removed .po catalogs of synaptic (LuxuryStore backend).
+Luxe releases are English-only; translations return by pull request.
+Removed catalogs are recoverable from the 30 Sept 2026 source snapshot.
+
+[af]
+  Afrikaans translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Afrikaans <af@li.org>
+
+[am]
+  Amharic translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Amharic <am@li.org>
+
+[ar]
+  Arabic translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Ibrahim Saed <ibraheem5000@gmail.com>
+  Language-Team: Arabic <ar@li.org>
+
+[ast]
+  Asturian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: ivarela <ivarela@ubuntu.com>
+  Language-Team: Asturian <ast@li.org>
+
+[az]
+  Azerbaijani translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Azerbaijani <az@li.org>
+
+[be]
+  Belarusian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Belarusian <be@li.org>
+
+[be@latin]
+  Belarusian latin translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Belarusian latin <be@latin@li.org>
+
+[bg]
+  Bulgarian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: spacy01 <Unknown>
+  Language-Team: Bulgarian <bg@li.org>
+
+[bn]
+  Bengali translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Istiaque Ahamed <ahamedistiaque@yahoo.com>
+  Language-Team: Bengali <bn@li.org>
+
+[bo]
+  Tibetan translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Tibetan <bo@li.org>
+
+[br]
+  Breton translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Denis <Unknown>
+  Language-Team: Breton <br@li.org>
+
+[bs]
+  Bosnian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Kenan Dervišević <kenan3008@gmail.com>
+  Language-Team: Bosnian <bs@li.org>
+
+[ca]
+  Catalan translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: David Planella <david.planella@ubuntu.com>
+  Language-Team: Catalan <ca@li.org>
+
+[ca@valencia]
+  Catalan (Valencian) translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Catalan (Valencian) <ca@valencia@li.org>
+
+[ckb]
+  Kurdish (Sorani) translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Kurdish (Sorani) <ckb@li.org>
+
+[crh]
+  Crimean Turkish; Crimean Tatar translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Crimean Turkish; Crimean Tatar <crh@li.org>
+
+[cs]
+  Czech translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Daniel Rusek <mail@asciiwolf.com>
+  Language-Team: Czech <cs@li.org>
+
+[csb]
+  Kashubian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Kashubian <csb@li.org>
+
+[cy]
+  Welsh translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Welsh <cy@li.org>
+
+[da]
+  Danish translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: TLE <k.nielsen81@gmail.com>
+  Language-Team: Danish <da@li.org>
+
+[de]
+  German translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Tobias Bannert <tobannert@gmail.com>, 2018.
+  Last-Translator: Tobias Bannert <tobannert@gmail.com>
+  Language-Team: de
+
+[de_DE]
+  German (Germany) translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: German (Germany) <de_DE@li.org>
+
+[dv]
+  Divehi translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Divehi <dv@li.org>
+
+[el]
+  Greek translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Christos Spyroglou <Unknown>
+  Language-Team: Greek <el@li.org>
+
+[en_AU]
+  English (Australia) translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Anthony Harrington <untaintableangel@ubuntu.com>
+  Language-Team: English (Australia) <en_AU@li.org>
+
+[en_CA]
+  English (Canada) translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: English (Canada) <en_CA@li.org>
+
+[en_GB]
+  English (United Kingdom) translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Anthony Harrington <untaintableangel@ubuntu.com>
+  Language-Team: English (United Kingdom) <en_GB@li.org>
+
+[eo]
+  Esperanto translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Joop Eggen <joop_eggen@yahoo.de>
+  Language-Team: Esperanto <eo@li.org>
+
+[es]
+  Spanish translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>
+  Language-Team: Spanish <es@li.org>
+
+[et]
+  Estonian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Märt Põder <boamaod@gmail.com>
+  Language-Team: Estonian <et@li.org>
+
+[eu]
+  Basque translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Asier Sarasua Garmendia <Unknown>
+  Language-Team: Basque <eu@li.org>
+
+[fa]
+  Persian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Danial Behzadi <dani.behzi@gmail.com>
+  Language-Team: Persian <fa@li.org>
+
+[fi]
+  Finnish translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Jiri Grönroos <Unknown>
+  Language-Team: Finnish <fi@li.org>
+
+[fil]
+  Filipino translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Filipino <fil@li.org>
+
+[fo]
+  Faroese translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Faroese <fo@li.org>
+
+[fr]
+  French translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011 and others.
+  This file is distributed under the same license as the synaptic package.
+  Olivier Humbert <trebmuh@tuxfamily.org>, 2015,2018.
+  Last-Translator: Olivier Humbert <trebmuh@tuxfamily.org>
+  Language-Team: French <fr@li.org>
+
+[fur]
+  Friulian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Friulian <fur@li.org>
+
+[fy]
+  Frisian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Frisian <fy@li.org>
+
+[ga]
+  Irish translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Irish <ga@li.org>
+
+[gl]
+  Galician translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>
+  Language-Team: Galician <gl@li.org>
+
+[gu]
+  Gujarati translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Gujarati <gu@li.org>
+
+[gv]
+  Manx translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Manx <gv@li.org>
+
+[he]
+  Hebrew translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Yaron <sh.yaron@gmail.com>
+  Language-Team: Hebrew <he@li.org>
+
+[hi]
+  Hindi translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Manish Kumar <manishku86@yahoo.co.in>
+  Language-Team: Hindi <hi@li.org>
+
+[hr]
+  Croatian translation for synaptic
+  Copyright (c) (c) 2006 Canonical Ltd, and Rosetta Contributors 2006
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: gogo <trebelnik2@gmail.com>
+  Language-Team: Croatian <hr@li.org>
+
+[ht]
+  Haitian; Haitian Creole translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Haitian; Haitian Creole <ht@li.org>
+
+[hu]
+  Hungarian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>
+  Language-Team: Hungarian <hu@li.org>
+
+[hy]
+  Armenian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Serj Safarian <serjsafarian@gmail.com>
+  Language-Team: Armenian <hy@li.org>
+
+[ia]
+  Interlingua translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Emilio Sepulveda <Unknown>
+  Language-Team: Interlingua <ia@li.org>
+
+[id]
+  Indonesian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: F Hamzah <Unknown>
+  Language-Team: Indonesian <id@li.org>
+
+[is]
+  Icelandic translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: beggi dot com <Unknown>
+  Language-Team: Icelandic <is@li.org>
+
+[it]
+  Italian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Gianvito Cavasoli <gianvito@gmx.it>, 2021.
+  Last-Translator: Gianvito Cavasoli <gianvito@gmx.it>
+  Language-Team: Italian <gnome-it-list@gnome.org>
+
+[ja]
+  Japanese translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: OKANO Takayoshi <Unknown>
+  Language-Team: Japanese <ja@li.org>
+
+[ka]
+  Georgian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Georgian <ka@li.org>
+
+[km]
+  Khmer translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Khmer <km@li.org>
+
+[kn]
+  Kannada translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Kannada <kn@li.org>
+
+[ko]
+  Korean translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Bundo <bundo@bundo.biz>
+  Language-Team: Korean <ko@li.org>
+
+[ku]
+  Kurdish translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Kurdish <ku@li.org>
+
+[ky]
+  Kirghiz translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Kirghiz <ky@li.org>
+
+[la]
+  Latin translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Latin <la@li.org>
+
+[lo]
+  Lao translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Lao <lo@li.org>
+
+[lt]
+  Lithuanian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>
+  Language-Team: Lithuanian <lt@li.org>
+
+[lv]
+  Latvian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Latvian <lv@li.org>
+
+[mk]
+  Macedonian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Macedonian <mk@li.org>
+
+[ml]
+  Malayalam translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Vineeth Kartha <vineeth.kartha@gmail.com>
+  Language-Team: Malayalam <ml@li.org>
+
+[mr]
+  Marathi translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Marathi <mr@li.org>
+
+[ms]
+  Malay translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Mohammad Hafiz bin Ismail <mypapit@gmail.com>
+  Language-Team: Malay <ms@li.org>
+
+[my]
+  Burmese translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Burmese <my@li.org>
+
+[nb]
+  Norwegian Bokmal translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: John Sverre <Unknown>
+  Language-Team: Norwegian Bokmal <nb@li.org>
+
+[nds]
+  Low German translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Low German <nds@li.org>
+
+[ne]
+  Nepali translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Nepali <ne@li.org>
+
+[nl]
+  Dutch translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Heimen Stoffels <vistausss@outlook.com>
+  Language-Team: Dutch <nl@li.org>
+
+[nl_NL]
+  Dutch (Netherlands) translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Dutch (Netherlands) <nl_NL@li.org>
+
+[nn]
+  Norwegian Nynorsk translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Norwegian Nynorsk <nn@li.org>
+
+[no]
+  Norwegian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Norwegian <no@li.org>
+
+[oc]
+  Occitan (post 1500) translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Quentin PAGÈS
+  Language-Team: Occitan (post 1500) <oc@li.org>
+
+[pa]
+  Punjabi translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Punjabi <pa@li.org>
+
+[pl]
+  Polish translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Emil Nowak <emil5@go2.pl>
+  Language-Team: Polish <pl@li.org>
+
+[ps]
+  Pashto translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Pashto <ps@li.org>
+
+[pt]
+  Portuguese translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Portuguese <pt@li.org>
+
+[pt_BR]
+  Brazilian Portuguese translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Neliton Pereira Jr. <nelitonpjr@gmail.com>
+  Language-Team: Brazilian Portuguese <pt_BR@li.org>
+
+[pt_PT]
+  Portuguese (Portugal) translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Portuguese (Portugal) <pt_PT@li.org>
+
+[qu]
+  Quechua translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Quechua <qu@li.org>
+
+[ro]
+  Romanian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Vlad Paul Paval <Unknown>
+  Language-Team: Romanian <ro@li.org>
+
+[ru]
+  Russian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Vyacheslav Sharmanov <Unknown>
+  Language-Team: Russian <ru@li.org>
+
+[sc]
+  Sardinian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Sardinian <sc@li.org>
+
+[si]
+  Sinhalese translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Sinhalese <si@li.org>
+
+[sk]
+  Slovak translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: helix84 <Unknown>
+  Language-Team: Slovak <sk@li.org>
+
+[sl]
+  Slovenian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Matej Urbančič <mateju@svn.gnome.org>
+  Language-Team: Slovenian <sl@li.org>
+
+[sq]
+  Albanian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Albanian <sq@li.org>
+
+[sr]
+  Serbian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Мирослав Николић <miroslavnikolic@rocketmail.com>, 2011, 2012.
+  Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>
+  Language-Team: Serbian <gnom@prevod.org>
+
+[sr@Latn]
+  Serbian Latn translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Serbian Latn <sr@Latn@li.org>
+
+[sv]
+  Swedish translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>
+  Language-Team: Swedish <tp-sv@listor.tp-sv.se>
+
+[ta]
+  Tamil translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Tamil <ta@li.org>
+
+[ta_LK]
+  Tamil (Sri-Lanka) translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Tamil (Sri-Lanka) <ta_LK@li.org>
+
+[te]
+  translation to Telugu
+  Copyright (C) 2012 e-తెలుగు స్థానీకరణ జట్టు
+  This file is distributed under the same license as the synaptic package.
+  Praveen Illa <mail2ipn@gmail.com>, 2011, 2012.
+  Last-Translator: Praveen Illa <mail2ipn@gmail.com>
+  Language-Team: Telugu <indlinux-telugu@lists.sourceforge.net>
+
+[tet]
+  Tetum translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Tetum <tet@li.org>
+
+[th]
+  Thai translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Thai <th@li.org>
+
+[tl]
+  Tagalog translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Tagalog <tl@li.org>
+
+[tr]
+  Turkish translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Fatih Altun <fatih.altun@pardus.org.tr>, 2022.
+  Last-Translator: Fatih Altun <fatih.altun@pardus.org.tr>
+  Language-Team: Turkish <dev@pardus.org.tr>
+
+[tt]
+  Tatar translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Tatar <tt@li.org>
+
+[ug]
+  Uyghur translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Uyghur <ug@li.org>
+
+[uk]
+  Ukrainian translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: andygol <Unknown>
+  Language-Team: Ukrainian <uk@li.org>
+
+[ur]
+  Urdu translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Urdu <ur@li.org>
+
+[uz]
+  Uzbek translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Uzbek <uz@li.org>
+
+[vi]
+  Vietnamese translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Ngô Trung <ndtrung4419@gmail.com>
+  Language-Team: Vietnamese <vi@li.org>
+
+[xh]
+  Xhosa translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Language-Team: Xhosa <xh@li.org>
+
+[zh_CN]
+  Chinese (Simplified) translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Boyuan Yang <073plan@gmail.com>
+  Language-Team: Chinese (Simplified) <zh_CN@li.org>
+
+[zh_HK]
+  Chinese (Hong Kong) translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Walter Cheuk <wwycheuk@gmail.com>
+  Language-Team: Chinese (Hong Kong) <zh_HK@li.org>
+
+[zh_TW]
+  Chinese (Traditional) translation for synaptic
+  Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
+  This file is distributed under the same license as the synaptic package.
+  Last-Translator: Po-Chun Huang <Unknown>
+  Language-Team: Chinese (Traditional) <zh_TW@li.org>

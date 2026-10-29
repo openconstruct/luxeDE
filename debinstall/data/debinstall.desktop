@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=DebInstall
+GenericName=Debian Package Installer
+Comment=Inspect and install local Debian packages
+Exec=debinstall %f
+Icon=debinstall
+Terminal=false
+Categories=System;PackageManager;
+MimeType=application/vnd.debian.binary-package;application/x-deb;
+StartupNotify=true
+StartupWMClass=debinstall

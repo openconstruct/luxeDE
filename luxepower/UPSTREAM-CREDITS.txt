@@ -1,0 +1,18 @@
+Upstream projects whose system interfaces LuxePower builds on. Both remain
+separately packaged; LuxePower bundles no source from either project.
+
+TLP
+Source: https://linrunner.de/tlp and https://github.com/linrunner/TLP
+Copyright: 2008-2024, Thomas Koch and TLP contributors
+License: GPL-2+
+TLP supplies the power-management command surface used by LuxePower
+(tlp-stat, tlp start, /usr/share/tlp/defaults.conf, /etc/tlp.conf).
+TLP 1.3 through 1.10 are supported.
+
+TLPUI
+Source: https://github.com/d4nj1/TLPUI
+Copyright: 2018-2024, Daniel Pawlicki (d4nj1) and TLPUI contributors
+License: GPL-2.0-or-later
+TLPUI documents the tlp-stat command surface that guided LuxePower's TLP
+interaction. TLPUI is not bundled and remains installed independently when
+desired.

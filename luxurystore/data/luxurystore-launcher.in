@@ -1,0 +1,15 @@
+#!/bin/sh
+# Copyright (C) 2026 Jerry Howell
+# SPDX-License-Identifier: GPL-2.0-or-later
+
+set -eu
+
+runtime_dir="@CMAKE_INSTALL_FULL_LIBEXECDIR@/luxurystore"
+if /sbin/ldconfig -p 2>/dev/null | grep -Fq 'libapt-pkg.so.6.0'; then
+    exec "$runtime_dir/luxurystore-ui6" "$@"
+fi
+if /sbin/ldconfig -p 2>/dev/null | grep -Fq 'libapt-pkg.so.7.0'; then
+    exec "$runtime_dir/luxurystore-ui7" "$@"
+fi
+echo 'LuxuryStore: no supported libapt-pkg runtime was found.' >&2
+exit 127

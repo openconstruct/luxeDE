@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Icon=pcmanager
+_Name=PCManager
+_GenericName=File Manager
+_Comment=Browse the file system and manage the files
+Categories=GTK;System;Core;FileTools;FileManager;
+Exec=pcmanager %U
+StartupNotify=true
+Terminal=false
+MimeType=inode/directory;

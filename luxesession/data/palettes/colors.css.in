@@ -1,0 +1,67 @@
+/* Copyright (C) 2026 Jerry Howell. SPDX-License-Identifier: GPL-2.0-or-later */
+/* @name@: shared legacy GTK and libadwaita 1.5 semantic colors. */
+@define-color theme_bg_color @bg@;
+@define-color theme_fg_color @fg@;
+@define-color theme_base_color @view@;
+@define-color theme_text_color @fg@;
+@define-color theme_selected_bg_color @accent@;
+@define-color theme_selected_fg_color @on_accent@;
+@define-color insensitive_bg_color @bg@;
+@define-color insensitive_fg_color @muted@;
+@define-color insensitive_base_color @view@;
+@define-color theme_unfocused_bg_color @bg@;
+@define-color theme_unfocused_fg_color @muted@;
+@define-color theme_unfocused_base_color @view@;
+@define-color theme_unfocused_text_color @muted@;
+@define-color theme_unfocused_selected_bg_color @raised@;
+@define-color theme_unfocused_selected_fg_color @fg@;
+@define-color borders @border@;
+@define-color unfocused_borders @border@;
+@define-color window_bg_color @bg@;
+@define-color window_fg_color @fg@;
+@define-color view_bg_color @view@;
+@define-color view_fg_color @fg@;
+@define-color headerbar_bg_color @raised@;
+@define-color headerbar_fg_color @fg@;
+@define-color headerbar_backdrop_color @bg@;
+@define-color headerbar_shade_color alpha(@view@, 0.25);
+@define-color sidebar_bg_color @raised@;
+@define-color sidebar_fg_color @fg@;
+@define-color sidebar_backdrop_color @bg@;
+@define-color sidebar_shade_color alpha(@view@, 0.25);
+@define-color secondary_sidebar_bg_color @bg@;
+@define-color secondary_sidebar_fg_color @fg@;
+@define-color secondary_sidebar_backdrop_color @bg@;
+@define-color secondary_sidebar_shade_color alpha(@view@, 0.25);
+@define-color card_bg_color @raised@;
+@define-color card_fg_color @fg@;
+@define-color card_shade_color alpha(@view@, 0.25);
+@define-color popover_bg_color @raised@;
+@define-color popover_fg_color @fg@;
+@define-color popover_shade_color alpha(@view@, 0.25);
+@define-color dialog_bg_color @raised@;
+@define-color dialog_fg_color @fg@;
+@define-color thumbnail_bg_color @bg@;
+@define-color thumbnail_fg_color @fg@;
+@define-color shade_color alpha(@view@, 0.25);
+@define-color scrollbar_outline_color alpha(@fg@, 0.2);
+@define-color accent_color @standalone@;
+@define-color accent_bg_color @accent@;
+@define-color accent_fg_color @on_accent@;
+@define-color destructive_color @destructive@;
+@define-color destructive_bg_color #a51d2d;
+@define-color destructive_fg_color #ffffff;
+@define-color error_color @destructive@;
+@define-color error_bg_color #a51d2d;
+@define-color error_fg_color #ffffff;
+@define-color success_color @success@;
+@define-color success_bg_color #246840;
+@define-color success_fg_color #ffffff;
+@define-color warning_color @warning@;
+@define-color warning_bg_color #f5c96b;
+@define-color warning_fg_color #222b30;
+
+/* Color hierarchy for standard headerbar nodes, including flat toolbar views.
+ * Shared compact spacing is appended by BuildThemes.cmake. */
+headerbar { background-image: none; background-color: @headerbar_bg_color; color: @headerbar_fg_color; }
+headerbar:backdrop { background-color: @headerbar_backdrop_color; color: @insensitive_fg_color; }

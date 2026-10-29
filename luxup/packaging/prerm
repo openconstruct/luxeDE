@@ -1,0 +1,15 @@
+#!/bin/sh
+set -e
+
+if [ "${1:-}" = remove ] || [ "${1:-}" = deconfigure ]; then
+    if command -v systemctl >/dev/null 2>&1; then
+        systemctl disable --now luxup-snap-policy.path >/dev/null 2>&1 || \
+            echo 'LuxUp could not disable its Snap watcher; check luxup-snap-policy.path.' >&2
+        systemctl stop luxup-snap-policy.service >/dev/null 2>&1 || \
+            echo 'LuxUp could not stop its Snap policy service; check luxup-snap-policy.service.' >&2
+    fi
+    @CMAKE_INSTALL_FULL_LIBEXECDIR@/luxup-snap-policy remove || \
+        echo 'LuxUp could not restore the Snap refresh policy; retry luxup-snap-policy remove.' >&2
+fi
+
+exit 0

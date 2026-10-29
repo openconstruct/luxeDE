@@ -1,0 +1,275 @@
+Translator credits preserved from the removed .po catalogs of luxeappearance-obconf.
+Luxe releases are English-only; translations return by pull request.
+Removed catalogs are recoverable from the 30 Sept 2026 source snapshot.
+
+[ar]
+  Safa Alfulaij <safa1996alfulaij@gmail.com>, 2014.
+  Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>
+  Language-Team: Arabic <doc@arabeyes.org>
+
+[be]
+  Last-Translator: Anonymous Pootle User
+
+[bg]
+  Last-Translator: Anonymous Pootle User
+
+[bn_IN]
+  Last-Translator: Anonymous Pootle User
+
+[ca]
+  Last-Translator: Anonymous Pootle User
+
+[cs]
+  Czech translation for ObConf
+  Copyright (C) 2007 Dana Jansens
+  This file is distributed under the same license as the ObConf package.
+  tezlo <tezlo@gmx.net>, 2007.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Czech <cs@li.org>
+
+[da]
+  Last-Translator: Anonymous Pootle User
+
+[de]
+  Last-Translator: Jerome Leclanche <jerome@leclan.ch>
+  Language-Team: German <translation@mailinglist.lxde.org>
+
+[el]
+  Last-Translator: Giorgos Siafis <geosiafis@yahoo.gr>
+  Language-Team: Greek
+
+[en_GB]
+  Last-Translator: Anonymous Pootle User
+  Language-Team: <yorvyik.ubunto@gmail.com>
+
+[es]
+  Spanish translations for obconf package.
+  Copyright (C) 2007 Dana Jansens
+  This file is distributed under the same license as the obconf package.
+  David Merino <rastiazul at yahoo . com>, 2007,
+  Hugo Florentino <sysadmin@cips.cu>, 2010
+  Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>
+  Language-Team: spanish
+
+[et]
+  Last-Translator: Anonymous Pootle User
+
+[eu]
+  Last-Translator: Asier Iturralde Sarasola <asier.iturralde@gmail.com>
+
+[fa]
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Persian <trans-fa@lists.fedoraproject.org>
+
+[fi]
+  Last-Translator: Anonymous Pootle User
+
+[fo]
+  Gunleif Joensen <gunleif@gmail.com>, 2010.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Føroyabólkurin
+
+[fr]
+  French translations for obconf package.
+  Copyright (C) 2007 Dana Jansens
+  This file is distributed under the same license as the obconf package.
+  Cyrille Bagard <nocbos@gmail.com>, 2007.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: French
+
+[gl]
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Galician <proxecto@trasno.net>
+
+[he]
+  Yaron Shahrabani <sh.yaron@gmail.com>, 2010.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Gezer (Hebrew)
+
+[hr]
+  Last-Translator: Ivica Kolić <ikoli@yahoo.com>
+
+[hu]
+  Hungarian translation of luxeappearance-obconf.
+  Copyright (C) 2010 The LXDE Team
+  This file is distributed under the same license as the luxeappearance-obconf package.
+  Laszlo Dvornik <dvornik@gnome.hu>, 2010.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Hungarian <hu@li.org>
+
+[id]
+  Indonesian translation of luxeappearance-obconf
+  Copyright (C) 2010 THE lxappearance-obconf'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the luxeappearance-obconf package.
+  Andika Triwidada <andika@gmail.com>, 2010.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Indonesian <id@li.org>
+
+[is]
+  Last-Translator: Anonymous Pootle User
+
+[it]
+  Italian translations for luxeappearance-obconf package.
+  Copyright (C) 2007 Dana Jansens
+  This file is distributed under the same license as the obconf package.
+  Davide Truffa <davide@catoblepa.org>, 2007.
+  Daniele Forsi <daniele@forsi.it>, 2012.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Italian <tp@lists.linux.it>
+
+[ja]
+  Japanese translations for PACKAGE package
+  PACKAGE パッケージに対する英訳.
+  Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
+  Hironao Komatsu <hironao@users.sourceforge.net>, 2010.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>
+
+[kk]
+  Kazakh translation for luxeappearance-obconf.
+  Copyright (C) 2012 The LXDE team
+  This file is distributed under the same license as the LXDE package.
+  Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2012.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Kazakh <kk_KZ@googlegroups.com>
+
+[ko]
+  Korean translation for the luxeappearance-obconf package
+  Copyright (C) 2009-2012 Free software foundation Inc.
+  This file is distributed under the same license as the luxeappearance-obconf package.
+  Seong-ho Cho <darkcircle.0426@gmail.com>, 2012
+  Last-Translator: Anonymous Pootle User
+
+[lg]
+  Last-Translator: kizito <kbirabwa@yahoo.co.uk>
+
+[lt]
+  Last-Translator: Anonymous Pootle User
+
+[nb]
+  Norwegian translation for ObConf package.
+  Copyright (C) 2007 Dana Jansens
+  Michael Kjelbergvik Thung <postlogic@switch-case.org>, 2007.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Norwegian
+
+[nl]
+  Dutch translation of the luxeappearance-obconf package.
+  Copyright (C) the author of the lxappearance-obconf package.
+  This file is distributed under the same license as the
+  luxeappearance-obconf package.
+  Pjotr, 2011.
+  Last-Translator: Pjotr <pjotrvertaalt@gmail.com>
+  Language-Team: Dutch
+
+[pa]
+  Last-Translator: Anonymous Pootle User
+
+[pl]
+  Polish translation for lxappearce-obconf package.
+  Copyright (C) 2011 THE PACKAGE'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the lxappearce-obconf package.
+  Piotr Sokół <psokol@jabster.pl>, 2010, 2011.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Polish <>
+
+[pt]
+  Portuguese translation for LUXEAPPEARANCE-OBCONF.
+  Copyright (C) 2010 The LXAPPEARANCE-OBCONF Copyright Holder.
+  This file is distributed under the same license as the LUXEAPPEARANCE-OBCONF package.
+  Sérgio Marques <smarquespt@gmail.com>, 2010-2012.
+  Adaptado ao acordo ortográfico de 1990
+  Last-Translator: Anonymous Pootle User
+
+[pt_BR]
+  Brazilian Portuguese translation for LUXEAPPEARANCE-OBCONF.
+  Copyright (C) 2010 The creators of LXAPPEARANCE-OBCONF.
+  This file is distributed under the same license as the LUXEAPPEARANCE-OBCONF package.
+  Henrique P. Machado <hpmachado@gnome.org>, 2010.
+  Sérgio Cipolla <secipolla@gmail.com>, 2010-2011.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Brazilian Porguese <ldp-br@bazar.conectiva.com.br>
+
+[ro]
+  Last-Translator: Anonymous Pootle User
+
+[ru]
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Edumandriva <info@edumandriva.ru>
+
+[sl]
+  Slovenian translation of luxeappearance-obconf.
+  Copyright (C) 2011 - 2013 Free Software Foundation, Inc.
+  This file is distributed under the same license as the luxeappearance-obconf package.
+  Klemen Košir <klemen913@gmail.com>, 2011 - 2013.
+  Last-Translator: Klemen Košir <klemen913@gmail.com>
+  Language-Team: Slovenian <lugos-slo@lugos.si>
+
+[sr]
+  Serbian translation for LuxeAppearance ObConf plugin
+  Copyright (C) 2010 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+  This file is distributed under the same license as the LuxeAppearance ObConf plugin.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2010.
+  Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>
+
+[sr@latin]
+  Serbian translation for LuxeAppearance ObConf plugin
+  Copyright (C) 2010 Hong Jen Yee (PCMan) <pcman.tw@gmail.com>
+  This file is distributed under the same license as the LuxeAppearance ObConf plugin.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2010.
+  Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>
+
+[sv]
+  Swedish translations for obconf package.
+  Copyright (C) 2012 Martin Bagge / brother <brother@bsnet.se>
+  This file is distributed under the same license as the obconf package.
+  <mikachu@icculus.org>, 2008.
+  Martin Bagge / brother <brother@bsnet.se>, 2010, 2012
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Swedish
+
+[te]
+  Last-Translator: Anonymous Pootle User
+
+[tr]
+  Turkish translations for obconf package.
+  Copyright (C) 2008 Dana Jansens
+  This file is distributed under the same license as the obconf package.
+  Last-Translator: nyucel <necdetyucel@gmail.com>
+  Language-Team: Turkish
+
+[tt_RU]
+  Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2011.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Tatar <>
+
+[ug]
+  Uyghur translation for luxeappearance-obconf.
+  Gheyret Kenji <gheyret@gmail.com>, 2011.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>
+
+[uk]
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Ukrainian
+
+[ur]
+  Last-Translator: Anonymous Pootle User
+
+[ur_PK]
+  Last-Translator: Anonymous Pootle User
+
+[vi]
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Vi <nguyentieuhau@gmail.com>
+
+[zh_CN]
+  Last-Translator: Anonymous Pootle User
+
+[zh_TW]
+  Traditional chinese translations for obconf package.
+  Copyright (C) 2007 Free Software Foundation, Inc.
+  This file is distributed under the same license as the obconf package.
+  Wei-Lun Chao <chaoweilun@gmail.com>, 2007, 08.
+  Last-Translator: wwycheuk <wwycheuk@gmail.com>
+  Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>

@@ -1,0 +1,9 @@
+*.o
+resources.c
+gschemas.compiled
+org.luxe.Frame.gschema.valid
+frame
+build/
+tests/set-net-active
+tests/active-window
+tests/raise-window

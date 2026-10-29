@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=LuxePower
+GenericName=Power Management
+Comment=Configure TLP power settings, sleep and lid actions, screen brightness, and screen locking
+Exec=luxepower
+Icon=org.luxe.LuxePower
+Terminal=false
+Categories=GTK;Settings;HardwareSettings;
+Keywords=power;battery;tlp;brightness;suspend;hibernate;lid;lock;energy;luxepower;
+StartupNotify=true
+StartupWMClass=luxepower

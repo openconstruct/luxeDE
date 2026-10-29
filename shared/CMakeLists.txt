@@ -1,0 +1,16 @@
+# Copyright (C) 2026 Jerry Howell. SPDX-License-Identifier: GPL-2.0-or-later
+cmake_minimum_required(VERSION 3.25)
+project(luxe-ui-tests LANGUAGES C)
+include(../cmake/LuxePackage.cmake)
+include(CTest)
+pkg_check_modules(GTK4 REQUIRED IMPORTED_TARGET gtk4>=4.12)
+luxe_plain_gtk_ui()
+add_executable(luxe-ui-behavior test-gtk-ui.c)
+target_link_libraries(luxe-ui-behavior PRIVATE luxe-gtk-ui)
+add_test(NAME native-ui-patterns COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/../cmake/RunNestedX.sh" $<TARGET_FILE:luxe-ui-behavior>)
+add_executable(luxe-renderer-behavior test-renderer.c)
+target_link_libraries(luxe-renderer-behavior PRIVATE luxe-gtk-ui)
+foreach(original unset empty ngl flags all except)
+  add_test(NAME native-renderer-${original} COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/../cmake/RunNestedX.sh"
+    $<TARGET_FILE:luxe-renderer-behavior> ${original})
+endforeach()

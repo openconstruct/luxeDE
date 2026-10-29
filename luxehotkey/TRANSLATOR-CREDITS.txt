@@ -1,0 +1,54 @@
+Translator credits preserved from the removed .po catalogs of luxehotkey.
+Luxe releases are English-only; translations return by pull request.
+Removed catalogs are recoverable from the 30 Sept 2026 source snapshot.
+
+[cs]
+  Pavel Fric <pavelfric@seznam.cz>, 2016.
+  Last-Translator: Pavel Fric <pavelfric@seznam.cz>
+  Language-Team: Czech <kde-i18n-doc@kde.org>
+
+[gl]
+  Miguel Anxo Bouzada <mbouzada@gmail.com>, 2016.
+  Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>
+  Language-Team: Galician <proxecto@trasno.net>
+
+[nl]
+  Dutch translation of the luxehotkey package.
+  Copyright (C) the author of the lxhotkey package.
+  This file is distributed under the same license as the
+  luxehotkey package.
+  Pjotr, 2016.
+  Last-Translator: Pjotr <pjotrvertaalt@gmail.com>
+  Language-Team: Dutch
+
+[pt]
+  Last-Translator: Sérgio Marques <smarquespt@gmail.com>
+
+[ru]
+  Russian translation for LuxeHotkey.
+  Copyright (C) 2016 LXDE development team.
+  This file is distributed under the same license as the LuxeHotkey package.
+  Translators:
+  Alexey Loginov <alexl@mageia.org>, 2016
+  Last-Translator: AlexL <alexl@mageia.org>
+  Language-Team: Russian
+
+[sr]
+  Serbian translation of LXHotKey package
+  Copyright (C) The LXDE Project
+  This file is distributed under the same license as the LXHotKey package.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2016.
+  Last-Translator: Jay Alexander Fleming <tito.nehru.naser@gmail.com>
+
+[sr@latin]
+  Serbian Latin translation of LXHotKey package
+  Copyright (C) The LXDE Project
+  This file is distributed under the same license as the LXHotKey package.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2016.
+  Last-Translator: Jay Alexander Fleming <tito.nehru.naser@gmail.com>
+
+[uk]
+  Ukrainian translation for LuxeHotkey.
+  Copyright (C) 2016 LXDE development team.
+  This file is distributed under the same license as the LuxeHotkey package.
+  Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>

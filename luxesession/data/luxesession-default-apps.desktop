@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Icon=luxesession-default-apps
+Exec=luxesession-default-apps
+Name=LuxeSession Default Applications
+GenericName=Default applications for LuxeSession
+Comment=Change the default applications on LXDE
+Categories=GTK;Settings;DesktopSettings;X-LXDE-Settings;
+OnlyShowIn=LXDE;

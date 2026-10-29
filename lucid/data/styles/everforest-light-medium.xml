@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style-scheme id="lucid-everforest-light-medium" _name="Everforest Light (Medium)" version="1.0">
+  <author>Márcio Sobel (https://github.com/marciosobel)</author>
+  <description>Lucid adaptation of the Tinted Theming palette.</description>
+  <metadata><property name="variant">light</property><property name="terminal-palette">#fdf6e3 #f85552 #8da101 #dfa000 #3a94c5 #df69ba #35a77c #5c6a72 #939f91 #f85552 #8da101 #dfa000 #3a94c5 #df69ba #35a77c #2d353b</property></metadata>
+  <color name="base00" value="#fdf6e3"/>
+  <color name="base01" value="#f4f0d9"/>
+  <color name="base02" value="#e6e2cc"/>
+  <color name="base03" value="#939f91"/>
+  <color name="base04" value="#829181"/>
+  <color name="base05" value="#5c6a72"/>
+  <color name="base06" value="#475258"/>
+  <color name="base07" value="#2d353b"/>
+  <color name="base08" value="#f85552"/>
+  <color name="base09" value="#f57d26"/>
+  <color name="base0A" value="#dfa000"/>
+  <color name="base0B" value="#8da101"/>
+  <color name="base0C" value="#35a77c"/>
+  <color name="base0D" value="#3a94c5"/>
+  <color name="base0E" value="#df69ba"/>
+  <color name="base0F" value="#829181"/>
+  <color name="comment" value="#667476"/>
+  <style name="text" foreground="base05" background="base00"/>
+  <style name="selection" foreground="base05" background="base02"/>
+  <style name="selection-unfocused" foreground="base05" background="base02"/>
+  <style name="cursor" foreground="base05"/>
+  <style name="secondary-cursor" foreground="base08"/>
+  <style name="current-line" background="base01"/>
+  <style name="line-numbers" foreground="base04" background="base00"/>
+  <style name="current-line-number" bold="true" foreground="base0D" background="base01"/>
+  <style name="right-margin" foreground="base03" background="base01"/>
+  <style name="draw-spaces" foreground="base03"/>
+  <style name="search-match" foreground="base00" background="base0A"/>
+  <style name="bracket-match" bold="true" foreground="base00" background="base0C"/>
+  <style name="bracket-mismatch" foreground="base00" background="base08"/>
+  <style name="def:comment" foreground="comment"/>
+  <style name="def:shebang" foreground="comment"/>
+  <style name="def:doc-comment" foreground="comment"/>
+  <style name="def:string" foreground="base0B"/>
+  <style name="def:special-char" foreground="base0C"/>
+  <style name="def:number" foreground="base09"/>
+  <style name="def:floating-point" foreground="base09"/>
+  <style name="def:decimal" foreground="base09"/>
+  <style name="def:base-n-integer" foreground="base09"/>
+  <style name="def:boolean" foreground="base09"/>
+  <style name="def:constant" foreground="base09"/>
+  <style name="def:keyword" foreground="base0E"/>
+  <style name="def:statement" foreground="base0E"/>
+  <style name="def:type" foreground="base0A"/>
+  <style name="def:function" foreground="base0D"/>
+  <style name="def:identifier" foreground="base05"/>
+  <style name="def:preprocessor" foreground="base0C"/>
+  <style name="def:operator" foreground="base0C"/>
+  <style name="def:special-constant" foreground="base08"/>
+  <style name="def:note" foreground="base0A"/>
+  <style name="def:net-address" foreground="base0D"/>
+  <style name="def:error" foreground="base08"/>
+</style-scheme>

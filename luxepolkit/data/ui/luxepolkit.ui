@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <requires lib="gtk" version="4.0"/>
+  <object class="GtkDialog" id="dlg">
+    <property name="title" translatable="yes">LuxePolkit</property>
+    <property name="default-width">480</property>
+    <property name="resizable">False</property>
+    <child internal-child="content_area">
+      <object class="GtkBox" id="dialog-vbox1">
+        <property name="orientation">vertical</property>
+        <property name="spacing">14</property>
+        <property name="margin-start">10</property>
+        <property name="margin-end">10</property>
+        <property name="margin-top">10</property>
+        <property name="margin-bottom">10</property>
+        <child>
+          <object class="GtkBox" id="hbox1">
+            <property name="spacing">14</property>
+            <child>
+              <object class="GtkImage" id="icon">
+                <property name="icon-name">system-lock-screen-symbolic</property>
+                <property name="pixel-size">40</property>
+                <property name="valign">start</property>
+                <property name="margin-top">2</property>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="orientation">vertical</property>
+                <property name="spacing">6</property>
+                <property name="hexpand">True</property>
+                <child>
+                  <object class="GtkLabel">
+                    <property name="label" translatable="yes">Authentication required</property>
+                    <property name="xalign">0</property>
+                    <property name="wrap">True</property>
+                    <style><class name="title-2"/></style>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="msg">
+                    <property name="xalign">0</property>
+                    <property name="wrap">True</property>
+                    <property name="max-width-chars">42</property>
+                    <style><class name="dim-label"/></style>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkGrid" id="table1">
+            <property name="row-spacing">6</property>
+            <child>
+              <object class="GtkLabel" id="label1">
+                <property name="label" translatable="yes">Account</property>
+                <property name="xalign">0</property>
+                <layout><property name="column">0</property><property name="row">0</property></layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkBox">
+                <property name="spacing">6</property>
+                <property name="margin-bottom">6</property>
+                <child><object class="GtkImage"><property name="icon-name">avatar-default-symbolic</property><property name="pixel-size">18</property></object></child>
+                <child><object class="GtkLabel" id="account"><property name="xalign">0</property><property name="selectable">True</property></object></child>
+                <layout><property name="column">0</property><property name="row">1</property></layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkLabel" id="request_label">
+                <property name="label" translatable="yes">Password</property>
+                <property name="mnemonic-widget">request</property>
+                <property name="xalign">0</property>
+                <property name="wrap">True</property>
+                <layout><property name="column">0</property><property name="row">2</property></layout>
+              </object>
+            </child>
+            <child>
+              <object class="GtkEntry" id="request">
+                <property name="hexpand">True</property>
+                <property name="height-request">40</property>
+                <property name="visibility">False</property>
+                <property name="invisible-char">•</property>
+                <property name="activates-default">True</property>
+                <layout><property name="column">0</property><property name="row">3</property></layout>
+              </object>
+            </child>
+          </object>
+        </child>
+        <child>
+          <object class="GtkLabel" id="detail">
+            <property name="visible">False</property>
+            <property name="xalign">0</property>
+            <property name="wrap">True</property>
+            <property name="max-width-chars">52</property>
+            <style><class name="error"/></style>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

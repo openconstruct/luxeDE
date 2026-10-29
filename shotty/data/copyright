@@ -1,0 +1,36 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: simpleshot-gtk
+Source: https://github.com/Tomaszal/simpleshot-gtk
+
+Files: *
+Copyright: 2020 Tom Zaluckij (@Tomaszal)
+           2026 Jerry Howell
+License: GPL-3+
+ Shotty is a GTK4 port of simpleshot-gtk for the Luxe desktop.
+ The original GTK3 sources, their copyright, and their GPL-3 license
+ are preserved; the GTK4 port and Debian packaging are additive work
+ by Jerry Howell (2026).
+
+License: GPL-3+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU General Public
+ License version 3 can be found in "/usr/share/common-licenses/GPL-3".
+
+Files: deps/slop.hpp
+Copyright: 2014 Dalton Nell, Slop Contributors
+License: GPL-3+
+ Vendored verbatim from slop 7.6 (https://github.com/naelstrof/slop)
+ because libslop-dev lives in Debian's non-free component.  The ABI is
+ provided at runtime by the libslopy7.6 package.

@@ -1,0 +1,6 @@
+# List of source files containing translatable strings.
+
+data/luxepolkit.desktop.in.in
+data/ui/luxepolkit.glade
+src/luxepolkit.c
+src/luxepolkit-listener.c

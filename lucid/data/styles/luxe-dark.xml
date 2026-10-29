@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<style-scheme id="lucid-luxe-dark" _name="luxe Dark" version="1.0" parent-scheme="Adwaita-dark">
+  <author>Jerry Howell</author>
+  <description>Neutral dark editor colors for the luxe desktop.</description>
+  <metadata><property name="luxe-palette">dark</property><property name="variant">dark</property><property name="terminal-palette">#242424 #ff7b72 #8bd5a0 #f5c96b #91b5d6 #c6a4df #8fd7da #f0f0f0 #555555 #ff9b94 #abe8b9 #ffe092 #b3d1eb #e2c1f2 #b4eff0 #ffffff</property></metadata>
+  <style name="text" foreground="#f0f0f0" background="#242424"/>
+  <style name="selection" foreground="#202020" background="#91b5d6"/>
+  <style name="selection-unfocused" foreground="#f0f0f0" background="#555555"/>
+  <style name="cursor" foreground="#f0f0f0"/>
+  <style name="current-line" background="#303030"/>
+  <style name="line-numbers" foreground="#b8b8b8" background="#242424"/>
+  <style name="current-line-number" foreground="#91b5d6" background="#303030" bold="true"/>
+  <style name="def:keyword" foreground="#91b5d6" bold="true"/>
+</style-scheme>

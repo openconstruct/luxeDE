@@ -1,0 +1,348 @@
+Translator credits preserved from the removed .po catalogs of pcmanager.
+Luxe releases are English-only; translations return by pull request.
+Removed catalogs are recoverable from the 30 Sept 2026 source snapshot.
+
+[ar]
+  Arabic translation for PCManager.
+  This file is distributed under the same license as the pcmanager package.
+  Tareq Al Jurf <taljurf@fedoraproject.org>, 2010.
+  Safa Alfulaij <safa1996alfulaij@gmail.com>, 2014.
+  Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>
+  Language-Team: Arabic <doc@arabeyes.org>
+
+[be]
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Belarusian <i18n@mova.org>
+
+[bg]
+  Last-Translator: Радослав Иванов <reckku@gmail.com>
+
+[bn]
+  Ummey Salma Snigdha <snighda@ankur.org.bd>, 2010.
+  Israt Jahan <israt@ankur.org.bd>, 2010.
+  Last-Translator: system user <>
+  Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>
+
+[ca]
+  Last-Translator: Davidmp <rbndavid@gmail.com>
+
+[cs]
+  Czech translation for pcmanager2 package.
+  This file is distributed under the same license as the pcmanager package.
+  Radek Tříška <radek@fastlinux.eu>, 2010.
+  Last-Translator: Pavel Fric <pavelfric@seznam.cz>
+  Language-Team: Czech <radek@fastlinux.eu>
+
+[da]
+  Danish translation pcmanager.
+  Copyright (C) 2010 pcman & Joe Hansen.
+  This file is distributed under the same license as the pcman package.
+  Joe Hansen <joedalton2@yahoo.dk>, 2010.
+  Last-Translator: scootergrisen <scootergrisen@gmail.com>
+  Language-Team: Danish <dansk@dansk-gruppen.dk>
+
+[de]
+  Last-Translator: Ingo Brückl <ib@oddnet.de>
+
+[el]
+  Last-Translator: armakolas <armakolas@gmail.com>
+
+[en_GB]
+  English (British) translation for PCManager.
+  Copyright (C) LXDE translation team.
+  This file is distributed under the same license as the pcmanager package.
+  Steve Cook <yorvik.ubunto@gmail.com>, 2010.
+  Last-Translator: Anonymous Pootle User
+
+[es]
+  Spanish (Castilian) translation for pcmanager package.
+  Copyright (C) 2013 the LXDE team
+  This file is distributed under the same license as the pcmanager package.
+  Hugo Florentino <hugo@acdam.cu>, 2010-2013
+  LinoSP <ljsp1@hotmail.com>, 2010
+  Last-Translator: Adolfo Jayme Barrientos <fitojb@ubuntu.com>
+  Language-Team: Spanish (Castilian) <translation@mailinglist.lxde.org>
+
+[et]
+  Last-Translator: Anari Jalakas <anari.jalakas@gmail.com>
+
+[eu]
+  Last-Translator: Asier Iturralde Sarasola <asier.iturralde@gmail.com>
+
+[fa]
+  Persian translation for PCManager.
+  This file is distributed under the same license as the pcmanager package.
+  Hamidreza <n3gb0y@gmail.com>, 2010.
+  Ali Yousefi Sabzevar <aysabzevar@gmail.com>, 2013.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Persian <trans-fa@lists.fedoraproject.org>
+
+[fi]
+  Last-Translator: Juhani Numminen <juhaninumminen0@gmail.com>
+
+[fo]
+  Last-Translator: system user <>
+
+[fr]
+  French translation of the pcmanager package
+  Copyright (C) 2011
+  This file is distributed under the same license as the pcmanager package.
+  Emmanuel <Trillaud etrillaud@gmail.com>, 2010.
+  Cilyan <gaknar@gmail.com>, 2011.
+  Last-Translator: Jerome Leclanche <jerome@leclan.ch>
+
+[gl]
+  Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013.
+  Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>
+  Language-Team: Galician <proxecto@trasno.net>
+
+[he]
+  Hebrew translation for PCManager package.
+  Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>
+
+[hr]
+  Croatian translations for translation for PCManager package.
+  Copyright (C) 2010 the LXDE team
+  This file is distributed under the same license as the PCManager  package.
+  Ivica Kolić<ikoli@yahoo.com>, 2010.
+  Last-Translator: Ivica Kolić <ikoli@yahoo.com>
+
+[hu]
+  Hungarian translation of pcmanager.
+  Copyright (C) 2010-2011 The LXDE Team
+  This file is distributed under the same license as the pcmanager package.
+  Attila Szervac <sas@321.hu>, 2010.
+  Laszlo Dvornik <rezuri@zoho.com>, 2010-2011.
+  Last-Translator: Balázs Úr <urbalazs@gmail.com>
+
+[id]
+  Indonesian translation of pcmanager
+  Copyright (C) 2010 THE pcmanager'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the pcmanager package.
+  Andika Triwidada <andika@gmail.com>, 2010, 2013.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Indonesian Translation Team <id@li.org>
+
+[is]
+  Icelandic translation for PCManager package.
+  Copyright (C) 2025 Free Software Foundation, Inc.
+  This file is distributed under the same license as the PCManager package.
+  SPDX-FileCopyrightText: 2014, 2021, 2025 Sveinn í Felli <sv1@fellsnet.is>
+  Last-Translator: Sveinn í Felli <sv1@fellsnet.is>
+  Language-Team: Icelandic
+
+[it]
+  Translation of pcmanager to Italian
+  Copyright (C) 2010
+  This file is distributed under the same license as the pcmanager package.
+  ANDREA FLORIO <andrea@opensuse.org>, 2010.
+  Daniele Forsi <daniele@forsi.it>, 2012, 2013.
+  Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>
+  Language-Team: Italian <debian-l10n-italian@lists.debian.org>
+
+[ja]
+  Japanese translations for PACKAGE package
+  PACKAGE パッケージに対する英訳.
+  Copyright (C) 2010-2013 THE PACKAGE'S COPYRIGHT HOLDER
+  Hironao Komatsu <hironao@users.sourceforge.net>, 2010-2013.
+  Last-Translator: rago1975 <take1975@kumamoto.email.ne.jp>
+  Language-Team: Japanese <translation-team-ja@lists.sourceforge.net>
+
+[ka]
+  Georgian translation for pcmanager.
+  Copyright (C) 2026 pcmanager authors.
+  This file is distributed under the same license as the pcmanager package.
+  Ekaterine Papava <papava.e@gtu.ge>, 2026.
+  Last-Translator: Ekaterine Papava <papava.e@gtu.ge>
+  Language-Team: Georgian <(nothing)>
+
+[kk]
+  Kazakh translation for pcmanager.
+  Copyright (C) 2012 The LXDE team
+  This file is distributed under the same license as the LXDE package.
+  Baurzhan Muftakhidinov <baurthefirst@gmail.com>, 2012-2013.
+  Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>
+  Language-Team: Kazakh <kk_KZ@googlegroups.com>
+
+[km]
+  Last-Translator: Anonymous Pootle User
+
+[ko]
+  The Korean translation for the pcmanager.
+  Copyright (C) 2012 Seong-ho Cho
+  This file is distributed under the same license as the pcmanager package.
+  Seong-ho Cho <darkcircle.0426@gmail.com>, 2012-2014.
+  Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>
+  Language-Team: Seong-ho Cho <darkcircle.0426@gmail.com>
+
+[lg]
+  This is the Luganda translation for pcmanager.
+  Copyright (C) 2009 - 2010
+  This file is distributed under the same license as the pcmanager package.
+  Kizito Birabwa <kbirabwa@yahoo.co.uk>, 2010.
+  Last-Translator: kizito <kbirabwa@yahoo.co.uk>
+  Language-Team: lg <kbirabwa@yahoo.co.uk>
+
+[lt]
+  Algimantas <margevicius.algimantas@mail.ru>, 2012.
+  Algimantas Margevičius <margevicius.algimantas@gmail.com>, 2012.
+  Last-Translator: Moo <hazap@hotmail.com>
+  Language-Team: Lietuvių <>
+
+[lv]
+  Edgars Piruška <lemings@inbox.lv>, 2010.
+  Last-Translator: system user <>
+  Language-Team: Latvian <kde-i18n-doc@kde.org>
+
+[ms]
+  Last-Translator: system user <>
+
+[nl]
+  Dutch translation of the pcmanager package.
+  Copyright (C) the author of the pcmanager package.
+  This file is distributed under the same license as the
+  pcmanager package.
+  Glenn de Groot, 2010.
+  Pjotr, 2011.
+  Last-Translator: Pjotr <pjotrvertaalt@gmail.com>
+  Language-Team: Dutch
+
+[pa]
+  A S Alam <aalam@users.sf.net>, 2010.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>
+
+[pl]
+  Polish translation of pcmanager package.
+  This file is distributed under the same license as the pcmanager package.
+  Grzegorz Gibas <amigib@gmail.com>, 2010.
+  Franciszek Janowski <nobange@poczta.onet.pl>, 2013.
+  Piotr Strębski <strebski@o2.pl>, 2013.
+  Piotr Sokół <psokol@jabster.pl>, 2010, 2011, 2012, 2013, 2014.
+  Last-Translator: Piotr Strębski <strebski@o2.pl>
+  Language-Team: polski <>
+
+[pt]
+  European Portuguese translation for pcmanager package
+  Copyright (C) 2006 THE pcmanager'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the pcmanager package.
+  Nuno Miguel <nunis@netcabo.pt>, 2008, 2009.
+  Sérgio Marques <smarquespt@gmail.com>, 2010, 2011, 2012.
+  Hugo Carvalho <hugokarvalho@hotmail.com>, 2022, 2023, 2024.
+  Last-Translator: Hugo Carvalho <hugokarvalho@hotmail.com>
+  Language-Team: Portuguese
+
+[pt_BR]
+  Brazilian Portuguese translation for pcmanager.
+  Tradução em português do Brasil para o gerenciador de arquivos pcmanager.
+  Copyright (C) 2006 THE pcmanager'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the pcmanager package.
+  Flávio Costa <formicbr@gmail.com>, 2006.
+  Fábio Antunes <fabio.antunes@hotmail.com>, 2008.
+  Og Maciel <ogmaciel@gnome.org>, 2008, 2009.
+  Henrique P. Machado <zehrique@gmail.com>, 2009.
+  Sérgio B. Cipolla <secipolla@gmail.com>, 2010, 2011.
+  Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>
+  Language-Team: Brazilian Portuguese <ldp-br@bazar2.conectiva.com.br>
+
+[ro]
+  Romanian translations for the PCManager package
+  Traducerea în limba română pentru pachetul PCManager.
+  Copyright (C) 2012-2013 THE PCManager'S COPYRIGHT HOLDER
+  This file is distributed under the same license as the PCManager package.
+  Mișu Moldovan <dumol@l10n.ro>, 2012-2013.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Romanian <diacritice@googlegroups.com>
+
+[ru]
+  Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>
+  Language-Team: Russian <>
+
+[si]
+  Last-Translator: system user <>
+
+[sk]
+  translation of pcmanager.po to Slovak
+  This file is distributed under the same license as the pcmanager package.
+  Ivan Masár <helix84@centrum.sk>, 2009, 2010.
+  Last-Translator: mirek <mirek@cnl.sk>
+  Language-Team: Slovak <sk-i18n@lists.linux.sk>
+
+[sl]
+  Slovenian translation of pcmanager.
+  Copyright (C) 2011 - 2013 Free Software Foundation, Inc.
+  This file is distributed under the same license as the pcmanager package.
+  Klemen Košir <klemen913@gmail.com>, 2011 - 2013.
+  Last-Translator: Klemen Košir <klemen913@gmail.com>
+  Language-Team: Slovenian <lugos-slo@lugos.si>
+
+[sr]
+  Serbian translation of PCManager package
+  Copyright (C) 2010 the LXDE team
+  This file is distributed under the same license as the PCManager package.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2010-2013.
+  Last-Translator: markos <jezzivi@yahoo.com>
+
+[sr@latin]
+  Serbian translation of PCManager package
+  Copyright (C) 2010 the LXDE team
+  This file is distributed under the same license as the PCManager package.
+  Jay A. Fleming <tito.nehru.naser@gmail.com>, 2010-2013.
+  Last-Translator: Jay A. Fleming <tito.nehru.naser@gmail.com>
+
+[sv]
+  Swedish translation for PCManager
+  Copyright (C) 2006-2009 Free Software Foundation, Inc.
+  This file is distributed under the same license as the PCManager package.
+  Johan Andersson <nossrednanahoj(at)gmail.com>, 2006.
+  Mikael Magnusson, <mikachu@gmail.com>, 2008.
+  Martin Bagge <brother@bsnet.se>, 2009.
+  Daniel Nylander <po@danielnylander.se>, 2009.
+  Last-Translator: Anonymous Pootle User
+  Language-Team: Swedish <tp-sv@listor.tp-sv.se>
+
+[te]
+  Last-Translator: Praveen Illa <mail2ipn@gmail.com>
+
+[th]
+  Last-Translator: Anonymous Pootle User
+
+[tr]
+  Turkish translation of PCManager
+  Copyright (C) 2010
+  This file is distributed under the same license as the PCManager package.
+  Mehmet Gülmen <memetgulmen@gmail.com>, 2010.
+  Last-Translator: nyucel <necdetyucel@gmail.com>
+  Language-Team: tr <tr@li.org>
+
+[tt_RU]
+  Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2011.
+  Last-Translator: Anonymous Pootle User
+
+[ug]
+  Uyghur translation for pcmanager.
+  Gheyret Kenji <gheyret@gmail.com>, 2011.
+  Last-Translator: system user <>
+  Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>
+
+[uk]
+  Copyright (C) 2010
+  This file is distributed under the same license as the pcmanager package.
+  Yarema aka Knedlyk <yupadmin@gmail.com>, 2010.
+  Last-Translator: Andriy Grytsenko <andrej@rep.kiev.ua>
+  Language-Team: Ukrainian <translation@linux.org.ua>
+
+[vi]
+  Last-Translator: Anonymous Pootle User
+
+[zh_CN]
+  Chinese simplified translation for pcmanager.
+  Copyright (C) 2013 pcmanager's authors and contributors.
+  This file is distributed under the same license as the pcmanager package.
+  Wylmer Wang <wantinghard@gmail.com>, 2012, 2013.
+  Last-Translator: Wylmer Wang <wantinghard@gmail.com>
+  Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>
+
+[zh_TW]
+  Last-Translator: wwycheuk <wwycheuk@gmail.com>
+  Language-Team: zh_TW <zh_TW@li.org>

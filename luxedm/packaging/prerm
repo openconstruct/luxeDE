@@ -1,0 +1,52 @@
+#!/bin/sh
+# Copyright (C) 2026 Jerry Howell
+# SPDX-License-Identifier: GPL-2.0-or-later
+set -e
+
+default_file=/etc/X11/default-display-manager
+write_default()
+{
+    target=$1
+    value=$2
+    temporary=$(mktemp /etc/X11/.default-display-manager.XXXXXX)
+    trap 'rm -f "$temporary"' EXIT
+    trap 'rm -f "$temporary"; exit 1' HUP INT TERM
+    printf '%s\n' "$value" > "$temporary"
+    chmod 0644 "$temporary"
+    chown root:root "$temporary"
+    mv -fT "$temporary" "$target"
+    trap - EXIT HUP INT TERM
+}
+
+if { [ "$1" = remove ] || [ "$1" = deconfigure ]; } &&
+   [ -f "$default_file" ] && grep -qx '/usr/bin/luxedm' "$default_file"; then
+    rm -f "$default_file"
+    if [ -e /usr/share/debconf/confmodule ]; then
+        . /usr/share/debconf/confmodule
+        db_unregister shared/default-x-display-manager || true
+        if db_metaget shared/default-x-display-manager owners && [ -n "$RET" ]; then
+            db_subst shared/default-x-display-manager choices "$RET" || true
+            db_fset shared/default-x-display-manager seen false || true
+            db_input critical shared/default-x-display-manager || true
+            db_go || true
+            if db_get shared/default-x-display-manager && [ -n "$RET" ]; then
+                replacement=$RET
+                if db_get "$replacement/daemon_name" && [ -n "$RET" ]; then
+                    install -d -m 0755 /etc/X11
+                    write_default "$default_file" "$RET"
+                fi
+            fi
+        fi
+        db_stop || true
+    fi
+fi
+
+if [ "$1" = remove ] && command -v systemctl >/dev/null 2>&1; then
+    systemctl disable luxedm.service >/dev/null 2>&1 || true
+    if [ -s "$default_file" ]; then
+        replacement_service=$(basename "$(cat "$default_file")").service
+        systemctl enable --force "$replacement_service" >/dev/null 2>&1 || true
+    fi
+fi
+
+exit 0

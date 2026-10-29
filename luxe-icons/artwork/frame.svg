@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <!-- Copyright (C) 2026 Jerry Howell. SPDX-License-Identifier: GPL-3.0-or-later -->
+  <title>Frame — framed landscape</title>
+  <rect x="3" y="4" width="42" height="41" rx="11" fill="#765424"/>
+  <rect x="3" y="3" width="42" height="40" rx="11" fill="#dca94d"/>
+  <rect x="10" y="12" width="28" height="25" rx="2" fill="#896131"/>
+  <rect x="10" y="11" width="28" height="25" rx="2" fill="#fff1cf"/>
+  <path d="M13 14h22v19H13z" fill="#375870"/>
+  <circle cx="29" cy="19" r="3" fill="#f4c867"/>
+  <path d="m13 29 7-9 10 13H13z" fill="#8ac3b4"/>
+  <path d="m23 33 7-9 5 6v3z" fill="#4d9c90"/>
+</svg>

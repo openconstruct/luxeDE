@@ -1,0 +1,40 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Matinee
+Source: https://github.com/jerrimus/luxe
+
+Files: *
+Copyright: 2026 Jerry Howell
+License: GPL-3+
+ Matinee is a new GTK4 media player for the Luxe desktop, written by
+ Jerry Howell (2026).
+ .
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 3 of the License, or
+ (at your option) any later version.
+ .
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ .
+ On Debian systems, the complete text of the GNU General Public
+ License version 3 can be found in "/usr/share/common-licenses/GPL-3".
+
+Files: po/*
+Copyright: 2026 Jerry Howell
+License: GPL-3+
+
+Files: data/matinee.desktop
+Copyright: 2026 Jerry Howell
+License: GPL-3+
+
+License: LGPL-2.1+
+ The Matinee binary links the FFmpeg libraries (libavformat, libavcodec,
+ libavutil, libswscale, libswresample), which are distributed under the
+ GNU Lesser General Public License, version 2.1 or later, as built and
+ distributed by Debian.  Matinee does not include any FFmpeg source
+ code, and no FFmpeg code is relicensed by this package.

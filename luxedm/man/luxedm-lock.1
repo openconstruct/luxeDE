@@ -1,0 +1,25 @@
+.TH LUXEDM-LOCK 1 "October 2026" "LuxeDM 1.4.1+luxe16"
+.SH NAME
+luxedm-lock \- lock an active X11 session with LuxeDM
+.SH SYNOPSIS
+.B luxedm-lock
+.SH DESCRIPTION
+LuxeDM Lock grabs the keyboard and pointer, displays the Luxe lock theme, and
+authenticates the real calling user through PAM before returning to the session.
+It runs as the calling user and does not require a setuid-root binary.
+Ordinary termination signals (TERM, INT, HUP and QUIT) are ignored while locked;
+they do not restart the process or release its input grabs. The opaque lock
+cover follows X root-size changes independently of the authentication dialog.
+.PP
+Session and power clients can request a readiness acknowledgement using
+.BR "--ready-fd 3" ,
+where descriptor 3 is an inherited stream socket. The locker sends one R byte
+only after securing its cover and input grabs and initializing PAM and the
+panel. An existing native lock confirms readiness through its live X selection
+owner. A closed or timed-out requester never terminates the locker.
+.SH FILES
+/etc/luxedm-lock.conf, /etc/pam.d/luxedm-lock, /usr/share/luxedm/themes
+.SH COPYRIGHT
+Copyright 2010-2012 Joel Burget; 2022-2023 Rob Pearce; 2026 Jerry Howell.
+LuxeDM Lock is licensed under GPL-2.0-or-later. Additional contributor and asset
+credits are installed in /usr/share/doc/luxedm.

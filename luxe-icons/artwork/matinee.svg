@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <!-- Copyright (C) 2026 Jerry Howell. SPDX-License-Identifier: GPL-3.0-or-later -->
+  <title>Matinee — playback tunnel</title>
+  <rect x="3" y="4" width="42" height="41" rx="11" fill="#493663"/>
+  <rect x="3" y="3" width="42" height="40" rx="11" fill="#8d70bc"/>
+  <circle cx="24" cy="23" r="14" fill="#493763"/>
+  <circle cx="24" cy="23" r="11" fill="none" stroke="#b7a0dc" stroke-width="2"/>
+  <path d="m21 16 10 7-10 7z" fill="#f5e8d6" stroke="#f5e8d6" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M15 38h18" stroke="#493763" stroke-width="2" stroke-linecap="round"/>
+</svg>

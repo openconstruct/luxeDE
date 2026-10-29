@@ -1,0 +1,364 @@
+/* rconfiguration.cc
+ *
+ * Copyright (c) 2000-2003 Conectiva S/A
+ *               2002 Michael Vogt <mvo@debian.org>
+ *
+ * Author: Alfredo K. Kojima <kojima@conectiva.com.br>
+ *         Michael Vogt <mvo@debian.org>
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License as
+ * published by the Free Software Foundation; either version 2 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
+ * USA
+ */
+
+#include "config.h"
+
+#include <pwd.h>
+#include <sys/types.h>
+
+#include <sys/stat.h>
+#include <sys/types.h>
+
+#include <unistd.h>
+#include <cstring>
+#include <sstream>
+
+#include <apt-pkg/init.h>
+#include <apt-pkg/error.h>
+#include <apt-pkg/configuration.h>
+#include <apt-pkg/pkgsystem.h>
+#include <apt-pkg/fileutl.h>
+#include <gio/gio.h>
+
+#include "rconfiguration.h"
+
+#include "i18n.h"
+
+static string ConfigFilePath;
+static string ConfigFileDir;
+
+
+// #ifndef HAVE_RPM
+// bool _ReadConfigFile(Configuration &Conf,string FName,bool AsSectional = false,
+//                  unsigned Depth = 0);
+// #endif
+
+static void dumpToFile(const Configuration::Item *Top, ostream &out,
+                       string pad)
+{
+   while (Top) {
+      out << pad << Top->Tag << " \"" << Top->Value << "\"";
+
+      if (Top->Child) {
+         out << " {" << endl;
+         dumpToFile(Top->Child, out, pad + "  ");
+         out << pad << "};" << endl;
+
+         if (Top->Next)
+            out << endl;
+      } else {
+         out << ";" << endl;
+      }
+
+      if (pad.empty())
+         break;                 // dump only synaptic section
+
+      Top = Top->Next;
+   }
+}
+
+
+
+bool RWriteConfigFile(Configuration &Conf)
+{
+   const Configuration::Item *Synaptic;
+
+   // when running non-interactivly don't save any config (there should be no 
+   // need)
+   if(_config->FindB("Volatile::Non-Interactive", false) == true) 
+      return true;
+
+   // store option 'consider recommended packages as dependencies'
+   // to config of apt if we run as root
+   if (getuid() == 0) {
+      string aptConfPath = _config->FindDir("Dir::Etc::parts", "/etc/apt/apt.conf.d/")
+                         + "99synaptic";
+
+      const char *recommends = _config->FindB("APT::Install-Recommends", false)
+         ? "APT::Install-Recommends \"true\";\n"
+         : "APT::Install-Recommends \"false\";\n";
+      GError *write_error = nullptr;
+      if (!g_file_set_contents_full(aptConfPath.c_str(), recommends, strlen(recommends),
+              static_cast<GFileSetContentsFlags>(G_FILE_SET_CONTENTS_CONSISTENT |
+                                                  G_FILE_SET_CONTENTS_DURABLE),
+              0644, &write_error)) {
+         std::string message = write_error ? write_error->message : "cannot write APT configuration";
+         g_clear_error(&write_error);
+         cerr << message << ": " << aptConfPath << endl;
+      }
+   }
+   // and backup Install-Recommends to config of synaptic
+   _config->Set("Synaptic::Install-Recommends",
+                _config->FindB("APT::Install-Recommends",
+                _config->FindB("Synaptic::Install-Recommends",
+                false)));
+
+   std::ostringstream serialized;
+   Synaptic = Conf.Tree(0);
+   while (Synaptic) {
+      if (Synaptic->Tag == "Synaptic")
+         break;
+      Synaptic = Synaptic->Next;
+   }
+   dumpToFile(Synaptic, serialized, "");
+
+   const std::string data = serialized.str();
+   GError *write_error = nullptr;
+   if (!g_file_set_contents_full(ConfigFilePath.c_str(), data.data(), data.size(),
+           static_cast<GFileSetContentsFlags>(G_FILE_SET_CONTENTS_CONSISTENT |
+                                               G_FILE_SET_CONTENTS_DURABLE),
+           0600, &write_error)) {
+      std::string message = write_error ? write_error->message : "cannot write Synaptic configuration";
+      g_clear_error(&write_error);
+      return _error->Errno("g_file_set_contents_full", "%s", message.c_str());
+   }
+
+   return true;
+}
+
+static bool checkConfigDir(string &path)
+{
+   struct stat stbuf;
+   struct passwd *pwd;
+   const char *buf;
+   string xdg_data_dir;
+   string old_path;
+   string home_dir;
+
+   pwd = getpwuid(getuid());
+   if (!pwd) {
+      return _error->Errno("getpwuid",
+                           _
+                           ("ERROR: Could not get password entry for superuser"));
+   }
+
+   home_dir = string(pwd->pw_dir);
+   xdg_data_dir = home_dir + "/.config";
+   old_path = home_dir + "/.synaptic";
+   buf = getenv("XDG_CONFIG_HOME");
+
+   if (buf && *buf == '/') {
+     xdg_data_dir = buf;
+     while (xdg_data_dir.size() > 1 && xdg_data_dir.back() == '/')
+       xdg_data_dir.pop_back();
+
+     // Keep the legacy safety rule, but use a path-component boundary so
+     // /home/alice2 is not accepted as a child of /home/alice.
+     if (xdg_data_dir != home_dir &&
+         xdg_data_dir.compare(0, home_dir.length() + 1, home_dir + "/") != 0) {
+       cerr << "Warning: XDG_CONFIG_HOME=" << buf
+            << " is not in the home directory. Using " << home_dir
+            << "/.config instead." << std::endl;
+       xdg_data_dir = home_dir + "/.config";
+     }
+   } else if (buf && *buf) {
+     cerr << "Warning: XDG_CONFIG_HOME must be absolute. Using "
+          << home_dir << "/.config instead." << std::endl;
+   }
+
+   //path = "/etc/synaptic";
+   path = xdg_data_dir + "/synaptic";
+
+   if (! CreateDirectory(home_dir, xdg_data_dir)) {
+      return _error->Errno("mkdir",
+			   _("ERROR: could not create XDG home directory %s"),
+			   xdg_data_dir.c_str());
+   }
+
+   // Move old config dir (if any) to the new one
+   // Consider to delete this code in the future
+   if (stat(old_path.c_str(), &stbuf) == 0 &&
+       rename(old_path.c_str(), path.c_str()) < 0) {
+      return _error->Errno("rename",
+			   _("ERROR: could not move old configuration "
+			     "directory %s to the new configuration "
+			     "directory %s"),
+			   old_path.c_str(), path.c_str());
+   }
+
+   if (stat(path.c_str(), &stbuf) < 0 &&
+       mkdir(path.c_str(), 0700) < 0) {
+      return _error->Errno("mkdir",
+			   _
+			   ("ERROR: could not create configuration directory %s"),
+			   path.c_str());
+   }
+   return true;
+}
+
+
+string RConfDir()
+{
+   static string confDir;
+   if (!checkConfigDir(confDir))
+      cerr << "checkConfigDir() failed! please report to mvo@debian.org" <<
+         endl;
+   return confDir;
+}
+
+string RStateDir()
+{
+   struct stat stbuf;
+   static string stateDir = string(SYNAPTICSTATEDIR);
+   if (stat(stateDir.c_str(), &stbuf) < 0) {
+      if (mkdir(stateDir.c_str(), 0755) < 0) {
+	 _error->Errno("mkdir",
+		       _("ERROR: could not create state directory %s"),
+		       stateDir.c_str());
+	 return "";
+      }
+   }
+
+   return stateDir;
+}
+
+// we use the ConfDir for now to store very small tmpfiles
+string RTmpDir()
+{
+   struct stat stbuf;
+   static string tmpDir = RConfDir() + string("/tmp/");
+   if (stat(tmpDir.c_str(), &stbuf) < 0) {
+      if (mkdir(tmpDir.c_str(), 0700) < 0) {
+	 _error->Errno("mkdir",
+		       _("ERROR: could not create tmp directory %s"),
+		       tmpDir.c_str());
+	 return "";
+      }
+   }
+
+   return tmpDir;
+}
+
+
+string RLogDir()
+{
+   struct stat stbuf;
+   static string logDir = RConfDir() + string("/log/");
+
+   if (stat(logDir.c_str(), &stbuf) < 0) {
+      if (mkdir(logDir.c_str(), 0700) < 0) {
+	 _error->Errno("mkdir",
+		       _("ERROR: could not create log directory %s"),
+		       logDir.c_str());
+	 return "";
+      }
+   }
+
+   return logDir;
+}
+
+
+bool RInitConfiguration(string confFileName)
+{
+   string configDir;
+
+   if (!pkgInitConfig(*_config))
+      return false;
+
+   _config->Set("Program", "synaptic");
+
+   if (!pkgInitSystem(*_config, _system))
+      return false;
+
+   if (!checkConfigDir(configDir))
+      return false;
+
+   ConfigFilePath = configDir + "/" + confFileName;
+   ConfigFileDir = configDir;
+
+   if (!ReadConfigFile(*_config, ConfigFilePath)) {
+      _error->Discard();
+   }
+
+   // read Install-Recommends, preferably from APT:: if we run as root
+   // or from Synaptic:: otherwise
+   if(getuid() == 0) {
+      _config->Set("APT::Install-Recommends",
+                   _config->FindB("APT::Install-Recommends",
+                   _config->FindB("Synaptic::Install-Recommends",
+                   false)));
+   } else {
+      _config->Set("APT::Install-Recommends",
+                   _config->FindB("Synaptic::Install-Recommends",
+                   _config->FindB("APT::Install-Recommends",
+                   false)));
+   }
+
+   return true;
+}
+
+
+bool RReadFilterData(Configuration &config)
+{
+   string defaultPath = ConfigFileDir + "/filters";
+   string path = _config->Find("Volatile::filterFile", defaultPath.c_str());
+
+   if (!FileExists(path)) {
+      return false;
+   }
+
+   if (!ReadConfigFile(config, path, true)) {
+      _error->DumpErrors();
+      _error->Discard();
+      return false;
+   }
+   return true;
+}
+
+bool RPackageOptionsFile(ofstream &out)
+{
+   string path = ConfigFileDir + "/options";
+   out.open(path.c_str());
+   if (!out != 0)
+      return _error->Errno("ofstream",
+                           _("ERROR: couldn't open %s for writing"),
+                           path.c_str());
+   return true;
+}
+
+bool RPackageOptionsFile(ifstream &in)
+{
+   string path = ConfigFileDir + "/options";
+   in.open(path.c_str());
+   if (!in != 0)
+      return false;
+//      return _error->Errno("ifstream", _("ERROR: couldn't open %s for reading"),
+//                           path.c_str());
+   return true;
+}
+
+
+bool RFilterDataOutFile(ofstream &out)
+{
+   string defaultPath = ConfigFileDir + "/filters";
+   string path = _config->Find("Volatile::filterFile", defaultPath.c_str());
+
+   out.open(path.c_str(), ios::out);
+
+   if (!out != 0)
+      return _error->Errno("ofstream", _("couldn't open %s for writing"),
+                           path.c_str());
+
+   return true;
+}
