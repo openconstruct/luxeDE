@@ -85,41 +85,30 @@ static void mime_defaults(const fs::path &self,
     auto tested = root / "session-under-test";
     fs::copy_file(args[1], tested);
     fs::permissions(tested, fs::status(args[1]).permissions());
-    require(getenv("HOME"), "HOME missing");
-    Child server({"bwrap",
-                  "--die-with-parent",
-                  "--ro-bind",
-                  "/",
-                  "/",
-                  "--bind",
-                  home.string(),
-                  getenv("HOME"),
-                  "--bind",
-                  root.string(),
-                  root.string(),
-                  "--dev-bind",
-                  "/dev",
-                  "/dev",
-                  "--",
-                  tested.string(),
+    Env session_env = env;
+    session_env["HOME"] = home.string();
+    session_env["XDG_STATE_HOME"] = (root / "state").string();
+    Child server({tested.string(),
                   "--session",
                   "MimeTest",
                   "--de",
                   "X-Luxe",
                   "--noxsettings",
                   "--noautostart"},
-                 env, root / "session.log");
-    wait_for(
-        server,
-        [&]() {
-          return run({"gdbus", "call", "--session", "--dest",
-                      "org.freedesktop.DBus", "--object-path",
-                      "/org/freedesktop/DBus", "--method",
-                      "org.freedesktop.DBus.NameHasOwner",
-                      "org.lxde.SessionManager"})
-                     .find("true") != std::string::npos;
-        },
-        5);
+                 session_env, root / "session.log");
+    try {
+      wait_for(server, [&]() {
+        return run({"gdbus", "call", "--session", "--dest",
+                    "org.freedesktop.DBus", "--object-path",
+                    "/org/freedesktop/DBus", "--method",
+                    "org.freedesktop.DBus.NameHasOwner",
+                    "org.lxde.SessionManager"})
+                   .find("true") != std::string::npos;
+      }, 5);
+    } catch (...) {
+      std::cerr << "Session startup log:\n" << read_file(root / "session.log");
+      throw;
+    }
     auto call = [&](const std::string &method, std::vector<std::string> params,
                     bool success = true) {
       std::vector<std::string> cmd = {"gdbus",

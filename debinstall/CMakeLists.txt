@@ -3,7 +3,7 @@ project(debinstall VERSION 0.1.0 LANGUAGES NONE)
 include(../cmake/LuxePackage.cmake)
 include(CTest)
 
-set(DEBINSTALL_VERSION "${PROJECT_VERSION}-16")
+set(DEBINSTALL_VERSION "${PROJECT_VERSION}-17")
 configure_file(src/paths.py.in ${CMAKE_CURRENT_BINARY_DIR}/generated/paths.py @ONLY)
 configure_file(src/installer.py ${CMAKE_CURRENT_BINARY_DIR}/generated/debinstall-install @ONLY)
 configure_file(data/debinstall ${CMAKE_CURRENT_BINARY_DIR}/generated/debinstall @ONLY)

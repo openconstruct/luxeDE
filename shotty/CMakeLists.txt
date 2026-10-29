@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.25)
 project(shotty VERSION 0.1.0 LANGUAGES C)
-set(SHOTTY_REVISION 21)
+set(SHOTTY_REVISION 22)
 set(SHOTTY_RELEASE "${PROJECT_VERSION}-1+luxe${SHOTTY_REVISION}")
 set(SHOTTY_RPM_RELEASE "1.luxe${SHOTTY_REVISION}")
 include(../cmake/LuxePackage.cmake)

@@ -1,3 +1,47 @@
+## 29 October 2026 — Shotty CI cache cleanup
+
+Keep the check that Shotty removes its own handoff cache, then clean other library-created entries from the private test cache without following symbolic links. The old teardown reproduced the reported failure with an extra cache directory; the fixed suite passed with and without that fixture, including a nested-cache and outside-symlink regression. The Debian package builds; GitHub jobs still need rerunning.
+
+## 29 October 2026 — PCManager clean-checkout packaging (luxe44)
+
+Generate both desktop launchers from tracked templates rather than installing an ignored file. The clean-source Ninja build, existing tests, staged-install check, translation fixture and DEB packaging passed.
+
+## 29 October 2026 — LuxuryStore CI state directory
+
+LuxuryStore CI creates the state directory normally provided by its package before unprivileged tests. Its absence reproduced all four reported failures; a fresh build passed all nine CTests once the directory was supplied. The tests now print APT load errors clearly.
+
+## 29 October 2026 — LuxeSettings CI locale fix
+
+LuxeSettings CI jobs install locale data and generate de_DE.UTF-8 to retain the real German translation test. Both CTests passed with a freshly generated private locale after reproducing the missing-locale failure.
+
+## 29 October 2026 — LuxeSession CI fixture fixes
+
+The MIME D-Bus test uses isolated HOME and XDG directories without nested Bubblewrap; the Openbox test waits for the client and window manager to start. All 23 tests in the reported CI configuration passed locally with Bubblewrap blocked. A separate optional installed-LuxeTerm header test timed out locally and was absent from that CI configuration.
+
+## 29 October 2026 — LuxeRandR Ubuntu query test fix
+
+Restore executable permissions after each temporary xrandr fixture rewrite; Ubuntu GLib 2.80 otherwise drops them. All six CTests passed on Debian, and the failure and fix were checked with simulated Ubuntu mode loss.
+
+## 29 October 2026 — GitHub artifact and Panel CI fixes
+
+Escape epoch colons in CI DEB filenames before checksumming and upload, retaining the package version. The 25-package cohort collector passed. Panel builds unprivileged, installs into the disposable job container, and runs tests and packaging unprivileged without nested Bubblewrap. All 27 Panel tests passed across staged Debian runs; GitHub jobs still need rerunning.
+
+## 29 October 2026 — Luxe Icons Ninja build fix (revision 13)
+
+Move the build stamp outside the generated theme directory so Ninja does not pre-create an unowned output. Incremental builds validate ownership and regenerate missing output. A fresh Ninja build, incremental rebuild, five tests and DEB packaging passed on Debian.
+
+## 29 October 2026 — Lucid spell-check teardown fix (luxe23)
+
+Disable spell-check before releasing a document buffer, preventing a queued callback in Ubuntu 24.04 libspelling 0.2 from accessing a destroyed buffer. Both CTests passed with libspelling 0.2 and 0.4.8 on a Debian host.
+
+## 29 October 2026 — DebInstall Debian 13 cache fix (0.1.0-17)
+
+Open the normal system APT cache when inspecting packages so Debian 13 deb822-only configurations do not trigger a privileged attempt to create sources.list. All ten CTests passed; backend and UI also passed with a read-only APT directory and no sources.list.
+
+## 29 October 2026 — Shotty clipboard fix (luxe22)
+
+Shotty offers one PNG clipboard format so the clipboard manager can retain it for pasting after Shotty closes. The release build and behavior tests passed; a separate full-size cross-process clipboard-manager test reproduced the old failure and passed with the fix.
+
 ## 29 October 2026 — clean source copy and Slab promotion
 
 Slab is included in the standard 25-package GitHub Actions build and cohort on Ubuntu 24.04 and Debian 13. Its CPack output uses the shared CI package directory. The clean source copy excludes generated build products, caches, packages and crash dumps while retaining build and test sources.

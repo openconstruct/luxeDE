@@ -16,5 +16,15 @@ mapfile -t packages < <(sed '/^[[:space:]]*#/d; /^[[:space:]]*$/d' "$script_dir/
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get install -y --no-install-recommends "${packages[@]}"
-# Mountpoints only: actual Panel test payloads are private namespace binds.
+if [[ ${LUXE_CI_COMPONENT:-} == luxesettings ]]; then
+    # The translated UI test requires a locale absent from minimal images.
+    apt-get install -y --no-install-recommends locales
+    localedef -i de_DE -f UTF-8 de_DE.UTF-8
+fi
+if [[ ${LUXE_CI_COMPONENT:-} == luxurystore ]]; then
+    # The package normally owns this directory. CI tests run the uninstalled
+    # binaries as an ordinary user, so provide the same installed prerequisite.
+    install -d -m 0755 /var/lib/synaptic
+fi
+# Used by the isolated local Panel fixture and disposable CI container.
 mkdir -p /usr/libexec/luxepanel /usr/lib/luxepanel /usr/share/luxepanel

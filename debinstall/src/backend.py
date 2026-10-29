@@ -73,7 +73,10 @@ def digest_file(path):
 def inspect_package(path):
     from GDebi.GDebiCli import GDebiCli
     from GDebi.DebPackage import DebPackage
-    options = SimpleNamespace(quiet=True, rootdir='/', apt_opts=[], non_interactive=True)
+    # None selects the live system cache. Passing '/' activates python-apt's
+    # alternate-root setup, which tries to create absent files such as the
+    # optional legacy /etc/apt/sources.list, even for a read-only inspection.
+    options = SimpleNamespace(quiet=True, rootdir=None, apt_opts=[], non_interactive=True)
     app = GDebiCli(options)
     gdebi = GDebiAdapter(app)
     was_broken = gdebi.cache.broken_count > 0

@@ -100,6 +100,10 @@ static void doc_unref(Document *d)
 {
     if (!g_atomic_int_dec_and_test(&d->refs)) return;
     if(d->modeline_timer)g_source_remove(d->modeline_timer);
+    /* libspelling 0.2 can keep an adapter alive for a queued cursor update
+     * after the view and buffer are released. Disable it while the buffer is
+     * still valid so that callback cannot inspect a destroyed buffer. */
+    if(d->spelling)spelling_text_buffer_adapter_set_enabled(d->spelling,FALSE);
     g_clear_object(&d->spelling); g_clear_object(&d->highlight); g_clear_object(&d->search);
     g_clear_object(&d->cancel); g_clear_object(&d->file); g_clear_object(&d->save_target);
     g_clear_object(&d->view); g_clear_object(&d->buffer); g_free(d->title); g_free(d);

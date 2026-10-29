@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.25)
 project(luxe-icons VERSION 2026.09.09 LANGUAGES NONE)
-set(ICON_LUXE_REVISION 12)
+set(ICON_LUXE_REVISION 13)
 include(../cmake/LuxePackage.cmake)
 include(CTest)
 find_program(XEPHYR_BIN Xephyr)
@@ -57,7 +57,9 @@ add_custom_command(OUTPUT ${icon_host_outputs}
 add_custom_target(luxe-icon-host-tools DEPENDS ${icon_host_outputs})
 
 set(icon_root "${CMAKE_CURRENT_BINARY_DIR}/theme/usr/share/icons")
-set(icon_stamp "${CMAKE_CURRENT_BINARY_DIR}/theme/.built")
+# Ninja creates the parent directory of each output before executing the
+# command. Keep its stamp outside theme so it cannot create an unowned theme.
+set(icon_stamp "${CMAKE_CURRENT_BINARY_DIR}/luxe-icons-built.stamp")
 add_custom_command(
   OUTPUT "${icon_stamp}"
   COMMAND "${CMAKE_COMMAND}"
@@ -66,18 +68,29 @@ add_custom_command(
     "-DOUTPUT_DIR=${CMAKE_CURRENT_BINARY_DIR}/theme"
     "-DICON_DEDUPLICATOR=${icon_deduplicator}"
     -P "${CMAKE_CURRENT_SOURCE_DIR}/cmake/BuildIcons.cmake"
+  COMMAND "${CMAKE_COMMAND}" -E touch "${icon_stamp}"
   DEPENDS cmake/BuildIcons.cmake cmake/Deduplicate.cmake
     ../tools/native/icons/CMakeLists.txt ../tools/native/deduplicate-icons.cc sources.lock.json aliases.json coverage.json icon-ownership.json
     artwork/lucid.svg artwork/pcmanager.svg artwork/shotty.svg artwork/frame.svg artwork/matinee.svg
     upstream/Papirus.tar.gz upstream/Numix-circle.tar.gz
   VERBATIM)
-add_custom_target(luxe-icon-themes ALL DEPENDS "${icon_stamp}")
+add_custom_target(luxe-icon-themes ALL
+  COMMAND "${CMAKE_COMMAND}"
+    "-DSOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR}"
+    "-DBUILD_ROOT=${CMAKE_CURRENT_BINARY_DIR}"
+    "-DOUTPUT_DIR=${CMAKE_CURRENT_BINARY_DIR}/theme"
+    "-DICON_DEDUPLICATOR=${icon_deduplicator}"
+    -P "${CMAKE_CURRENT_SOURCE_DIR}/cmake/EnsureIcons.cmake"
+  DEPENDS "${icon_stamp}"
+  VERBATIM)
 add_dependencies(luxe-icon-themes luxe-icon-host-tools)
 if(BUILD_TESTING)
   add_test(NAME luxe-icons-cache-path COMMAND sh
     "${CMAKE_CURRENT_SOURCE_DIR}/tests/check-cache-path.sh" "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_COMMAND}")
   add_test(NAME luxe-icons-preserve-output COMMAND sh
     "${CMAKE_CURRENT_SOURCE_DIR}/tests/check-output-preserved.sh" "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_COMMAND}")
+  add_test(NAME luxe-icons-ensure-output COMMAND sh
+    "${CMAKE_CURRENT_SOURCE_DIR}/tests/check-ensure-output.sh" "${CMAKE_CURRENT_SOURCE_DIR}" "${CMAKE_COMMAND}")
   add_test(NAME luxe-icons-coverage COMMAND "${icon_host_build}/icon-fixtures-gtk4"
     coverage ${CMAKE_CURRENT_BINARY_DIR}/theme ${CMAKE_CURRENT_SOURCE_DIR} "${icon_deduplicator}")
   if(icon_lookup_tests)

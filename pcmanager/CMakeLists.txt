@@ -5,7 +5,7 @@ luxe_use_shared_headers()
 include(../cmake/LuxeInternalDesktopLibraries.cmake)
 include(CTest)
 
-set(PCMANAGER_REVISION 43)
+set(PCMANAGER_REVISION 44)
 set(PCMANAGER_DESKTOP_CAIRO_REVISION 3)
 set(PCMANAGER_DEB_VERSION "${PROJECT_VERSION}+gtk4-4+luxe${PCMANAGER_REVISION}+desktop-cairo${PCMANAGER_DESKTOP_CAIRO_REVISION}")
 set(PCMANAGER_RPM_RELEASE "4.luxe${PCMANAGER_REVISION}")
@@ -115,34 +115,49 @@ if(BUILD_TESTING)
   endif()
 endif()
 
-# P2: merge data/pcmanager.desktop from its .in template with msgfmt at
-# CMake time so install/packaging no longer depend on autotools output.
-# (A plain configure_file COPYONLY is not valid here, verified: the template
-# carries intltool _Name/_GenericName/_Comment keys that desktop-file-validate
-# rejects with errors, and it would drop all merged translations.)
+# Generate both launchers from tracked intltool templates, including any
+# available translations. The generated .desktop files are not source files.
 find_program(MSGFMT_DESKTOP_EXECUTABLE msgfmt REQUIRED)
+find_program(PCMANAGER_DESKTOP_VALIDATE desktop-file-validate)
 file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/data")
-# intltool-style template (_Name=) -> msgfmt-style template (Name=)
-file(READ "${CMAKE_CURRENT_SOURCE_DIR}/data/pcmanager.desktop.in" _pcmanager_desktop_in)
-string(REPLACE "\n_Name=" "\nName=" _pcmanager_desktop_tpl "${_pcmanager_desktop_in}")
-string(REPLACE "\n_GenericName=" "\nGenericName=" _pcmanager_desktop_tpl "${_pcmanager_desktop_tpl}")
-string(REPLACE "\n_Comment=" "\nComment=" _pcmanager_desktop_tpl "${_pcmanager_desktop_tpl}")
-file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/data/pcmanager.desktop.template" "${_pcmanager_desktop_tpl}")
-unset(_pcmanager_desktop_in)
-unset(_pcmanager_desktop_tpl)
-add_custom_command(
-  OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/data/pcmanager.desktop"
-  COMMAND "${MSGFMT_DESKTOP_EXECUTABLE}" --desktop
-    --template "${CMAKE_CURRENT_BINARY_DIR}/data/pcmanager.desktop.template"
-    -d "${CMAKE_CURRENT_SOURCE_DIR}/po"
-    -o "${CMAKE_CURRENT_BINARY_DIR}/data/pcmanager.desktop"
-  DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/data/pcmanager.desktop.in"
-  VERBATIM)
-add_custom_target(pcmanager-desktop-entry ALL
-  DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/data/pcmanager.desktop")
+file(GLOB pcmanager_desktop_translations CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/po/*.po")
+set(pcmanager_desktop_entries)
+foreach(entry IN ITEMS pcmanager pcmanager-desktop-pref)
+  set(template "${CMAKE_CURRENT_SOURCE_DIR}/data/${entry}.desktop.in")
+  set_property(DIRECTORY APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${template}")
+  file(READ "${template}" desktop_text)
+  foreach(key IN ITEMS Name GenericName Comment)
+    string(REPLACE "\n_${key}=" "\n${key}=" desktop_text "${desktop_text}")
+  endforeach()
+  set(converted "${CMAKE_CURRENT_BINARY_DIR}/data/${entry}.desktop.template")
+  set(output "${CMAKE_CURRENT_BINARY_DIR}/data/${entry}.desktop")
+  file(WRITE "${converted}" "${desktop_text}")
+  if(PCMANAGER_DESKTOP_VALIDATE)
+    set(validate_command COMMAND "${PCMANAGER_DESKTOP_VALIDATE}" "${output}")
+  else()
+    set(validate_command)
+  endif()
+  if(pcmanager_desktop_translations)
+    set(generate_command "${MSGFMT_DESKTOP_EXECUTABLE}" --desktop --template "${converted}"
+      -d "${CMAKE_CURRENT_SOURCE_DIR}/po" -o "${output}")
+  else()
+    set(generate_command "${CMAKE_COMMAND}" -E copy_if_different "${converted}" "${output}")
+  endif()
+  add_custom_command(OUTPUT "${output}"
+    COMMAND ${generate_command}
+    ${validate_command}
+    DEPENDS "${template}" "${converted}" ${pcmanager_desktop_translations}
+    VERBATIM)
+  list(APPEND pcmanager_desktop_entries "${output}")
+endforeach()
+add_custom_target(pcmanager-desktop-entry ALL DEPENDS ${pcmanager_desktop_entries})
+if(BUILD_TESTING)
+  add_test(NAME pcmanager-desktop-install
+    COMMAND sh "${CMAKE_CURRENT_SOURCE_DIR}/tests/desktop-install.sh" "${CMAKE_CURRENT_BINARY_DIR}")
+endif()
 
 install(TARGETS pcmanager RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
-install(FILES ${CMAKE_CURRENT_BINARY_DIR}/data/pcmanager.desktop data/pcmanager-desktop-pref.desktop
+install(FILES ${pcmanager_desktop_entries}
   DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
 install(FILES data/pcmanager.conf DESTINATION /etc/xdg/pcmanager/default)
 

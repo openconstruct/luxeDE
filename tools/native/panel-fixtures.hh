@@ -195,11 +195,19 @@ static void panel_volume(const std::vector<std::string> &args) {
   try { wait_for(pulse, [&]() { return fs::exists(socket); }, 5); } catch (...) { std::cerr << read_file(root / "pulse.log"); throw; }
   Child wm({"openbox"}, f.env, root / "wm.log");
   pause_for(.5);
-  Child panel({"bwrap", "--die-with-parent", "--ro-bind", "/", "/", "--dev",
-               "/dev", "--bind", root.string(), root.string(), "--ro-bind",
-               plugins.string(), "/usr/lib/luxepanel/plugins", "--",
-               f.panel.string(), "--profile", "test"},
-              f.env, root / "panel.log");
+  std::vector<std::string> panel_command;
+  const char *installed = getenv("LUXEPANEL_TEST_INSTALLED_PLUGINS");
+  if (installed && std::string(installed) == "1") {
+    require(read_file("/usr/lib/luxepanel/plugins/volume.so") == read_file(args[1]),
+            "Installed volume plugin does not match the build under test");
+    panel_command = {f.panel.string(), "--profile", "test"};
+  } else {
+    panel_command = {"bwrap", "--die-with-parent", "--ro-bind", "/", "/", "--dev",
+                     "/dev", "--bind", root.string(), root.string(), "--ro-bind",
+                     plugins.string(), "/usr/lib/luxepanel/plugins", "--",
+                     f.panel.string(), "--profile", "test"};
+  }
+  Child panel(panel_command, f.env, root / "panel.log");
   pause_for(2);
   f.run({"scrot", (root / "screen.png").string()});
   f.run({"xdotool", "mousemove", "6", "224", "click", "3"});

@@ -2,14 +2,14 @@
 
 See [pre-upload validation and limits](VALIDATION.md) for the checks performed.
 
-The monorepo contains all 24 package sources. `cmake/LuxeComponents.cmake` is
+The monorepo contains all 25 package sources. `cmake/LuxeComponents.cmake` is
 the authoritative package list. `.github/workflows/packages.yml` creates one
 job per package **and target distribution**: Ubuntu 24.04 and Debian 13 amd64.
 The runner is Ubuntu 24.04; compilation happens inside the target's container.
 Use the DEBs for your distribution, especially for versioned media libraries.
 LuxuryStore continues to contain its APT 6/7 dispatch backends.
 
-Pushes and pull requests build the full 48-job matrix (four concurrent jobs).
+Pushes and pull requests build the full 50-job matrix (four concurrent jobs).
 Manual dispatch accepts one package directory name or `all`. Jobs compile as
 an ordinary user and run behavioral tests under a private Xvfb/D-Bus session.
 Tests needing a sibling application installed outside their fixture can remain
@@ -18,8 +18,15 @@ hardware or first-login acceptance.
 
 Each job uploads its DEB, checksums, source revision, build environment and test
 diagnostics. Full-suite runs also verify package ownership and simulate APT
-installation of each 24-package cohort. They do not install on your machine,
+installation of each 25-package cohort. They do not install on your machine,
 publish a release, commit output, or rotate the local frozen rollback set.
+
+Artifact filenames escape Debian epoch colons as `%3A` before checksums are
+generated; package metadata keeps its original epoch. The Panel job builds as
+the ordinary user, installs that build into the disposable job container as
+root, and runs tests and packaging as the ordinary user. Its volume fixture
+checks the installed plugin matches the build and does not require a nested
+Bubblewrap namespace in this mode.
 
 ## Reproduce
 
@@ -30,6 +37,11 @@ LUXE_CI_CONTAINER=1 bash ci/install-dependencies.sh
 useradd --create-home --shell /bin/bash luxe-build
 chown -R luxe-build:luxe-build /work
 ```
+
+For LuxeSettings, set `LUXE_CI_COMPONENT=luxesettings` when installing
+dependencies; this also generates the German locale used by its UI test.
+For LuxuryStore, set `LUXE_CI_COMPONENT=luxurystore` to provide the state
+directory its package normally creates before the unprivileged tests run.
 
 Then from `/work`, as that ordinary user:
 
@@ -42,9 +54,10 @@ host libraries. Output lives in `build/ci/<distribution>/<component>/`.
 Containers need nested user namespaces for isolated GUI tests; the workflow
 relaxes container seccomp/AppArmor for this purpose, not the host desktop.
 Only checked-out code and disposable build dependencies belong in those jobs.
-Panel tests stage their built helpers/plugins and bind them at installation
-paths in a private mount namespace. The volume test starts its own null-sink
-audio server; it neither needs a sound card nor connects to the user's server.
+The GitHub Panel job uses the container installation described above; the
+single-command local Panel workflow instead stages helpers and plugins in a
+private mount namespace. The volume test starts its own null-sink audio server;
+it neither needs a sound card nor connects to the user's server.
 
 LuxuryStore fetches SHA256-pinned Ubuntu/Debian APT headers and runtime
 libraries with `ci/AptPrefixes.cmake`, extracting them under `build/ci/`.

@@ -453,14 +453,25 @@ action_copy (ActionsMenu *win)
 {
 	GdkClipboard *clipboard;
 	GdkContentProvider *content;
+	g_autoptr(GError) error = NULL;
+	gchar *png = NULL;
+	gsize png_size = 0;
 	if (win->priv->copy_request != NULL)
 		return;
 
 	// Get the default clipboard object
 	clipboard = gtk_widget_get_clipboard (GTK_WIDGET (win));
 
-	// Copy screenshot pixbuf to clipboard
-	content = gdk_content_provider_new_typed (GDK_TYPE_PIXBUF, win->screenshot);
+	/* Offer one interoperable image representation. Offering the pixbuf's
+	 * many converted formats can exhaust a clipboard manager's aggregate
+	 * budget before it saves PNG, while still reporting a successful store. */
+	if (!gdk_pixbuf_save_to_buffer (win->screenshot, &png, &png_size, "png", &error, NULL)) {
+		show_error (win, _("Copying the screenshot failed"), error->message);
+		return;
+	}
+	GBytes *bytes = g_bytes_new_take (png, png_size);
+	content = gdk_content_provider_new_for_bytes ("image/png", bytes);
+	g_bytes_unref (bytes);
 	gboolean copied = gdk_clipboard_set_content (clipboard, content);
 	g_object_unref (content);
 	if (!copied) {

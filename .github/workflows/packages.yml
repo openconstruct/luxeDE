@@ -38,6 +38,8 @@ jobs:
           echo "matrix=$(< "$RUNNER_TEMP/matrix.json")" >> "$GITHUB_OUTPUT"
       - name: Check package source hygiene
         run: bash ci/check-source.sh
+      - name: Check artifact filenames
+        run: bash ci/tests/test-safe-deb-filename.sh
 
   build:
     name: ${{ matrix.component }} / ${{ matrix.distribution.id }}
@@ -62,16 +64,35 @@ jobs:
       - name: Install container build dependencies
         env:
           LUXE_CI_CONTAINER: '1'
+          LUXE_CI_COMPONENT: ${{ matrix.component }}
         run: bash ci/install-dependencies.sh
       - name: Create unprivileged builder
         run: |
           useradd --create-home --shell /bin/bash luxe-build
           chown -R luxe-build:luxe-build "$GITHUB_WORKSPACE"
       - name: Configure, compile, test and package
+        if: ${{ matrix.component != 'luxepanel' }}
         env:
           COMPONENT: ${{ matrix.component }}
           DISTRIBUTION: ${{ matrix.distribution.id }}
         run: runuser -u luxe-build -- bash ci/build-package.sh "$COMPONENT" "$DISTRIBUTION"
+      - name: Build LuxePanel
+        if: ${{ matrix.component == 'luxepanel' }}
+        env:
+          DISTRIBUTION: ${{ matrix.distribution.id }}
+        run: runuser -u luxe-build -- bash ci/build-package.sh luxepanel "$DISTRIBUTION" build-only
+      - name: Install LuxePanel test files in the disposable container
+        if: ${{ matrix.component == 'luxepanel' }}
+        env:
+          DISTRIBUTION: ${{ matrix.distribution.id }}
+        run: |
+          cmake --install "$GITHUB_WORKSPACE/build/ci/$DISTRIBUTION/luxepanel"
+          chown -R luxe-build:luxe-build "$GITHUB_WORKSPACE/build/ci/$DISTRIBUTION/luxepanel"
+      - name: Test and package LuxePanel
+        if: ${{ matrix.component == 'luxepanel' }}
+        env:
+          DISTRIBUTION: ${{ matrix.distribution.id }}
+        run: runuser -u luxe-build -- env LUXE_PANEL_CONTAINER_INSTALL=1 bash ci/build-package.sh luxepanel "$DISTRIBUTION" test-package
       - name: Upload package
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:

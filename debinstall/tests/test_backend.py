@@ -27,6 +27,15 @@ class Tests(unittest.TestCase):
         self.assertEqual(data['package'],'debinstall-test-fixture')
         self.assertIn('./usr/share/debinstall-test/marker', data['files'])
         again,_=backend.inspect_package(path);self.assertEqual(data['plan_token'],again['plan_token'])
+    def test_system_inspection_does_not_initialize_alternate_root(self):
+        import apt.cache
+        path = self.package()
+        # This setup creates missing files for alternate roots. A normal system
+        # inspection must never call it, even when sources.list is absent.
+        with patch.object(apt.cache.Cache, '_check_and_create_required_dirs',
+                          side_effect=AssertionError('alternate-root initialization')):
+            data, _ = backend.inspect_package(path)
+        self.assertTrue(data['ready'])
     def test_missing_dependency(self):
         data,_=backend.inspect_package(self.package(depends='debinstall-nonexistent-dependency-78462'))
         self.assertFalse(data['ready']);self.assertTrue(data['failure'])

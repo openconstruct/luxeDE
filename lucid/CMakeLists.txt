@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.25)
 project(lucid VERSION 0.1.0 LANGUAGES C)
 include(../cmake/LuxePackage.cmake)
-set(LUCID_RELEASE_NUMBER 22)
+set(LUCID_RELEASE_NUMBER 23)
 set(LUCID_VERSION "0.1.0-1+luxe${LUCID_RELEASE_NUMBER}")
 set(LUCID_RPM_RELEASE "1.luxe${LUCID_RELEASE_NUMBER}")
 

@@ -267,9 +267,22 @@ static void openbox_compact(const fs::path &self,
   Child client({(self.parent_path() / "gtk3-fixtures").string(), "compact",
                 (root / "closed").string()},
                f.env, root / "client.log");
-  pause_for(.7);
-  auto window = f.run({"xdotool", "search", "--onlyvisible", "--name",
-                       "^Compact decoration fixture$"});
+  std::string window;
+  try {
+    wait_for(client, [&]() {
+      require(wm.alive(), "Openbox exited during startup");
+      try {
+        window = f.run({"xdotool", "search", "--onlyvisible", "--name",
+                        "^Compact decoration fixture$"});
+        return !window.empty() &&
+               f.run({"xprop", "-root", "_NET_SUPPORTING_WM_CHECK"}).find("window id #") != std::string::npos;
+      } catch (const std::exception &) { return false; }
+    }, 8);
+  } catch (...) {
+    std::cerr << "Openbox log:\n" << read_file(root / "wm.log")
+              << "Client log:\n" << read_file(root / "client.log");
+    throw;
+  }
   f.run({"xdotool", "windowactivate", "--sync", window});
   auto extents = [&]() {
     auto text = f.run({"xprop", "-id", window, "_NET_FRAME_EXTENTS"});

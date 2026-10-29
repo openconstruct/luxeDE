@@ -196,6 +196,16 @@ static void integration(void)
     g_assert_false(gtk_directory_list_get_monitored(win.directory));
     gtk_window_present(GTK_WINDOW(win.window));
     header_bar_present();
+    // A pending libspelling cursor update must survive closing its document.
+    // In libspelling 0.2 the timeout holds the adapter, but not the buffer.
+    g_settings_set_boolean(win.settings,"spell-check",TRUE);
+    Document *spell_closing=new_document(&win);
+    gtk_text_buffer_set_text(GTK_TEXT_BUFFER(spell_closing->buffer),"pending spell check",-1);
+    GtkTextIter end;gtk_text_buffer_get_end_iter(GTK_TEXT_BUFFER(spell_closing->buffer),&end);
+    gtk_text_buffer_place_cursor(GTK_TEXT_BUFFER(spell_closing->buffer),&end);
+    remove_document(spell_closing);
+    gint64 spell_deadline=g_get_monotonic_time()+350*G_TIME_SPAN_MILLISECOND;
+    while(g_get_monotonic_time()<spell_deadline){while(g_main_context_iteration(NULL,FALSE));g_usleep(1000);}
     const char *const *ids=gtk_source_style_scheme_manager_get_scheme_ids(gtk_source_style_scheme_manager_get_default());int count=0;
     for(int i=0;ids[i];i++){if(!g_str_has_prefix(ids[i],"lucid-"))continue;GtkSourceStyleScheme *scheme=gtk_source_style_scheme_manager_get_scheme(gtk_source_style_scheme_manager_get_default(),ids[i]);g_assert_nonnull(scheme);g_assert_nonnull(gtk_source_style_scheme_get_style(scheme,"text"));g_assert_nonnull(gtk_source_style_scheme_get_style(scheme,"def:keyword"));count++;}
     g_assert_cmpint(count,==,22);

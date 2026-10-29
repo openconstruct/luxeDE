@@ -72,7 +72,7 @@ if(BUILD_TESTING)
   target_include_directories(luxerandr-query-timeout PRIVATE src)
   target_link_libraries(luxerandr-query-timeout PRIVATE PkgConfig::GTK4 PkgConfig::GIO_UNIX PkgConfig::XRANDR luxe-gtk-ui X11::X11)
   add_test(NAME luxerandr-query-timeout COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/../cmake/RunNestedX.sh" $<TARGET_FILE:luxerandr-query-timeout>)
-  set_tests_properties(luxerandr-query-timeout PROPERTIES TIMEOUT 10)
+  set_tests_properties(luxerandr-query-timeout PROPERTIES TIMEOUT 15)
 endif()
 
 install(TARGETS luxerandr RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})

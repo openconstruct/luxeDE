@@ -348,6 +348,11 @@ static void clipboard_copy(void)
     gtk_window_present(GTK_WINDOW(window));
     drain();
     action_copy(window);
+    GdkContentFormats *formats = gdk_clipboard_get_formats(gtk_widget_get_clipboard(GTK_WIDGET(window)));
+    g_assert_true(gdk_content_formats_contain_mime_type(formats, "image/png"));
+    gsize format_count = 0;
+    gdk_content_formats_get_mime_types(formats, &format_count);
+    g_assert_cmpuint(format_count, ==, 1);
     /* Copy must never disable the client-side close/back controls. */
     g_assert_true(gtk_widget_get_sensitive(GTK_WIDGET(window)));
     g_assert_false(gtk_widget_get_sensitive(window->priv->ok_button));
@@ -711,6 +716,56 @@ static void action_settings(void)
     for (guint i = 0; i < G_N_ELEMENTS(keys); i++) g_settings_reset(settings, keys[i]);
 }
 
+/* Only call this for a private test-owned temporary directory. Libraries may
+ * create their own caches alongside Shotty's. Never follow symlinks. */
+static void remove_test_tree(GFile *directory)
+{
+    g_autoptr(GError) error = NULL;
+    g_autoptr(GFileEnumerator) entries = g_file_enumerate_children(directory,
+        G_FILE_ATTRIBUTE_STANDARD_NAME "," G_FILE_ATTRIBUTE_STANDARD_TYPE,
+        G_FILE_QUERY_INFO_NOFOLLOW_SYMLINKS, NULL, &error);
+    g_assert_no_error(error);
+    g_assert_nonnull(entries);
+    GFileInfo *info;
+    while ((info = g_file_enumerator_next_file(entries, NULL, &error)) != NULL) {
+        g_autoptr(GFile) child = g_file_get_child(directory, g_file_info_get_name(info));
+        GFileType type = g_file_info_get_file_type(info);
+        g_object_unref(info);
+        if (type == G_FILE_TYPE_DIRECTORY) remove_test_tree(child);
+        else {
+            g_assert_true(g_file_delete(child, NULL, &error));
+            g_assert_no_error(error);
+        }
+    }
+    g_assert_no_error(error);
+    g_assert_true(g_file_enumerator_close(entries, NULL, &error));
+    g_assert_no_error(error);
+    g_assert_true(g_file_delete(directory, NULL, &error));
+    g_assert_no_error(error);
+}
+
+static void test_cache_cleanup(void)
+{
+    g_autofree char *root = g_dir_make_tmp("shotty-cleanup-XXXXXX", NULL);
+    g_assert_nonnull(root);
+    g_autofree char *nested = g_build_filename(root, "driver-cache", "nested", NULL);
+    g_assert_cmpint(g_mkdir_with_parents(nested, 0700), ==, 0);
+    g_autofree char *entry = g_build_filename(nested, "cache.bin", NULL);
+    g_assert_true(g_file_set_contents(entry, "cache", -1, NULL));
+    g_autofree char *outside = g_dir_make_tmp("shotty-cleanup-outside-XXXXXX", NULL);
+    g_assert_nonnull(outside);
+    g_autofree char *sentinel = g_build_filename(outside, "sentinel", NULL);
+    g_assert_true(g_file_set_contents(sentinel, "keep", -1, NULL));
+    g_autofree char *link = g_build_filename(root, "outside-link", NULL);
+    g_assert_cmpint(symlink(outside, link), ==, 0);
+    g_autoptr(GFile) directory = g_file_new_for_path(root);
+    remove_test_tree(directory);
+    g_assert_false(g_file_test(root, G_FILE_TEST_EXISTS));
+    g_assert_true(g_file_test(sentinel, G_FILE_TEST_EXISTS));
+    g_assert_cmpint(g_unlink(sentinel), ==, 0);
+    g_assert_cmpint(g_rmdir(outside), ==, 0);
+}
+
 int main(int argc, char **argv)
 {
     g_test_init(&argc, &argv, NULL);
@@ -730,6 +785,7 @@ int main(int argc, char **argv)
     g_test_add_func("/shotty/handoff-cache", handoff_cache_permissions);
     g_test_add_func("/shotty/handoff-cache-expiry", handoff_cache_expiry);
     g_test_add_func("/shotty/action-settings", action_settings);
+    g_test_add_func("/shotty/cache-cleanup", test_cache_cleanup);
     g_test_add_func("/shotty/clipboard-copy", clipboard_copy);
     g_test_add_func("/shotty/clipboard-completion", clipboard_completion);
     g_test_add_func("/shotty/geometry", geometry);
@@ -738,6 +794,7 @@ int main(int argc, char **argv)
     g_object_unref(app);
     g_autofree char *shotty_cache = g_build_filename(test_cache, "shotty", NULL);
     g_assert_cmpint(g_rmdir(shotty_cache), ==, 0);
-    g_assert_cmpint(g_rmdir(test_cache), ==, 0);
+    g_autoptr(GFile) cache_root = g_file_new_for_path(test_cache);
+    remove_test_tree(cache_root);
     return status;
 }

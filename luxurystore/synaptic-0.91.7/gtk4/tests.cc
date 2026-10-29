@@ -153,6 +153,10 @@ int main(int argc, char **argv) {
         assert(!gtk_check_button_get_active(app.sources[2]));
         for (int i = 0; (app.busy || app.store_state.jobs) && i < 600; ++i) drain(50);
         assert(!app.busy && !app.store_state.jobs);
+        if (!app.package_state.apt)
+            g_printerr("APT loading failed before Flatpak discovery: %s\n",
+                       gtk_label_get_text(GTK_LABEL(app.status)));
+        assert(app.package_state.apt);
         auto count_flatpaks = [] {
             guint count = 0;
             for (guint i = 0; i < g_list_model_get_n_items(G_LIST_MODEL(app.filtered)); ++i) {
@@ -218,6 +222,8 @@ int main(int argc, char **argv) {
     for (int i = 0; authentication && i < 100; ++i) drain(20);
     assert(!authentication && app.window);
     for (int i = 0; app.busy && i < 600; ++i) drain(50);
+    if (!app.package_state.apt)
+        g_printerr("APT loading failed: %s\n", gtk_label_get_text(GTK_LABEL(app.status)));
     assert(!app.busy && app.package_state.apt && app.package_state.apt->packagesSize() > 0);
     show_repositories();
     drain(100);
