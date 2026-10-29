@@ -225,7 +225,9 @@ inline std::string command(const std::vector<std::string> &args,
   Child child(args, env, dir.path / "log");
   int status = child.wait(timeout);
   auto text = read_file(dir.path / "log");
-  require(status == 0, "Command failed: " + args[0] + ": " + text);
+  require(status == 0, "Command failed: " + args[0] +
+          (args.size() > 1 ? " " + args[1] : "") +
+          " (exit " + std::to_string(status) + "): " + text);
   return text;
 }
 inline std::string trim(std::string s) {

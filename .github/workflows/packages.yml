@@ -67,9 +67,17 @@ jobs:
           LUXE_CI_COMPONENT: ${{ matrix.component }}
         run: bash ci/install-dependencies.sh
       - name: Create unprivileged builder
+        env:
+          COMPONENT: ${{ matrix.component }}
         run: |
           useradd --create-home --shell /bin/bash luxe-build
           chown -R luxe-build:luxe-build "$GITHUB_WORKSPACE"
+          if [[ "$COMPONENT" == luxesession ]]; then
+            # Disposable container equivalent of logind's private runtime
+            # directory, so the real session inheritance test can run.
+            runtime_uid=$(id -u luxe-build)
+            install -d -m 0700 -o luxe-build -g luxe-build "/run/user/$runtime_uid"
+          fi
       - name: Configure, compile, test and package
         if: ${{ matrix.component != 'luxepanel' }}
         env:

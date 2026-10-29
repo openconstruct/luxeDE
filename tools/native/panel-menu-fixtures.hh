@@ -42,9 +42,31 @@ static void panel_focus(const fs::path &self,
   Child entry({(self.parent_path() / "gtk3-fixtures").string(), "focus",
                (root / "entry").string()},
               f.env, root / "fixture.log");
-  pause_for(1.5);
-  auto target = f.run(
-      {"xdotool", "search", "--onlyvisible", "--name", "^Menu focus fixture$"});
+  std::string target, startup_error;
+  try {
+    wait_for(entry, [&]() {
+      require(wm.alive(), "Openbox exited during menu focus startup");
+      require(panel.alive(), "Panel exited during menu focus startup");
+      try {
+        target = f.run({"xdotool", "search", "--onlyvisible", "--name",
+                        "^Menu focus fixture$"});
+        auto panels = f.run({"xdotool", "search", "--onlyvisible", "--class",
+                             "^luxepanel$"});
+        auto wm_owner = f.run({"xprop", "-root", "_NET_SUPPORTING_WM_CHECK"});
+        return !target.empty() && !panels.empty() &&
+               wm_owner.find("window id #") != std::string::npos;
+      } catch (const std::exception &e) {
+        startup_error = e.what();
+        return false;
+      }
+    }, 15);
+  } catch (...) {
+    std::cerr << "Last readiness check: " << startup_error << '\n'
+              << "Openbox log:\n" << read_file(root / "wm.log")
+              << "Panel log:\n" << read_file(root / "panel.log")
+              << "Focus client log:\n" << read_file(root / "fixture.log");
+    throw;
+  }
   auto outside = [&]() {
     wait_for(
         panel,

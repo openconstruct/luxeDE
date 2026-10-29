@@ -1,3 +1,11 @@
+## 29 October 2026 — LuxeSession Debian CI readiness
+
+The Openbox decoration test now waits up to 20 seconds for its GTK window, the actual X11 window-manager identity, and the window's frame extents, reporting the last readiness failure and process logs. A ten-second delayed-client run reproduced the former timeout and passed with the fix. LuxeSession CI also creates a private runtime directory for its unprivileged builder so the session inheritance test runs in the disposable container. The Debian Xvfb session suite passed locally; GitHub jobs still need rerunning.
+
+## 29 October 2026 — LuxePanel menu-focus CI startup
+
+The keyboard-focus fixture waits for its visible GTK client, Panel and Openbox instead of assuming they have started after 1.5 seconds. The test deliberately delays the client to exercise that condition, and command errors include the subcommand and exit status. The previous fixture reproduced the GitHub `xdotool` failure with a delayed client; the corrected focus test passed with client and window-manager startup delays. GitHub Ubuntu still needs rerunning.
+
 ## 29 October 2026 — Shotty CI cache cleanup
 
 Keep the check that Shotty removes its own handoff cache, then clean other library-created entries from the private test cache without following symbolic links. The old teardown reproduced the reported failure with an extra cache directory; the fixed suite passed with and without that fixture, including a nested-cache and outside-symlink regression. The Debian package builds; GitHub jobs still need rerunning.

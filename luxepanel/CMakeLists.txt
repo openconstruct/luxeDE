@@ -221,7 +221,9 @@ if(BUILD_TESTING)
       COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/../cmake/RunNestedX.sh"
         ${CMAKE_CURRENT_SOURCE_DIR}/tests/menu-focus.sh
         $<TARGET_FILE:luxepanel> $<TARGET_FILE:luxepanelctl>)
-    set_tests_properties(luxepanel-menu-keyboard-focus PROPERTIES TIMEOUT 90)
+    # Exercise readiness when the GTK client starts after the old 1.5 s wait.
+    set_tests_properties(luxepanel-menu-keyboard-focus PROPERTIES
+      TIMEOUT 90 ENVIRONMENT "LUXE_TEST_FOCUS_DELAY_MS=2500")
     # Taskbar activation/minimize/restore over a real window manager.
     add_test(NAME luxepanel-taskbar-click
       COMMAND "${CMAKE_CURRENT_SOURCE_DIR}/../cmake/RunNestedX.sh"

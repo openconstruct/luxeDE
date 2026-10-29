@@ -96,6 +96,12 @@ int main(int argc, char **argv) {
       gtk_widget_show_all(w);
     } else if (mode == "focus") {
       require(argc == 3, "Missing entry marker");
+      if (const char *delay = std::getenv("LUXE_TEST_FOCUS_DELAY_MS")) {
+        int milliseconds = std::stoi(delay);
+        require(milliseconds >= 0 && milliseconds <= 10000,
+                "Invalid focus fixture startup delay");
+        pause_for(milliseconds / 1000.0);
+      }
       marker = argv[2];
       auto w = gtk_window_new(GTK_WINDOW_TOPLEVEL);
       gtk_window_set_title(GTK_WINDOW(w), "Menu focus fixture");

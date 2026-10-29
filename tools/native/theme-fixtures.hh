@@ -1,5 +1,7 @@
 // Copyright (C) 2026 Jerry Howell. SPDX-License-Identifier: GPL-3.0-or-later
 #include <regex>
+#include <memory>
+#include <X11/Xatom.h>
 static void theme_widgets(const fs::path &self,
                           const std::vector<std::string> &args) {
   require(args.size() == 1, "Usage: theme-widgets THEME_ROOT");
@@ -267,19 +269,42 @@ static void openbox_compact(const fs::path &self,
   Child client({(self.parent_path() / "gtk3-fixtures").string(), "compact",
                 (root / "closed").string()},
                f.env, root / "client.log");
-  std::string window;
+  std::unique_ptr<Display, decltype(&XCloseDisplay)> display(XOpenDisplay(nullptr), XCloseDisplay);
+  require(display != nullptr, "Cannot open X display for Openbox readiness check");
+  Atom wm_check = XInternAtom(display.get(), "_NET_SUPPORTING_WM_CHECK", False);
+  std::string window, last_error;
   try {
     wait_for(client, [&]() {
       require(wm.alive(), "Openbox exited during startup");
       try {
         window = f.run({"xdotool", "search", "--onlyvisible", "--name",
                         "^Compact decoration fixture$"});
-        return !window.empty() &&
-               f.run({"xprop", "-root", "_NET_SUPPORTING_WM_CHECK"}).find("window id #") != std::string::npos;
-      } catch (const std::exception &) { return false; }
-    }, 8);
+        Atom type = None;
+        int format = 0;
+        unsigned long count = 0, remaining = 0;
+        unsigned char *value = nullptr;
+        int status = XGetWindowProperty(display.get(), DefaultRootWindow(display.get()),
+                                        wm_check, 0, 1, False, XA_WINDOW,
+                                        &type, &format, &count, &remaining, &value);
+        bool ready = status == Success && type == XA_WINDOW && format == 32 &&
+                     count == 1 && value && *reinterpret_cast<unsigned long *>(value) != None;
+        if (value) XFree(value);
+        if (!ready) last_error = "Openbox has not published its window-manager identity";
+        if (!ready || window.empty()) return false;
+        auto frame = f.run({"xprop", "-id", window, "_NET_FRAME_EXTENTS"});
+        if (frame.find(" = ") == std::string::npos) {
+          last_error = "Openbox has not finished managing the fixture window";
+          return false;
+        }
+        return true;
+      } catch (const std::exception &e) {
+        last_error = e.what();
+        return false;
+      }
+    }, 20);
   } catch (...) {
-    std::cerr << "Openbox log:\n" << read_file(root / "wm.log")
+    std::cerr << "Last readiness check: " << last_error << '\n'
+              << "Openbox log:\n" << read_file(root / "wm.log")
               << "Client log:\n" << read_file(root / "client.log");
     throw;
   }
